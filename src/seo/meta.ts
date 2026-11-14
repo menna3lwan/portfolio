@@ -1,0 +1,45 @@
+/* =============================================================================
+   How every route's title and description are formed.
+
+   These two formulas are the single definition. The build-time generator in
+   `scripts/routes.mjs` produces the same strings for the static HTML it emits, and
+   `src/test/seo.test.ts` imports both and asserts they agree — so the head a social
+   scraper reads can never drift from the head the application sets at runtime.
+   ========================================================================== */
+import type { AppRecord, Content, Language } from '@/content/types';
+
+const SUFFIX: Record<Language, string> = {
+  en: 'Software Engineer, Flutter',
+  ar: 'مهندسة برمجيات · Flutter',
+};
+
+/** A description is trimmed on a word boundary — a sentence cut mid-word reads as broken
+ *  in a search result, and the limit is what search engines actually show. */
+export function clamp(text: string, limit = 158): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  if (flat.length <= limit) return flat;
+  const cut = flat.slice(0, limit);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > limit * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[،,;:.\s]+$/, '')}…`;
+}
+
+export const homeTitle = (content: Content, lang: Language): string =>
+  `${content.meta.name} · ${SUFFIX[lang]}`;
+
+export const homeDescription = (content: Content): string =>
+  clamp(`${content.about.title} ${content.about.body[0] ?? ''}`);
+
+export const caseTitle = (record: AppRecord, content: Content): string =>
+  `${record.name} · ${content.meta.name}`;
+
+export const caseDescription = (record: AppRecord): string => clamp(record.summary);
+
+export const cvTitle = (content: Content, cvLabel: string): string =>
+  `${cvLabel} · ${content.meta.name}`;
+
+export const cvDescription = (content: Content, lang: Language): string =>
+  clamp(
+    lang === 'ar'
+      ? `السيرة الذاتية لـ ${content.meta.name} — ${SUFFIX.ar}.`
+      : `The curriculum vitae of ${content.meta.name} — ${SUFFIX.en}.`,
+  );
