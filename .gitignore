@@ -1,0 +1,36 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dist-ssr/
+
+# test and audit output
+coverage/
+*.lighthouseci/
+lighthouse-report*.html
+lighthouse-report*.json
+
+# local environment — never commit a real one
+.env
+.env.*
+!.env.example
+*.local
+
+# editors and operating systems
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Decoded at build time from pdf.worker.min.js.b64 (scripts/decode-pdf-worker.mjs),
+# so the 1.3 MB binary is not duplicated in history.
+public/cv-viewer/vendor/pdfjs/pdf.worker.min.js
