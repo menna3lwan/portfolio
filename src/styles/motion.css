@@ -1,0 +1,150 @@
+/* =============================================================================
+   Motion: reveal variants, per-child stagger, and the reduced-motion opt-out that
+   switches every one of them off.
+   ========================================================================== */
+@layer motion {
+  .rv {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity var(--slow) var(--ease-out),
+      transform var(--slow) var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 55ms);
+  }
+
+  .rv.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* reveal variants, so sections do not all arrive the same way */
+  .rv--rise {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  .rv--rise.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rv--wipe > * {
+    clip-path: inset(0 0 102% 0);
+    transition: clip-path var(--slow) var(--ease-out);
+  }
+
+  .rv--wipe.is-in > * {
+    clip-path: inset(0 0 -10% 0);
+  }
+
+  /* list children stagger off their own index — scoped to a revealed block, so items
+     animate when their card arrives rather than all at once on load */
+  .is-in .win-list > li,
+  .is-in .scope__item,
+  .is-in .chip-list > li,
+  .is-in .stat-grid > .stat {
+    animation: itemIn var(--base) var(--ease-out) both;
+    animation-delay: calc(var(--n, 0) * 34ms);
+  }
+
+  @keyframes itemIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* The reduced-motion contract. It is deliberately the last layer and uses !important for
+   the blanket rules, so no later component rule can reintroduce movement. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .progress {
+    transition: none;
+  }
+
+  .hero__arch,
+  .stage__shot {
+    transform: none !important;
+  }
+
+  .mark,
+  .mark__corner {
+    transform: none;
+  }
+
+  .hero__portrait:hover .hero__arch img {
+    transform: scale(1.38);
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card::before {
+    display: none;
+  }
+
+  .chip:hover,
+  .btn:hover,
+  .social__link:hover,
+  .btn:hover svg,
+  .social__link:hover svg,
+  .icon-btn:hover svg,
+  .icon-btn:hover span,
+  .stage__body:hover,
+  .disclosure > summary:hover .disclosure__title {
+    transform: none;
+  }
+
+  .card::after,
+  .btn::before,
+  .facet::before,
+  .link::after,
+  .site-header__brand::after,
+  .contact__email-row::after,
+  .exp__company a::after {
+    transition: none;
+  }
+
+  .stage__body:hover .stage__shot.is-on {
+    transform: none;
+  }
+
+  .btn--solid:hover {
+    filter: none;
+  }
+
+  .title__rule {
+    transition: none;
+    transform: scaleX(1);
+  }
+
+  .section-head--split .title__small,
+  .section-head--split .title__big {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .rv {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,97 @@
+/* =============================================================================
+   Design tokens — the single place families, colours, timings and measures are named.
+   Carried over unchanged from the approved prototype so the React build is the same
+   design, not a reinterpretation of it.
+   ========================================================================== */
+@layer tokens {
+  :root {
+    /* brand */
+    --brand-red: #e8491d;
+    --brand-snow: #fdfaf6;
+    --brand-yellow: #ffd400;
+    --brand-red-ink: #b4360f;
+    --brand-yellow-ink: #8a5a00;
+
+    /* surfaces and ink */
+    --bg: var(--brand-snow);
+    --surface: #ffffff;
+    --sunken: #f3eee7;
+    --ink: #1b1614;
+    --muted: #5a524e;
+    --faint: #6e645f;
+    --line: rgba(27, 22, 20, 0.13);
+    --line-strong: rgba(27, 22, 20, 0.28);
+    --red: var(--brand-red);
+    --red-text: var(--brand-red-ink);
+    --link: var(--brand-red-ink);
+    --link-soft: rgba(232, 73, 29, 0.1);
+    --code-bg: #1b1614;
+    --code-ink: #f2ede7;
+    --code-dim: #9d9289;
+
+    /* Three families read off the reference's own :root. Bebas Neue is a single-weight,
+       uppercase-only condensed face; Inter carries everything readable; JetBrains Mono
+       carries labels. IBM Plex Sans Arabic is the Arabic companion. */
+    --f-display: 'Bebas Neue', 'Arial Narrow', system-ui, sans-serif;
+    --f-body: 'Inter', 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+    --f-ui: var(--f-body);
+
+    --container: 1120px;
+    --container-wide: 1240px;
+    --bar-h: 64px;
+    --tool-h: 52px;
+
+    --ease: cubic-bezier(0.2, 0, 0, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --fast: 150ms;
+    --base: 240ms;
+    --slow: 520ms;
+
+    color-scheme: light;
+  }
+
+  /* Bebas Neue carries no Arabic, so Arabic display falls to IBM Plex Sans Arabic at 700 —
+     the weight whose optical heft matches Bebas at the same size. */
+  [lang='ar'] {
+    --f-display: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
+    --f-body: 'IBM Plex Sans Arabic', Inter, sans-serif;
+  }
+
+  /* One dark definition, applied both by preference and by the explicit toggle. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --bg: #14100e;
+      --surface: #1e1916;
+      --sunken: #0d0a09;
+      --ink: #f6f1ec;
+      --muted: #b3a79f;
+      --faint: #9a8d85;
+      --line: rgba(246, 241, 236, 0.13);
+      --line-strong: rgba(246, 241, 236, 0.27);
+      --red: #ff7a4f;
+      --red-text: #ff9270;
+      --link: #ff9270;
+      --link-soft: rgba(255, 122, 79, 0.14);
+      --code-bg: #0e0b0a;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme='dark'] {
+    --bg: #14100e;
+    --surface: #1e1916;
+    --sunken: #0d0a09;
+    --ink: #f6f1ec;
+    --muted: #b3a79f;
+    --faint: #9a8d85;
+    --line: rgba(246, 241, 236, 0.13);
+    --line-strong: rgba(246, 241, 236, 0.27);
+    --red: #ff7a4f;
+    --red-text: #ff9270;
+    --link: #ff9270;
+    --link-soft: rgba(255, 122, 79, 0.14);
+    --code-bg: #0e0b0a;
+    color-scheme: dark;
+  }
+}

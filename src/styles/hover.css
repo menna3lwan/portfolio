@@ -1,0 +1,440 @@
+/* =============================================================================
+   The hover system.
+
+   One interaction language, seven component families. Shared grammar:
+     · entry on --base with --ease-out, exit on --fast with --ease — a hover that arrives
+       deliberately and leaves promptly reads as responsive rather than sticky
+     · transform and opacity only, so nothing reflows and nothing shifts
+     · every family resolves :hover, :focus-visible and :active to the same destination,
+       because touch never hovers and the keyboard must not be a second-class path
+   Each family then differs in KIND, so a tag does not behave like a card.
+   ========================================================================== */
+@layer hover {
+  /* --- shared exit timing ------------------------------------------------ */
+  .card,
+  .chip,
+  .btn,
+  .social__link,
+  .icon-btn,
+  .facet,
+  .stage__body,
+  .disclosure > summary,
+  .link,
+  .site-header__brand,
+  .contact__email-row {
+    transition-duration: var(--fast);
+    transition-timing-function: var(--ease);
+  }
+
+  .card:hover,
+  .chip:hover,
+  .btn:hover,
+  .social__link:hover,
+  .icon-btn:hover,
+  .facet:hover,
+  .stage__body:hover,
+  .disclosure > summary:hover,
+  .link:hover,
+  .site-header__brand:hover,
+  .contact__email-row:hover {
+    transition-duration: var(--base);
+    transition-timing-function: var(--ease-out);
+  }
+
+  /* --- SURFACE: cards rise, warm at the edge, and light under the pointer -- */
+  .card {
+    position: relative;
+    isolation: isolate;
+    transition-property: transform, border-color, box-shadow;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--base) var(--ease);
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 0%),
+      var(--link-soft),
+      transparent 68%
+    );
+  }
+
+  /* an accent hairline draws across the top edge — the card's own "selected" mark */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    border-radius: 2px 2px 0 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-yellow));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--slow) var(--ease-out);
+  }
+
+  [dir='rtl'] .card::after {
+    transform-origin: right center;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--line-strong);
+      box-shadow: 0 22px 44px -32px rgba(27, 22, 20, 0.45);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .card:focus-within::after {
+    transform: scaleX(1);
+  }
+
+  /* --- TAG: chips fill rather than lift far; they are many and small ------- */
+  .chip {
+    transition-property: transform, color, border-color, background-color;
+  }
+
+  @media (hover: hover) {
+    .chip:hover {
+      transform: translateY(-2px);
+      color: var(--red-text);
+      border-color: var(--red-text);
+      background: var(--link-soft);
+    }
+  }
+
+  .chip:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  /* --- ACTION: buttons sweep a tint in from the leading edge, icon steps out */
+  .btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition-property: color, border-color, transform;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--link-soft);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  [dir='rtl'] .btn::before {
+    transform-origin: right center;
+  }
+
+  .btn svg {
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .btn:hover {
+      transform: translateY(-1px);
+      color: var(--red-text);
+      border-color: var(--red-text);
+    }
+
+    .btn:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    [dir='rtl'] .btn:hover svg {
+      transform: translate(-2px, -2px);
+    }
+  }
+
+  .btn:active {
+    transform: translateY(0) scale(0.985);
+  }
+
+  /* the solid button is already filled, so it deepens and lifts instead of tinting */
+  .btn--solid::before {
+    display: none;
+  }
+
+  @media (hover: hover) {
+    .btn--solid:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.12);
+    }
+  }
+
+  /* --- ACTION (icon): social tiles lift and warm, their glyph leads --------- */
+  .social__link {
+    transition-property: transform, color, border-color, background-color;
+  }
+
+  .social__link svg {
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .social__link:hover {
+      transform: translateY(-2px);
+      color: var(--red-text);
+      border-color: var(--red-text);
+      background: var(--link-soft);
+    }
+
+    .social__link:hover svg {
+      transform: scale(1.1);
+    }
+  }
+
+  .social__link:active {
+    transform: translateY(0) scale(0.96);
+  }
+
+  /* --- ICON BUTTONS: the glyph answers, the tile tints --------------------- */
+  .icon-btn {
+    transition-property: color, border-color, background-color, transform;
+  }
+
+  .icon-btn svg,
+  .icon-btn span {
+    display: inline-flex;
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .icon-btn:hover {
+      color: var(--red-text);
+      border-color: var(--red-text);
+      background: var(--link-soft);
+    }
+
+    .icon-btn:hover svg,
+    .icon-btn:hover span {
+      transform: rotate(-9deg) scale(1.08);
+    }
+  }
+
+  .icon-btn:active {
+    transform: scale(0.94);
+  }
+
+  /* --- MEDIA: the photograph zooms inside a still frame -------------------- */
+  .stage__body {
+    transition-property: transform;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .stage__body:hover {
+      transform: translateY(-4px);
+    }
+
+    /* the frame holds its size; only the image inside grows, so nothing reflows */
+    .stage__body:hover .stage__shot.is-on {
+      transform: translate3d(0, calc(var(--par, 0px) * -1), 0) scale(1.06);
+    }
+  }
+
+  /* --- DISCLOSURE: the row tints, the title steps in, the marker turns ------ */
+  .disclosure > summary {
+    transition-property: background-color, color;
+    border-radius: 8px;
+  }
+
+  .disclosure__icon {
+    transition:
+      transform var(--base) var(--ease-out),
+      color var(--fast) var(--ease);
+  }
+
+  .disclosure__title {
+    display: inline-block;
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .disclosure > summary:hover {
+      background: var(--link-soft);
+      color: var(--ink);
+    }
+
+    .disclosure > summary:hover .disclosure__icon {
+      color: var(--red-text);
+      transform: scale(1.12);
+    }
+
+    .disclosure > summary:hover .disclosure__title {
+      transform: translateX(3px);
+    }
+
+    [dir='rtl'] .disclosure > summary:hover .disclosure__title {
+      transform: translateX(-3px);
+    }
+  }
+
+  .disclosure[open] > summary .disclosure__icon {
+    transform: rotate(45deg);
+  }
+
+  @media (hover: hover) {
+    .disclosure[open] > summary:hover .disclosure__icon {
+      transform: rotate(45deg) scale(1.12);
+    }
+  }
+
+  .disclosure[open] > .disclosure__body {
+    animation: foldIn var(--base) var(--ease-out) both;
+  }
+
+  @keyframes foldIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* --- INLINE LINK: an underline grows from the leading edge --------------- */
+  .link,
+  .site-header__brand,
+  .contact__email-row,
+  .exp__company a {
+    position: relative;
+    transition-property: color;
+  }
+
+  .link::after,
+  .site-header__brand::after,
+  .contact__email-row::after,
+  .exp__company a::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  [dir='rtl'] .link::after,
+  [dir='rtl'] .site-header__brand::after,
+  [dir='rtl'] .contact__email-row::after,
+  [dir='rtl'] .exp__company a::after {
+    transform-origin: right center;
+  }
+
+  @media (hover: hover) {
+    .link:hover,
+    .site-header__brand:hover,
+    .contact__email-row:hover,
+    .exp__company a:hover {
+      color: var(--red-text);
+    }
+
+    .link:hover::after,
+    .site-header__brand:hover::after,
+    .contact__email-row:hover::after,
+    .exp__company a:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* --- FACET: a leading accent bar grows beside the tint ------------------- */
+  .facet {
+    position: relative;
+    transition-property: background-color;
+  }
+
+  .facet::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--brand-red);
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .facet:hover::before {
+      transform: scaleY(1);
+    }
+
+    .facet:hover {
+      background: var(--link-soft);
+    }
+  }
+
+  /* --- focus: one ring, everywhere, and the hover destination with it ------ */
+  .card a:focus-visible,
+  .chip:focus-visible,
+  .btn:focus-visible,
+  .social__link:focus-visible,
+  .icon-btn:focus-visible,
+  .switch__btn:focus-visible,
+  .link:focus-visible,
+  .site-header__brand:focus-visible,
+  .contact__email-row:focus-visible,
+  .disclosure > summary:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+    border-radius: 7px;
+  }
+
+  .btn:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .link:focus-visible::after,
+  .site-header__brand:focus-visible::after,
+  .contact__email-row:focus-visible::after,
+  .exp__company a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* --- touch: no hover, so the press carries the whole signal -------------- */
+  @media (hover: none) {
+    .card:active {
+      border-color: var(--line-strong);
+    }
+
+    .chip:active,
+    .btn:active,
+    .social__link:active {
+      color: var(--red-text);
+      border-color: var(--red-text);
+    }
+
+    .disclosure > summary:active {
+      background: var(--link-soft);
+    }
+  }
+}

@@ -1,0 +1,312 @@
+/* =============================================================================
+   Who am I — an editorial spread: a split head whose two phrases carry different
+   weight, a lede set in the display face, the narrative with her own phrases marked,
+   three facets, and the code window alongside.
+   ========================================================================== */
+@layer components {
+  .whoami__spread {
+    display: grid;
+    gap: clamp(26px, 3.4vw, 46px);
+    align-items: start;
+    margin-top: clamp(26px, 3vw, 40px);
+  }
+
+  @media (min-width: 980px) {
+    .whoami__spread {
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    }
+  }
+
+  .whoami__col {
+    display: grid;
+    gap: clamp(16px, 1.8vw, 22px);
+    min-width: 0;
+  }
+
+  /* the lede is the one display-face line in the section's body */
+  .whoami__lede {
+    margin: 0;
+    font-size: clamp(26px, 3.1vw, 42px);
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    max-width: 20ch;
+  }
+
+  [lang='ar'] .whoami__lede {
+    font-size: clamp(21px, 2.4vw, 32px);
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .whoami__p {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 58ch;
+  }
+
+  /* marked phrases: her own words, lifted. The underline is drawn, so it animates in
+     rather than arriving as a block of highlighter. */
+  .hl {
+    background: none;
+    color: var(--ink);
+    font-weight: 500;
+    position: relative;
+    box-shadow: inset 0 -0.42em 0 var(--link-soft);
+    transition:
+      box-shadow var(--base) var(--ease),
+      color var(--base) var(--ease);
+  }
+
+  .is-in .hl {
+    animation: hlIn var(--slow) var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 180ms);
+  }
+
+  @keyframes hlIn {
+    from {
+      box-shadow: inset 0 -0.42em 0 transparent;
+    }
+
+    to {
+      box-shadow: inset 0 -0.42em 0 var(--link-soft);
+    }
+  }
+
+  @media (hover: hover) {
+    .whoami__p:hover .hl {
+      box-shadow: inset 0 -0.5em 0 var(--link-soft);
+      color: var(--red-text);
+    }
+  }
+
+  /* three facets, as a measured rail rather than another bullet list */
+  .facets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 620px) {
+    .facets {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .facet {
+    display: grid;
+    gap: 6px;
+    padding: 13px 15px;
+    background: var(--bg);
+    transition: background var(--fast) var(--ease);
+  }
+
+  .facet__k {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red-text);
+  }
+
+  [lang='ar'] .facet__k {
+    font-family: var(--f-body);
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .facet__v {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* --- the split heading ------------------------------------------------- */
+  .section-head--split .section-head__title {
+    display: grid;
+    gap: 2px;
+    line-height: 0.9;
+  }
+
+  .title__small {
+    display: block;
+    font-size: clamp(15px, 1.5vw, 21px);
+    letter-spacing: 0.28em;
+    color: var(--muted);
+  }
+
+  [lang='ar'] .title__small {
+    letter-spacing: 0;
+    font-size: clamp(15px, 1.5vw, 20px);
+  }
+
+  .title__big {
+    display: inline-block;
+    position: relative;
+    font-size: clamp(40px, 6.4vw, 86px);
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    padding-bottom: 6px;
+  }
+
+  [lang='ar'] .title__big {
+    font-size: clamp(30px, 4.6vw, 60px);
+    line-height: 1.2;
+  }
+
+  /* a rule that draws under the large phrase as the head arrives */
+  .title__rule {
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-yellow));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 760ms var(--ease-out) 260ms;
+  }
+
+  [dir='rtl'] .title__rule {
+    transform-origin: right center;
+  }
+
+  .is-in .title__rule {
+    transform: scaleX(1);
+  }
+
+  /* the two phrases rise independently, so the head reads as composed rather than as one
+     block */
+  .section-head--split .title__small,
+  .section-head--split .title__big {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity var(--slow) var(--ease-out),
+      transform var(--slow) var(--ease-out);
+  }
+
+  .section-head--split .title__big {
+    transition-delay: 110ms;
+  }
+
+  .is-in .title__small,
+  .is-in .title__big {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---------------------------------------------------------------- code window */
+  .code-window {
+    min-width: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--code-bg);
+    color: var(--code-ink);
+  }
+
+  .code-window__bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(246, 241, 236, 0.12);
+  }
+
+  .code-window__dots {
+    display: inline-flex;
+    gap: 6px;
+  }
+
+  .code-window__dots i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(246, 241, 236, 0.22);
+  }
+
+  .code-window__dots i:first-child {
+    background: var(--brand-red);
+  }
+
+  .code-window__dots i:nth-child(2) {
+    background: var(--brand-yellow);
+  }
+
+  .code-window__file {
+    font: 400 12px/1 var(--f-mono);
+    color: var(--code-dim);
+  }
+
+  .code-window__run {
+    margin-inline-start: auto;
+    font: 500 11px/1 var(--f-mono);
+    letter-spacing: 0.1em;
+    color: var(--brand-yellow);
+  }
+
+  .code-window__code {
+    margin: 0;
+    padding: clamp(14px, 2vw, 22px);
+    overflow-x: auto;
+    max-width: 100%;
+    font: 400 13px/1.85 var(--f-mono);
+    color: var(--code-ink);
+    direction: ltr;
+    text-align: left;
+  }
+
+  .code-window__code code {
+    display: block;
+    min-width: 0;
+    font-family: inherit;
+  }
+
+  .code-window__code .k {
+    color: #ff9270;
+  }
+
+  .code-window__code .s {
+    color: var(--brand-yellow);
+  }
+
+  .code-window__code .c {
+    color: var(--code-dim);
+  }
+
+  .code-window__code .n {
+    color: #9fd0c7;
+  }
+
+  .code-window__output {
+    padding: clamp(14px, 2vw, 22px);
+    border-top: 1px solid rgba(246, 241, 236, 0.12);
+    background: rgba(246, 241, 236, 0.035);
+    display: grid;
+    gap: 8px;
+  }
+
+  .code-window__prompt {
+    margin: 0;
+    font: 400 12.5px/1.6 var(--f-mono);
+    color: var(--code-dim);
+    direction: ltr;
+    text-align: left;
+  }
+
+  .code-window__result {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--code-ink);
+  }
+}

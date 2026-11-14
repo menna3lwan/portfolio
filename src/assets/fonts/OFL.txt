@@ -1,0 +1,15 @@
+The four families bundled in this directory — Bebas Neue, Inter, JetBrains Mono and
+IBM Plex Sans Arabic — are each licensed under the SIL Open Font License, Version 1.1,
+which permits bundling and redistribution with a work of this kind.
+
+The full licence text, and the authoritative copyright notice for each family, are
+published with the fonts themselves:
+
+  Bebas Neue            https://fonts.google.com/specimen/Bebas+Neue/license
+  Inter                 https://fonts.google.com/specimen/Inter/license
+  JetBrains Mono        https://fonts.google.com/specimen/JetBrains+Mono/license
+  IBM Plex Sans Arabic  https://fonts.google.com/specimen/IBM+Plex+Sans+Arabic/license
+
+The .woff2 files here are Google Fonts' own subsetted builds, retrieved unmodified from
+fonts.gstatic.com. The @font-face declarations in src/styles/fonts.css are the matching
+css2 output with the URLs rewritten to point at these local copies.

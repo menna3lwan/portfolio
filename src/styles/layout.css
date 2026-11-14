@@ -1,0 +1,373 @@
+/* =============================================================================
+   Layout chrome: the sticky masthead bar, its navigation, the mobile sheet and the
+   reading-progress rule.
+   ========================================================================== */
+@layer components {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: var(--bar-h);
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex: none;
+  }
+
+  .site-header__mark {
+    width: 28px;
+    height: auto;
+    aspect-ratio: 297 / 320;
+    object-fit: contain;
+    flex: none;
+  }
+
+  .site-header__name {
+    font: 400 18px/1 var(--f-display);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  [lang='ar'] .site-header__name {
+    font: 700 15px/1.4 var(--f-body);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-inline: auto;
+  }
+
+  .site-header__nav > a {
+    padding: 9px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    font: 500 12px/1 var(--f-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition:
+      color var(--fast) var(--ease),
+      background-color var(--fast) var(--ease);
+  }
+
+  [lang='ar'] .site-header__nav > a {
+    font: 500 13.5px/1.4 var(--f-body);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .site-header__pages {
+    display: flex;
+    gap: 2px;
+    padding-inline-start: 10px;
+    margin-inline-start: 6px;
+    border-inline-start: 1px solid var(--line);
+  }
+
+  /* The CV is the one navigation item that leaves the page, so it is drawn as an outlined
+     action rather than another text link: same type and height as the nav, but with a
+     visible edge, a document glyph and an arrow that steps out on hover. */
+  .cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 7px;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--muted);
+    background: transparent;
+    position: relative;
+    font: 500 12px/1 var(--f-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition:
+      color var(--fast) var(--ease),
+      border-color var(--fast) var(--ease),
+      background-color var(--fast) var(--ease);
+  }
+
+  [lang='ar'] .cv-link {
+    font: 500 13.5px/1.4 var(--f-body);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .cv-link__doc,
+  .cv-link__arrow {
+    display: inline-flex;
+    flex: none;
+  }
+
+  .cv-link__doc svg,
+  .cv-link__arrow svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .cv-link__doc {
+    opacity: 0.75;
+    transition: opacity var(--fast) var(--ease);
+  }
+
+  .cv-link__arrow {
+    opacity: 0;
+    margin-inline-start: -5px;
+    transition:
+      opacity var(--base) var(--ease),
+      transform var(--base) var(--ease-out),
+      margin var(--base) var(--ease-out);
+  }
+
+  [dir='rtl'] .cv-link__arrow {
+    transform: scaleX(-1);
+  }
+
+  @media (hover: hover) {
+    .cv-link:hover .cv-link__doc {
+      opacity: 1;
+    }
+
+    .cv-link:hover .cv-link__arrow {
+      opacity: 1;
+      margin-inline-start: 0;
+      transform: translate(1px, -1px);
+    }
+
+    [dir='rtl'] .cv-link:hover .cv-link__arrow {
+      transform: scaleX(-1) translate(1px, -1px);
+    }
+  }
+
+  .cv-link:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+    color: var(--red-text);
+    border-color: var(--red-text);
+  }
+
+  /* touch devices get the same end state on press, since they never hover */
+  .cv-link:active,
+  .cv-link[aria-current='page'] {
+    color: var(--red-text);
+    border-color: var(--red-text);
+    background: var(--link-soft);
+  }
+
+  /* --- navigation interaction, one system for every item -----------------
+     Each item carries the same three parts: a tint that fades in, a label that lifts a
+     hair, and an indicator bar that grows from the leading edge. Hover and focus resolve
+     to the same place, :active gives touch the same feedback, and the active section
+     keeps its bar drawn. */
+  .site-header__nav > a,
+  .cv-link {
+    position: relative;
+    isolation: isolate;
+    transition:
+      color var(--fast) var(--ease),
+      background-color var(--base) var(--ease),
+      border-color var(--fast) var(--ease),
+      transform var(--base) var(--ease-out);
+  }
+
+  .site-header__nav > a::before,
+  .cv-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--link-soft);
+    opacity: 0;
+    transform: scale(0.94);
+    transition:
+      opacity var(--base) var(--ease),
+      transform var(--base) var(--ease-out);
+  }
+
+  .site-header__nav > a::after,
+  .cv-link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 11px;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-yellow));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  [dir='rtl'] .site-header__nav > a::after,
+  [dir='rtl'] .cv-link::after {
+    transform-origin: right center;
+  }
+
+  @media (hover: hover) {
+    .site-header__nav > a:hover,
+    .cv-link:hover {
+      color: var(--red-text);
+      transform: translateY(-1px);
+    }
+
+    .cv-link:hover {
+      border-color: var(--red-text);
+    }
+
+    .site-header__nav > a:hover::before,
+    .cv-link:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .site-header__nav > a:hover::after,
+    .cv-link:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .site-header__nav > a:active,
+  .cv-link:active {
+    color: var(--red-text);
+  }
+
+  .site-header__nav > a:active::before,
+  .cv-link:active::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* focus is deliberately distinct from hover: the ring says "keyboard", the rest matches */
+  .site-header__nav > a:focus-visible,
+  .cv-link:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+    color: var(--red-text);
+  }
+
+  .site-header__nav > a:focus-visible::before,
+  .cv-link:focus-visible::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* the active section keeps its bar; hovering a sibling does not take it away */
+  .site-header__nav > a.is-active {
+    color: var(--red-text);
+  }
+
+  .site-header__nav > a.is-active::after,
+  .cv-link[aria-current='page']::after {
+    transform: scaleX(1);
+  }
+
+  .site-header__tools {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex: none;
+  }
+
+  .site-header__ask {
+    flex: none;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .sheet {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .site-header__nav {
+      display: none;
+    }
+
+    .menu-btn {
+      display: inline-grid;
+    }
+
+    .site-header__ask {
+      display: none;
+    }
+
+    .site-header__tools {
+      margin-inline-start: auto;
+    }
+
+    .sheet {
+      position: fixed;
+      inset: var(--bar-h) 0 0;
+      z-index: 59;
+      background: var(--bg);
+      overflow-y: auto;
+      padding: 14px 0 40px;
+    }
+
+    .sheet.is-open {
+      display: block;
+    }
+
+    .sheet a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      font: 600 20px/1.2 var(--f-ui);
+    }
+
+    [lang='ar'] .sheet a {
+      font-size: 19px;
+    }
+
+    .sheet a span.mono {
+      font: 500 11px/1 var(--f-mono);
+      color: var(--faint);
+      letter-spacing: 0.1em;
+    }
+  }
+
+  /* reading progress, pinned to the header's lower edge */
+  .progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    z-index: 3;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-yellow));
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
+  }
+
+  [dir='rtl'] .progress {
+    transform-origin: right center;
+  }
+}
