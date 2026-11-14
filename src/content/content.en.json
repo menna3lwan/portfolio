@@ -1,0 +1,3439 @@
+{
+ "meta": {
+  "name": "Menna Elwan",
+  "role": "Software Engineer · Flutter",
+  "email": "menna3lwan@gmail.com",
+  "github": "https://github.com/menna3lwan",
+  "linkedin": "https://www.linkedin.com/in/menna-elwan/",
+  "cv": "Menna-Elwan-CV.pdf"
+ },
+ "nav": [
+  [
+   "work",
+   "Work"
+  ],
+  [
+   "architecture",
+   "Architecture"
+  ],
+  [
+   "projects",
+   "Projects"
+  ],
+  [
+   "open-source",
+   "Open source"
+  ],
+  [
+   "experience",
+   "Experience"
+  ],
+  [
+   "skills",
+   "Skills"
+  ],
+  [
+   "about",
+   "About"
+  ],
+  [
+   "contact",
+   "Contact"
+  ]
+ ],
+ "ui": {
+  "cv": {
+   "title": "Curriculum vitae",
+   "updated": "Last updated Nov 2026",
+   "docLang": "In English",
+   "fileInfo": "PDF · 65 KB",
+   "back": "Back to portfolio",
+   "download": "Download CV",
+   "downloadShort": "Download CV",
+   "print": "Print",
+   "printing": "Preparing to print…",
+   "fullscreen": "Full screen",
+   "exitFullscreen": "Exit full screen",
+   "zoomIn": "Zoom in",
+   "zoomOut": "Zoom out",
+   "fitWidth": "Fit width",
+   "resetZoom": "Reset zoom",
+   "zoomLevel": "Zoom level",
+   "prev": "Previous page",
+   "next": "Next page",
+   "page": "Page {n} of {total}",
+   "pageShort": "{n} / {total}",
+   "toolbar": "Document controls",
+   "viewer": "CV document",
+   "link": "Link in the CV: {url}",
+   "loading": "Loading the CV…",
+   "loaded": "CV loaded, {total} pages.",
+   "error": "The CV couldn't be displayed here.",
+   "errorBody": "The connection may have dropped. Try again, or download the PDF.",
+   "retry": "Try again",
+   "unsupported": "This browser can't show the CV inside the page. You can download it or open the PDF directly.",
+   "openPdf": "Open PDF",
+   "shortcuts": "Shortcuts: + and − zoom, 0 fits the width, ← and → change page."
+  },
+  "readCase": "Read case study",
+  "code": "Code",
+  "close": "Close",
+  "back": "Back to work",
+  "next": "Next case study",
+  "copy": "Copy email",
+  "copied": "Email copied",
+  "resume": "CV",
+  "skip": "Skip to content",
+  "menu": "Menu",
+  "lang": "العربية",
+  "theme": "Toggle theme",
+  "top": "Back to top",
+  "facts": {
+   "purpose": "Purpose",
+   "users": "Users",
+   "role": "Role",
+   "status": "Status",
+   "timeline": "Timeline",
+   "platform": "Platform"
+  },
+  "sections": {
+   "overview": "Overview",
+   "scope": "Product scope",
+   "architecture": "Architecture",
+   "flow": "Traced data flow",
+   "challenges": "Engineering challenges",
+   "quality": "Quality & testing",
+   "stack": "Technology",
+   "limits": "Known limitations",
+   "links": "Links"
+  },
+  "states": {
+   "done": "Implemented",
+   "partial": "Partial",
+   "mock": "Mocked",
+   "planned": "Planned"
+  },
+  "challenge": {
+   "problem": "Problem",
+   "constraint": "Constraint",
+   "approach": "Approach",
+   "implementation": "Implementation",
+   "outcome": "Outcome"
+  },
+  "core": "Core",
+  "supporting": "Supporting",
+  "x": {
+   "fix": "Fix",
+   "tests": "Tests",
+   "size": "Size",
+   "origin": "Origin",
+   "team": "Team contributions",
+   "education": "Education",
+   "decisions": "Design decisions",
+   "contents": "On this page",
+   "caseStudy": "Case study",
+   "layers": "Layers, top to bottom",
+   "newTab": "opens in a new tab",
+   "copyFail": "Could not copy. The address is selected so you can copy it.",
+   "portraitAlt": "Portrait of Menna Elwan",
+   "sections": "Sections",
+   "highlights": "Highlights",
+   "summary": "Summary",
+   "of": "of",
+   "legend": "Status of each item",
+   "menuClose": "Close menu",
+   "present": "Present",
+   "overlap": "Overlaps with",
+   "months": "mo",
+   "skillsLabel": "Skills used",
+   "journeyHint": "Scroll to travel the road, or choose a milestone.",
+   "msKinds": {
+    "award": "Award",
+    "oss": "Open source"
+   },
+   "journeyList": "Career milestones, in date order",
+   "journeyKeys": "Use the arrow keys to move between milestones.",
+   "journeyLegend": "Legend",
+   "cvView": "View CV",
+   "follow": "Follow scroll",
+   "monthForms": {
+    "one": "{n} mo",
+    "other": "{n} mo"
+   },
+   "monthNames": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+   ],
+   "individually": "Individually developed",
+   "teamProject": "Team project",
+   "backendLabel": "Backend",
+   "roleLabel": "My role",
+   "dateInferred": "Dates inferred from project activity",
+   "platformBackend": "Shared backend",
+   "appRole": "My role",
+   "thirdParty": "Third-party service",
+   "integrationGap": "Integration status"
+  }
+ },
+ "hero": {
+  "eyebrow": "Software Engineer · Flutter",
+  "title": [
+   "Software engineer.",
+   "Flutter specialist."
+  ],
+  "lead": "I build Flutter applications end to end: the architecture, state, API integration, session and error handling, and the tests that pin down the important rules. In 2026 I have been building features for a commercial ERP used for accounting, inventory and point of sale.",
+  "ctaPrimary": "See engineering work",
+  "ctaSecondary": "View CV",
+  "facts": [
+   [
+    "Role",
+    "Flutter Developer · XPER ERP (2026)"
+   ],
+   [
+    "Focus",
+    "Architecture · state · APIs · testing"
+   ],
+   [
+    "Works in",
+    "Arabic & English, RTL-first"
+   ]
+  ],
+  "proof": [
+   {
+    "k": "Commercial ERP",
+    "v": "Offline point of sale, editable data grids and business-rule tests in a Flutter ERP. Part of my professional experience.",
+    "href": "#experience"
+   },
+   {
+    "k": "Package fix",
+    "v": "Open PR to PlutoGrid: configuration and RTL changes that cells only picked up on an unrelated rebuild, fixed with widget tests.",
+    "href": "#open-source"
+   },
+   {
+    "k": "7th nationwide",
+    "v": "Mobile Development track, Digital Egypt Pioneers Initiative (2024).",
+    "href": "#experience"
+   }
+  ],
+  "treeCaption": "How I work, in three branches",
+  "treeRoot": "Menna Elwan",
+  "scrollCue": "Scroll",
+  "proofLead": "Recent proof"
+ },
+ "work": {
+  "label": "Selected engineering work",
+  "title": "Four products, explained from the inside",
+  "intro": "The applications I can talk about at the greatest depth. Each one covers what it does, how it is put together, what it talks to, and exactly which part of it is mine. MentorX and Hen Lehen are platforms: two separate applications each, sharing one backend."
+ },
+ "cases": [
+  {
+   "id": "flower-app",
+   "kind": "single",
+   "name": "Flowrist",
+   "accent": "#C96A7A",
+   "kicker": "Team project · maintained independently · 2026",
+   "status": {
+    "text": "Working app · live microservice API",
+    "tone": "ok"
+   },
+   "image": "img/flower-app-ui-concept.webp",
+   "summary": "A flower-delivery app: browse a catalog, manage a cart, check out and pay, then track the order on a map. The Flutter client talks to a .NET microservice platform — identity, catalog, cart, orders, payments and addresses — behind one API gateway.",
+   "highlights": [
+    "Twenty-five typed endpoints across six services, reached through Retrofit clients organised by feature rather than one shared API object.",
+    "A token layer built as four collaborating pieces — storage, refresher, scheduler and a coordinator that makes concurrent 401s wait on a single refresh instead of each firing their own.",
+    "Device sessions as a real feature: the app lists its own active sessions, registers its FCM token against the identity service, and can sign a device out."
+   ],
+   "stack": {
+    "core": [
+     "Flutter",
+     "Dart",
+     "BLoC / Cubit",
+     "Clean Architecture (feature-first)",
+     "Dio + Retrofit",
+     "get_it + injectable"
+    ],
+    "supporting": [
+     ".NET microservices + API gateway",
+     "Stripe payments",
+     "Firebase Cloud Messaging",
+     "flutter_local_notifications",
+     "flutter_map + MapTiler",
+     "geolocator + geocoding",
+     "OSRM routing",
+     "freezed + json_serializable",
+     "go_router",
+     "easy_localization (AR/EN)",
+     "flutter_secure_storage",
+     "infinite_scroll_pagination",
+     "mockito + bloc_test"
+    ]
+   },
+   "backend": "A .NET microservice platform, not a single server: identity, catalog, address-cart, orders and payments are separate services behind one API gateway, with SQL Server, RabbitMQ for messaging and Redis. The Flutter app addresses them through gateway-prefixed routes — /api/identity, /api/catalog, /api/address-cart — using Retrofit clients. Payments go through Stripe, push notifications through Firebase Cloud Messaging, and the repository carries a Docker Compose file that brings the whole backend up locally.",
+   "role": "Team project. Her README records that she worked as a Flutter/mobile developer on the team that built the app, contributing to the mobile client inside the shared Clean Architecture structure, and that the repository is maintained independently under her own account with the original team's permission.",
+   "note": "",
+   "links": [
+    [
+     "Code",
+     "https://github.com/menna3lwan/Flower-App"
+    ],
+    [
+     "API collection",
+     "https://github.com/menna3lwan/Flower-App/tree/main/postman"
+    ]
+   ],
+   "detail": {
+    "overview": {
+     "purpose": "Let a customer browse a flower catalog, build a cart, check out and pay, and follow the order to the door.",
+     "users": "Gift buyers, in Arabic or English, on Android and iOS.",
+     "role": "Flutter/mobile developer on the team that built the client, working inside the shared Clean Architecture structure. The repository is maintained independently under her account with the team's permission.",
+     "status": "Working application against a live microservice backend, with the full stack runnable locally from the bundled Docker Compose file.",
+     "timeline": "2026",
+     "platform": "Flutter, Android and iOS"
+    },
+    "scope": [
+     {
+      "title": "Identity and sessions",
+      "items": [
+       [
+        "Sign up, login, OTP verification, forgot and reset password",
+        "done"
+       ],
+       [
+        "Access and refresh tokens in secure storage",
+        "done"
+       ],
+       [
+        "Active device sessions listed, and a device can be signed out",
+        "done"
+       ],
+       [
+        "FCM token registered against the identity service",
+        "done"
+       ]
+      ]
+     },
+     {
+      "title": "Catalog and cart",
+      "items": [
+       [
+        "Product browsing with paginated loading and cached images",
+        "done"
+       ],
+       [
+        "Product details and search",
+        "done"
+       ],
+       [
+        "Cart items added, quantity patched, items removed",
+        "done"
+       ]
+      ]
+     },
+     {
+      "title": "Checkout, orders and delivery",
+      "items": [
+       [
+        "Checkout and payment through Stripe",
+        "done"
+       ],
+       [
+        "Order placement and order history",
+        "done"
+       ],
+       [
+        "Order tracking with a live map and a drawn route",
+        "done"
+       ],
+       [
+        "Delivery confirmation",
+        "done"
+       ]
+      ]
+     },
+     {
+      "title": "Addresses and profile",
+      "items": [
+       [
+        "Addresses created and edited, with a default address",
+        "done"
+       ],
+       [
+        "Map-based location picking with reverse geocoding",
+        "done"
+       ],
+       [
+        "Profile, password change, notification preferences",
+        "done"
+       ]
+      ]
+     }
+    ],
+    "architecture": {
+     "intro": "Feature-first Clean Architecture: nine features — auth, commerce, cart, address, order, payment, profile, notification and sessions — each owning its own api, data, domain and presentation folders, with everything shared living in core. Dependency injection is generated rather than hand-wired: injectable annotations appear across 115 files. The same shape is used for every feature, so a new one is a folder rather than a decision.",
+     "layers": [
+      {
+       "name": "Presentation",
+       "items": [
+        "A view per screen, with no data access of its own",
+        "BLoC and Cubit view-models per feature",
+        "Immutable states generated with freezed",
+        "go_router for routing, including the payment return"
+       ]
+      },
+      {
+       "name": "Domain",
+       "items": [
+        "Use cases per operation",
+        "Repository interfaces owned by the feature",
+        "Entities separate from the DTOs that arrive over the wire"
+       ]
+      },
+      {
+       "name": "Data",
+       "items": [
+        "Repository implementations",
+        "Retrofit API clients, one per feature",
+        "json_serializable models with explicit mappers to entities"
+       ]
+      },
+      {
+       "name": "Core",
+       "items": [
+        "Dio module with the interceptor stack",
+        "Token storage, refresher, scheduler and refresh coordinator",
+        "safeCall() plus a central error parser",
+        "Theme, localization, shared widgets and services"
+       ]
+      }
+     ],
+     "flow": {
+      "title": "Placing an order",
+      "steps": [
+       [
+        "Browse",
+        "The catalog loads page by page through infinite_scroll_pagination, with cached images and a shimmer placeholder while a page resolves."
+       ],
+       [
+        "Product",
+        "Details are fetched by id from the catalog service."
+       ],
+       [
+        "Cart",
+        "Items are added, quantities patched and items removed against the address-cart service."
+       ],
+       [
+        "Address",
+        "A delivery address is picked on the map and reverse-geocoded into a stored address."
+       ],
+       [
+        "Checkout",
+        "Payment goes through Stripe; the app returns to a route go_router keeps for it."
+       ],
+       [
+        "Order",
+        "The order is placed, then tracked on a map with the route drawn from OSRM."
+       ]
+      ]
+     },
+     "decisions": [
+      "Give each feature its own Retrofit client instead of one shared API object, so six services behind a gateway stay six readable surfaces.",
+      "Split the token layer into storage, refresher, scheduler and coordinator, because a single refresh function could not express \"everyone waits for one refresh\".",
+      "Register the routing Dio instance under its own name, so a third-party routing outage can never be reported as an authentication failure.",
+      "Read the gateway URL and the map key from .env, so nothing environment-specific is committed."
+     ]
+    },
+    "challenges": [
+     {
+      "title": "Several requests meeting an expired token at once",
+      "problem": "When a token expires, every in-flight request fails with 401 at roughly the same moment. The naive fix — refresh inside the error interceptor — makes each failed request start its own refresh, and the server invalidates all but one of them.",
+      "constraint": "The refresh had to happen once, the waiting requests had to be replayed with the new token, and the user had to notice nothing.",
+      "approach": "Separate the concerns: storage holds the tokens, a refresher performs the exchange, a scheduler refreshes ahead of expiry, and a coordinator serialises everything so concurrent callers await one in-flight refresh.",
+      "implementation": "core/network/: token_storage.dart, token_refresher.dart, token_refresh_scheduler.dart and token_refresh_coordinator.dart, with auth_interceptors.dart as the only place that reacts to a 401.",
+      "outcome": "Concurrent 401s now resolve through one refresh and the waiting requests are replayed, instead of racing and invalidating each other."
+     },
+     {
+      "title": "Six services behind one gateway",
+      "problem": "The backend is not one API. Identity, catalog, address-cart, orders and payments are separate services, each with its own route prefix, and a single shared API client would have become a dumping ground.",
+      "constraint": "Routes had to stay readable and typed, and a feature should not have to know about services it does not use.",
+      "approach": "One Retrofit client per feature, with all paths declared as named constants in one endpoints file so the gateway prefixes are visible in a single place.",
+      "implementation": "core/constants endpoint constants, with clients such as features/sessions/api/session_api_client.dart and the matching clients under each feature.",
+      "outcome": "Adding a service means adding a client beside its feature; no shared API object grows every time the backend does."
+     },
+     {
+      "title": "A map that has to answer three different questions",
+      "problem": "The same map is used to pick a delivery address, to show where an order is, and to draw the route to it — three jobs with different data and different failure modes.",
+      "constraint": "Location permission can be refused, geocoding can fail, and routing is a third-party service that may not answer.",
+      "approach": "Keep the map a dumb renderer and put each job behind its own repository: reverse geocoding goes to the address service, routing to OSRM through a separate Dio instance registered under its own name.",
+      "implementation": "A named osrmDio registration keeps routing calls off the authenticated client, so a routing failure can never look like an auth failure.",
+      "outcome": "A routing failure shows as a routing problem, and the user stays signed in."
+     }
+    ],
+    "quality": {
+     "summary": "The test suite is the strongest in the portfolio: 130 test files containing roughly 636 test cases, organised to mirror lib/ — per feature, per layer, with fixtures and helpers of their own. Tests use mockito for generated doubles and bloc_test for view-model behaviour. A GitHub Actions workflow checks pull-request titles, and the Flutter version is pinned with FVM.",
+     "items": [
+      "130 test files, ~636 cases, mirroring the lib/ structure",
+      "mockito for generated mocks, bloc_test for view-models",
+      "Fixtures and shared test helpers rather than inline setup",
+      "CI workflow on pull requests; Flutter version pinned via .fvmrc",
+      "Runtime configuration through .env rather than committed constants"
+     ]
+    },
+    "limits": [
+     "The backend services are the team's work; this repository holds the Flutter client plus the Docker Compose file that runs them.",
+     "Running the app needs a .env with the gateway base URL and a MapTiler key; neither is committed."
+    ]
+   }
+  },
+  {
+   "id": "tracking-app",
+   "kind": "single",
+   "name": "Tracking App",
+   "accent": "#2E8B82",
+   "kicker": "Team project · maintained independently · 2026",
+   "status": {
+    "text": "Working app · live REST API",
+    "tone": "ok"
+   },
+   "image": "img/tracking-app-ui-concept.webp",
+   "summary": "A delivery-driver client for a last-mile product: a driver applies with licence and vehicle documents, signs in, and their live position and route to pickup and customer are tracked on a map.",
+   "highlights": [
+    "A driver application that uploads licence and national-ID images as a multipart request alongside vehicle type, plate and capacity.",
+    "A forgot-password flow modelled as a three-step state machine — email, one-time code, new password — with resend handled without losing the step.",
+    "Live location reported to the server, with permission and location-service checks gating the map, and the route drawn from an open routing service."
+   ],
+   "stack": {
+    "core": [
+     "Flutter",
+     "Dart",
+     "BLoC / Cubit",
+     "Clean Architecture",
+     "Dio + Retrofit",
+     "get_it + injectable"
+    ],
+    "supporting": [
+     "REST API",
+     "JWT refresh interceptor",
+     "OSRM routing (third-party)",
+     "flutter_map",
+     "geolocator",
+     "freezed",
+     "go_router",
+     "flutter_dotenv",
+     "flutter_secure_storage",
+     "easy_localization"
+    ]
+   },
+   "backend": "A REST backend reached through Retrofit clients split by concern — identity and orders. Nine endpoints are wired: sign in, driver application as a multipart upload, vehicle types, forgot password, verify OTP, reset password and driver location reporting. An interceptor refreshes the bearer token on a 401 and retries the request once. The base URL is read from an environment file rather than committed. Route geometry comes from the public OSRM routing service, which is a third-party API rather than part of the backend.",
+   "role": "Team project. Her README records that she worked as a Flutter/mobile developer on the team that built it, and that the application is now maintained independently under her own account with the original team's permission.",
+   "note": "Team project. I worked as a Flutter/mobile developer on the team that built it, and maintain the application independently under my own account with the team's permission.",
+   "links": [
+    [
+     "Code",
+     "https://github.com/menna3lwan/Tracking_app"
+    ],
+    [
+     "Team repository",
+     "https://github.com/joudysami/Tracking_app"
+    ]
+   ],
+   "detail": {
+    "overview": {
+     "purpose": "The driver side of a last-mile delivery product: apply with licence and vehicle documents, sign in, and report a live position and route to pickup and customer.",
+     "users": "Delivery drivers, in Arabic or English.",
+     "role": "Flutter/mobile developer on the team that built the app, per the repository README; maintained independently under her own account with the original team's permission.",
+     "status": "Working application against a live REST backend.",
+     "timeline": "2026",
+     "platform": "Flutter, Android and iOS"
+    },
+    "scope": [
+     {
+      "title": "Becoming a driver",
+      "items": [
+       [
+        "Driver application with licence and national-ID images as one multipart request",
+        "done"
+       ],
+       [
+        "Vehicle type, plate and capacity captured alongside the documents",
+        "done"
+       ],
+       [
+        "Application status surfaced back to the driver",
+        "done"
+       ]
+      ]
+     },
+     {
+      "title": "Account and session",
+      "items": [
+       [
+        "Sign in with a bearer token kept in secure storage",
+        "done"
+       ],
+       [
+        "Forgot password as a three-step machine: email, one-time code, new password",
+        "done"
+       ],
+       [
+        "Resend handled without losing the current step",
+        "done"
+       ],
+       [
+        "Token refreshed and the request replayed on a 401",
+        "done"
+       ]
+      ]
+     },
+     {
+      "title": "On the road",
+      "items": [
+       [
+        "Location permission and location-service checks before the map is shown",
+        "done"
+       ],
+       [
+        "Live position reported to the server",
+        "done"
+       ],
+       [
+        "Route to pickup and customer drawn from an open routing service",
+        "done"
+       ]
+      ]
+     }
+    ],
+    "architecture": {
+     "intro": "Clean Architecture with feature modules and generated dependency injection — injectable annotations appear across 34 files. The networking layer is deliberately split by concern: identity and orders are separate Retrofit clients rather than one service object, so a change to sign-in cannot ripple into delivery calls.",
+     "layers": [
+      {
+       "name": "Presentation",
+       "items": [
+        "One bloc per feature: application, sign-in, location",
+        "Screens render state and emit events only",
+        "go_router for navigation"
+       ]
+      },
+      {
+       "name": "Domain",
+       "items": [
+        "Thin use cases, so a test contains only the rule under test",
+        "Repository interfaces per feature",
+        "freezed entities and DTOs"
+       ]
+      },
+      {
+       "name": "Data",
+       "items": [
+        "Retrofit clients split by concern",
+        "Mappers from DTO to entity",
+        "Secure token storage"
+       ]
+      },
+      {
+       "name": "Core",
+       "items": [
+        "Dio module with auth interceptors and pretty logging",
+        "Token refresh and retry",
+        "Environment configuration through flutter_dotenv"
+       ]
+      }
+     ],
+     "flow": {
+      "title": "From application to delivery",
+      "steps": [
+       [
+        "Apply",
+        "Licence and national-ID images go up with vehicle type, plate and capacity as one multipart request."
+       ],
+       [
+        "Sign in",
+        "A bearer token is issued and stored in secure storage."
+       ],
+       [
+        "Permissions",
+        "Location permission and the location service are both checked before the map is shown."
+       ],
+       [
+        "Report",
+        "The live position is reported to the server while the driver works."
+       ],
+       [
+        "Route",
+        "The route to pickup and customer is drawn from an open routing service."
+       ]
+      ]
+     },
+     "decisions": [
+      "Split identity and orders into separate Retrofit clients, so a change to sign-in cannot ripple into delivery calls.",
+      "Model forgot-password as a three-step state machine rather than three screens, so a resend cannot lose the step.",
+      "Keep the base URL in an environment file so the repository carries no environment-specific host."
+     ]
+    },
+    "challenges": [
+     {
+      "title": "A driver signed out mid-delivery",
+      "problem": "An expired token during a delivery would drop the driver back to the login screen, losing the route and the job in progress.",
+      "constraint": "The refresh had to be invisible, and a genuinely invalid session still had to end cleanly.",
+      "approach": "Handle 401 inside an interceptor: refresh the bearer token, replay the original request exactly once, and only surface an error if the replay also fails.",
+      "implementation": "core/network/: auth_interceptors.dart with token_refresh.dart and token_storage.dart beside it.",
+      "outcome": "An expired token is refreshed and the request replayed, so a driver mid-delivery is not returned to the login screen."
+     },
+     {
+      "title": "Uploading documents and data in one request",
+      "problem": "The driver application sends licence and national-ID images together with vehicle type, plate and capacity — a mixed payload that is easy to get wrong field by field.",
+      "constraint": "It had to stay typed and testable rather than a hand-built form map.",
+      "approach": "Declare it as a typed Retrofit multipart endpoint so the client generates the body, and keep the images as part of the same request rather than a second upload step.",
+      "implementation": "A @MultiPart() @POST(ApiEndpoints.applyDriver) definition on the identity client.",
+      "outcome": "The documents and the vehicle data arrive together, so there is no half-finished application on the server."
+     },
+     {
+      "title": "A map that must not lie",
+      "problem": "Location permission can be refused, the location service can be off, and the routing service is third-party — any of which would otherwise show an empty or wrong map.",
+      "constraint": "The driver needs to know which of those happened, not just see a blank screen.",
+      "approach": "Gate the map behind explicit permission and service checks, and keep route geometry in its own repository so a routing outage is reported as a routing problem.",
+      "implementation": "geolocator for permission and position, flutter_map for rendering, and an OSRM route endpoint declared separately from the app's own API.",
+      "outcome": "A permission refusal or a routing outage is reported as itself, instead of showing an empty map."
+     }
+    ],
+    "quality": {
+     "summary": "26 test files covering the blocs, the use cases and the data mappers. The networking split pays off here: identity can be tested without standing up order fixtures.",
+     "items": [
+      "26 test files across features and core",
+      "freezed DTOs, so a missing field is a compile error rather than a null at runtime",
+      "Base URL and secrets read from an environment file, never committed",
+      "Feature branches with reviewed merges on the original team repository"
+     ]
+    },
+    "limits": [
+     "The backend is the team's, not in this repository.",
+     "Route geometry depends on a public OSRM instance, which is fine for a prototype and would need a hosted router in production."
+    ]
+   }
+  },
+  {
+   "id": "mentorx",
+   "kind": "platform",
+   "name": "MentorX",
+   "native": "",
+   "accent": "#3B6FD4",
+   "kicker": "Team contribution · 2026",
+   "platformLabel": "Platform · two applications",
+   "summary": "A learning platform for school students and their parents, built as a Flutter monorepo of around seventy packages. Two separate applications sit on one shared platform layer and one REST API.",
+   "highlights": [
+    "One package per repository, each with a Dio implementation and a mock twin behind the same interface, so a feature can be written and tested before the endpoint exists.",
+    "A single HTTP client carries the token, device id and locale, and refreshes an expired token in an interceptor before replaying the call — both applications authenticate identically.",
+    "Arabic and English localisation lives in the shared UI package: around nine hundred lines of strings regenerated through the project's code-generation step, which both apps pick up."
+   ],
+   "sharedBackendLabel": "Shared backend",
+   "sharedBackend": "The EduCore REST API, the platform's own backend, reached through twenty Dio repository packages — one per domain: authentication, home, courses, quizzes, assignments, grades, attendance, wallet, marketplace, rewards, leaderboard, announcements, notifications, profile, settings, analytics and more. They all sit on one shared HTTP client whose interceptors attach the token, device id and locale, and refresh an expired token before replaying the call. Each repository has a mock twin, so screens can be built and tested with no server.",
+   "appsInLabel": "Applications in this platform",
+   "myPart": "Contributing member of a team led by another developer: 4 of 114 commits. My own work is the localisation layer, the notification-service boundary and its mock, and extensions to the student notification repository and the parent authentication repositories. The learning journeys — courses, quizzes, attendance, wallet, marketplace — are other developers' work.",
+   "gap": "",
+   "apps": [
+    {
+     "id": "mentorx-student",
+     "name": "MentorX — Student App",
+     "image": "img/mentorx-student-ui-concept.webp",
+     "accent": "#1E3ABA",
+     "status": {
+      "text": "Team project · my contribution",
+      "tone": "neutral"
+     },
+     "backend": "The EduCore REST API, the platform's own backend, reached through twenty Dio repository packages — one per domain: authentication, home, courses, quizzes, assignments, grades, attendance, wallet, marketplace, rewards, leaderboard, announcements, notifications, profile, settings, analytics and more. They all sit on one shared HTTP client whose interceptors attach the token, device id and locale, and refresh an expired token before replaying the call. Each repository has a mock twin, so screens can be built and tested with no server.",
+     "role": "Contributing member of a team led by another developer: 4 of 114 commits. I am describing what those commits contain, not the product as a whole.",
+     "links": [
+      [
+       "Code",
+       "https://github.com/Kamal-Ayman-Hassan/mentor-x-app"
+      ]
+     ],
+     "summary": "A learning app for school students, backed by the EduCore API, built by a team in a Flutter monorepo of around seventy packages. I worked on the shared platform layer the student and parent apps both sit on.",
+     "stack": {
+      "core": [
+       "Flutter",
+       "Dart",
+       "BLoC",
+       "Melos-style monorepo",
+       "Repository pattern",
+       "Dio"
+      ],
+      "supporting": [
+       "REST API (EduCore)",
+       "JWT + refresh interceptor",
+       "go_router",
+       "Slang (AR/EN codegen)",
+       "Firebase Analytics",
+       "bloc_presentation",
+       "one package per repository"
+      ]
+     },
+     "highlights": [
+      "Arabic and English localisation across the shared UI package: around nine hundred lines of strings, regenerated through the project's code-generation step so both apps pick them up.",
+      "A push-notification service as a boundary rather than an implementation: an interface in its own shared package, plus a mock, so features could be written and tested before any provider was chosen."
+     ],
+     "detail": {
+      "overview": {
+       "purpose": "The student half of a learning platform: sign in, follow courses, take quizzes, hand in assignments, track attendance and grades, and use a wallet and marketplace.",
+       "users": "School students in Egypt, in Arabic or English.",
+       "role": "Contributing member of a team led by another developer — 4 of 114 commits. Her own work is the localisation layer in the shared UI package, the notification-service boundary and its mock, and extensions to the student notification repository.",
+       "status": "Working application against the EduCore REST API.",
+       "timeline": "2026",
+       "platform": "Flutter, Android and iOS"
+      },
+      "scope": [
+       {
+        "title": "Her contribution",
+        "items": [
+         [
+          "Arabic and English localisation across the shared UI package — around nine hundred lines of strings, regenerated through the project's code-generation step",
+          "done"
+         ],
+         [
+          "A push-notification service defined as an interface in its own package, plus a mock, so features could be written and tested before a provider was chosen",
+          "done"
+         ],
+         [
+          "Extensions to the student notification repository and the shared notification contract",
+          "done"
+         ]
+        ]
+       },
+       {
+        "title": "The wider product",
+        "items": [
+         [
+          "Twenty domains reached through their own repository packages: courses, quizzes, assignments, grades, attendance, wallet, marketplace, rewards, leaderboard, announcements and more",
+          "team"
+         ],
+         [
+          "An AI assistant feature consuming the platform's own /api/ai conversation endpoints",
+          "team"
+         ],
+         [
+          "Firebase Analytics for product measurement",
+          "team"
+         ]
+        ]
+       }
+      ],
+      "architecture": {
+       "intro": "A Melos-style monorepo of around seventy packages. The organising rule is one package per repository: each domain has a Dio implementation and a mock twin behind the same interface, so a feature can be finished and tested before its endpoint exists. Student and parent are separate applications sitting on one shared platform layer.",
+       "layers": [
+        {
+         "name": "Applications",
+         "items": [
+          "student/ and parent/ as separate Flutter apps",
+          "BLoC with bloc_presentation for one-off effects",
+          "go_router for navigation"
+         ]
+        },
+        {
+         "name": "Repository packages",
+         "items": [
+          "Twenty dio_*_repository packages for the student app",
+          "A mock_* twin for each, behind the same interface",
+          "Swapped by dependency injection, not by a flag in the code"
+         ]
+        },
+        {
+         "name": "Shared platform",
+         "items": [
+          "dio_http_client: one client with header and refresh-token interceptors",
+          "mentorx_ui: components plus the Slang-generated AR/EN strings",
+          "services/: analytics, device info, error tracking, push notification"
+         ]
+        }
+       ],
+       "flow": {
+        "title": "A screen built before its endpoint existed",
+        "steps": [
+         [
+          "Interface",
+          "The domain defines a repository interface in its own package."
+         ],
+         [
+          "Mock",
+          "A mock package implements it, so the screen can be built and reviewed immediately."
+         ],
+         [
+          "Dio",
+          "The Dio package implements the same interface once the endpoint lands."
+         ],
+         [
+          "Binding",
+          "Dependency injection chooses which one is bound; no screen code changes."
+         ],
+         [
+          "Session",
+          "The shared client attaches the token, device id and locale, and refreshes before replaying."
+         ]
+        ]
+       },
+       "decisions": [
+        "One package per repository, with a mock twin, so work is never blocked by a missing endpoint.",
+        "Put the HTTP client in its own package, so both apps authenticate identically instead of duplicating session rules.",
+        "Keep every string in the shared UI package and generate typed accessors, so a missing translation fails the build."
+       ]
+      },
+      "challenges": [
+       {
+        "title": "Writing features before the endpoints existed",
+        "problem": "Screens were being built against an API that was still changing, so work either stalled or was written against a guess.",
+        "constraint": "The mock could not be a branch of the real code, or the two would drift.",
+        "approach": "Give every domain two packages behind one interface — a Dio implementation and a mock — and let dependency injection decide which is bound.",
+        "implementation": "packages/student/dio_*_repository paired with packages/mock/student/mock_*_repository, twenty of each.",
+        "outcome": "Features reached review before their endpoints were live, and the swap to real data needed no screen changes."
+       },
+       {
+        "title": "Two apps, one notion of \"signed in\"",
+        "problem": "The student and parent apps hit the same API with the same token rules, and duplicating the auth plumbing would have meant two places to fix every session bug.",
+        "constraint": "They are separate apps and cannot share a runtime.",
+        "approach": "Put the HTTP client in its own package with the token, device-id and locale interceptors inside it, and depend on it from both apps.",
+        "implementation": "packages/clients/dio_http_client, with header_interceptor.dart and refresh_token_interceptor.dart.",
+        "outcome": "Both applications share one definition of a session, so a session bug is fixed once."
+       },
+       {
+        "title": "Localisation that two apps pick up at once",
+        "problem": "Arabic and English strings were needed in both applications and in the shared components, and keeping three copies in step by hand was not realistic.",
+        "constraint": "Translations had to be type-safe, so a missing key fails at build time rather than showing a raw identifier to a student.",
+        "approach": "Keep every string in the shared UI package and generate typed accessors from it, so both apps consume the same generated source.",
+        "implementation": "Slang code generation in packages/mentorx_ui/lib/localization, producing strings.g.dart and strings_ar.g.dart.",
+        "outcome": "Arabic and English are picked up by both apps from one generated source."
+       }
+      ],
+      "quality": {
+       "summary": "The mock twins are the quality story here: because every repository has one, a feature can be exercised end to end without a server, and a broken endpoint cannot block a screen from being reviewed.",
+       "items": [
+        "One mock repository per real repository, behind a shared interface",
+        "Typed localisation, so a missing translation is a build failure",
+        "A notification boundary defined as an interface before any provider was chosen"
+       ]
+      },
+      "limits": [
+       "This is a team product; her contribution is the localisation layer, the notification boundary and the repository extensions named above.",
+       "The learning journeys — courses, quizzes, attendance, wallet, marketplace — are other developers' work.",
+       "The API host in the committed environment file is a bare IP address, which is fine for development and would need a proper hostname and TLS in production."
+      ]
+     }
+    },
+    {
+     "id": "mentorx-parent",
+     "name": "MentorX — Parent App",
+     "image": "img/mentorx-parent-ui-concept.webp",
+     "accent": "#2EC4B6",
+     "status": {
+      "text": "Team project · my contribution",
+      "tone": "neutral"
+     },
+     "backend": "The same EduCore REST API as the student app, through fifteen Dio repository packages of its own: authentication, home, children, attendance and attendance groups, courses, grades, financial, communication, notifications, profile, devices, analytics, account status and account deletion. They share the student app's HTTP client and its token, device-id and locale interceptors, so both apps authenticate the same way against the same server.",
+     "role": "Contributing member of a team led by another developer: 4 of 114 commits, shared between this app and the student app.",
+     "links": [
+      [
+       "Code",
+       "https://github.com/Kamal-Ayman-Hassan/mentor-x-app"
+      ]
+     ],
+     "summary": "The parent-facing half of the same platform: link a child, then follow their attendance, grades, assignments and quizzes, see the analytics, and handle wallet and payments. My work here sits in the financial and authentication repositories.",
+     "stack": {
+      "core": [
+       "Flutter",
+       "Dart",
+       "BLoC",
+       "Melos-style monorepo",
+       "Repository pattern",
+       "Dio"
+      ],
+      "supporting": [
+       "REST API (EduCore)",
+       "JWT + refresh interceptor",
+       "go_router",
+       "Slang (AR/EN codegen)",
+       "bloc_concurrency",
+       "mock repositories for offline development"
+      ]
+     },
+     "highlights": [
+      "The parent financial models — the largest single code change in my contribution — covering how wallet and payment data is shaped before it reaches the feature layer.",
+      "Parent authentication through two matching repositories, one Dio-backed and one mock, both behind the same core interface, so the parent auth flow can be developed and tested without the server."
+     ],
+     "detail": {
+      "overview": {
+       "purpose": "The parent-facing half of the same platform: link a child, then follow their attendance, grades, assignments and quizzes, see the analytics, and handle wallet and payments.",
+       "users": "Parents of school students, in Arabic or English.",
+       "role": "Contributing member of the same team — 4 of 114 commits, shared with the student app. Her work here is the parent financial models and the parent authentication repositories.",
+       "status": "Working application against the EduCore REST API.",
+       "timeline": "2026",
+       "platform": "Flutter, Android and iOS"
+      },
+      "scope": [
+       {
+        "title": "Her contribution",
+        "items": [
+         [
+          "The parent financial models — the largest single code change in her contribution, shaping how wallet and payment data is parsed before it reaches the feature layer",
+          "done"
+         ],
+         [
+          "Parent authentication through two matching repositories, one Dio-backed and one mock, behind the same core interface",
+          "done"
+         ],
+         [
+          "Shared work both apps use: the parent entity in the core package, the Arabic and English strings, and the push-notification service interface",
+          "done"
+         ]
+        ]
+       },
+       {
+        "title": "The wider product",
+        "items": [
+         [
+          "Fifteen domains with their own repository packages: children, attendance and attendance groups, courses, grades, financial, communication, notifications, profile, devices, analytics, account status and deletion",
+          "team"
+         ],
+         [
+          "Linking a child and switching between children",
+          "team"
+         ]
+        ]
+       }
+      ],
+      "architecture": {
+       "intro": "The same monorepo and the same rule as the student app — one package per repository, each with a Dio implementation and a mock twin — but a smaller surface: fifteen domains rather than twenty, and bloc_concurrency on this side for ordering concurrent events. Both apps authenticate through the same shared HTTP client against the same server.",
+       "layers": [
+        {
+         "name": "Application",
+         "items": [
+          "parent/ as its own Flutter app with its own release cycle",
+          "BLoC with bloc_concurrency for event ordering",
+          "go_router for navigation"
+         ]
+        },
+        {
+         "name": "Repository packages",
+         "items": [
+          "Fifteen parent_dio_*_repository packages",
+          "Mock twins behind the same interfaces",
+          "Financial, children and attendance-group domains are parent-only"
+         ]
+        },
+        {
+         "name": "Shared platform",
+         "items": [
+          "The same dio_http_client as the student app",
+          "mentorx_core entities, including the parent entity",
+          "mentorx_ui components and Slang strings"
+         ]
+        }
+       ],
+       "flow": {
+        "title": "A parent checking a payment",
+        "steps": [
+         [
+          "Sign in",
+          "Parent authentication goes through its own repository on the shared client."
+         ],
+         [
+          "Children",
+          "The linked children are loaded from the children domain."
+         ],
+         [
+          "Financial",
+          "Wallet and payment responses are parsed into explicit financial models."
+         ],
+         [
+          "Entities",
+          "The repository maps them to entities before the feature layer sees them."
+         ],
+         [
+          "Screen",
+          "The feature renders values that are already correct, with no parsing at the point of display."
+         ]
+        ]
+       },
+       "decisions": [
+        "Model financial responses explicitly rather than reading maps at the point of display, because money is the least forgiving data in the product.",
+        "Write parent authentication as two interchangeable repositories, so the flow can be developed against a mock.",
+        "Keep anything both apps need in the core and UI packages, so neither application imports the other."
+       ]
+      },
+      "challenges": [
+       {
+        "title": "Money that has to parse exactly",
+        "problem": "Wallet balances, fees and payment records arrive from the financial service and are the least forgiving data in the product — a silent parsing slip shows a parent the wrong number.",
+        "constraint": "The shaping had to happen once, before the feature layer, not in each screen that displays an amount.",
+        "approach": "Model the financial responses explicitly and map them to entities in the repository, so the feature layer receives values that are already correct.",
+        "implementation": "The parent financial models and their mappers in the parent financial repository package.",
+        "outcome": "Wallet and payment figures are shaped once, in one place, before any screen displays them."
+       },
+       {
+        "title": "Authentication that can be tested without a server",
+        "problem": "The parent sign-in flow had to be developed and reviewed while the identity endpoints were still moving.",
+        "constraint": "The mock had to be interchangeable with the real implementation, not a different shape.",
+        "approach": "Write two repositories against one core interface — Dio and mock — so the flow can be exercised either way.",
+        "implementation": "parent_dio_authentication_repository alongside mock_authentication_repository, both bound through dependency injection.",
+        "outcome": "The parent sign-in flow was reviewable while the identity endpoints were still moving."
+       },
+       {
+        "title": "Shared with the student app without being coupled to it",
+        "problem": "The parent entity, the Arabic and English strings and the notification contract are needed by both apps; putting them in either app would have made one depend on the other.",
+        "constraint": "Neither application may import the other.",
+        "approach": "Keep anything genuinely shared in the core and UI packages, and let both applications depend on those rather than on each other.",
+        "implementation": "mentorx_core for entities, mentorx_ui for strings and components, services/push_notification_service for the notification contract.",
+        "outcome": "Shared entities and strings live in one place, so the two apps cannot drift apart."
+       }
+      ],
+      "quality": {
+       "summary": "The mock twin per repository applies here too, and it is what makes a parent-side flow reviewable before the matching endpoint is live. The financial mapping is the part that most deserved explicit models, and got them.",
+       "items": [
+        "A mock repository for each of the fifteen parent domains",
+        "Explicit financial models rather than map lookups at the point of display",
+        "The same interceptors and session rules as the student app"
+       ]
+      },
+      "limits": [
+       "A team product; her contribution is the financial models, the parent authentication repositories and the shared work named above.",
+       "The parent and student apps share a backend, so a change to the EduCore contract affects both.",
+       "The committed environment points at a development host."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "hen-lehen",
+   "kind": "platform",
+   "name": "Hen Lehen",
+   "native": "هُنَّ لَهُنَّ",
+   "accent": "#5E8B6E",
+   "kicker": "Individually developed · 2026",
+   "platformLabel": "Platform · two applications",
+   "summary": "An Arabic-first, women-only telemedicine platform: two separate Flutter applications, one for patients and one for doctors, and a FastAPI backend I built for both.",
+   "highlights": [
+    "The backend is a complete service in its own right: nineteen endpoint modules and sixteen models on PostgreSQL, with Redis, JWT authentication, rate limiting, a WebSocket chat endpoint and seventy-three passing tests.",
+    "Both applications are Arabic-first rather than Arabic-added: the layout is wrapped in Directionality and the whole interface runs off a locale provider written by hand, with a light and a dark theme.",
+    "Three local packages — shared_core, shared_models and shared_ui — hold the models, theme and components both apps use, so the patient and doctor apps stay consistent without sharing a codebase."
+   ],
+   "sharedBackendLabel": "Shared backend",
+   "sharedBackend": "This is the backend. FastAPI on Python with async SQLAlchemy over PostgreSQL, Redis for caching and rate-limit state, and Alembic migrations. Authentication is JWT issued with python-jose and passwords hashed with passlib/bcrypt; slowapi applies rate limiting, and a WebSocket endpoint carries the consultation chat. Nineteen endpoint modules cover auth, patients, doctors, specialties, appointments, medical records, payments, chat, community, reviews, favourites, branches, notifications, devices, uploads and admin.",
+   "appsInLabel": "Applications in this platform",
+   "myPart": "Individually developed: both Flutter applications and the FastAPI backend are mine, 13 commits on the patient app and 18 on the doctor app, plus the backend on its own branch.",
+   "gap": "The honest gap: the backend is built and tested, and both apps now carry the Dio client, the request interceptor and an authentication repository on their integration branches — but the repository's API call is still commented out, so neither app sends a request yet and both still read an in-memory data set. This is the next piece of work, not a claim about what exists.",
+   "apps": [
+    {
+     "id": "hen-lehen-patient",
+     "name": "Hen Lehen — Patient App",
+     "native": "هُنَّ لَهُنَّ",
+     "image": "img/hen-lehen-patient-ui-concept.webp",
+     "accent": "#7C6AC9",
+     "status": {
+      "text": "Backend built · app not yet calling it",
+      "tone": "warn"
+     },
+     "backend": "Its backend is the Hen Lehen API in this portfolio — her own FastAPI service on PostgreSQL and Redis, with the patient, doctor, appointment, payment, chat and community endpoints this app needs. The app carries the first layer of the integration on its patient-backend-integration branch: a Dio ApiClient pointed at the API's base URL, a request interceptor and an AuthRepository. The repository's HTTP call is still commented out behind a \"replace with actual API call\" marker and returns a fixed user, so no request reaches the server yet and the screens still read the in-memory data set.",
+     "role": "Individually developed — all 13 commits are mine.",
+     "links": [
+      [
+       "Code",
+       "https://github.com/menna3lwan/patient_app"
+      ],
+      [
+       "Workspace and docs",
+       "https://github.com/menna3lwan/hen_lhen"
+      ]
+     ],
+     "detail": {
+      "overview": {
+       "purpose": "Let a woman find a female doctor, book an in-clinic or online consultation, pay, talk to her, and ask questions anonymously in a community.",
+       "users": "Female patients in Egypt, in Arabic.",
+       "role": "Individually developed — 13 of 13 commits, plus the architecture analysis and migration plan in the workspace repository.",
+       "status": "Frontend only: the journey is complete over mock data; nothing is persisted and nothing is sent anywhere.",
+       "timeline": "2026",
+       "platform": "Flutter, Android and iOS"
+      },
+      "scope": [
+       {
+        "title": "Finding a doctor",
+        "items": [
+         [
+          "Onboarding across three pages, then login or register with a governorate picker",
+          "done"
+         ],
+         [
+          "Home with a specialties grid and top-rated doctors",
+          "done"
+         ],
+         [
+          "Search filtered by specialty and sorted by rating, experience or fee",
+          "done"
+         ],
+         [
+          "Doctor profile with reviews",
+          "done"
+         ],
+         [
+          "All doctor, review and appointment data from an in-memory mock set",
+          "mock"
+         ]
+        ]
+       },
+       {
+        "title": "Booking and paying",
+        "items": [
+         [
+          "Booking by consultation type, then date, then time slot",
+          "done"
+         ],
+         [
+          "Payment by card, wallet or cash, with promo codes applying a fixed discount",
+          "done"
+         ],
+         [
+          "Confirmation screen, appointment list in tabs, and appointment details",
+          "done"
+         ],
+         [
+          "Real payment processing",
+          "planned"
+         ]
+        ]
+       },
+       {
+        "title": "After the visit",
+        "items": [
+         [
+          "Chat screen over a local message list",
+          "mock"
+         ],
+         [
+          "Community with posts, likes, comments and anonymous posting",
+          "done"
+         ],
+         [
+          "Favourites and notifications",
+          "done"
+         ],
+         [
+          "Profile, edit profile and settings, with theme and language switches",
+          "done"
+         ]
+        ]
+       }
+      ],
+      "architecture": {
+       "intro": "Organised by layer rather than by feature: config, models, repositories, services, screens and widgets. That is the honest description, and it is also the main thing I would change — I said so in my own analysis of the codebase before anyone else had to.",
+       "layers": [
+        {
+         "name": "Screens",
+         "items": [
+          "23 screen files across 10 areas",
+          "Shared widgets"
+         ]
+        },
+        {
+         "name": "State",
+         "items": [
+          "Seven ChangeNotifiers for auth, doctors, booking, appointments, community, favourites and settings"
+         ]
+        },
+        {
+         "name": "Navigation",
+         "items": [
+          "GoRouter with path parameters",
+          "An auth redirect driven by the auth notifier"
+         ]
+        },
+        {
+         "name": "Data",
+         "items": [
+          "Models and the mock data set",
+          "A repository with the real call commented out",
+          "A Dio client that is a shell"
+         ]
+        },
+        {
+         "name": "Shared packages",
+         "items": [
+          "A real shared UI package: colours, theme, button, text field, snackbar"
+         ]
+        }
+       ],
+       "flow": {
+        "title": "Booking a consultation (as it runs today)",
+        "steps": [
+         [
+          "Search",
+          "Filters and sorts the mock doctor list inside the doctors notifier, by specialty and by rating, experience or fee."
+         ],
+         [
+          "Doctor profile",
+          "Opens by id through a GoRouter path parameter."
+         ],
+         [
+          "Booking",
+          "Collects consultation type, date and slot, and keeps them in the booking notifier."
+         ],
+         [
+          "Payment",
+          "Applies a promo code as a fixed percentage and shows the remaining amount (config/providers.dart:466-485)."
+         ],
+         [
+          "Confirmation",
+          "Adds an appointment to the in-memory list; nothing leaves the device."
+         ],
+         [
+          "Where a backend would go",
+          "The repository already has the shape — the POST is written and commented out, marked as a to-do (repositories/auth_repository.dart:11)."
+         ]
+        ]
+       },
+       "decisions": [
+        "Build the whole journey first, so the product idea could be judged before any backend existed.",
+        "Write the locale handling by hand rather than add a code-generation step to a prototype — and record the cost: the keys are duplicated across the two apps.",
+        "Audit my own architecture and publish the findings rather than leave the shortcuts undocumented."
+       ]
+      },
+      "challenges": [
+       {
+        "title": "An Arabic-first interface, not a translated one",
+        "problem": "The product only makes sense in Arabic, so right-to-left could not be an afterthought.",
+        "constraint": "No code-generation step, in a prototype that had to stay quick to change.",
+        "approach": "A locale provider holding the strings, with the app wrapped in Directionality so direction follows the locale everywhere.",
+        "implementation": "config/locale.dart (367 lines) and main.dart:45-50; the chat bubbles in the doctor app were realigned for RTL in a later commit.",
+        "outcome": "Both apps run fully in Arabic. The trade-off is real and I wrote it down: the keys are duplicated per app instead of living in one resource."
+       },
+       {
+        "title": "Reviewing my own codebase honestly",
+        "problem": "After the UI was finished, the structure was clearly holding the project back.",
+        "constraint": "I was the only developer, so there was no reviewer to find it for me.",
+        "approach": "Write the audit as if for someone else: name each problem, locate it, and plan the migration in steps with a risk table.",
+        "implementation": "docs/PHASE_1_PROJECT_ANALYSIS.md lists ten issues, including monolithic providers, a theme provider defined three times, duplicated models and no serialisation; docs/PHASE_2_MIGRATION_PLAN.md sets out the migration.",
+        "outcome": "The analysis is accurate — I re-checked every finding against the code. The migration itself exists only on side branches, which is why this is shown as a prototype."
+       }
+      ],
+      "quality": {
+       "summary": "There are no tests, and I am not going to present this as more than it is. Static analysis is clean against the pinned shared UI package; against the current one it reports errors, because a change to the shared theme was not carried into the two apps at the same time. The repository's own roadmap lists exactly what is missing — secure tokens, tests, CI, flavours, signing — and leaves every box unchecked.",
+       "items": [
+        "No tests",
+        "An honest, unchecked production roadmap in the repository",
+        "A written architecture audit and migration plan"
+       ]
+      },
+      "limits": [
+       "No backend integration: all data is an in-memory mock, and login uses hard-coded credentials.",
+       "No tests in either app.",
+       "Provider, not BLoC — the earlier claim of BLoC here was wrong and has been corrected.",
+       "The apps depend on sibling shared packages by path, so they only build inside the workspace layout.",
+       "A separate FastAPI backend exists on its own branch but is not connected."
+      ]
+     },
+     "summary": "The patient side of an Arabic-first, women-only telemedicine idea: 23 screens that carry a woman from finding a female doctor through booking and payment to appointments, chat and an anonymous community.",
+     "stack": {
+      "core": [
+       "Flutter",
+       "Dart",
+       "Provider",
+       "go_router",
+       "RTL / Arabic-first"
+      ],
+      "supporting": [
+       "Dio (client configured)",
+       "shared_core / shared_models / shared_ui packages",
+       "cached_network_image",
+       "shared_preferences",
+       "flutter_rating_bar",
+       "google_fonts (Cairo)",
+       "iconsax"
+      ]
+     },
+     "highlights": [
+      "The full journey is built and navigable — search with specialty filters and sorting by rating, experience or fee; booking by type, date and time; payment by card, wallet or cash with promo codes; appointments, chat, community, favourites and settings.",
+      "Arabic-first rather than Arabic-added: the layout is wrapped in Directionality and the whole interface is driven by a locale provider I wrote by hand, with a light and a dark theme."
+     ]
+    },
+    {
+     "id": "hen-lehen-doctor",
+     "name": "Hen Lehen — Doctor App",
+     "native": "هُنَّ لَهُنَّ",
+     "image": "img/hen-lehen-doctor-ui-concept.webp",
+     "accent": "#7C6AC9",
+     "status": {
+      "text": "Backend built · app not yet calling it",
+      "tone": "warn"
+     },
+     "backend": "The same Hen Lehen API, using its doctor, appointment, branch and chat endpoints. Integration has reached the same point as the patient app: a doctor-backend-integration branch adds the Dio ApiClient and an AuthRepository with global error handling, and the router already redirects on authentication state — but the repository's API call is still commented out, so the dashboard, appointments, patients and branches continue to read the in-memory data set.",
+     "role": "Individually developed — all 18 commits are mine.",
+     "links": [
+      [
+       "Code",
+       "https://github.com/menna3lwan/doctor_app"
+      ],
+      [
+       "Demo video",
+       "https://youtu.be/vsnvrcTbRHM"
+      ],
+      [
+       "Workspace and docs",
+       "https://github.com/menna3lwan/hen_lhen"
+      ]
+     ],
+     "summary": "The provider side of the same platform: a doctor registers with her licence and fee, waits behind an approval gate, then runs her appointments, patients and clinic branches from one dashboard.",
+     "stack": {
+      "core": [
+       "Flutter",
+       "Dart",
+       "Provider",
+       "go_router",
+       "RTL / Arabic-first"
+      ],
+      "supporting": [
+       "Dio (client configured)",
+       "shared_core / shared_models / shared_ui packages",
+       "cached_network_image",
+       "shared_preferences",
+       "flutter_rating_bar",
+       "google_fonts (Cairo)"
+      ]
+     },
+     "highlights": [
+      "An approval gate that is real routing logic, not a disabled button: until the account is approved the router redirects every route to a pending screen, so the dashboard is unreachable by any path.",
+      "Twelve screens covering the working day — dashboard statistics, accepting, rejecting and completing appointments, a searchable patient list, and create, edit and activate for clinic branches."
+     ],
+     "detail": {
+      "overview": {
+       "purpose": "The provider half of an Arabic-first, women-only telemedicine platform: a doctor registers with her licence and fee, waits behind an approval gate, then runs appointments, patients and clinic branches from one dashboard.",
+       "users": "Female doctors practising in Arabic.",
+       "role": "Individually developed — all 18 commits on the application, alongside the patient app and the FastAPI backend that serves both.",
+       "status": "Complete UI with a working navigation model; the backend exists but the app does not call it yet.",
+       "timeline": "2026",
+       "platform": "Flutter, Android and iOS"
+      },
+      "scope": [
+       {
+        "title": "Getting approved",
+        "items": [
+         [
+          "Registration capturing licence details and consultation fee",
+          "done"
+         ],
+         [
+          "An approval gate that is real routing, not a disabled button",
+          "done"
+         ],
+         [
+          "Pending screen with the review steps shown",
+          "done"
+         ]
+        ]
+       },
+       {
+        "title": "Running the practice",
+        "items": [
+         [
+          "Dashboard with patient, appointment, earnings and rating statistics",
+          "done"
+         ],
+         [
+          "Appointments accepted, rejected and completed",
+          "done"
+         ],
+         [
+          "Searchable patient list",
+          "done"
+         ],
+         [
+          "Clinic branches created, edited and activated",
+          "done"
+         ],
+         [
+          "Chat with patients",
+          "done"
+         ],
+         [
+          "Profile and settings",
+          "done"
+         ]
+        ]
+       }
+      ],
+      "architecture": {
+       "intro": "Provider for state and go_router for navigation, over three local packages shared with the patient app — shared_core, shared_models and shared_ui — so the two applications stay visually and structurally consistent without sharing a codebase. The interface is Arabic-first rather than Arabic-added: the layout is wrapped in Directionality and the whole app reads from a locale provider written by hand, with a light and a dark theme.",
+       "layers": [
+        {
+         "name": "Presentation",
+         "items": [
+          "Twelve screens covering the working day",
+          "ChangeNotifier providers for session, approval and appointment state",
+          "Light and dark themes from the shared UI package"
+         ]
+        },
+        {
+         "name": "Shared packages",
+         "items": [
+          "shared_models: the entities both apps use",
+          "shared_ui: theme, components and the Cairo type scale",
+          "shared_core: helpers and constants"
+         ]
+        },
+        {
+         "name": "Data",
+         "items": [
+          "An in-memory data set stands in for the API today",
+          "ApiClient and AuthRepository present on the integration branch"
+         ]
+        }
+       ],
+       "flow": {
+        "title": "A doctor's working day (as it runs today)",
+        "steps": [
+         [
+          "Register",
+          "Licence details and consultation fee are captured at sign-up."
+         ],
+         [
+          "Pending",
+          "Until the account is approved the router redirects every route to the pending screen."
+         ],
+         [
+          "Dashboard",
+          "Patient, appointment, earnings and rating statistics are read from the in-memory data set."
+         ],
+         [
+          "Appointments",
+          "Requests are accepted, rejected or completed, updating the appointment notifier."
+         ],
+         [
+          "Branches",
+          "Clinic branches are created, edited and activated."
+         ]
+        ]
+       },
+       "decisions": [
+        "Put the approval rule in the router rather than the UI, so there is no path to the dashboard rather than a hidden button.",
+        "Share entities, theme and components through three local packages, so the two apps stay consistent without one importing the other.",
+        "Build the full journey on mock data first, so the product could be judged before the backend existed — and say so plainly rather than implying a live app."
+       ]
+      },
+      "challenges": [
+       {
+        "title": "An approval gate that cannot be walked around",
+        "problem": "A doctor whose licence has not been reviewed must not reach the dashboard — and hiding the button is not the same as preventing access.",
+        "constraint": "Deep links and back navigation had to respect the gate too.",
+        "approach": "Put the rule in the router rather than the UI: until the account is approved, every route redirects to the pending screen, so there is no path to the dashboard at all.",
+        "implementation": "A go_router redirect driven by the session provider's approval state.",
+        "outcome": "An unapproved account cannot reach the dashboard by deep link or by back navigation."
+       },
+       {
+        "title": "Right-to-left chat that was quietly wrong",
+        "problem": "The chat bubbles were laid out for a left-to-right reading order, so in Arabic the doctor's and the patient's messages sat on the wrong sides of the thread.",
+        "constraint": "Mirroring the whole screen would have flipped avatars and timestamps too.",
+        "approach": "Align the bubbles to the speaker rather than to the writing direction, and let Directionality handle the text itself.",
+        "implementation": "The message row alignment was reworked so the sender determines the side, with the surrounding layout still RTL-aware.",
+        "outcome": "The patient and doctor apps still look and read as one product despite separate codebases."
+       },
+       {
+        "title": "Two apps that must not drift apart",
+        "problem": "The patient and doctor apps show the same domain — doctors, appointments, branches — and would have diverged into two different vocabularies and two different button styles.",
+        "constraint": "They are separate applications with separate release cycles, so one codebase was not an option.",
+        "approach": "Extract the shared entities, theme and components into three local packages that both apps depend on by path.",
+        "implementation": "packages/shared_core, packages/shared_models and packages/shared_ui, consumed through path dependencies in both pubspecs.",
+        "outcome": "Arabic chat now places each speaker on the correct side of the thread."
+       }
+      ],
+      "quality": {
+       "summary": "The architecture was audited after the fact rather than assumed: ten named problems were written up, from monolithic providers to a router rebuilt on every frame, with a step-by-step migration plan beside them. That document is part of the repository.",
+       "items": [
+        "A written architecture audit with ten named problems and a migration plan",
+        "Three shared packages keeping the two apps consistent",
+        "Arabic-first layout verified in both themes"
+       ]
+      },
+      "limits": [
+       "No automated tests in this repository.",
+       "Dashboard statistics, patients and branches all read from the in-memory data set; earnings figures are static.",
+       "The integration branch adds the Dio client and an auth repository, but the API call itself is still commented out."
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "openSource": {
+  "label": "Open source & collaboration",
+  "title": "Fixing problems at their source",
+  "pluto": {
+   "name": "PlutoGrid",
+   "repo": "bosskmk/pluto_grid",
+   "pr": "#1165",
+   "url": "https://github.com/bosskmk/pluto_grid/pull/1165",
+   "status": {
+    "text": "Open · awaiting maintainer review",
+    "tone": "warn"
+   },
+   "title": "fix: notify listeners on setConfiguration and setTextDirection changes",
+   "problem": "Two state setters changed the grid’s configuration and text direction without notifying listeners, so cells that rebuild on change (icons, select and date cells) missed RTL/LTR and configuration updates.",
+   "fix": "Notify on change, skip equal values, add a notify flag, and defer the text-direction notification to after the frame because it is called while the grid is building.",
+   "tests": "6 widget tests: notified on change, not notified for equal values, not notified when notify is false.",
+   "size": "6 files · +232 / −3",
+   "origin": "Found while building data grids for a commercial ERP, where the fix is in use.",
+   "diff": [
+    [
+     "del",
+     "void setTextDirection(TextDirection textDirection) {"
+    ],
+    [
+     "add",
+     "void setTextDirection(TextDirection textDirection, {bool notify = true}) {"
+    ],
+    [
+     "add",
+     "  if (_state._textDirection == textDirection) return;"
+    ],
+    [
+     "ctx",
+     "  _state._textDirection = textDirection;"
+    ],
+    [
+     "add",
+     "  // setTextDirection is invoked from PlutoGridLayoutDelegate's constructor,"
+    ],
+    [
+     "add",
+     "  // which is created while PlutoGrid itself is building … Defer to the next frame."
+    ],
+    [
+     "add",
+     "  notifyListenersOnPostFrame(notify);"
+    ],
+    [
+     "ctx",
+     "}"
+    ]
+   ]
+  },
+  "team": [
+   {
+    "name": "Flower-App (team e-commerce app)",
+    "what": "Profile feature: screens, view model, repository and 30 tests (PR #45, +2,576 lines). In-app web views for About and Terms with loading and error states (PR #53).",
+    "status": "Merged into the team’s dev branch",
+    "url": "https://github.com/menna-ahmed123/Flower-App"
+   }
+  ]
+ },
+ "experience": {
+  "label": "Experience",
+  "title": "A journey, one milestone at a time",
+  "items": [
+   {
+    "role": "Flutter Developer",
+    "org": "XPER ERP",
+    "when": "Jan 2026 – Oct 2026",
+    "type": "Professional role",
+    "points": [
+     "Features across point of sale, stock, invoicing and accounting reports in a cross-platform Flutter ERP.",
+     "Editable PlutoGrid data grids with custom column and cell types, sorting, filtering and inline editing.",
+     "Offline POS sync, ports-and-adapters refactors and unit tests for business rules, through Azure DevOps pull requests and staging/UAT/production builds."
+    ],
+    "start": "2026-01",
+    "end": "2026-10",
+    "kind": "role",
+    "skills": [
+     "Flutter",
+     "Dart",
+     "PlutoGrid",
+     "GetX",
+     "Unit testing",
+     "Azure DevOps"
+    ],
+    "evidence": "commits"
+   },
+   {
+    "role": "Advanced Flutter Development — Internship Course",
+    "org": "Elevate",
+    "when": "Jul 2026 – Aug 2026",
+    "type": "Training program",
+    "points": [
+     "Built the Elevate Online Exams Flutter client against the provider’s REST API, Figma designs and Postman collection.",
+     "Covered the full exam lifecycle: authentication with session expiry, timed exams, results and profile management."
+    ],
+    "start": "2026-07",
+    "end": "2026-08",
+    "kind": "training",
+    "skills": [
+     "Flutter",
+     "Dart",
+     "REST APIs",
+     "Dio",
+     "Unit testing"
+    ],
+    "dateNote": "Dates inferred from project activity"
+   },
+   {
+    "role": "Flutter Developer Intern",
+    "org": "NTI",
+    "when": "Dec 2025 – Feb 2026",
+    "type": "Internship",
+    "points": [
+     "Team Git workflow (pull requests, reviews, branching) on Clean Architecture Flutter projects."
+    ],
+    "start": "2025-12",
+    "end": "2026-02",
+    "kind": "internship",
+    "skills": [
+     "Git workflow",
+     "Clean Architecture",
+     "Unit testing"
+    ]
+   },
+   {
+    "role": "Software Development Intern",
+    "org": "Dragons (Software with AI)",
+    "when": "Aug 2025 – Feb 2026",
+    "type": "Internship",
+    "points": [
+     "Software development internship applying AI within software projects."
+    ],
+    "start": "2025-08",
+    "end": "2026-02",
+    "kind": "internship",
+    "skills": [
+     "AI in software projects"
+    ]
+   },
+   {
+    "role": "Flutter Developer Intern",
+    "org": "Cellula Technologies",
+    "when": "Jul 2025 – Aug 2025",
+    "type": "Internship",
+    "points": [
+     "Cross-platform Flutter apps with REST API integration."
+    ],
+    "start": "2025-07",
+    "end": "2025-08",
+    "kind": "internship",
+    "skills": [
+     "Flutter",
+     "REST APIs"
+    ]
+   },
+   {
+    "role": "Software Development Intern",
+    "org": "Fuzetek",
+    "when": "Feb 2025 – Apr 2025",
+    "type": "Internship",
+    "points": [
+     "Software development life cycle and testing fundamentals; problem solving in Python and C++."
+    ],
+    "start": "2025-02",
+    "end": "2025-04",
+    "kind": "internship",
+    "skills": [
+     "Python",
+     "C++",
+     "SDLC",
+     "Testing fundamentals"
+    ],
+    "evidence": "repo"
+   },
+   {
+    "role": "Mobile Developer Intern",
+    "org": "Digital Egypt Pioneers Initiative (DEPI)",
+    "when": "Jun 2024 – Dec 2024",
+    "type": "Training program",
+    "points": [
+     "Ranked 7th nationwide in the Mobile Development track."
+    ],
+    "start": "2024-06",
+    "end": "2024-12",
+    "kind": "training",
+    "skills": [
+     "Flutter",
+     "Mobile development"
+    ]
+   },
+   {
+    "role": "Coding Instructor",
+    "org": "Almentor",
+    "when": "Feb 2024 – Dec 2024",
+    "type": "Teaching",
+    "points": [
+     "Taught programming fundamentals, algorithms and data structures."
+    ],
+    "start": "2024-02",
+    "end": "2024-12",
+    "kind": "teaching",
+    "skills": [
+     "Algorithms",
+     "Data structures",
+     "Teaching"
+    ]
+   },
+   {
+    "role": "Flutter Developer Intern",
+    "org": "Mindset",
+    "when": "Aug 2024 – Sep 2024",
+    "type": "Internship",
+    "points": [
+     "Flutter UI and Provider state management."
+    ],
+    "start": "2024-08",
+    "end": "2024-09",
+    "kind": "internship",
+    "skills": [
+     "Flutter",
+     "Provider"
+    ]
+   }
+  ],
+  "education": {
+   "degree": "B.Sc. Computer Science & Artificial Intelligence",
+   "school": "Benha University",
+   "when": "2022 – 2026",
+   "start": "2022-08",
+   "end": "2026",
+   "endPrecision": "year"
+  },
+  "kinds": {
+   "role": "Professional role",
+   "internship": "Internship",
+   "training": "Training program",
+   "teaching": "Teaching"
+  },
+  "milestones": [
+   {
+    "date": "2024-12",
+    "kind": "award",
+    "title": "7th nationwide",
+    "text": "Mobile Development track, Digital Egypt Pioneers Initiative (DEPI)."
+   },
+   {
+    "date": "2026-07",
+    "kind": "oss",
+    "title": "PlutoGrid pull request",
+    "text": "Open PR fixing configuration and RTL change notification, with widget tests."
+   }
+  ],
+  "intro": "Every role, internship and training programme in date order. Where dates overlap, the road splits into parallel lanes.",
+  "source": "Dates as stated on my CV (November 2026)."
+ },
+ "skills": {
+  "label": "Skills in context",
+  "title": "What I use, and where you can see it",
+  "intro": "Every skill below is tied to the project that demonstrates it, and most link straight to that case study. Nothing is listed on the strength of a tutorial.",
+  "groups": [
+   {
+    "id": "mobile",
+    "label": "Programming & mobile development",
+    "items": [
+     {
+      "skill": "Dart & Flutter",
+      "where": [
+       [
+        "flower-app",
+        "nine features, six services"
+       ],
+       [
+        "tracking-app",
+        "driver client"
+       ],
+       [
+        "elevate-exams",
+        "live API client"
+       ],
+       [
+        "hen-lehen-patient",
+        "23 screens"
+       ]
+      ]
+     },
+     {
+      "skill": "Widget composition & reusable UI",
+      "where": [
+       [
+        "hen-lehen-patient",
+        "23 screens"
+       ],
+       [
+        "hen-lehen-doctor",
+        "shared UI package"
+       ],
+       [
+        "flower-app",
+        "shared widgets in core"
+       ]
+      ]
+     },
+     {
+      "skill": "Responsive & adaptive layout",
+      "where": [
+       [
+        "flower-app",
+        "flutter_screenutil across the app"
+       ],
+       [
+        "tracking-app",
+        "screenutil + adaptive forms"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "architecture",
+    "label": "Software architecture & engineering",
+    "items": [
+     {
+      "skill": "Clean Architecture",
+      "where": [
+       [
+        "flower-app",
+        "nine features, data / domain / presentation"
+       ],
+       [
+        "elevate-exams",
+        "use cases + repository interfaces"
+       ],
+       [
+        "tracking-app",
+        "feature modules"
+       ],
+       [
+        "movie-app",
+        "the Home feature"
+       ]
+      ]
+     },
+     {
+      "skill": "SOLID & interface-driven design",
+      "where": [
+       [
+        "mentorx-student",
+        "one interface, two implementations"
+       ],
+       [
+        "movie-app",
+        "sealed ApiResult"
+       ],
+       [
+        "flower-app",
+        "repository interface per feature"
+       ]
+      ]
+     },
+     {
+      "skill": "Repository pattern",
+      "where": [
+       [
+        "mentorx-student",
+        "20 repository packages"
+       ],
+       [
+        "mentorx-parent",
+        "15 repository packages"
+       ],
+       [
+        "flower-app",
+        "repositories + Retrofit clients"
+       ],
+       [
+        "elevate-exams",
+        "repository interfaces"
+       ]
+      ]
+     },
+     {
+      "skill": "Separation of concerns",
+      "where": [
+       [
+        "flower-app",
+        "token layer split into four pieces"
+       ],
+       [
+        "hen-lehen-backend",
+        "services separate from routers"
+       ]
+      ]
+     },
+     {
+      "skill": "Monorepo & package architecture",
+      "where": [
+       [
+        "mentorx-student",
+        "~70 packages, one per repository"
+       ],
+       [
+        "hen-lehen-doctor",
+        "3 shared local packages"
+       ],
+       [
+        "flower-app",
+        "feature-first modules"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "state",
+    "label": "State management & app structure",
+    "items": [
+     {
+      "skill": "BLoC / Cubit",
+      "where": [
+       [
+        "flower-app",
+        "view-model per feature, freezed state"
+       ],
+       [
+        "elevate-exams",
+        "exam session engine"
+       ],
+       [
+        "tracking-app",
+        "bloc per feature"
+       ],
+       [
+        "mentorx-student",
+        "bloc_presentation"
+       ],
+       [
+        "mentorx-parent",
+        "bloc_concurrency"
+       ],
+       [
+        "movie-app",
+        "Home cubit"
+       ]
+      ]
+     },
+     {
+      "skill": "Provider",
+      "where": [
+       [
+        "hen-lehen-patient",
+        "session, booking and locale state"
+       ],
+       [
+        "hen-lehen-doctor",
+        "approval + session state"
+       ]
+      ]
+     },
+     {
+      "skill": "Immutable state & code generation",
+      "where": [
+       [
+        "flower-app",
+        "freezed + json_serializable + retrofit"
+       ],
+       [
+        "tracking-app",
+        "freezed DTOs"
+       ],
+       [
+        "mentorx-student",
+        "Slang localisation codegen"
+       ]
+      ]
+     },
+     {
+      "skill": "Dependency injection",
+      "where": [
+       [
+        "flower-app",
+        "injectable across 115 files"
+       ],
+       [
+        "tracking-app",
+        "injectable, 34 files"
+       ],
+       [
+        "movie-app",
+        "service locator"
+       ],
+       [
+        "mentorx-student",
+        "mock or Dio bound at startup"
+       ]
+      ]
+     },
+     {
+      "skill": "Routing & navigation guards",
+      "where": [
+       [
+        "hen-lehen-doctor",
+        "approval gate redirect"
+       ],
+       [
+        "flower-app",
+        "go_router incl. payment return"
+       ],
+       [
+        "movie-app",
+        "shell + detail routes"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "backend",
+    "label": "Backend & API integration",
+    "items": [
+     {
+      "skill": "REST integration",
+      "where": [
+       [
+        "flower-app",
+        "25 routes across six services"
+       ],
+       [
+        "mentorx-student",
+        "EduCore, 20 domains"
+       ],
+       [
+        "mentorx-parent",
+        "EduCore, 15 domains"
+       ],
+       [
+        "elevate-exams",
+        "live exam API"
+       ],
+       [
+        "tracking-app",
+        "identity + location"
+       ],
+       [
+        "movie-app",
+        "TMDB (third-party)"
+       ]
+      ]
+     },
+     {
+      "skill": "Dio & Retrofit",
+      "where": [
+       [
+        "flower-app",
+        "one Retrofit client per feature"
+       ],
+       [
+        "tracking-app",
+        "Retrofit, 9 endpoints"
+       ],
+       [
+        "mentorx-student",
+        "shared Dio client"
+       ],
+       [
+        "elevate-exams",
+        "Dio + 4 interceptors"
+       ]
+      ]
+     },
+     {
+      "skill": "Auth, tokens & session expiry",
+      "where": [
+       [
+        "flower-app",
+        "refresh coordinator + device sessions"
+       ],
+       [
+        "tracking-app",
+        "refresh + retry on 401"
+       ],
+       [
+        "mentorx-student",
+        "refresh-token interceptor"
+       ],
+       [
+        "elevate-exams",
+        "401 heuristic + event bus"
+       ],
+       [
+        "tasky",
+        "Firebase Auth"
+       ]
+      ]
+     },
+     {
+      "skill": "API design (FastAPI)",
+      "where": [
+       [
+        "hen-lehen-backend",
+        "19 endpoint modules, JWT, WebSocket"
+       ]
+      ]
+     },
+     {
+      "skill": "Firebase services",
+      "where": [
+       [
+        "tasky",
+        "Auth, Firestore, Storage"
+       ],
+       [
+        "flower-app",
+        "Cloud Messaging"
+       ],
+       [
+        "mentorx-student",
+        "Analytics"
+       ]
+      ]
+     },
+     {
+      "skill": "Push notifications",
+      "where": [
+       [
+        "flower-app",
+        "FCM token registered + local notifications"
+       ],
+       [
+        "mentorx-student",
+        "service boundary + mock"
+       ]
+      ]
+     },
+     {
+      "skill": "Payments",
+      "where": [
+       [
+        "flower-app",
+        "Stripe checkout and order placement"
+       ],
+       [
+        "hen-lehen-backend",
+        "payment endpoints + webhook"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "data",
+    "label": "Data, offline & persistence",
+    "items": [
+     {
+      "skill": "Local-first & connectivity",
+      "where": [
+       [
+        "elevate-exams",
+        "local-first history"
+       ],
+       [
+        "movie-app",
+        "Hive watchlist"
+       ]
+      ]
+     },
+     {
+      "skill": "Local storage & caching",
+      "where": [
+       [
+        "flower-app",
+        "secure token storage + image cache"
+       ],
+       [
+        "elevate-exams",
+        "local-first history"
+       ]
+      ]
+     },
+     {
+      "skill": "JSON serialisation & modelling",
+      "where": [
+       [
+        "flower-app",
+        "json_serializable + explicit mappers"
+       ],
+       [
+        "mentorx-parent",
+        "financial models"
+       ],
+       [
+        "tracking-app",
+        "freezed DTOs"
+       ]
+      ]
+     },
+     {
+      "skill": "Relational data (PostgreSQL)",
+      "where": [
+       [
+        "hen-lehen-backend",
+        "16 models + Alembic migrations"
+       ]
+      ]
+     },
+     {
+      "skill": "Caching & rate limiting (Redis)",
+      "where": [
+       [
+        "hen-lehen-backend",
+        "cache + rate-limit state"
+       ]
+      ]
+     },
+     {
+      "skill": "Pagination & list performance",
+      "where": [
+       [
+        "flower-app",
+        "infinite_scroll_pagination + shimmer"
+       ],
+       [
+        "movie-app",
+        "skeleton loading"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "quality",
+    "label": "Quality, testing & reliability",
+    "items": [
+     {
+      "skill": "Unit testing",
+      "where": [
+       [
+        "flower-app",
+        "130 files, ~636 cases"
+       ],
+       [
+        "hen-lehen-backend",
+        "73 pytest, passing"
+       ],
+       [
+        "tracking-app",
+        "26 test files"
+       ],
+       [
+        "elevate-exams",
+        "11 test files"
+       ]
+      ]
+     },
+     {
+      "skill": "Widget & bloc testing",
+      "where": [
+       [
+        "flower-app",
+        "bloc_test + mockito"
+       ]
+      ]
+     },
+     {
+      "skill": "Typed error handling",
+      "where": [
+       [
+        "flower-app",
+        "safeCall + central error parser"
+       ],
+       [
+        "movie-app",
+        "sealed ApiResult"
+       ],
+       [
+        "elevate-exams",
+        "sealed results"
+       ]
+      ]
+     },
+     {
+      "skill": "Static analysis & strict lints",
+      "where": [
+       [
+        "flower-app",
+        "flutter_lints + pinned SDK via FVM"
+       ]
+      ]
+     },
+     {
+      "skill": "Debugging production issues",
+      "where": [
+       [
+        "open-source",
+        "PlutoGrid notification bug"
+       ],
+       [
+        "elevate-exams",
+        "history-shape crash"
+       ],
+       [
+        "hen-lehen-doctor",
+        "RTL chat realignment"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "craft",
+    "label": "Localisation, tooling & collaboration",
+    "items": [
+     {
+      "skill": "Arabic-first & RTL",
+      "where": [
+       [
+        "hen-lehen-patient",
+        "Arabic-first UI"
+       ],
+       [
+        "hen-lehen-doctor",
+        "RTL chat realignment"
+       ],
+       [
+        "mentorx-student",
+        "Slang AR/EN codegen"
+       ],
+       [
+        "flower-app",
+        "easy_localization AR/EN"
+       ],
+       [
+        "open-source",
+        "RTL fix upstream"
+       ]
+      ]
+     },
+     {
+      "skill": "Git & pull-request workflow",
+      "where": [
+       [
+        "flower-app",
+        "CI check on pull requests"
+       ],
+       [
+        "movie-app",
+        "team of four"
+       ],
+       [
+        "tracking-app",
+        "reviewed merges"
+       ]
+      ]
+     },
+     {
+      "skill": "Maps & geolocation",
+      "where": [
+       [
+        "flower-app",
+        "map address picking + reverse geocoding"
+       ],
+       [
+        "tracking-app",
+        "live location + OSRM routing"
+       ]
+      ]
+     },
+     {
+      "skill": "Design handoff (Figma)",
+      "where": [
+       [
+        "flower-app",
+        "screens taken from the project Figma"
+       ],
+       [
+        "elevate-exams",
+        "provided design system"
+       ]
+      ]
+     },
+     {
+      "skill": "API tooling (Postman)",
+      "where": [
+       [
+        "flower-app",
+        "collection in the repository"
+       ],
+       [
+        "mentorx-student",
+        "EduCore collection"
+       ],
+       [
+        "elevate-exams",
+        "documented collection"
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "about": {
+  "label": "About",
+  "title": "Engineer first, Flutter by choice",
+  "body": [
+   "I studied Computer Science and Artificial Intelligence at Benha University and have spent the last two years building with Flutter: internships, a national training programme where I ranked 7th in mobile development, and now a commercial ERP.",
+   "What I enjoy most is the part users never see: deciding where state lives, making failures predictable, and writing the test that proves a fix. I also taught programming fundamentals at Almentor, which made me better at explaining technical decisions."
+  ],
+  "portrait": "portrait.jpg"
+ },
+ "contact": {
+  "label": "Contact",
+  "title": [
+   "Write to me.",
+   "Ask me anything."
+  ],
+  "body": "A role, a project, a collaboration, or just a question about how something here was built — all of it is welcome. Pick a starting point or write your own.",
+  "starters": [
+   {
+    "id": "project",
+    "label": "Let's discuss a project",
+    "subject": "A project to discuss",
+    "seed": "Hi Menna,\n\nI have a project I think you would be a good fit for. Here is what we are building:\n\n"
+   },
+   {
+    "id": "job",
+    "label": "I have a job opportunity",
+    "subject": "A role that might suit you",
+    "seed": "Hi Menna,\n\nWe are hiring and your work looks like a strong match. The role is:\n\n"
+   },
+   {
+    "id": "collab",
+    "label": "I'd like to collaborate",
+    "subject": "Collaborating on something",
+    "seed": "Hi Menna,\n\nI would like to build something together. What I have in mind:\n\n"
+   },
+   {
+    "id": "tech",
+    "label": "I have a technical question",
+    "subject": "A technical question",
+    "seed": "Hi Menna,\n\nI was reading about one of your projects and wanted to ask:\n\n"
+   }
+  ],
+  "form": {
+   "nameLabel": "Your name",
+   "namePlaceholder": "Who is writing",
+   "emailLabel": "Your email",
+   "emailPlaceholder": "So I can reply",
+   "messageLabel": "Message",
+   "messagePlaceholder": "Write as much or as little as you like.",
+   "send": "Send message",
+   "copy": "Copy message instead",
+   "copied": "Message copied",
+   "counter": "characters"
+  },
+  "errors": {
+   "name": "Add your name so I know who is writing.",
+   "email": "Add your email address so I can reply.",
+   "emailFormat": "That email address does not look right.",
+   "message": "Write a message first — a sentence is plenty."
+  },
+  "sent": {
+   "title": "Your mail app should be open",
+   "body": "The message is waiting there with everything filled in. Press send in your mail app and it reaches me. Nothing is sent from this page.",
+   "again": "Write another"
+  },
+  "fallback": "If nothing opened, copy the message and send it to",
+  "directLead": "Or reach me directly"
+ },
+ "footer": {
+  "built": "Designed and built with Flutter Web by Menna Elwan, with AI-assisted tooling."
+ },
+ "projects": {
+  "label": "More projects",
+  "title": "Five more builds, each with its own story",
+  "intro": "Everything outside the four above. Each one has its own card and, where the work earns it, its own case study.",
+  "groups": [
+   {
+    "id": "individual",
+    "label": "Individually developed",
+    "note": "Designed and built by me end to end.",
+    "items": [
+     {
+      "id": "elevate-exams",
+      "name": "Elevate Online Exams",
+      "kicker": "Project on a provided API · 2026",
+      "accent": "#2F6BFF",
+      "status": {
+       "text": "Working app · live REST API",
+       "tone": "ok"
+      },
+      "image": "img/elevate-exams-ui-concept.webp",
+      "imageAlt": "A timed exam question with four answers and a score card showing 80%.",
+      "summary": "A mobile client for an online-exams platform: students sign in, choose a subject, take timed exams and review their results.",
+      "highlights": [
+       "Session expiry that tells a real expired token from a 401 the API uses for validation, and logs out exactly once when several requests fail together.",
+       "A timed exam engine that auto-submits on timeout and asks before the student leaves.",
+       "Fixed a crash caused by the API’s history response and merged it with a per-user local history."
+      ],
+      "stack": {
+       "core": [
+        "Flutter",
+        "Dart",
+        "BLoC / Cubit",
+        "Clean Architecture",
+        "Dio",
+        "get_it"
+       ],
+       "supporting": [
+        "REST API (Elevate, provided)",
+        "JWT session expiry on 401",
+        "flutter_secure_storage",
+        "shared_preferences",
+        "pretty_dio_logger",
+        "cached_network_image",
+        "intl"
+       ]
+      },
+      "links": [
+       [
+        "GitHub",
+        "https://github.com/menna3lwan/exam_app"
+       ]
+      ],
+      "note": "The API, designs and Postman collection were provided by Elevate; the app is my work.",
+      "detail": {
+       "overview": {
+        "purpose": "Let students practise and sit timed exams on their phone.",
+        "users": "Students on the Elevate platform.",
+        "role": "Sole Flutter developer (API and designs provided).",
+        "status": "Working against the live API.",
+        "timeline": "Jul – Aug 2026",
+        "platform": "Flutter (Android, iOS)"
+       },
+       "scope": [
+        {
+         "title": "Account",
+         "items": [
+          [
+           "Sign in with Remember me, sign up with live validation",
+           "done"
+          ],
+          [
+           "Forgot password → code verification → reset",
+           "done"
+          ],
+          [
+           "Profile editing and password change",
+           "done"
+          ]
+         ]
+        },
+        {
+         "title": "Exams",
+         "items": [
+          [
+           "Subjects → exams → start → timed session → score → answer review",
+           "done"
+          ],
+          [
+           "Results history with pull-to-refresh that keeps data if a refresh fails",
+           "done"
+          ],
+          [
+           "Exam search (search bar UI only)",
+           "planned"
+          ]
+         ]
+        },
+        {
+         "title": "Platform",
+         "items": [
+          [
+           "Secure token storage and forced logout on session expiry",
+           "done"
+          ],
+          [
+           "Arabic interface (localisation scaffold only)",
+           "planned"
+          ]
+         ]
+        }
+       ],
+       "architecture": {
+        "intro": "Three feature modules (auth, exam, home). Cubits call single-purpose use cases, use cases call repository interfaces, and repositories wrap data sources in a safe-call that returns a sealed result.",
+        "layers": [
+         {
+          "name": "Presentation",
+          "items": [
+           "Views",
+           "Cubits with sealed states",
+           "Resource state builder"
+          ]
+         },
+         {
+          "name": "Domain",
+          "items": [
+           "14 use cases",
+           "Repository interfaces"
+          ]
+         },
+         {
+          "name": "Data",
+          "items": [
+           "Remote data sources (Dio)",
+           "Token service (secure storage)",
+           "Local exam history store"
+          ]
+         },
+         {
+          "name": "Core",
+          "items": [
+           "ApiResults<T> + safeCall",
+           "Auth interceptor",
+           "Session event bus",
+           "get_it composition root"
+          ]
+         }
+        ],
+        "flow": {
+         "title": "Submitting an exam",
+         "steps": [
+          [
+           "ExamSessionView",
+           "Next on the last question calls cubit.goToNext → submitExam.",
+           "exam_session_view.dart:266"
+          ],
+          [
+           "ExamSessionCubit",
+           "Stops the timer, computes time spent, calls SubmitExamUseCase.",
+           "exam_session_cubit.dart:98-135"
+          ],
+          [
+           "ExamRepositoryImpl",
+           "Wraps the call in safeCall, which turns exceptions into a Failure.",
+           "safe_call.dart:13-33"
+          ],
+          [
+           "ExamRemoteDataSource",
+           "Maps answers to [{questionId, correct}] and POSTs /questions/check.",
+           "exam_remote_data_source.dart:54-74"
+          ],
+          [
+           "AuthInterceptor",
+           "Adds the token header; a real 401 clears the session and fires the event bus.",
+           "auth_interceptor.dart:39-84"
+          ],
+          [
+           "ExamHistoryStore",
+           "Saves the result per user, newest first, without duplicates.",
+           "exam_history_store.dart:43-65"
+          ],
+          [
+           "View",
+           "The listener navigates to the result screen, or shows a SnackBar on failure.",
+           "exam_session_view.dart:65-98"
+          ]
+         ]
+        },
+        "decisions": [
+         "Networking never touches navigation: session expiry is published on an event bus and handled once at the app root.",
+         "Known shortcut: domain interfaces still reference shared data models."
+        ]
+       },
+       "challenges": [
+        {
+         "title": "Real session expiry vs. a misused 401",
+         "problem": "The API sometimes answers validation errors with 401, and parallel requests can all fail at the same moment.",
+         "constraint": "Only a genuinely expired session should log the user out, and only once.",
+         "approach": "Classify 401/403 responses by their body, guard against re-entry and decouple networking from navigation.",
+         "implementation": "A message heuristic in the interceptor, a re-entrancy flag that resets on sign-in, a SessionEventBus and a second de-duplication guard at the root.",
+         "outcome": "Unit tests describe each branch of the rule; one edge case (a 401 with no response) still fails and is next to fix."
+        },
+        {
+         "title": "A results screen that crashed on real data",
+         "problem": "The history endpoint returns null or a single object, not a list, so casting it crashed the tab.",
+         "constraint": "The backend contract could not be changed.",
+         "approach": "Normalise every shape, parse numbers defensively and keep a local, per-user history.",
+         "implementation": "Shape normalisation and enrichment in the data source; local-first merge in the repository so a remote failure is not fatal when local data exists.",
+         "outcome": "Fixed in two commits, with model and store tests."
+        },
+        {
+         "title": "A timed exam that cannot be lost by accident",
+         "problem": "Time can run out, and a back gesture can throw away a whole attempt.",
+         "constraint": "Async work must not emit after the Cubit is closed.",
+         "approach": "Own the timer in the Cubit and make leaving explicit.",
+         "implementation": "Timer.periodic cancelled on submit, leave and close; auto-submit on timeout; isClosed checks after every await; PopScope with a leave confirmation.",
+         "outcome": "Timeout submits the full duration and leaving needs confirmation."
+        }
+       ],
+       "quality": {
+        "summary": "Unit tests cover the auth interceptor, token service and Remember-me rules, the safe-call wrapper, validators and the local history store, using mocktail and fake_async. As committed, the test dependencies do not resolve on current Flutter; with bloc_test updated, 100 of 109 tests pass, and the failures are a stale smoke test and interceptor-test harness issues still to fix.",
+        "items": [
+         "Interceptor and token-service tests",
+         "Safe-call and result tests",
+         "Validator tests",
+         "History store tests"
+        ]
+       },
+       "limits": [
+        "English only: the localisation scaffold is not wired yet.",
+        "The search bar on Explore is visual only.",
+        "Cubits have no dedicated tests yet."
+       ]
+      },
+      "backend": "Elevate's own REST API — a third-party backend provided with the brief, not one of hers — reached with Dio over the documented Postman collection. The wired routes cover sign-in, sign-up, logout and forgot password, the home payload, the exam list and details, the exam session, results and the answers review, plus the profile. Four interceptors handle the bearer token, logging and error shaping; an expired token is detected from a real 401 rather than by decoding the token locally.",
+      "role": ""
+     },
+     {
+      "id": "tasky",
+      "name": "Tasky",
+      "kicker": "Individually developed · 2026",
+      "accent": "#5F33E1",
+      "status": {
+       "text": "Working app · Firebase backend",
+       "tone": "ok"
+      },
+      "summary": "A task manager backed by Firebase: email sign-in, per-user task documents in Cloud Firestore, attachments in Storage, categories and priorities, statistics and a daily streak.",
+      "highlights": [
+       "Firebase Authentication, Cloud Firestore (users/{uid}/tasks) and Firebase Storage are all genuinely wired.",
+       "Statistics screen with weekly productivity, completion counts and a streak service.",
+       "Built with setState rather than a state-management package, and without tests — an honest marker of where this one sits."
+      ],
+      "stack": {
+       "core": [
+        "Flutter",
+        "Dart",
+        "setState",
+        "Firebase Authentication",
+        "Cloud Firestore",
+        "Firebase Storage"
+       ],
+       "supporting": [
+        "shared_preferences",
+        "fl_chart",
+        "lottie",
+        "image_picker",
+        "permission_handler"
+       ]
+      },
+      "backend": "Firebase as a managed backend, with no server of its own to run: Firebase Authentication for email sign-in, Cloud Firestore for per-user task documents under users/{uid}/tasks, and Firebase Storage for attachments. The daily streak is kept on the device in SharedPreferences rather than per account, which is a real limitation rather than a design choice.",
+      "role": "Individually developed.",
+      "links": [
+       [
+        "GitHub",
+        "https://github.com/menna3lwan/tasky_app"
+       ]
+      ],
+      "image": "img/tasky-ui-concept.webp",
+      "imageAlt": "A task list with categories and priorities and a streak statistics card."
+     }
+    ]
+   },
+   {
+    "id": "team",
+    "label": "Team projects",
+    "note": "Built with a team. The card states what I contributed.",
+    "items": [
+     {
+      "id": "movie-app",
+      "name": "Movie App",
+      "kicker": "Team contribution · 2026",
+      "accent": "#C9A227",
+      "status": {
+       "text": "Working app · third-party API (TMDB)",
+       "tone": "ok"
+      },
+      "summary": "A movie browser on the TMDB API, built by four developers in five days. I owned the home feature end to end, the routing shell the whole app sits in, and the result type every call returns.",
+      "highlights": [
+       "The home feature from the API call to the widget: three TMDB lists, each with its own data source, repository, use case and state, so one failing endpoint leaves the other two sections working instead of blanking the page.",
+       "A sealed result type the whole team used — success or failure, matched with Dart 3 patterns, so a forgotten case is a compile error rather than a crash.",
+       "The navigation shell: a GoRouter shell route for the bottom-nav tabs with the details screen pushed over it on the root navigator."
+      ],
+      "stack": {
+       "core": [
+        "Flutter",
+        "Dart",
+        "Cubit",
+        "Clean Architecture",
+        "http package",
+        "get_it + injectable"
+       ],
+       "supporting": [
+        "TMDB REST API (third-party)",
+        "Hive (local store)",
+        "go_router",
+        "easy_localization",
+        "skeletonizer",
+        "cached_network_image"
+       ]
+      },
+      "backend": "No custom backend: the app consumes TMDB, a third-party public REST API, over the http package — popular, top rated, now playing, search, details and similar titles. Authentication is an API key, and it is currently committed to the repository; it needs rotating and moving to a build-time definition. Watchlist data is local rather than served: Hive stores it on the device.",
+      "role": "One of four developers, and repo owner. I wrote 92 percent of the home feature and about a third of the final codebase; search, details, the watchlist and the theme toggle are my teammates' work.",
+      "note": "A learning project built in five days by four developers. I owned the Home feature end to end and wrote about a third of the final codebase.",
+      "links": [
+       [
+        "Code",
+        "https://github.com/menna3lwan/movie_app"
+       ]
+      ],
+      "image": "img/movie-app-ui-concept.webp",
+      "detail": {
+       "overview": {
+        "purpose": "A movie browser on the public TMDB API: popular, top rated and now playing, with search, details, similar titles and a local watchlist.",
+        "users": "Anyone browsing films, in Arabic or English.",
+        "role": "One of four developers, and the repository owner. She wrote the Home feature end to end — API call, data source, repository, use case, state and UI — and about a third of the final codebase: search, details, the watchlist and the theme toggle were teammates' work.",
+        "status": "Working application against a third-party API. A learning project, built in five days.",
+        "timeline": "2026",
+        "platform": "Flutter, Android and iOS"
+       },
+       "scope": [
+        {
+         "title": "Her contribution",
+         "items": [
+          [
+           "The Home feature from the API call to the widget: three TMDB lists, each with its own data source, repository, use case and state",
+           "done"
+          ],
+          [
+           "A sealed result type the whole team adopted — success or failure, matched with Dart 3 patterns, so a forgotten case is a compile error",
+           "done"
+          ],
+          [
+           "The navigation shell: a go_router shell route for the bottom-nav tabs with the details screen pushed over the root navigator",
+           "done"
+          ]
+         ]
+        },
+        {
+         "title": "The wider app",
+         "items": [
+          [
+           "Search, details and similar titles",
+           "team"
+          ],
+          [
+           "Watchlist stored locally with Hive",
+           "team"
+          ],
+          [
+           "Theme toggle and Arabic/English localisation",
+           "team"
+          ]
+         ]
+        }
+       ],
+       "architecture": {
+        "intro": "Clean Architecture per feature with generated dependency injection. The data layer uses the http package rather than Dio — a deliberately smaller dependency for a read-only public API with no auth beyond a key, no interceptors and no refresh.",
+        "layers": [
+         {
+          "name": "Presentation",
+          "items": [
+           "A Cubit per feature over an immutable state",
+           "Skeleton loading while lists resolve",
+           "go_router shell for the tabs"
+          ]
+         },
+         {
+          "name": "Domain",
+          "items": [
+           "Use cases per list",
+           "Repository interfaces",
+           "Entities separate from TMDB response shapes"
+          ]
+         },
+         {
+          "name": "Data",
+          "items": [
+           "One data source per TMDB list",
+           "json_serializable models",
+           "Hive for the local watchlist"
+          ]
+         }
+        ],
+        "flow": {
+         "title": "Loading the home screen",
+         "steps": [
+          [
+           "Request",
+           "Three TMDB lists are requested independently over the http package."
+          ],
+          [
+           "Result",
+           "Each call returns a sealed result — success or failure."
+          ],
+          [
+           "State",
+           "Each list has its own slot in the Home state, so they resolve separately."
+          ],
+          [
+           "Render",
+           "Whichever lists arrived are rendered; a failed one shows its own message."
+          ],
+          [
+           "Detail",
+           "Opening a film pushes the details route over the root navigator, above the tab shell."
+          ]
+         ]
+        },
+        "decisions": [
+         "Use the http package rather than Dio: a read-only public API with a key needs no interceptors and no refresh.",
+         "Give each list its own slot in the state, so one failing request cannot blank the screen.",
+         "Return a sealed result from every call, so four developers working in parallel cannot forget a failure path."
+        ]
+       },
+       "challenges": [
+        {
+         "title": "One failing list blanking the whole screen",
+         "problem": "Home shows three independent TMDB lists. Loading them into a single state meant one failing request left the screen empty even though the other two had data.",
+         "constraint": "It had to stay one screen and one Cubit, not three nested ones.",
+         "approach": "Give each list its own slot in the Home state so they resolve independently, and render whichever have arrived.",
+         "implementation": "The Home Cubit holds three separate result slots rather than one combined list.",
+         "outcome": "A failing list no longer empties the home screen; the other two still render."
+        },
+        {
+         "title": "Errors that were easy to forget",
+         "problem": "Every call could fail, and nothing forced a developer to handle it — a missed failure path showed an empty list with no explanation.",
+         "constraint": "Four developers were working in parallel, so the rule had to be enforced by the compiler, not by review.",
+         "approach": "Return a sealed result type from every call and match on it with Dart 3 patterns, so a forgotten case fails the build.",
+         "implementation": "A sealed ApiResult adopted across the team's repositories and use cases.",
+         "outcome": "A forgotten error case is a compile error rather than a blank list at runtime."
+        },
+        {
+         "title": "Tabs that keep their place",
+         "problem": "Opening a film from a tab and coming back should return to where the user was, and the details screen should not sit inside the bottom navigation.",
+         "constraint": "Back navigation had to behave the same on both platforms.",
+         "approach": "Use a go_router shell route for the tabs and push details over the root navigator, so the shell state survives and details covers the bar.",
+         "implementation": "The shell route plus a root-level details route in the app router.",
+         "outcome": "Tab state survives opening and closing a film."
+        }
+       ],
+       "quality": {
+        "summary": "No automated tests — this was a five-day learning build. What it does demonstrate is architecture and team workflow: a sealed result type adopted by four developers, and a feature owned end to end through pull requests.",
+        "items": [
+         "Clean Architecture applied consistently across four contributors",
+         "A sealed result type enforced by the compiler",
+         "Pull-request workflow on a shared repository"
+        ]
+       },
+       "limits": [
+        "No automated tests.",
+        "A learning project built in five days, not a product."
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "id": "platform",
+    "label": "Backend & platform work",
+    "note": "Server-side work, standing on its own.",
+    "items": [
+     {
+      "id": "hen-lehen-backend",
+      "name": "Hen Lehen — API and backend",
+      "kicker": "Individually developed · 2026",
+      "accent": "#4A7C59",
+      "status": {
+       "text": "Backend built · not yet wired to the apps",
+       "tone": "info"
+      },
+      "summary": "The server side I designed and built for the Hen Lehen platform: a FastAPI service over PostgreSQL and Redis, covering nineteen areas from appointments and payments to WebSocket chat and an audit log.",
+      "highlights": [
+       "Nineteen endpoint modules and sixteen data models: patients, doctors, appointments, branches, chat, community, favourites, payments, reviews, specialties, medical records, notifications, devices, uploads and an admin dashboard.",
+       "Asynchronous throughout — async SQLAlchemy over asyncpg, Redis caching, Alembic migrations, JWT with hashed passwords, rate limiting, and real-time chat through a WebSocket manager.",
+       "Seventy-three tests covering chat, payments, security and database rules, and the WebSocket layer. I ran them: all seventy-three pass."
+      ],
+      "stack": {
+       "core": [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy (async)",
+        "PostgreSQL",
+        "Redis",
+        "Alembic"
+       ],
+       "supporting": [
+        "JWT (python-jose)",
+        "passlib / bcrypt",
+        "slowapi rate limiting",
+        "WebSocket chat",
+        "Pydantic v2",
+        "pytest",
+        "Docker Compose"
+       ]
+      },
+      "backend": "This is the backend. FastAPI on Python with async SQLAlchemy over PostgreSQL, Redis for caching and rate-limit state, and Alembic migrations. Authentication is JWT issued with python-jose and passwords hashed with passlib/bcrypt; slowapi applies rate limiting, and a WebSocket endpoint carries the consultation chat. Nineteen endpoint modules cover auth, patients, doctors, specialties, appointments, medical records, payments, chat, community, reviews, favourites, branches, notifications, devices, uploads and admin.",
+      "role": "Individually developed — all commits in the workspace repository are mine.",
+      "note": "It is not connected to the patient or doctor app yet, and I am not presenting those as backend-integrated. Wiring them is the next step, not a claim.",
+      "links": [
+       [
+        "Code",
+        "https://github.com/menna3lwan/hen_lhen/tree/backend-intgration"
+       ]
+      ],
+      "image": "img/hen-lehen-backend-ui-concept.webp",
+      "detail": {
+       "overview": {
+        "purpose": "The server behind both Hen Lehen applications: accounts, doctors and specialties, appointments, medical records, payments, chat, community and administration.",
+        "users": "The patient and doctor applications, and an administrator.",
+        "role": "Individually developed — designed, built, migrated and tested by her, on its own branch of the platform repository.",
+        "status": "Built, migrated and tested. Not yet called by the Flutter applications.",
+        "timeline": "2026",
+        "platform": "Python, FastAPI, Docker"
+       },
+       "scope": [
+        {
+         "title": "Domain",
+         "items": [
+          [
+           "Nineteen endpoint modules: auth, patients, doctors, specialties, appointments, medical records, payments, chat, community, reviews, favourites, branches, notifications, devices, uploads, health and admin",
+           "done"
+          ],
+          [
+           "Sixteen models with Alembic migrations",
+           "done"
+          ],
+          [
+           "Ten service modules holding the rules, separate from the routers",
+           "done"
+          ]
+         ]
+        },
+        {
+         "title": "Platform concerns",
+         "items": [
+          [
+           "JWT authentication with hashed passwords",
+           "done"
+          ],
+          [
+           "Rate limiting on the public surface",
+           "done"
+          ],
+          [
+           "Redis for caching and rate-limit state",
+           "done"
+          ],
+          [
+           "A WebSocket endpoint for consultation chat",
+           "done"
+          ],
+          [
+           "File uploads",
+           "done"
+          ],
+          [
+           "Docker Compose for the whole stack",
+           "done"
+          ]
+         ]
+        }
+       ],
+       "architecture": {
+        "intro": "FastAPI with async SQLAlchemy over PostgreSQL. Routers are thin: they validate with Pydantic and delegate to a service layer, so the rules live in one place and can be tested without an HTTP client. Schema changes go through Alembic rather than being applied by hand, so the database is reproducible from the repository.",
+        "layers": [
+         {
+          "name": "API",
+          "items": [
+           "Nineteen routers under /api/v1",
+           "Pydantic v2 request and response schemas",
+           "Dependency-injected database sessions"
+          ]
+         },
+         {
+          "name": "Services",
+          "items": [
+           "Ten service modules holding the business rules",
+           "Separate from the routers, so they are testable directly"
+          ]
+         },
+         {
+          "name": "Data",
+          "items": [
+           "Sixteen SQLAlchemy models",
+           "Async sessions over asyncpg",
+           "Alembic migrations"
+          ]
+         },
+         {
+          "name": "Platform",
+          "items": [
+           "python-jose for JWT, passlib and bcrypt for passwords",
+           "slowapi for rate limiting",
+           "Redis for cache and limiter state",
+           "WebSocket chat"
+          ]
+         }
+        ],
+        "flow": {
+         "title": "Booking an appointment, server side",
+         "steps": [
+          [
+           "Request",
+           "The appointment router receives the call and validates it with a Pydantic schema."
+          ],
+          [
+           "Auth",
+           "A JWT dependency resolves the caller; an unauthenticated request never reaches the rules."
+          ],
+          [
+           "Service",
+           "The appointment service applies the rules — availability, ownership, state transitions."
+          ],
+          [
+           "Data",
+           "Async SQLAlchemy writes through a session injected as a dependency."
+          ],
+          [
+           "Response",
+           "A typed response schema goes back; rate limiting guards the public surface."
+          ]
+         ]
+        },
+        "decisions": [
+         "Keep routers thin and put the rules in a service layer, so they can be tested without an HTTP client.",
+         "Put every schema change in an Alembic migration, so the database is reproducible from the repository.",
+         "Use a WebSocket for consultation chat rather than a polling route, because polling is wasteful on a mobile connection.",
+         "Hash passwords and rate-limit the public surface from the start, rather than adding both later."
+        ]
+       },
+       "challenges": [
+        {
+         "title": "Two different clients, one set of rules",
+         "problem": "Patients and doctors see the same appointments from opposite sides, and the rules about who may read or change what cannot live in either app.",
+         "constraint": "Neither client can be trusted to enforce authorisation.",
+         "approach": "Keep every rule in the service layer behind authenticated endpoints, so both applications get the same answer and neither decides what it is allowed to see.",
+         "implementation": "Service modules separate from routers, with JWT-authenticated dependencies on the appointment, record and payment endpoints.",
+         "outcome": "Both applications get the same authorisation answer, because neither decides what it may see."
+        },
+        {
+         "title": "A chat that cannot be polling",
+         "problem": "A consultation needs messages to arrive as they are sent; polling would be both slow and wasteful on a mobile connection.",
+         "constraint": "It had to sit inside the same authentication model as the REST surface.",
+         "approach": "Add a WebSocket endpoint for the consultation room rather than a polling route.",
+         "implementation": "A chat endpoint module carrying the socket connection, alongside the REST routers.",
+         "outcome": "The whole stack comes up from a Compose file on a clean machine."
+        },
+        {
+         "title": "A database that can be rebuilt",
+         "problem": "Schema changes applied by hand make an environment that only works on the machine it was built on.",
+         "constraint": "The stack had to come up from scratch for anyone cloning the repository.",
+         "approach": "Put every schema change in a migration and ship a Compose file that brings up PostgreSQL, Redis and the API together.",
+         "implementation": "Alembic migrations plus docker-compose.yml and a Dockerfile in the backend directory.",
+         "outcome": "73 tests cover the endpoints and the service rules, and all pass."
+        }
+       ],
+       "quality": {
+        "summary": "73 pytest functions across 7 files, covering the endpoints and the service rules. The suite was run during the audit and all 73 passed. Configuration is read from the environment rather than committed.",
+        "items": [
+         "73 pytest functions, all passing when run",
+         "Service layer testable without an HTTP client",
+         "Alembic migrations, so the schema is reproducible",
+         "Rate limiting and hashed passwords on the public surface"
+        ]
+       },
+       "limits": [
+        "The Flutter applications do not call this API yet — the client and repository exist on their integration branches, but the request is still commented out.",
+        "It lives on its own branch of the platform repository rather than on the default branch.",
+        "No deployment: the Compose file is for local development."
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "education": {
+  "label": "Education",
+  "title": "Where the fundamentals come from",
+  "degree": "B.Sc. Computer Science & Artificial Intelligence",
+  "school": "Benha University",
+  "when": "2022 – 2026",
+  "start": "2022-08",
+  "end": "2026",
+  "endPrecision": "year",
+  "points": [
+   "Computer Science and Artificial Intelligence, with coursework and team projects in coding, testing and debugging.",
+   "Ranked 7th nationwide in the Mobile Development track of the Digital Egypt Pioneers Initiative (Dec 2024).",
+   "Participated in the Egyptian Collegiate Programming Contest (2023)."
+  ]
+ },
+ "architecture": {
+  "label": "Architecture",
+  "title": "How a request travels",
+  "intro": "The same question for every app I build: where does state live, who is allowed to talk to the network, and what happens when the answer is an error. Pick a project to follow one request through its real layers.",
+  "note": "Each path is read from that repository, including the one that does not reach a server yet.",
+  "failLabel": "When it fails",
+  "flows": [
+   {
+    "id": "flower-app",
+    "project": "Flowrist",
+    "chips": [
+     "BLoC",
+     "Dio + Retrofit",
+     "Refresh coordinator"
+    ],
+    "layers": [
+     [
+      "Widget",
+      "A screen renders state and dispatches events — no data access of its own."
+     ],
+     [
+      "BLoC / Cubit",
+      "One view-model per feature over an immutable freezed state."
+     ],
+     [
+      "Use case",
+      "One operation each, testable without Flutter."
+     ],
+     [
+      "Repository",
+      "An interface owned by the feature; the implementation chooses the data source."
+     ],
+     [
+      "Retrofit client",
+      "One per feature. Twenty-five typed routes across six services."
+     ],
+     [
+      "API gateway",
+      "Identity, catalog, address-cart, orders and payments behind one gateway, with Stripe and FCM alongside."
+     ]
+    ],
+    "fail": "A 401 is handled in one place. The interceptor asks the refresh coordinator, which serialises concurrent callers onto a single refresh and replays the waiting requests with the new token — so an expired session does not become five competing refreshes and a forced logout. Routing calls use a separately named Dio instance, so a failure from the open routing service can never be mistaken for an authentication failure."
+   },
+   {
+    "id": "tracking-app",
+    "project": "Tracking App",
+    "chips": [
+     "BLoC",
+     "Retrofit",
+     "Token refresh"
+    ],
+    "layers": [
+     [
+      "Widget",
+      "The driver screen sends an event and renders whatever state comes back."
+     ],
+     [
+      "Bloc",
+      "One bloc per feature: application, sign-in, location."
+     ],
+     [
+      "Use case",
+      "Thin, so the rule being tested is the only thing in the test."
+     ],
+     [
+      "Repository",
+      "Split by concern — identity and orders are different clients, not one god service."
+     ],
+     [
+      "Retrofit clients",
+      "Nine endpoints, including the driver application as a multipart upload with licence and ID images."
+     ],
+     [
+      "REST backend",
+      "Base URL read from an environment file, never committed. Route geometry comes from OSRM, a third-party service."
+     ]
+    ],
+    "fail": "A 401 does not reach the screen. An interceptor refreshes the bearer token, replays the original request once, and only surfaces an error if the retry also fails — so a driver mid-delivery is not thrown back to the login screen."
+   },
+   {
+    "id": "mentorx-student",
+    "project": "MentorX",
+    "chips": [
+     "BLoC",
+     "Repository packages",
+     "Mock twins"
+    ],
+    "layers": [
+     [
+      "Widget",
+      "Student and parent apps are separate, but both render from the same shared UI package."
+     ],
+     [
+      "Bloc",
+      "Per feature, with bloc_presentation for one-off effects and bloc_concurrency on the parent side."
+     ],
+     [
+      "Repository package",
+      "Each domain is its own package with two implementations behind one interface: Dio and a mock."
+     ],
+     [
+      "Shared HTTP client",
+      "One client for both apps. Interceptors attach the token, device id and locale."
+     ],
+     [
+      "EduCore API",
+      "Twenty domains for the student app, fifteen for the parent app, against one REST service."
+     ]
+    ],
+    "fail": "An expired token is refreshed inside the interceptor before the call is replayed, so neither app has to know the session ended. Because every repository has a mock twin behind the same interface, a feature can be finished and tested before its endpoint exists."
+   },
+   {
+    "id": "elevate-exams",
+    "project": "Elevate Online Exams",
+    "chips": [
+     "Cubit",
+     "Dio",
+     "Session expiry"
+    ],
+    "layers": [
+     [
+      "Widget",
+      "The exam screen owns no timing logic — it renders the session state."
+     ],
+     [
+      "Cubit",
+      "A timed exam engine that auto-submits on timeout and asks before the student leaves."
+     ],
+     [
+      "Use case",
+      "Start, answer, submit, review — one each."
+     ],
+     [
+      "Repository",
+      "Interfaces in the domain layer, Dio implementations behind them."
+     ],
+     [
+      "Dio + interceptors",
+      "Four: bearer token, logging, error shaping, and session expiry."
+     ],
+     [
+      "Elevate API",
+      "Their service, provided with the brief. Eleven routes wired against the documented collection."
+     ]
+    ],
+    "fail": "Expiry is detected from a real 401 rather than by decoding the token on the device, so the client and the server never disagree about whether a session is alive. Several failing requests at once log the student out exactly once, not once per request."
+   },
+   {
+    "id": "hen-lehen-patient",
+    "project": "Hen Lehen",
+    "chips": [
+     "Provider",
+     "FastAPI",
+     "Not yet wired"
+    ],
+    "layers": [
+     [
+      "Widget",
+      "Arabic-first: the layout is wrapped in Directionality and driven by a locale provider written by hand."
+     ],
+     [
+      "ChangeNotifier",
+      "Provider holds session, booking and locale state across 23 screens."
+     ],
+     [
+      "Repository",
+      "AuthRepository exists on the integration branch, with the Dio client injected."
+     ],
+     [
+      "ApiClient",
+      "Configured with the base URL and a request interceptor — but the call inside the repository is still commented out."
+     ],
+     [
+      "In-memory data",
+      "So this is where the request stops today. The screens read a mock data set."
+     ],
+     [
+      "FastAPI backend",
+      "Built, migrated and tested — 19 endpoint modules, 16 models, 73 passing tests — and waiting to be called."
+     ]
+    ],
+    "fail": "The honest state of this one: the backend is real and the client is in place, but no request is sent yet. Connecting them is the next piece of work, and this section says so rather than drawing a call that does not happen."
+   }
+  ]
+ }
+}
