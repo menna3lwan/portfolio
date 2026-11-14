@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<title>CV viewer</title>
+<!-- Embedded PDF viewer for the portfolio's /cv page. Renders the real PDF with a self-hosted
+     copy of PDF.js (vendor/pdfjs, legacy build for Safari 18+ / Chrome 125+). The host page owns
+     the toolbar and talks to this document with postMessage; see viewer.js for the protocol. -->
+<script>
+  // Paint the right background before anything loads (theme comes from the host via ?theme=).
+  (function () {
+    var q = new URLSearchParams(location.search), t = q.get('theme'), d = q.get('dir');
+    if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+    if (d === 'rtl') document.documentElement.dir = 'rtl';
+    // Browsers that cannot run ES modules + workers never reach viewer.js; tell the host so it
+    // can switch to the download fallback instead of waiting for a timeout.
+    var ok = 'noModule' in HTMLScriptElement.prototype && 'Worker' in window && 'IntersectionObserver' in window;
+    if (!ok && window.parent !== window) {
+      try { window.parent.postMessage({ source: 'cv-viewer', type: 'unsupported' }, location.origin); } catch (e) {}
+    }
+  })();
+</script>
+<link rel="stylesheet" href="viewer.css">
+<script type="module" src="viewer.js" onerror="window.parent!==window&&window.parent.postMessage({source:'cv-viewer',type:'error',reason:'script'},location.origin)"></script>
+</head>
+<body>
+  <div id="scroller" class="scroller" tabindex="0" role="region" aria-label="CV">
+    <div id="pages" class="pages">
+      <div class="page skeleton" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div id="print" class="print" aria-hidden="true"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* Stage + paper. Tokens mirror the portfolio palette ("Porcelain & Nile"); pages stay white in
+   both themes because they are the document itself. */
+:root {
+  --stage: #E6EAE8; --paper: #FFFFFF; --edge: rgba(19, 23, 22, .10);
+  --shadow: 0 1px 2px rgba(19, 23, 22, .08), 0 12px 32px -16px rgba(19, 23, 22, .35);
+  --sk: #EEF1EF; --sk-hi: #F7F9F8; --focus: #0F5C55; --link-hover: rgba(15, 92, 85, .14);
+  --gap: 16px; --pad: 12px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --stage: #080B0A; --edge: rgba(232, 238, 236, .10);
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 18px 40px -18px rgba(0, 0, 0, .9);
+    --sk: #1A2120; --sk-hi: #232C2A; --focus: #6CC7BA; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --stage: #080B0A; --edge: rgba(232, 238, 236, .10);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 18px 40px -18px rgba(0, 0, 0, .9);
+  --sk: #1A2120; --sk-hi: #232C2A; --focus: #6CC7BA; color-scheme: dark;
+}
+@media (min-width: 600px) { :root { --gap: 24px; --pad: 24px; } }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--stage); overflow: hidden; }
+.scroller {
+  position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; outline: none;
+}
+.scroller:focus-visible { box-shadow: inset 0 0 0 2px var(--focus); }
+/* width:max-content + min-width:100% keeps narrow pages centred and lets zoomed pages scroll
+   horizontally inside the viewer instead of overflowing the host page. */
+.pages {
+  display: flex; flex-direction: column; align-items: center; gap: var(--gap);
+  padding: var(--pad); width: max-content; min-width: 100%; transform-origin: 0 0;
+}
+.page {
+  position: relative; flex: none; background: var(--paper); box-shadow: var(--shadow);
+  outline: 1px solid var(--edge); direction: ltr; --scale-round-x: 1px; --scale-round-y: 1px;
+}
+.page canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.page .links { position: absolute; inset: 0; z-index: 2; }
+.page .links a { position: absolute; display: block; border-radius: 2px; }
+.page .links a:hover { background: var(--link-hover); }
+.page .links a:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+/* Loading skeleton: one A4 sheet with text-like bars. */
+.skeleton { width: min(793px, calc(100vw - 2 * var(--pad))); aspect-ratio: 595 / 842; padding: 8% 9%; display: grid; align-content: start; gap: 2.2%; background: var(--paper); }
+:root[data-theme="dark"] .skeleton { background: var(--sk); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .skeleton { background: var(--sk); } }
+.skeleton i { display: block; height: 1.6%; min-height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--sk) 0%, var(--sk-hi) 50%, var(--sk) 100%) 0 0 / 200% 100%; animation: sk 1.4s linear infinite; }
+:root[data-theme="dark"] .skeleton i { background-color: var(--sk-hi); }
+.skeleton i:nth-child(1) { width: 46%; height: 3.2%; margin-bottom: 2%; }
+.skeleton i:nth-child(2) { width: 70%; } .skeleton i:nth-child(3) { width: 92%; } .skeleton i:nth-child(4) { width: 84%; }
+.skeleton i:nth-child(5) { width: 40%; margin-top: 4%; height: 2.2%; } .skeleton i:nth-child(6) { width: 88%; }
+@keyframes sk { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton i { animation: none; } }
+
+/* Text layer (selectable / screen-reader text), flattened from pdfjs-dist web/pdf_viewer.css. */
+.textLayer { position: absolute; text-align: initial; inset: 0; overflow: clip; opacity: 1; line-height: 1; letter-spacing: normal; word-spacing: normal; -webkit-text-size-adjust: none; text-size-adjust: none; forced-color-adjust: none; transform-origin: 0 0; caret-color: CanvasText; z-index: 1;
+  --min-font-size: 1; --text-scale-factor: calc(var(--total-scale-factor) * var(--min-font-size)); --min-font-size-inv: calc(1 / var(--min-font-size)); }
+.textLayer span, .textLayer br { color: transparent; position: absolute; white-space: pre; cursor: text; transform-origin: 0% 0%; -webkit-user-select: text; user-select: text; }
+.textLayer > :not(.markedContent), .textLayer .markedContent span:not(.markedContent) { z-index: 1; --font-height: 0; font-size: calc(var(--text-scale-factor) * var(--font-height)); --scale-x: 1; --rotate: 0deg; transform: rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv)); }
+.textLayer .markedContent { display: contents; }
+.textLayer ::selection { background: rgba(15, 92, 85, .28); color: transparent; }
+.textLayer br::selection { background: transparent; }
+.textLayer .endOfContent { display: block; position: absolute; inset: 100% 0 0; z-index: 0; cursor: default; -webkit-user-select: none; user-select: none; }
+.textLayer.selecting .endOfContent { top: 0; }
+
+/* Print: only the high-resolution page images, one per A4 sheet. */
+.print { display: none; }
+@page { size: A4; margin: 0; }
+@media print {
+  html, body { height: auto; overflow: visible; background: #fff; }
+  .scroller { display: none; }
+  .print { display: block; }
+  .print img { display: block; width: 100%; height: auto; break-after: page; page-break-after: always; }
+  .print img:last-child { break-after: auto; page-break-after: auto; }
+}
