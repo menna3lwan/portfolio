@@ -4,11 +4,17 @@ The production portfolio: React + TypeScript + Vite.
 
 ```bash
 npm install
-npm run dev        # http://localhost:5181
-npm run verify     # typecheck -> lint -> tests -> production build
-npm run build      # -> dist/
-npm run preview    # serve dist/
+npm run dev            # http://localhost:5181
+npm run verify         # typecheck -> lint -> tests -> production build
+npm run build          # -> dist/  (the deployable artefact)
+npm run preview        # serve dist/
+npm run build:preview  # hash-routed variant, for hosts that cannot rewrite paths
 ```
+
+Deploying: see **[DEPLOYMENT.md](./DEPLOYMENT.md)**. The one value the build needs is
+`VITE_SITE_URL`, set in the hosting platform's environment — canonical URLs, `og:url`,
+the social card and `sitemap.xml` are all derived from it, and are omitted rather than
+guessed when it is absent.
 
 ## How it is organised
 
@@ -33,14 +39,44 @@ npm run preview    # serve dist/
 
 `npm test` enforces several of these directly.
 
-## Routing
+## Routing and SEO
 
-Hash-based (`#/`, `#/work/:id`, `#/cv`), so every route is deep-linkable from any static host with
-no server configuration. On a host that can rewrite paths, swap `HashRouter` for `BrowserRouter`
-in `src/App.tsx`.
+Real paths: `/`, `/work/:id`, `/cv`. The build writes a static document for each one,
+carrying that route's own title, description, canonical URL and social tags — social
+scrapers do not run JavaScript, so a head set by React is invisible to them. A rewrite
+catches unknown paths, and `404.html` covers hosts that can do neither.
+
+`scripts/routes.mjs` generates those documents and the sitemap. It carries its own copy
+of the title and description formulas because it cannot import the application's
+TypeScript; `src/test/seo.test.ts` imports both and asserts they agree.
+
+There is no `hreflang`: both languages are served from the same URL and switched in the
+page, so there is no alternate address to point at. The pair is declared through
+`og:locale` / `og:locale:alternate`, and `<html lang>` and `dir` follow the choice.
 
 ## The CV viewer
 
 `public/cv-viewer/` is a self-contained PDF.js build loaded in an iframe and driven over
 `postMessage`. `pdf.worker.min.js` is the real worker; `pdf.worker.min.js.b64` is the fallback the
 viewer decodes on hosts that will not serve the raw file.
+
+## Performance notes
+
+- The four font families are **self-hosted**. From Google's CDN they cost a DNS lookup, a
+  TLS handshake and a render-blocking stylesheet on a third origin before a single glyph
+  could be requested. All four are SIL OFL; see `src/assets/fonts/OFL.txt`.
+- **Arabic content is a separate chunk.** Both languages together are 292 kB of JSON;
+  English is bundled, Arabic is fetched the first time it is actually asked for.
+- Images carry `srcset` at the widths their boxes actually request. Regenerate with
+  `python3 scripts/make-image-variants.py` after changing a source image.
+- Fonts are never inlined as `data:` URIs — it would inflate the render-blocking
+  stylesheet, defeat caching, and force `data:` into the page's `font-src`.
+
+Measured with Lighthouse on the production build: **100 / 100 / 100 / 100** on desktop,
+**92 / 100 / 100 / 100** on throttled mobile.
+
+## History
+
+Version control was introduced after the implementation was complete, so the twelve
+commits on `main` group the work by concern rather than recording it as it happened.
+Everything from this point is recorded normally.
