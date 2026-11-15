@@ -141,5 +141,46 @@ describe('stated facts', () => {
     const elevate = getContent(lang).experience.items.find((item) => /Elevate/i.test(item.org));
     expect(elevate).toBeDefined();
     expect(elevate!.when).toBe(lang === 'ar' ? 'يونيو 2026 – حتى الآن' : 'Jun 2026 – Present');
+    // stated by Menna, so no longer "inferred from project activity"
+    expect(elevate).not.toHaveProperty('dateNote');
+    expect(elevate!.start).toBe('2026-06');
+    expect(elevate!.end).toBeNull();
+  });
+});
+
+/**
+ * The chapter is ordered reverse-chronologically by END date, ongoing first, with ties
+ * broken by the later start. The rule was always there; it was only ever broken once, by
+ * a date correction that moved an entry's end into the future without moving the entry.
+ * This case is what would have caught that.
+ */
+describe('the experience chapter order', () => {
+  /** `null` is ongoing, which sorts above every real date. */
+  const key = (value: string | null | undefined): string => value ?? '9999-99';
+
+  it.each(LANGS)('runs newest-ended first in %s', (lang) => {
+    const items = getContent(lang).experience.items;
+    for (let i = 1; i < items.length; i += 1) {
+      const previous = items[i - 1]!;
+      const current = items[i]!;
+      const [a, b] = [key(previous.end), key(current.end)];
+      const ordered = a > b || (a === b && key(previous.start) >= key(current.start));
+      expect(
+        ordered,
+        `${previous.org} (ends ${a}) should not precede ${current.org} (ends ${b})`,
+      ).toBe(true);
+    }
+  });
+
+  it.each(LANGS)('leads with the one ongoing engagement in %s', (lang) => {
+    const items = getContent(lang).experience.items;
+    expect(items[0]!.end).toBeNull();
+    expect(items.filter((item) => item.end === null)).toHaveLength(1);
+  });
+
+  it('keeps both languages in the same order', () => {
+    const orgs = (lang: (typeof LANGS)[number]) =>
+      getContent(lang).experience.items.map((item) => `${item.start}|${item.end}`);
+    expect(orgs('ar')).toEqual(orgs('en'));
   });
 });

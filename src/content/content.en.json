@@ -1634,6 +1634,26 @@
   "title": "A journey, one milestone at a time",
   "items": [
    {
+    "role": "Advanced Flutter Development — Internship Course",
+    "org": "Elevate",
+    "when": "Jun 2026 – Present",
+    "type": "Training program",
+    "points": [
+     "Built the Elevate Online Exams Flutter client against the provider’s REST API, Figma designs and Postman collection.",
+     "Covered the full exam lifecycle: authentication with session expiry, timed exams, results and profile management."
+    ],
+    "start": "2026-06",
+    "end": null,
+    "kind": "training",
+    "skills": [
+     "Flutter",
+     "Dart",
+     "REST APIs",
+     "Dio",
+     "Unit testing"
+    ]
+   },
+   {
     "role": "Flutter Developer",
     "org": "XPER ERP",
     "when": "Jan 2026 – Oct 2026",
@@ -1655,27 +1675,6 @@
      "Azure DevOps"
     ],
     "evidence": "commits"
-   },
-   {
-    "role": "Advanced Flutter Development — Internship Course",
-    "org": "Elevate",
-    "when": "Jun 2026 – Present",
-    "type": "Training program",
-    "points": [
-     "Built the Elevate Online Exams Flutter client against the provider’s REST API, Figma designs and Postman collection.",
-     "Covered the full exam lifecycle: authentication with session expiry, timed exams, results and profile management."
-    ],
-    "start": "2026-07",
-    "end": "2026-08",
-    "kind": "training",
-    "skills": [
-     "Flutter",
-     "Dart",
-     "REST APIs",
-     "Dio",
-     "Unit testing"
-    ],
-    "dateNote": "Dates inferred from project activity"
    },
    {
     "role": "Flutter Developer Intern",

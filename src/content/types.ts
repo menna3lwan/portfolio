@@ -117,7 +117,9 @@ export interface ExperienceItem {
   readonly points?: readonly string[];
   readonly skills?: readonly string[];
   readonly start?: string;
-  readonly end?: string;
+  /** `null` is deliberate and means the engagement is ongoing — distinct from the field
+   *  being absent, which would mean the date is simply not recorded. */
+  readonly end?: string | null;
   readonly kind?: string;
   readonly evidence?: unknown;
 }
