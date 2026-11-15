@@ -26,8 +26,15 @@ function CopyEmailButton({ email }: { email: string }) {
   }, [email]);
 
   return (
-    <button type="button" className="contact__copy" onClick={onCopy}>
-      <Icon name="copy" />
+    <button
+      type="button"
+      className={`contact__copy${copied ? ' is-done' : ''}`}
+      onClick={onCopy}
+      aria-label={copied ? t.copied : t.copy}
+    >
+      {/* The glyph is the confirmation: the label changes too, but a tick landing where
+          the copy icon was is read before any word is. */}
+      <Icon name={copied ? 'check' : 'copy'} />
       <span aria-live="polite">{copied ? t.copied : t.copy}</span>
     </button>
   );

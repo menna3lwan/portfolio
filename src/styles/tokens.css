@@ -42,11 +42,34 @@
     --bar-h: 64px;
     --tool-h: 52px;
 
+    /* --- the motion scale -------------------------------------------------
+       Four durations and three curves, and nothing outside this block names a
+       time or a curve of its own. The point is that two unrelated elements
+       answering the pointer feel like the same interface rather than two.
+
+       --ease-out  entrances: fast out of the gate, long settle. Reads as the
+                   element arriving rather than being pushed.
+       --ease      exits and colour: quick and even. A hover should leave
+                   promptly; a slow exit feels sticky.
+       --ease-soft reveals: gentler still, for the one motion a reader watches
+                   rather than causes. */
     --ease: cubic-bezier(0.2, 0, 0, 1);
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --fast: 150ms;
-    --base: 240ms;
-    --slow: 520ms;
+    --ease-soft: cubic-bezier(0.22, 0.61, 0.24, 1);
+    --fast: 140ms; /* the acknowledgement: colour, opacity, a press */
+    --base: 220ms; /* the gesture: a lift, a sweep, a fold opening */
+    --slow: 420ms; /* the deliberate: a drawn rule, a crossfade */
+    --reveal: 560ms; /* the entrance, which is watched, not caused */
+
+    /* Stagger steps. Capped in the stylesheet rather than left to the index, so
+       a list of twenty does not take two seconds to arrive. */
+    --step-block: 45ms; /* between sibling blocks */
+    --step-item: 26ms; /* between items inside one block */
+
+    /* Effect intensities, named so "calmer" is one edit rather than twenty. */
+    --lift-card: -2px;
+    --lift-small: -1px;
+    --shadow-raised: 0 18px 36px -28px rgb(27 22 20 / 30%);
 
     color-scheme: light;
   }
@@ -72,8 +95,10 @@
       --red: #ff7a4f;
       --red-text: #ff9270;
       --link: #ff9270;
-      --link-soft: rgba(255, 122, 79, 0.14);
+      --link-soft: rgba(255, 122, 79, 0.1);
       --code-bg: #0e0b0a;
+      /* a shadow on a near-black surface reads as a halo; keep it barely there */
+      --shadow-raised: 0 18px 36px -30px rgb(0 0 0 / 55%);
       color-scheme: dark;
     }
   }
@@ -90,8 +115,9 @@
     --red: #ff7a4f;
     --red-text: #ff9270;
     --link: #ff9270;
-    --link-soft: rgba(255, 122, 79, 0.14);
+    --link-soft: rgba(255, 122, 79, 0.1);
     --code-bg: #0e0b0a;
+    --shadow-raised: 0 18px 36px -30px rgb(0 0 0 / 55%);
     color-scheme: dark;
   }
 }

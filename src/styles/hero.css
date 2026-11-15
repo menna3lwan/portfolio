@@ -320,25 +320,16 @@
 
   /* the photograph answers the pointer: a slightly tighter crop and a warmer frame */
   @media (hover: hover) and (pointer: fine) {
+    /* Two changes, not five. The crop tightening is the one that reads as the
+       photograph responding; warming the frame says it is a single object. The
+       marks used to recolour and the corners to turn yellow at the same time,
+       which made a portrait hover the loudest event on the page. */
     .hero__portrait:hover .hero__arch {
       border-color: var(--red-text);
-      box-shadow: 0 24px 48px -30px rgba(27, 22, 20, 0.45);
     }
 
     .hero__portrait:hover .hero__arch img {
-      transform: scale(1.46);
-    }
-
-    .hero__portrait:hover .mark {
-      color: var(--red-text);
-    }
-
-    .hero__portrait:hover .mark--chip {
-      color: #1b1614;
-    }
-
-    .hero__portrait:hover .mark__corner {
-      border-color: var(--brand-yellow);
+      transform: scale(1.43);
     }
   }
 

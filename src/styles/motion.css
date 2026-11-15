@@ -1,150 +1,196 @@
 /* =============================================================================
-   Motion: reveal variants, per-child stagger, and the reduced-motion opt-out that
-   switches every one of them off.
+   Motion: how things arrive.
+
+   The governing rule is that a reader should be able to name what just moved. An
+   entering card used to start thirty-three animations at once — five stat cells, three
+   key wins, nineteen stack chips and fourteen scope lines, each on its own delay — which
+   is not an entrance, it is a shimmer. The card is now the thing that arrives, and only
+   two families of children stagger inside it:
+
+     · the stat cells, because they are a row the eye reads across
+     · the key wins, because they are the card's argument
+
+   Chips and scope lines arrive with the block that holds them. There are up to nineteen
+   chips in one card, and nineteen things sliding a few pixels is noise whatever the
+   delay between them. Scope lines live inside a fold the reader has just opened, and the
+   fold already has its own entrance — animating them again is the same event twice.
    ========================================================================== */
 @layer motion {
+  /* --- the block reveal --------------------------------------------------
+     10px rather than the 14 it was: far enough to read as arriving, near enough
+     that a column of cards does not look like it is sliding. */
   .rv {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translate3d(0, 10px, 0);
     transition:
-      opacity var(--slow) var(--ease-out),
-      transform var(--slow) var(--ease-out);
-    transition-delay: calc(var(--i, 0) * 55ms);
+      opacity var(--reveal) var(--ease-soft),
+      transform var(--reveal) var(--ease-soft);
+    transition-delay: calc(min(var(--i, 0), 4) * var(--step-block));
+    will-change: opacity, transform;
   }
 
   .rv.is-in {
     opacity: 1;
     transform: none;
+    will-change: auto;
   }
 
-  /* reveal variants, so sections do not all arrive the same way */
+  /* Variants, so sections do not all arrive the same way. Two is enough: a longer
+     rise for a section that opens a chapter, and a wipe for the display titles,
+     where the type itself is the subject. */
   .rv--rise {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-
-  .rv--rise.is-in {
-    opacity: 1;
-    transform: none;
+    transform: translate3d(0, 18px, 0);
   }
 
   .rv--wipe > * {
     clip-path: inset(0 0 102% 0);
-    transition: clip-path var(--slow) var(--ease-out);
+    transition: clip-path var(--reveal) var(--ease-soft);
   }
 
   .rv--wipe.is-in > * {
     clip-path: inset(0 0 -10% 0);
   }
 
-  /* list children stagger off their own index — scoped to a revealed block, so items
-     animate when their card arrives rather than all at once on load */
+  /* --- the two families that stagger -------------------------------------
+     Capped at six steps: a longer list finishes arriving with its last few
+     together, which is much better than a reader waiting out a queue. */
   .is-in .win-list > li,
-  .is-in .scope__item,
-  .is-in .chip-list > li,
   .is-in .stat-grid > .stat {
     animation: itemIn var(--base) var(--ease-out) both;
-    animation-delay: calc(var(--n, 0) * 34ms);
+    animation-delay: calc(min(var(--n, 0), 6) * var(--step-item));
   }
 
   @keyframes itemIn {
     from {
       opacity: 0;
-      transform: translateY(8px);
+      transform: translate3d(0, 6px, 0);
     }
+  }
 
-    to {
-      opacity: 1;
-      transform: none;
-    }
+  /* --- scroll-linked drift ------------------------------------------------
+     Only the hero keeps it. Nine preview images drifting as the page scrolled was
+     movement nobody asked for in the one place a reader is trying to look at a
+     screenshot; the transform stays declared so the frame stays composited, but the
+     factor is now zero everywhere except the portrait group. */
+  [data-par] {
+    transform: translate3d(0, var(--par, 0px), 0);
   }
 }
 
-/* The reduced-motion contract. It is deliberately the last layer and uses !important for
-   the blanket rules, so no later component rule can reintroduce movement. */
+/* =============================================================================
+   The reduced-motion contract.
+
+   Deliberately the last thing in the stylesheet and deliberately blunt: no later rule
+   can reintroduce movement. Everything still renders, in its final state — content is
+   never hidden behind an animation that will not play.
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .progress {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
   }
 
+  /* anything that parks an element away from its resting position is undone */
+  .rv,
+  .rv--rise {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .rv--wipe > * {
+    clip-path: none !important;
+  }
+
+  [data-par],
+  .mark,
+  .mark__corner,
   .hero__arch,
   .stage__shot {
     transform: none !important;
   }
 
-  .mark,
-  .mark__corner {
-    transform: none;
-  }
-
-  .hero__portrait:hover .hero__arch img {
-    transform: scale(1.38);
-  }
-
-  .card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .card::before {
-    display: none;
-  }
-
-  .chip:hover,
-  .btn:hover,
-  .social__link:hover,
-  .btn:hover svg,
-  .social__link:hover svg,
-  .icon-btn:hover svg,
-  .icon-btn:hover span,
-  .stage__body:hover,
-  .disclosure > summary:hover .disclosure__title {
-    transform: none;
-  }
-
-  .card::after,
-  .btn::before,
-  .facet::before,
-  .link::after,
-  .site-header__brand::after,
-  .contact__email-row::after,
-  .exp__company a::after {
-    transition: none;
-  }
-
-  .stage__body:hover .stage__shot.is-on {
-    transform: none;
-  }
-
-  .btn--solid:hover {
-    filter: none;
-  }
-
   .title__rule {
-    transition: none;
-    transform: scaleX(1);
+    transform: scaleX(1) !important;
   }
 
   .section-head--split .title__small,
   .section-head--split .title__big {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .rv {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /* hover still responds — in colour, which costs nothing and tells the reader the
+     thing is interactive — but nothing moves */
+  .card:hover,
+  .chip:hover,
+  .btn:hover,
+  .social__link:hover,
+  .icon-btn:hover,
+  .stage__body:hover,
+  .btn:hover svg,
+  .social__link:hover svg,
+  .icon-btn:hover svg,
+  .disclosure > summary:hover .disclosure__title {
+    transform: none !important;
+  }
+
+  .card:hover {
+    box-shadow: none !important;
+  }
+
+  .btn--solid:hover {
+    filter: none !important;
+  }
+}
+
+/* =============================================================================
+   View transitions: the theme and language cross-fades.
+
+   The browser snapshots the page, the change is applied, and the two are dissolved
+   together. Opacity only — nothing slides, because a whole page sliding to change a
+   colour would be precisely the kind of flourish this pass exists to remove.
+   ========================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
+  animation-timing-function: var(--ease-soft);
+  mix-blend-mode: normal;
+}
+
+/* The incoming page is drawn over the outgoing one rather than both fading through a
+   transparent middle, which would flash the browser's own backdrop between themes. */
+::view-transition-old(root) {
+  animation-name: vtOut;
+}
+
+::view-transition-new(root) {
+  animation-name: vtIn;
+}
+
+@keyframes vtOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vtIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }

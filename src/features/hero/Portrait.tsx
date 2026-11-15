@@ -6,11 +6,13 @@ import { asset } from '@/site.config';
 
 /** The marks composed around the frame. Each carries its own parallax factor, and none
  *  of them makes a claim — they are software punctuation, not credentials. */
+/* The drift factors are roughly half what they were. The group should read as having
+   depth when the page moves, not as parts travelling at different speeds. */
 const MARKS = [
-  { className: 'mark mark--angle mono', par: 22, text: '</>' },
-  { className: 'mark mark--brace mono', par: -18, text: '{ }' },
-  { className: 'mark mark--chip mono', par: 26, text: 'Flutter' },
-  { className: 'mark mark--semi mono', par: -14, text: 'Dart;' },
+  { className: 'mark mark--angle mono', par: 11, text: '</>' },
+  { className: 'mark mark--brace mono', par: -9, text: '{ }' },
+  { className: 'mark mark--chip mono', par: 13, text: 'Flutter' },
+  { className: 'mark mark--semi mono', par: -7, text: 'Dart;' },
 ] as const;
 
 /**
@@ -39,7 +41,7 @@ export function Portrait() {
       className={`hero__portrait rv${isIn ? ' is-in' : ''}`}
       style={{ '--i': 2 } as React.CSSProperties}
     >
-      <div className="hero__arch" data-par="14">
+      <div className="hero__arch" data-par="7">
         <img
           src={asset('img/portrait-grad.webp')}
           srcSet={
@@ -61,8 +63,8 @@ export function Portrait() {
           {mark.text}
         </span>
       ))}
-      <i className="mark__corner mark__corner--tl" data-par="10" aria-hidden="true" />
-      <i className="mark__corner mark__corner--br" data-par="-10" aria-hidden="true" />
+      <i className="mark__corner mark__corner--tl" data-par="5" aria-hidden="true" />
+      <i className="mark__corner mark__corner--br" data-par="-5" aria-hidden="true" />
     </figure>
   );
 }

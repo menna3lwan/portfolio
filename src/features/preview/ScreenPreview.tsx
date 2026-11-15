@@ -52,7 +52,6 @@ export function ScreenPreview({ shots, name, eager = false }: ScreenPreviewProps
         <div className="stage">
           <div
             className="stage__body"
-            data-par="10"
             style={{ '--ar': `${lead.width} / ${lead.height}` } as CSSProperties}
           >
             {shots.map((shot, i) => (

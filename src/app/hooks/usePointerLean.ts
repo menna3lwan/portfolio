@@ -11,7 +11,7 @@ import { useFinePointer, useReducedMotion } from './useMediaQuery';
  */
 export function usePointerLean(
   ref: RefObject<HTMLElement>,
-  amplitude: { x: number; y: number } = { x: 10, y: 8 },
+  amplitude: { x: number; y: number } = { x: 5, y: 4 },
 ): void {
   const fine = useFinePointer();
   const reduced = useReducedMotion();

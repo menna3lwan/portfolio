@@ -125,3 +125,27 @@
     text-decoration: none;
   }
 }
+
+@layer components {
+  /* Confirmation for the copy action: the border and the glyph answer, briefly, and
+     settle back on their own. Nothing moves except the tick appearing. */
+  .contact__copy.is-done {
+    color: var(--red-text);
+    border-color: var(--red-text);
+  }
+
+  .contact__copy svg {
+    transition: transform var(--base) var(--ease-out);
+  }
+
+  .contact__copy.is-done svg {
+    animation: tickIn var(--base) var(--ease-out) both;
+  }
+
+  @keyframes tickIn {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+  }
+}

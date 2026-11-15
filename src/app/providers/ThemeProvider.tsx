@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { store } from '@/app/storage';
+import { commitWithTransition, prefersReducedMotion } from '@/app/viewTransition';
 import { ThemeContext } from './theme-context';
 import type { ThemeChoice, ThemeContextValue } from './theme-context';
 
@@ -20,8 +21,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [systemDark, setSystemDark] = useState<boolean>(systemPrefersDark);
 
   // Only an explicit choice writes data-theme; `system` removes it so the media query in
-  // the token layer takes over, exactly as the prototype behaved.
-  useEffect(() => {
+  // the token layer takes over, exactly as the prototype behaved. A layout effect, so the
+  // attribute lands in the same commit the view transition captures.
+  useLayoutEffect(() => {
     const root = document.documentElement;
     if (choice === 'system') delete root.dataset.theme;
     else root.dataset.theme = choice;
@@ -37,10 +39,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const resolved: 'light' | 'dark' =
     choice === 'system' ? (systemDark ? 'dark' : 'light') : choice;
 
+  /** Every surface on the page changes colour at once, so it goes through the same
+   *  cross-fade the language switch uses rather than landing as a flash. */
   const setTheme = useCallback((next: ThemeChoice) => {
-    setChoice(next);
-    if (next === 'system') store.set('theme', '');
-    else store.set('theme', next);
+    store.set('theme', next === 'system' ? '' : next);
+    commitWithTransition(() => setChoice(next), !prefersReducedMotion());
   }, []);
 
   const toggleTheme = useCallback(() => {

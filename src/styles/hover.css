@@ -1,13 +1,29 @@
 /* =============================================================================
    The hover system.
 
-   One interaction language, seven component families. Shared grammar:
-     · entry on --base with --ease-out, exit on --fast with --ease — a hover that arrives
-       deliberately and leaves promptly reads as responsive rather than sticky
-     · transform and opacity only, so nothing reflows and nothing shifts
-     · every family resolves :hover, :focus-visible and :active to the same destination,
-       because touch never hovers and the keyboard must not be a second-class path
-   Each family then differs in KIND, so a tag does not behave like a card.
+   One grammar, seven families, and — the change that matters — **one signal each**.
+
+   A card used to answer the pointer four ways at once: it lifted, its border warmed, a
+   shadow appeared, an accent rule drew across its top edge, and a soft radial highlight
+   followed the cursor around inside it. Any one of those says "this is interactive". All
+   five together say "look at me", on ten cards, while the reader is trying to read.
+
+   So each family now has a primary — the thing that family does and no other does — and
+   at most one supporting change, which is almost always colour, because colour costs no
+   movement.
+
+     SURFACE   (card)        a small lift, and the accent rule as its "selected" mark
+     TAG       (chip)        fills; it is small and there are many
+     ACTION    (button)      a tint sweeps in from the leading edge
+     ACTION    (icon tile)   the tile tints, the glyph grows a hair
+     MEDIA     (preview)     the image scales inside a frame that does not move
+     DISCLOSURE             the row tints and the marker turns
+     LINK                    an underline grows from the leading edge
+
+   Shared timing: entry on --base with --ease-out, exit on --fast with --ease. A hover
+   that arrives deliberately and leaves promptly reads as responsive; the reverse reads
+   as sticky. Hover, focus-visible and active resolve to the same destination, because
+   touch never hovers and the keyboard must not be second class.
    ========================================================================== */
 @layer hover {
   /* --- shared exit timing ------------------------------------------------ */
@@ -41,30 +57,16 @@
     transition-timing-function: var(--ease-out);
   }
 
-  /* --- SURFACE: cards rise, warm at the edge, and light under the pointer -- */
+  /* --- SURFACE: the card rises, and marks itself ------------------------- */
   .card {
     position: relative;
     isolation: isolate;
     transition-property: transform, border-color, box-shadow;
   }
 
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity var(--base) var(--ease);
-    background: radial-gradient(
-      420px circle at var(--mx, 50%) var(--my, 0%),
-      var(--link-soft),
-      transparent 68%
-    );
-  }
-
-  /* an accent hairline draws across the top edge — the card's own "selected" mark */
+  /* The accent rule is the card's one deliberate flourish: it draws rather than
+     appears, from the leading edge, and it is the only thing on the card that uses
+     the brand gradient. */
   .card::after {
     content: '';
     position: absolute;
@@ -85,13 +87,9 @@
 
   @media (hover: hover) and (pointer: fine) {
     .card:hover {
-      transform: translateY(-3px);
+      transform: translateY(var(--lift-card));
       border-color: var(--line-strong);
-      box-shadow: 0 22px 44px -32px rgba(27, 22, 20, 0.45);
-    }
-
-    .card:hover::before {
-      opacity: 1;
+      box-shadow: var(--shadow-raised);
     }
 
     .card:hover::after {
@@ -99,18 +97,20 @@
     }
   }
 
+  /* keyboard focus inside a card marks it the same way, without the lift */
   .card:focus-within::after {
     transform: scaleX(1);
   }
 
-  /* --- TAG: chips fill rather than lift far; they are many and small ------- */
+  /* --- TAG: chips fill, and barely move ----------------------------------
+     There are up to nineteen in a card. A 2px lift on each was a ripple across the
+     whole stack as the pointer crossed it; the fill alone is unmistakable. */
   .chip {
-    transition-property: transform, color, border-color, background-color;
+    transition-property: color, border-color, background-color;
   }
 
   @media (hover: hover) {
     .chip:hover {
-      transform: translateY(-2px);
       color: var(--red-text);
       border-color: var(--red-text);
       background: var(--link-soft);
@@ -118,10 +118,10 @@
   }
 
   .chip:active {
-    transform: translateY(0) scale(0.97);
+    transform: scale(0.98);
   }
 
-  /* --- ACTION: buttons sweep a tint in from the leading edge, icon steps out */
+  /* --- ACTION: a tint sweeps in from the leading edge --------------------- */
   .btn {
     position: relative;
     overflow: hidden;
@@ -150,7 +150,6 @@
 
   @media (hover: hover) {
     .btn:hover {
-      transform: translateY(-1px);
       color: var(--red-text);
       border-color: var(--red-text);
     }
@@ -159,6 +158,8 @@
       transform: scaleX(1);
     }
 
+    /* only the outward-pointing arrow steps out; a mail or download glyph staying
+       put is the point of distinguishing them */
     .btn:hover svg {
       transform: translate(2px, -2px);
     }
@@ -169,52 +170,30 @@
   }
 
   .btn:active {
-    transform: translateY(0) scale(0.985);
+    transform: scale(0.985);
   }
 
-  /* the solid button is already filled, so it deepens and lifts instead of tinting */
+  /* the solid button is already filled, so it deepens rather than tinting */
   .btn--solid::before {
     display: none;
   }
 
   @media (hover: hover) {
     .btn--solid:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.12);
+      transform: translateY(var(--lift-small));
+      filter: brightness(1.08);
     }
   }
 
-  /* --- ACTION (icon): social tiles lift and warm, their glyph leads --------- */
-  .social__link {
-    transition-property: transform, color, border-color, background-color;
-  }
-
-  .social__link svg {
-    transition: transform var(--base) var(--ease-out);
-  }
-
-  @media (hover: hover) {
-    .social__link:hover {
-      transform: translateY(-2px);
-      color: var(--red-text);
-      border-color: var(--red-text);
-      background: var(--link-soft);
-    }
-
-    .social__link:hover svg {
-      transform: scale(1.1);
-    }
-  }
-
-  .social__link:active {
-    transform: translateY(0) scale(0.96);
-  }
-
-  /* --- ICON BUTTONS: the glyph answers, the tile tints --------------------- */
+  /* --- ACTION (icon tile): the tile tints, the glyph grows a hair ---------
+     The glyph used to rotate nine degrees and scale eight per cent. On a theme
+     toggle that a reader presses once, a tilt is a joke told twice. */
+  .social__link,
   .icon-btn {
     transition-property: color, border-color, background-color, transform;
   }
 
+  .social__link svg,
   .icon-btn svg,
   .icon-btn span {
     display: inline-flex;
@@ -222,39 +201,39 @@
   }
 
   @media (hover: hover) {
+    .social__link:hover,
     .icon-btn:hover {
       color: var(--red-text);
       border-color: var(--red-text);
       background: var(--link-soft);
     }
 
+    .social__link:hover svg,
     .icon-btn:hover svg,
     .icon-btn:hover span {
-      transform: rotate(-9deg) scale(1.08);
+      transform: scale(1.06);
     }
   }
 
+  .social__link:active,
   .icon-btn:active {
-    transform: scale(0.94);
+    transform: scale(0.96);
   }
 
-  /* --- MEDIA: the photograph zooms inside a still frame -------------------- */
+  /* --- MEDIA: the image scales inside a frame that holds still ------------
+     The frame used to lift as well, which moved the thing the reader was looking
+     into. Now only the picture moves, and only a little. */
   .stage__body {
-    transition-property: transform;
+    transition-property: border-color;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .stage__body:hover {
-      transform: translateY(-4px);
-    }
-
-    /* the frame holds its size; only the image inside grows, so nothing reflows */
     .stage__body:hover .stage__shot.is-on {
-      transform: translate3d(0, calc(var(--par, 0px) * -1), 0) scale(1.06);
+      transform: scale(1.03);
     }
   }
 
-  /* --- DISCLOSURE: the row tints, the title steps in, the marker turns ------ */
+  /* --- DISCLOSURE: the row tints, the marker turns ----------------------- */
   .disclosure > summary {
     transition-property: background-color, color;
     border-radius: 8px;
@@ -279,26 +258,20 @@
 
     .disclosure > summary:hover .disclosure__icon {
       color: var(--red-text);
-      transform: scale(1.12);
     }
 
     .disclosure > summary:hover .disclosure__title {
-      transform: translateX(3px);
+      transform: translateX(2px);
     }
 
     [dir='rtl'] .disclosure > summary:hover .disclosure__title {
-      transform: translateX(-3px);
+      transform: translateX(-2px);
     }
   }
 
+  /* the marker is the state: a plus that becomes a cross */
   .disclosure[open] > summary .disclosure__icon {
     transform: rotate(45deg);
-  }
-
-  @media (hover: hover) {
-    .disclosure[open] > summary:hover .disclosure__icon {
-      transform: rotate(45deg) scale(1.12);
-    }
   }
 
   .disclosure[open] > .disclosure__body {
@@ -308,16 +281,11 @@
   @keyframes foldIn {
     from {
       opacity: 0;
-      transform: translateY(-5px);
-    }
-
-    to {
-      opacity: 1;
-      transform: none;
+      transform: translate3d(0, -4px, 0);
     }
   }
 
-  /* --- INLINE LINK: an underline grows from the leading edge --------------- */
+  /* --- LINK: an underline grows from the leading edge --------------------- */
   .link,
   .site-header__brand,
   .contact__email-row,
@@ -364,7 +332,7 @@
     }
   }
 
-  /* --- FACET: a leading accent bar grows beside the tint ------------------- */
+  /* --- FACET: a leading accent bar grows --------------------------------- */
   .facet {
     position: relative;
     transition-property: background-color;
@@ -393,7 +361,7 @@
     }
   }
 
-  /* --- focus: one ring, everywhere, and the hover destination with it ------ */
+  /* --- focus: one ring everywhere, plus that family's destination ---------- */
   .card a:focus-visible,
   .chip:focus-visible,
   .btn:focus-visible,

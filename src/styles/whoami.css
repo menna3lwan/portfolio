@@ -60,9 +60,11 @@
       color var(--base) var(--ease);
   }
 
+  /* The marks settle once, with the paragraph that holds them, and the three
+     paragraphs already arrive on their own delays — so no per-mark stagger on top. */
   .is-in .hl {
-    animation: hlIn var(--slow) var(--ease-out) both;
-    animation-delay: calc(var(--i, 0) * 90ms + 180ms);
+    animation: hlIn var(--slow) var(--ease-soft) both;
+    animation-delay: 160ms;
   }
 
   @keyframes hlIn {
@@ -75,12 +77,9 @@
     }
   }
 
-  @media (hover: hover) {
-    .whoami__p:hover .hl {
-      box-shadow: inset 0 -0.5em 0 var(--link-soft);
-      color: var(--red-text);
-    }
-  }
+  /* No hover rule here on purpose. A paragraph is not a control, and making its
+     marked phrases light up as the pointer crosses the column turns reading into a
+     light show. */
 
   /* three facets, as a measured rail rather than another bullet list */
   .facets {
@@ -172,7 +171,7 @@
     background: linear-gradient(90deg, var(--brand-red), var(--brand-yellow));
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 760ms var(--ease-out) 260ms;
+    transition: transform var(--reveal) var(--ease-soft) 180ms;
   }
 
   [dir='rtl'] .title__rule {
@@ -188,14 +187,14 @@
   .section-head--split .title__small,
   .section-head--split .title__big {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translate3d(0, 12px, 0);
     transition:
-      opacity var(--slow) var(--ease-out),
-      transform var(--slow) var(--ease-out);
+      opacity var(--reveal) var(--ease-soft),
+      transform var(--reveal) var(--ease-soft);
   }
 
   .section-head--split .title__big {
-    transition-delay: 110ms;
+    transition-delay: 90ms;
   }
 
   .is-in .title__small,

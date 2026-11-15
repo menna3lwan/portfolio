@@ -3,17 +3,15 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { SiteHeader } from './SiteHeader';
 import { SkipLink } from './SkipLink';
 import { useLanguage } from '@/app/hooks/useAppContext';
-import { usePointerGlow } from '@/app/hooks/usePointerGlow';
 
 /**
- * The shell every page-level route renders inside: the skip link, the masthead bar, and
- * the page-wide pointer highlight. The CV route deliberately sits outside it, because it
- * is a full-height document viewer with a chrome of its own.
+ * The shell every page-level route renders inside: the skip link and the masthead bar.
+ * The CV route deliberately sits outside it, because it is a full-height document viewer
+ * with a chrome of its own.
  */
 export function AppLayout() {
   const { content, t } = useLanguage();
   const location = useLocation();
-  usePointerGlow();
 
   // A hash arriving with a navigation (for example `/#work` from the CV route) has to be
   // resolved after the target route has painted.

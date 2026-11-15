@@ -29,6 +29,9 @@
     min-width: 0;
   }
 
+  /* Every entry card is marked at its top edge. That mark is also what answers the
+     pointer: it runs out to the full width rather than a second, differently coloured
+     rule drawing across the same two pixels. One element, one signal. */
   .card.exp::before {
     content: '';
     position: absolute;
@@ -38,6 +41,21 @@
     border-radius: 2px;
     background: var(--red);
     opacity: 0.85;
+    transition:
+      inset-inline var(--slow) var(--ease-out),
+      opacity var(--base) var(--ease);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card.exp:hover::before {
+      inset-inline: 0;
+      opacity: 1;
+    }
+  }
+
+  /* so the generic card accent does not double up on this one */
+  .card.exp::after {
+    display: none;
   }
 
   .exp__head {

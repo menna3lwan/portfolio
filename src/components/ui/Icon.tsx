@@ -22,7 +22,8 @@ export type IconName =
   | 'fullscreen'
   | 'fullscreenExit'
   | 'warn'
-  | 'file';
+  | 'file'
+  | 'check';
 
 const PATHS: Readonly<Record<IconName, ReactElement>> = {
   github: (
@@ -82,6 +83,7 @@ const PATHS: Readonly<Record<IconName, ReactElement>> = {
       <path d="M12 7.5v5.5M12 16.5h.01" />
     </>
   ),
+  check: <path d="M4.5 12.5l5 5 10-11" />,
   file: (
     <>
       <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
