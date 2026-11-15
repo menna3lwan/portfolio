@@ -12,6 +12,10 @@ export interface Strings {
   edition: string;
   where: string;
   est: string;
+  /** Names the navigation landmarks themselves — not a section. Two landmarks called
+   *  "Work" told a screen-reader user nothing about which was which. */
+  navMainLabel: string;
+  navMenuLabel: string;
   navHome: string;
   navWhoami: string;
   navWork: string;
@@ -83,6 +87,8 @@ const EN: Strings = {
   edition: 'Portfolio Edition',
   where: 'Egypt · Remote',
   est: 'Flutter · Arabic & English',
+  navMainLabel: 'Main',
+  navMenuLabel: 'Menu',
   navHome: 'Home',
   navWhoami: 'Whoami',
   navWork: 'Work',
@@ -159,6 +165,8 @@ const AR: Strings = {
   edition: 'إصدار البورتفوليو',
   where: 'مصر · عن بُعد',
   est: 'Flutter · عربي وإنجليزي',
+  navMainLabel: 'التنقّل الرئيسي',
+  navMenuLabel: 'القائمة',
   navHome: 'البداية',
   navWhoami: 'من أنا',
   navWork: 'الأعمال',

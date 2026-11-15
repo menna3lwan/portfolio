@@ -59,7 +59,7 @@ export function SiteHeader() {
             <span className="site-header__name">{content.meta.name}</span>
           </Link>
 
-          <nav className="site-header__nav" aria-label={t.navWork}>
+          <nav className="site-header__nav" aria-label={t.navMainLabel}>
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.id}
@@ -122,7 +122,7 @@ export function SiteHeader() {
 
       <div className={`sheet${sheetOpen ? ' is-open' : ''}`} id={sheetId}>
         <div className="container">
-          <nav aria-label={t.navWork}>
+          <nav aria-label={t.navMenuLabel}>
             {NAV_ITEMS.map((item, i) => (
               <Link key={item.id} to={`/#${item.id}`} onClick={closeSheet}>
                 <span>{t[item.key]}</span>

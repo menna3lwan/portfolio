@@ -9,6 +9,10 @@ import { MarkedText } from '@/features/whoami/MarkedText';
 import { ScreenPreview } from '@/features/preview/ScreenPreview';
 import { Disclosure } from '@/components/ui/Disclosure';
 import { ScopeBody } from '@/features/work/scope';
+import { ExperienceSection } from '@/features/experience/ExperienceSection';
+import { OpenSourceEntry } from '@/features/work/OpenSourceEntry';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { MemoryRouter } from 'react-router-dom';
 import type { Shot } from '@/data/previews';
 
 // the Arabic content is a separate chunk; load it before any Arabic case renders
@@ -175,5 +179,46 @@ describe('ScopeBody', () => {
   it('treats a bare string as a completed item', () => {
     const { container } = wrap(<ScopeBody groups={[{ title: 'X', items: ['Plain line'] }]} />);
     expect(container.querySelector('.scope__item--done')).not.toBeNull();
+  });
+});
+
+/**
+ * The entry number is a graphic, not part of the name. Left in the accessible name it ran
+ * straight into it — "01XPER ERP" — because the span is inline and carries no separator.
+ */
+describe('entry numbers', () => {
+  it.each([
+    ['the experience chapter', <ExperienceSection key="x" />],
+    ['the open-source entry', <OpenSourceEntry key="o" position={10} />],
+  ])('keeps the number out of the heading in %s', (_label, ui) => {
+    const { container } = wrap(ui);
+    const numbers = container.querySelectorAll('.no');
+    expect(numbers.length).toBeGreaterThan(0);
+    for (const n of numbers) expect(n).toHaveAttribute('aria-hidden', 'true');
+
+    for (const heading of container.querySelectorAll('h3')) {
+      const name = [...heading.childNodes]
+        .filter((node) => !(node instanceof HTMLElement && node.getAttribute('aria-hidden')))
+        .map((node) => node.textContent ?? '')
+        .join('')
+        .trim();
+      expect(name).not.toMatch(/^\d{2}\S/);
+      expect(name.length).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe('SiteHeader', () => {
+  it('gives the two navigation landmarks names of their own', () => {
+    const { container } = wrap(
+      <MemoryRouter>
+        <SiteHeader />
+      </MemoryRouter>,
+    );
+    const labels = [...container.querySelectorAll('nav')].map((n) => n.getAttribute('aria-label'));
+    expect(labels).toHaveLength(2);
+    expect(new Set(labels).size).toBe(2);
+    // and neither of them is a section name borrowed from the links inside it
+    expect(labels).not.toContain('Work');
   });
 });

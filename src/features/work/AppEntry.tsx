@@ -31,7 +31,12 @@ export function AppEntry({ record: input, position, standalone = false }: AppEnt
 
   const heading = (
     <>
-      <span className="no">{String(position).padStart(2, '0')}</span>
+      {/* Decorative: the entries are an <ol>. Inside the chapter the link's own label
+          already covers this; on the case-study route, where the title is not a link,
+          leaving it in made the heading read "01Flowrist". */}
+      <span className="no" aria-hidden="true">
+        {String(position).padStart(2, '0')}
+      </span>
       {record.name}
     </>
   );

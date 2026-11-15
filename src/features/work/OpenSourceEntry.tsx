@@ -27,7 +27,9 @@ export function OpenSourceEntry({ position }: { position: number }) {
         <header className="exp__head">
           <div className="exp__heading">
             <h3 className="exp__company display">
-              <span className="no">{String(position).padStart(2, '0')}</span>
+              <span className="no" aria-hidden="true">
+                {String(position).padStart(2, '0')}
+              </span>
               {pluto.name}
             </h3>
             <p className="exp__meta mono">

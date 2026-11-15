@@ -1659,7 +1659,7 @@
    {
     "role": "Advanced Flutter Development — Internship Course",
     "org": "Elevate",
-    "when": "Jul 2026 – Aug 2026",
+    "when": "Jun 2026 – Present",
     "type": "Training program",
     "points": [
      "Built the Elevate Online Exams Flutter client against the provider’s REST API, Figma designs and Postman collection.",
@@ -2539,7 +2539,7 @@
   "directLead": "Or reach me directly"
  },
  "footer": {
-  "built": "Designed and built with Flutter Web by Menna Elwan, with AI-assisted tooling."
+  "built": "Designed and built with React, TypeScript and Vite by Menna Elwan, with AI-assisted tooling."
  },
  "projects": {
   "label": "More projects",

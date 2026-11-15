@@ -119,3 +119,27 @@ describe('the Hen Lehen corrections', () => {
     expect(HEN_LEHEN_IDS).toEqual(['hen-lehen', 'hen-lehen-patient', 'hen-lehen-doctor']);
   });
 });
+
+/**
+ * Facts the site states about itself and about Menna. Each of these was wrong on the live
+ * build; a case here is cheaper than noticing it again in a screenshot.
+ */
+describe('stated facts', () => {
+  it.each(LANGS)('names the framework this site is actually built in, in %s', (lang) => {
+    const built = getContent(lang).footer.built;
+    expect(built).not.toMatch(/Flutter/i);
+    expect(built).toMatch(/React/);
+  });
+
+  it.each(LANGS)('spells the ERP employer XPER, never EXPR, in %s', (lang) => {
+    const serialised = JSON.stringify(getContent(lang));
+    expect(serialised).not.toMatch(/EXPR/);
+    expect(getContent(lang).experience.items.some((item) => /XPER/.test(item.org))).toBe(true);
+  });
+
+  it.each(LANGS)('shows the Elevate internship as ongoing from June 2026 in %s', (lang) => {
+    const elevate = getContent(lang).experience.items.find((item) => /Elevate/i.test(item.org));
+    expect(elevate).toBeDefined();
+    expect(elevate!.when).toBe(lang === 'ar' ? 'يونيو 2026 – حتى الآن' : 'Jun 2026 – Present');
+  });
+});

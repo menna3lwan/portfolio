@@ -111,6 +111,7 @@
     border-top: 1px solid var(--line);
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 8px 20px;
     justify-content: space-between;
     font: 400 12px/1.6 var(--f-mono);
@@ -121,7 +122,15 @@
     font: 400 13.5px/1.8 var(--f-body);
   }
 
+  /* 94 × 19px was below the 24 × 24 floor of WCAG 2.2 SC 2.5.8 (Target Size, Minimum).
+     The padding is horizontal-only and pulled back out with a matching negative margin,
+     so the hit area grows in both directions while the text stays exactly where it was. */
   .colophon a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding-inline: 6px;
+    margin-inline: -6px;
     text-decoration: none;
   }
 }

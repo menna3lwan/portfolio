@@ -12,7 +12,12 @@ function RoleEntry({ item, position }: { item: ExperienceItem; position: number 
         <header className="exp__head">
           <div className="exp__heading">
             <h3 className="exp__company display">
-              <span className="no">{String(position).padStart(2, '0')}</span>
+              {/* The entry number is decorative: these sit in an <ol>, so position is
+                  already conveyed. Left in the accessible name it ran into the name —
+                  "01XPER ERP". */}
+              <span className="no" aria-hidden="true">
+                {String(position).padStart(2, '0')}
+              </span>
               {item.org}
             </h3>
             <p className="exp__meta mono">
@@ -75,7 +80,9 @@ export function ExperienceSection() {
               <header className="exp__head">
                 <div className="exp__heading">
                   <h3 className="exp__company display">
-                    <span className="no">{String(experience.items.length + 1).padStart(2, '0')}</span>
+                    <span className="no" aria-hidden="true">
+                      {String(experience.items.length + 1).padStart(2, '0')}
+                    </span>
                     {education.school}
                   </h3>
                   <p className="exp__meta mono">
