@@ -21,14 +21,14 @@
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font: 400 16px/1.65 var(--f-body);
+    font: 400 var(--text-xl)/var(--leading-body) var(--f-body);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
   [lang='ar'] body {
-    font-size: 16.5px;
-    line-height: 1.85;
+    font-size: var(--text-xl);
+    line-height: var(--leading-loose);
   }
 
   img {
@@ -48,7 +48,7 @@
   :focus-visible {
     outline: 2px solid var(--red);
     outline-offset: 3px;
-    border-radius: 5px;
+    border-radius: var(--radius-xs);
   }
 
   /* The UA sheet sets code/pre/kbd/samp to a generic monospace, and that beats inheritance —
@@ -80,8 +80,8 @@
     z-index: 200;
     background: var(--ink);
     color: var(--bg);
-    padding: 10px 16px;
-    border-radius: 6px;
+    padding: var(--space-2-5) var(--space-4);
+    border-radius: var(--radius-sm);
     text-decoration: none;
   }
 
@@ -93,12 +93,12 @@
     width: 100%;
     max-width: calc(var(--container) + 48px);
     margin-inline: auto;
-    padding-inline: 20px;
+    padding-inline: var(--space-5);
   }
 
   @media (min-width: 900px) {
     .container {
-      padding-inline: 24px;
+      padding-inline: var(--space-6);
     }
   }
 
@@ -108,13 +108,13 @@
   .display {
     font-family: var(--f-display);
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: var(--tracking-display);
     text-transform: uppercase;
   }
 
   [lang='ar'] .display {
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: var(--tracking-none);
     text-transform: none;
   }
 
@@ -125,16 +125,10 @@
   .eyebrow {
     display: block;
     margin: 0;
-    font: 500 11.5px/1.4 var(--f-mono);
-    letter-spacing: 0.14em;
+    font: var(--weight-label) var(--text-xs)/var(--leading-tight) var(--f-label);
+    letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
     color: var(--red-text);
-  }
-
-  [lang='ar'] .eyebrow {
-    font: 600 13px/1.6 var(--f-body);
-    letter-spacing: 0;
-    text-transform: none;
   }
 
   .accent {
@@ -144,24 +138,21 @@
   .card {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius: var(--radius-lg);
     padding: clamp(18px, 2.2vw, 26px);
   }
 
   .chip {
     display: inline-flex;
     align-items: center;
-    font: 400 12.5px/1.3 var(--f-mono);
-    padding: 6px 10px;
-    border-radius: 6px;
+    min-height: var(--control-sm);
+    font: 400 var(--text-sm)/var(--leading-tight) var(--f-label);
+    padding: var(--space-1-5) var(--space-2-5);
+    border-radius: var(--radius-sm);
     background: var(--sunken);
     border: 1px solid var(--line);
     color: var(--ink);
     overflow-wrap: anywhere;
-  }
-
-  [lang='ar'] .chip {
-    font: 400 13.5px/1.5 var(--f-body);
   }
 
   .chip-list {
@@ -170,40 +161,35 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: var(--space-1-5);
   }
 
   .badge {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    font: 500 11.5px/1 var(--f-mono);
-    letter-spacing: 0.06em;
+    min-height: var(--control-xs);
+    gap: var(--space-1-5);
+    font: var(--weight-label) var(--text-xs)/var(--leading-flat) var(--f-label);
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-    padding: 7px 11px;
-    border-radius: 999px;
+    padding: var(--space-1-5) var(--space-3);
+    border-radius: var(--radius-pill);
     border: 1px solid var(--line-strong);
     color: var(--muted);
     white-space: nowrap;
     max-width: 100%;
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 679.98px) {
     .badge {
       white-space: normal;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       align-items: flex-start;
     }
 
     .badge--live::before {
       margin-top: 0.42em;
     }
-  }
-
-  [lang='ar'] .badge {
-    font: 500 12.5px/1.4 var(--f-body);
-    letter-spacing: 0;
-    text-transform: none;
   }
 
   .badge--live {
@@ -215,7 +201,7 @@
     content: '';
     width: 7px;
     height: 7px;
-    border-radius: 50%;
+    border-radius: var(--radius-round);
     background: var(--red);
   }
 
@@ -235,16 +221,16 @@
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 9px;
+    gap: var(--space-2);
   }
 
   .ticklist li,
   .win-list li {
     display: grid;
     grid-template-columns: 16px minmax(0, 1fr);
-    gap: 10px;
-    font-size: 15px;
-    line-height: 1.65;
+    gap: var(--space-2-5);
+    font-size: var(--text-lg);
+    line-height: var(--leading-body);
   }
 
   .ticklist li::before {
@@ -266,27 +252,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    min-height: 42px;
-    padding: 0 16px;
+    gap: var(--space-2);
+    min-height: var(--control-lg);
+    padding: 0 var(--space-4);
     border: 1px solid var(--line-strong);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background: transparent;
     text-decoration: none;
     cursor: pointer;
-    font: 500 12.5px/1 var(--f-mono);
-    letter-spacing: 0.08em;
+    font: var(--weight-label) var(--text-sm)/var(--leading-flat) var(--f-label);
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
     transition:
       background-color var(--fast) var(--ease),
       border-color var(--fast) var(--ease),
       color var(--fast) var(--ease);
-  }
-
-  [lang='ar'] .btn {
-    font: 500 14px/1.4 var(--f-body);
-    letter-spacing: 0;
-    text-transform: none;
   }
 
   .btn:hover,
@@ -321,29 +301,23 @@
 
   .block-label {
     margin: 0;
-    font: 500 11px/1.4 var(--f-mono);
-    letter-spacing: 0.14em;
+    font: var(--weight-label) var(--text-xs)/var(--leading-tight) var(--f-label);
+    letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
     color: var(--faint);
   }
 
-  [lang='ar'] .block-label {
-    font: 600 13px/1.6 var(--f-body);
-    letter-spacing: 0;
-    text-transform: none;
-  }
-
   .icon-btn {
-    width: 36px;
-    height: 36px;
+    width: var(--control-md);
+    height: var(--control-md);
     display: inline-grid;
     place-items: center;
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background: transparent;
     cursor: pointer;
     flex: none;
-    font: 500 11px/1 var(--f-mono);
+    font: 500 var(--text-xs)/var(--leading-flat) var(--f-mono);
     transition: border-color var(--fast) var(--ease);
   }
 
@@ -358,7 +332,7 @@
 
   .icon-btn--lang {
     width: auto;
-    padding-inline: 11px;
+    padding-inline: var(--space-3);
   }
 
   /* ---------------------------------------------------------------- sections */
@@ -370,29 +344,23 @@
   .section-head {
     margin-bottom: clamp(26px, 3.2vw, 40px);
     display: grid;
-    gap: 12px;
+    gap: var(--space-3);
   }
 
   .section-head__title {
     margin: 0;
-    font-size: clamp(36px, 5.3vw, 68px);
-    line-height: 0.92;
+    font-size: var(--display-3xl);
+    line-height: var(--leading-display);
   }
 
   [lang='ar'] .section-head__title {
-    font-size: clamp(27px, 3.9vw, 48px);
-    line-height: 1.24;
+    line-height: var(--leading-flat);
   }
 
   .section-head__kicker {
     margin: 0;
-    font: 500 13px/1.6 var(--f-mono);
-    letter-spacing: 0.05em;
+    font: var(--weight-label) var(--text-md)/var(--leading-body) var(--f-label);
+    letter-spacing: var(--tracking-snug);
     color: var(--muted);
-  }
-
-  [lang='ar'] .section-head__kicker {
-    font: 500 14.5px/1.8 var(--f-body);
-    letter-spacing: 0;
   }
 }

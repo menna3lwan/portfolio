@@ -11,26 +11,20 @@
   .masthead {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 18px;
+    gap: var(--space-1-5) var(--space-4-5);
     align-items: center;
-    padding-block: 12px;
+    padding-block: var(--space-3);
     border-block: 1px solid var(--line);
     margin-bottom: clamp(30px, 4vw, 52px);
-    font: 500 11px/1.4 var(--f-mono);
-    letter-spacing: 0.16em;
+    font: var(--weight-label) var(--text-xs)/var(--leading-tight) var(--f-label);
+    letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
     color: var(--faint);
   }
 
-  [lang='ar'] .masthead {
-    font: 500 12.5px/1.6 var(--f-body);
-    letter-spacing: 0;
-    text-transform: none;
-  }
-
   .masthead span + span {
     position: relative;
-    padding-inline-start: 18px;
+    padding-inline-start: var(--space-4-5);
   }
 
   .masthead span + span::before {
@@ -68,36 +62,34 @@
   .hero__heading {
     margin: 0;
     display: grid;
-    gap: 6px;
+    gap: var(--space-1-5);
   }
 
   .hero__name {
     display: block;
-    font-size: clamp(44px, 7.4vw, 98px);
-    line-height: 0.88;
+    font-size: var(--display-5xl);
+    line-height: var(--leading-display-tight);
   }
 
   [lang='ar'] .hero__name {
-    font-size: clamp(32px, 5.4vw, 70px);
-    line-height: 1.22;
+    line-height: var(--leading-flat);
   }
 
   .hero__role {
     display: block;
-    font-size: clamp(22px, 3vw, 40px);
-    line-height: 1.04;
+    font-size: var(--display-role);
+    line-height: var(--leading-display-open);
     color: var(--red-text);
   }
 
   [lang='ar'] .hero__role {
-    font-size: clamp(20px, 2.6vw, 34px);
-    line-height: 1.3;
+    line-height: var(--leading-tight);
   }
 
   .hero__tagline {
     margin: 0;
-    font-size: clamp(19px, 1.8vw, 25px);
-    letter-spacing: 0.06em;
+    font-size: var(--display-xs);
+    letter-spacing: var(--tracking-wide);
     color: var(--ink);
   }
 
@@ -105,15 +97,15 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 16px;
-    font: 500 13px/1.6 var(--f-mono);
+    gap: var(--space-1) var(--space-4);
+    font: var(--weight-label) var(--text-md)/var(--leading-body) var(--f-label);
     color: var(--muted);
     overflow-wrap: anywhere;
   }
 
   .hero__subname span + span {
     position: relative;
-    padding-inline-start: 16px;
+    padding-inline-start: var(--space-4);
   }
 
   .hero__subname span + span::before {
@@ -126,25 +118,21 @@
     background: var(--line-strong);
   }
 
-  [lang='ar'] .hero__subname {
-    font: 500 15px/1.8 var(--f-body);
-  }
-
   .hero__cta {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: var(--space-2);
     align-items: center;
-    margin-top: 4px;
+    margin-top: var(--space-1);
   }
 
   .social__link {
     width: 40px;
-    height: 40px;
+    height: var(--control-md);
     display: inline-grid;
     place-items: center;
     border: 1px solid var(--line-strong);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     text-decoration: none;
     color: var(--muted);
     transition:
@@ -166,19 +154,13 @@
 
   .social__link--cv {
     width: auto;
-    padding-inline: 15px;
-    gap: 8px;
+    padding-inline: var(--space-3-5);
+    gap: var(--space-2);
     display: inline-flex;
     align-items: center;
-    font: 500 12px/1 var(--f-mono);
-    letter-spacing: 0.08em;
+    font: var(--weight-label) var(--text-sm)/var(--leading-flat) var(--f-label);
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
-  }
-
-  [lang='ar'] .social__link--cv {
-    font: 500 13.5px/1.4 var(--f-body);
-    letter-spacing: 0;
-    text-transform: none;
   }
 
   /* A fluid clamp topping out at 232px, which lets the name and tagline hold the hero
@@ -192,13 +174,13 @@
     --ly: 0;
   }
 
-  @media (max-width: 899px) {
+  @media (max-width: 899.98px) {
     .hero__portrait {
       width: min(62vw, 240px);
     }
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 559.98px) {
     .hero__portrait {
       width: min(70vw, 210px);
     }
@@ -210,7 +192,7 @@
     overflow: hidden;
     background: var(--sunken);
     border: 1px solid var(--line-strong);
-    border-radius: 62% 62% 14px 14px / 46% 46% 14px 14px;
+    border-radius: 62% 62% var(--radius-lg) var(--radius-lg) / 46% 46% var(--radius-lg) var(--radius-lg);
     transform: translate3d(0, var(--par, 0px), 0);
     transition:
       border-color var(--base) var(--ease),
@@ -243,8 +225,8 @@
     /* these are code tokens, so they keep Latin order even on an RTL page */
     direction: ltr;
     unicode-bidi: isolate;
-    font-size: 12px;
-    letter-spacing: 0.06em;
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wide);
     color: var(--faint);
     transform: translate3d(calc(var(--lx) * 1px), calc(var(--par, 0px) + var(--ly) * 1px), 0);
     transition:
@@ -259,14 +241,14 @@
   .mark--angle {
     top: 46%;
     inset-inline-start: -18px;
-    font-size: 15px;
+    font-size: var(--text-lg);
     color: var(--red-text);
   }
 
   .mark--brace {
     bottom: 20%;
     inset-inline-end: -15px;
-    font-size: 16px;
+    font-size: var(--text-xl);
     color: var(--muted);
   }
 
@@ -274,20 +256,20 @@
   .mark--chip {
     bottom: -9px;
     inset-inline-start: 8%;
-    padding: 5px 9px;
-    border-radius: 999px;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-pill);
     background: var(--brand-yellow);
     color: #1b1614;
     border: 1px solid var(--ink);
-    font-size: 9.5px;
-    letter-spacing: 0.12em;
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
   }
 
   .mark--semi {
     top: -14px;
     inset-inline-end: 18%;
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--muted);
   }
 
@@ -338,7 +320,7 @@
     border-color: var(--red-text);
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 559.98px) {
     .mark--angle {
       inset-inline-start: -11px;
     }
@@ -371,6 +353,6 @@
 
   .hero__about .card {
     display: grid;
-    gap: 14px;
+    gap: var(--space-3-5);
   }
 }

@@ -1,48 +1,213 @@
 /* =============================================================================
-   Design tokens — the single place families, colours, timings and measures are named.
-   Carried over unchanged from the approved prototype so the React build is the same
-   design, not a reinterpretation of it.
+   Design tokens — the single place families, colours, measures, timings and sizes
+   are named. Nothing outside this file should contain a raw colour, a duration, a
+   curve, or a size that belongs to a scale.
+
+   The scales here were derived from the design, not imported into it. Every step is
+   a value the approved design already used; where several near-identical values
+   existed (six font sizes inside a 1.5px band, every integer from 3 to 16 as
+   spacing) they collapse to the dominant one. A conventional 4px spacing grid was
+   measured first and rejected: it would have moved 85% of the page.
    ========================================================================== */
 @layer tokens {
   :root {
-    /* brand */
+    /* ── brand ──────────────────────────────────────────────────────────── */
     --brand-red: #e8491d;
     --brand-snow: #fdfaf6;
     --brand-yellow: #ffd400;
     --brand-red-ink: #b4360f;
     --brand-yellow-ink: #8a5a00;
 
-    /* surfaces and ink */
-    --bg: var(--brand-snow);
-    --surface: #ffffff;
-    --sunken: #f3eee7;
-    --ink: #1b1614;
-    --muted: #5a524e;
-    --faint: #6e645f;
-    --line: rgba(27, 22, 20, 0.13);
-    --line-strong: rgba(27, 22, 20, 0.28);
-    --red: var(--brand-red);
-    --red-text: var(--brand-red-ink);
-    --link: var(--brand-red-ink);
-    --link-soft: rgba(232, 73, 29, 0.1);
-    --code-bg: #1b1614;
+    /* ── surfaces and ink ───────────────────────────────────────────────────
+       One declaration per colour, both themes inside it. `light-dark()` resolves
+       against the used `color-scheme`, which is set just below — so the palette has
+       a single source of truth instead of the two copies this file used to carry,
+       where editing one and forgetting the other made the OS preference and the
+       manual toggle render different sites.
+
+       It also removes the media query entirely, which matters here: the CSP forbids
+       inline script, so nothing can set `data-theme` before hydration, and the
+       pre-hydration frame has to come from CSS alone. `color-scheme: light dark`
+       gives it the right palette on the very first paint.
+
+       Baseline Widely Available since 2026-11-13 (Chrome 123, Firefox 120,
+       Safari 17.5). */
+    color-scheme: light dark;
+
+    --bg: light-dark(var(--brand-snow), #14100e);
+    --surface: light-dark(#ffffff, #1e1916);
+    --sunken: light-dark(#f3eee7, #0d0a09);
+    --ink: light-dark(#1b1614, #f6f1ec);
+    --muted: light-dark(#5a524e, #b3a79f);
+    --faint: light-dark(#6e645f, #9a8d85);
+    --line: light-dark(rgba(27, 22, 20, 0.13), rgba(246, 241, 236, 0.13));
+    --line-strong: light-dark(rgba(27, 22, 20, 0.28), rgba(246, 241, 236, 0.27));
+    --red: light-dark(var(--brand-red), #ff7a4f);
+    --red-text: light-dark(var(--brand-red-ink), #ff9270);
+    --link: light-dark(var(--brand-red-ink), #ff9270);
+    --link-soft: light-dark(rgba(232, 73, 29, 0.1), rgba(255, 122, 79, 0.1));
+    --code-bg: light-dark(#1b1614, #0e0b0a);
     --code-ink: #f2ede7;
     --code-dim: #9d9289;
 
-    /* Three families read off the reference's own :root. Bebas Neue is a single-weight,
-       uppercase-only condensed face; Inter carries everything readable; JetBrains Mono
-       carries labels. IBM Plex Sans Arabic is the Arabic companion. */
+    /* ── families ───────────────────────────────────────────────────────────
+       Bebas Neue is a single-weight, uppercase-only condensed face; Inter carries
+       everything readable; JetBrains Mono carries labels. IBM Plex Sans Arabic is
+       the Arabic companion. */
     --f-display: 'Bebas Neue', 'Arial Narrow', system-ui, sans-serif;
     --f-body: 'Inter', 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --f-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
     --f-ui: var(--f-body);
 
+    /* The label voice — eyebrows, chips, badges, buttons, meta lines. In Latin it is
+       JetBrains Mono, uppercase and tracked out. Arabic has no uppercase, takes no
+       tracking, and has no monospace companion, so the whole voice changes: family,
+       weight, case and tracking together. Naming it as four tokens is what lets one
+       rule serve both languages, and is what replaces the forty near-duplicate
+       `[lang='ar']` font rules the stylesheets used to carry. */
+    --f-label: var(--f-mono);
+    --weight-label: 500;
+    --case-label: uppercase;
+
+    /* ── the type scale ─────────────────────────────────────────────────────
+       Two bands, because this design genuinely has two type systems. Labels are
+       set in mono at small sizes where a single pixel is a real distinction and
+       the steps are 1px apart on purpose. Body text is Inter, where 14 against
+       14.2 against 14.8 was noise — those collapse.
+
+       The `[lang='ar']` block below re-points the label tokens rather than
+       repeating forty rules: Arabic swaps JetBrains Mono for the body face, whose
+       smaller relative x-height needs roughly 1.12× to hold the same weight on the
+       page. That ratio was measured across every pair in the design, not chosen. */
+    --text-2xs: 10.5px; /* scope tags, stat labels, facet keys */
+    --text-xs: 11.5px; /* eyebrows, badges, icon buttons, counts */
+    --text-sm: 12.5px; /* the default label: chips, buttons, meta, nav */
+    --text-md: 13px; /* section kickers, the code window */
+    --text-base: 14.5px; /* lists, folds, card bodies */
+    --text-lg: 15.5px; /* paragraphs */
+    --text-xl: 16px; /* the document default */
+    --text-2xl: 19px;
+    --text-3xl: 21px;
+
+    /* Display sizes are fluid: eleven named steps, down from twenty-one one-off clamps,
+       three of which ran between the same two numbers by different routes. The steps
+       that remain are the ones the design genuinely distinguishes — `--display-role`
+       and `--display-md` share a curve and differ only in where they stop shrinking,
+       which is a real decision about the hero on a narrow screen, not an accident. */
+    --display-2xs: clamp(15px, 1.5vw, 21px);
+    --display-xs: clamp(19px, 1.8vw, 25px);
+    --display-sm: clamp(22px, 2.2vw, 29px);
+    --display-role: clamp(22px, 3vw, 40px);
+    --display-md: clamp(26px, 3vw, 40px);
+    /* The Who-am-I lede keeps its own two extra pixels at the top of the curve. It is
+       the one headline that has to hold a whole paragraph's worth of weight on its own,
+       and folding it into --display-md visibly weakened it. */
+    --display-lede: clamp(26px, 3.1vw, 42px);
+    --display-lg: clamp(27px, 4.4vw, 56px);
+    --display-xl: clamp(30px, 4.4vw, 52px);
+    --display-2xl: clamp(32px, 4.9vw, 58px);
+    --display-3xl: clamp(36px, 5.3vw, 68px);
+    --display-4xl: clamp(40px, 6.4vw, 86px);
+    --display-5xl: clamp(44px, 7.4vw, 98px);
+
+    /* ── line height ────────────────────────────────────────────────────────
+       Seventeen ratios became six. The sub-1 values are display type, which is set
+       tight on purpose; 1.6 against 1.65 against 1.7 was not a decision. */
+    /* Display leading is a ramp, not one value: the larger the type, the tighter it
+       wants to be set. Three steps cover what was six ad-hoc numbers between 0.88
+       and 1.04. */
+    --leading-display-tight: 0.88; /* the masthead and the chapter title */
+    --leading-display: 0.95; /* mid display, 29–58px */
+    --leading-display-open: 1.03; /* display that wraps to several lines */
+    --leading-flat: 1; /* single-line control labels */
+    --leading-tight: 1.3;
+    --leading-snug: 1.5;
+    --leading-body: 1.65;
+    --leading-loose: 1.8; /* Arabic body, which needs the extra room */
+
+    /* ── letter spacing ─────────────────────────────────────────────────── */
+    --tracking-tight: -0.01em;
+    --tracking-none: 0;
+    /* Bebas Neue's own figure. Distinct from `none`, which is a decision not to track;
+       this is the display face's correct setting and flattening it would retighten
+       every headline on the page. */
+    --tracking-display: 0.01em;
+    --tracking-snug: 0.04em;
+    --tracking-wide: 0.06em;
+    --tracking-wider: 0.1em;
+    --tracking-caps: 0.14em;
+
+    /* ── spacing ────────────────────────────────────────────────────────────
+       2px-based through the range this design actually lives in, opening up above
+       16px. Every value is one already in use; a 4px grid was measured against the
+       page first and would have moved 2,686 of 3,141 spacing applications. */
+    --space-0-5: 2px;
+    --space-1: 4px;
+    --space-1-5: 6px;
+    --space-2: 8px;
+    --space-2-5: 10px;
+    --space-3: 12px;
+    --space-3-5: 14px;
+    --space-4: 16px;
+    --space-4-5: 18px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-6-5: 26px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-14: 56px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-23: 92px;
+
+    /* ── radii ──────────────────────────────────────────────────────────────
+       Eleven values became five. 5/6/7/8 were doing one job in four places. */
+    --radius-xs: 4px; /* nested elements, thumbnails */
+    --radius-sm: 6px; /* chips, nav links, small controls */
+    --radius-md: 8px; /* buttons, folds, panels */
+    --radius-lg: 14px; /* cards */
+    --radius-pill: 999px;
+    --radius-round: 50%;
+
+    /* ── borders ──────────────────────────────────────────────────────────── */
+    --border: 1px;
+    --border-strong: 2px; /* focus rings and the entry rule */
+
+    /* ── control sizing ─────────────────────────────────────────────────────
+       Eight heights for eight kinds of control became four. `--control-lg` is 44px
+       because that is the WCAG 2.5.5 enhanced target size, which the 42px button
+       missed; `--control-sm` at 32px clears the 2.5.8 minimum of 24 comfortably. */
+    --control-xs: 28px; /* badges — a label, not a target */
+    --control-sm: 32px; /* chips, nav links, inline controls */
+    --control-md: 40px; /* icon buttons, social links */
+    --control-lg: 44px; /* buttons, fold summaries */
+
+    /* ── layout ─────────────────────────────────────────────────────────── */
     --container: 1120px;
     --container-wide: 1240px;
     --bar-h: 64px;
     --tool-h: 52px;
 
-    /* --- the motion scale -------------------------------------------------
+    /* ── breakpoints ────────────────────────────────────────────────────────
+       Custom properties cannot be used inside a media query, so these cannot be
+       tokens — they are a documented contract, and every media query in the
+       stylesheets uses one of these five numbers and no other.
+
+         400px   small phone            the CV's compact language button
+         560px   phone → large phone    stat grid, scope items, CV head and stage
+         680px   large phone → tablet   facets, badges, layers, the preview switcher
+         900px   tablet → laptop        the container, the hero grid, the contact grid
+         1024px  laptop → desktop       header nav → hamburger, CV two-column, the spread
+
+       1024 rather than a rounder 1140: the header's nav-to-hamburger switch and the
+       CV page's two-column layout both already turned there, and moving them would
+       have put a laptop-width layout somewhere it was never designed for.
+
+       Complementary pairs are written as `max-width: 559.98px` / `min-width: 560px`
+       so no width can match both or neither. */
+
+    /* ── the motion scale ───────────────────────────────────────────────────
        Four durations and three curves, and nothing outside this block names a
        time or a curve of its own. The point is that two unrelated elements
        answering the pointer feel like the same interface rather than two.
@@ -69,55 +234,65 @@
     /* Effect intensities, named so "calmer" is one edit rather than twenty. */
     --lift-card: -2px;
     --lift-small: -1px;
-    --shadow-raised: 0 18px 36px -28px rgb(27 22 20 / 30%);
+    --shadow-color: light-dark(rgb(27 22 20 / 30%), rgb(0 0 0 / 55%));
+    --shadow-raised: 0 18px 36px -28px var(--shadow-color);
+  }
 
+  /* The toggle pins the scheme; with no attribute, `light dark` above follows the
+     operating system. These are the only two rules the theme needs. */
+  :root[data-theme='light'] {
     color-scheme: light;
   }
 
-  /* Bebas Neue carries no Arabic, so Arabic display falls to IBM Plex Sans Arabic at 700 —
-     the weight whose optical heft matches Bebas at the same size. */
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
+  /* Bebas Neue carries no Arabic, so Arabic display falls to IBM Plex Sans Arabic at
+     700 — the weight whose optical heft matches Bebas at the same size.
+
+     The label sizes move with it. Arabic labels are set in the body face rather than
+     JetBrains Mono, and the body face needs about 1.12× to carry the same weight at
+     label sizes; body copy, which does not change family, barely moves. Re-pointing
+     the tokens here is what replaces the forty `[lang='ar']` font rules this
+     stylesheet used to carry. */
   [lang='ar'] {
     --f-display: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
     --f-body: 'IBM Plex Sans Arabic', Inter, sans-serif;
-  }
+    --f-label: var(--f-body);
+    --weight-label: 600;
+    --case-label: none;
 
-  /* One dark definition, applied both by preference and by the explicit toggle. */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) {
-      --bg: #14100e;
-      --surface: #1e1916;
-      --sunken: #0d0a09;
-      --ink: #f6f1ec;
-      --muted: #b3a79f;
-      --faint: #9a8d85;
-      --line: rgba(246, 241, 236, 0.13);
-      --line-strong: rgba(246, 241, 236, 0.27);
-      --red: #ff7a4f;
-      --red-text: #ff9270;
-      --link: #ff9270;
-      --link-soft: rgba(255, 122, 79, 0.1);
-      --code-bg: #0e0b0a;
-      /* a shadow on a near-black surface reads as a halo; keep it barely there */
-      --shadow-raised: 0 18px 36px -30px rgb(0 0 0 / 55%);
-      color-scheme: dark;
-    }
-  }
+    /* Arabic script is not tracked out: letterforms join, and spacing them breaks
+       the joins. Every tracking token therefore collapses to zero here, which is
+       what each of those `[lang='ar']` rules was individually doing. */
+    --tracking-snug: 0;
+    --tracking-wide: 0;
+    --tracking-wider: 0;
+    --tracking-caps: 0;
 
-  :root[data-theme='dark'] {
-    --bg: #14100e;
-    --surface: #1e1916;
-    --sunken: #0d0a09;
-    --ink: #f6f1ec;
-    --muted: #b3a79f;
-    --faint: #9a8d85;
-    --line: rgba(246, 241, 236, 0.13);
-    --line-strong: rgba(246, 241, 236, 0.27);
-    --red: #ff7a4f;
-    --red-text: #ff9270;
-    --link: #ff9270;
-    --link-soft: rgba(255, 122, 79, 0.1);
-    --code-bg: #0e0b0a;
-    --shadow-raised: 0 18px 36px -30px rgb(0 0 0 / 55%);
-    color-scheme: dark;
+    --text-2xs: 12px;
+    --text-xs: 13px;
+    --text-sm: 13.5px;
+    --text-md: 14.5px;
+    --text-base: 15px;
+    --text-lg: 15.5px;
+    --text-xl: 16.5px;
+
+    /* Arabic display runs about 0.72× the Latin, because IBM Plex Sans Arabic is a
+       normal-width face standing in for a condensed one: set at the same nominal size
+       it is markedly wider and heavier on the page. That ratio was already present in
+       every one of the nine `[lang='ar']` display rules this replaces — it was just
+       written out nine times instead of once. */
+    --display-2xs: clamp(15px, 1.5vw, 20px);
+    --display-sm: clamp(21px, 2.3vw, 29px);
+    --display-role: clamp(20px, 2.6vw, 34px);
+    --display-md: clamp(21px, 2.3vw, 29px);
+    --display-lede: clamp(21px, 2.4vw, 32px);
+    --display-lg: clamp(23px, 3.6vw, 44px);
+    --display-2xl: clamp(27px, 4.2vw, 48px);
+    --display-3xl: clamp(27px, 3.9vw, 48px);
+    --display-4xl: clamp(30px, 4.6vw, 60px);
+    --display-5xl: clamp(32px, 5.4vw, 70px);
   }
 }

@@ -7,7 +7,7 @@
 @layer components {
   .screens-block {
     display: grid;
-    gap: 10px;
+    gap: var(--space-2-5);
     min-width: 0;
     justify-items: center;
   }
@@ -67,7 +67,7 @@
   /* the switcher, shown for any application that carries more than one screen */
   .switch {
     display: grid;
-    gap: 8px;
+    gap: var(--space-2);
     align-content: start;
     min-width: 0;
     max-width: 272px;
@@ -76,12 +76,12 @@
   .switch__btn {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--space-3);
     width: 100%;
-    padding: 8px 14px 8px 8px;
+    padding: var(--space-2) var(--space-3-5) var(--space-2) var(--space-2);
     background: transparent;
     border: 1px solid transparent;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     text-align: start;
     color: var(--muted);
@@ -92,7 +92,7 @@
   }
 
   [dir='rtl'] .switch__btn {
-    padding: 7px 7px 7px 11px;
+    padding: var(--space-1-5) var(--space-1-5) var(--space-1-5) var(--space-3);
   }
 
   .switch__thumb {
@@ -101,7 +101,7 @@
     height: 74px;
     width: auto;
     aspect-ratio: var(--ar, 4 / 5);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid var(--line-strong);
     background: var(--sunken);
@@ -115,16 +115,10 @@
   }
 
   .switch__label {
-    font-size: 12.5px;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-snug);
+    line-height: var(--leading-tight);
     overflow-wrap: anywhere;
-  }
-
-  [lang='ar'] .switch__label {
-    font-family: var(--f-body);
-    letter-spacing: 0;
-    font-size: 13.5px;
   }
 
   .switch__btn.is-on {
@@ -145,7 +139,7 @@
     }
   }
 
-  @media (min-width: 681px) {
+  @media (min-width: 680px) {
     .preview:has(.switch) {
       grid-template-columns: minmax(0, auto) minmax(0, max-content);
     }
@@ -153,15 +147,15 @@
 
   .screens-none {
     margin: 0;
-    padding: 14px 16px;
+    padding: var(--space-3-5) var(--space-4);
     border: 1px dashed var(--line-strong);
-    border-radius: 10px;
-    font-size: 14.5px;
-    line-height: 1.6;
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
     color: var(--muted);
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 679.98px) {
     .preview,
     .preview:has(.switch) {
       grid-template-columns: auto;
@@ -186,21 +180,21 @@
       width: 100%;
       max-width: 100%;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding-bottom: var(--space-1);
       scrollbar-width: thin;
     }
 
     .switch__btn {
       flex-direction: column;
       align-items: center;
-      gap: 7px;
+      gap: var(--space-1-5);
       width: auto;
-      padding: 7px;
+      padding: var(--space-1-5);
       text-align: center;
     }
 
     .switch__label {
-      font-size: 11px;
+      font-size: var(--text-xs);
       max-width: 76px;
     }
 
@@ -210,7 +204,7 @@
 
     .switch::-webkit-scrollbar-thumb {
       background: var(--line-strong);
-      border-radius: 99px;
+      border-radius: var(--radius-pill);
     }
   }
 }
