@@ -42,7 +42,7 @@ radius, a duration or a curve.
 | **Line height** | 9, incl. a 3-step display ramp | the larger the type, the tighter it is set |
 | **Letter spacing** | 6 | `--tracking-display` is the display face's own figure, distinct from `none` |
 | **Control height** | 4 — 28 / 32 / 40 / 44 | 44 is the WCAG 2.5.5 enhanced target size |
-| **Motion** | 4 durations, 3 curves, 2 intensities | unchanged from the motion pass |
+| **Motion** | 4 durations, 3 curves, 2 intensities | the base scale; `creative.css` adds seven named moments on top |
 | **Breakpoints** | 5 — 400 / 560 / 680 / 900 / 1024 | not tokens: custom properties cannot be used in a media query |
 
 Two things are worth knowing before editing it.
@@ -62,6 +62,39 @@ language-specific.
 Three literals are deliberate and should stay: `.sr-only`'s `-1px` margin, the brand
 mark's `-5px` optical nudge, and the `1px` hairline between the Who-am-I facets. None of
 them is spacing.
+
+## Motion
+
+`motion.css` is how things arrive. `creative.css` holds the seven signature moments —
+the masthead setting itself, the card-to-case-study morph, the theme's ink sweep, the
+preview's depth on hover, the code window running, the Who-am-I rule being drawn by
+scroll, and the ink column of reading progress.
+
+**No animation library.** Each candidate was built and measured rather than read about:
+
+| | gzipped delta |
+|---|---|
+| Motion `layoutId` (shared element) | **+50.0 KB** — and `LazyMotion` saves nothing, because layout projection *is* the library |
+| GSAP core + ScrollTrigger | +44.5 KB |
+| GSAP core alone | +27.2 KB |
+| Lenis | +5.4 KB |
+| **what shipped** | **+1.14 KB** |
+
+The two platform features cover the same ground for nothing: same-document **view
+transitions** (Baseline since 2025-10-14) do the shared-element morph and the theme
+sweep, and **CSS scroll-driven animations** run the scroll work on the compositor with
+no JavaScript at all. The scroll work sits behind `@supports (animation-timeline: view())`
+— Chrome and Edge 115+, Safari 26+, around 83% — and everything falls back to the
+IntersectionObserver reveals that were already there.
+
+Two rules worth keeping:
+
+- **A `view-transition-name` is attached only for the duration of one navigation.** Two
+  elements holding the same name when a snapshot is taken make the transition fail
+  outright, so the chapter marks the card being opened and takes the mark back when the
+  transition finishes.
+- **`animation-duration` cannot stop a scroll-driven animation**, because it has no
+  duration. The reduced-motion contract therefore also returns every timeline to `auto`.
 
 ## Rules this project holds itself to
 
