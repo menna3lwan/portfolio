@@ -12,6 +12,9 @@ import { ScopeBody } from '@/features/work/scope';
 import { ExperienceSection } from '@/features/experience/ExperienceSection';
 import { OpenSourceEntry } from '@/features/work/OpenSourceEntry';
 import { SiteHeader } from '@/components/layout/SiteHeader';
+import { AppEntry } from '@/features/work/AppEntry';
+import { listedApplications } from '@/content';
+import EN from '@/content/content.en.json';
 import { MemoryRouter } from 'react-router-dom';
 import type { Shot } from '@/data/previews';
 
@@ -205,6 +208,39 @@ describe('entry numbers', () => {
       expect(name).not.toMatch(/^\d{2}\S/);
       expect(name.length).toBeGreaterThan(0);
     }
+  });
+});
+
+/**
+ * A case study is a page about one project; in the chapter it is one entry among ten.
+ * The heading level has to follow that, or the nine case-study routes have no <h1> and
+ * their outline starts at level three — which is what they did.
+ */
+describe('the case-study heading level', () => {
+  const render = (standalone: boolean) =>
+    wrap(
+      <MemoryRouter>
+        <AppEntry record={listedApplications(EN as never)[0]!} position={1} standalone={standalone} />
+      </MemoryRouter>,
+    ).container;
+
+  it('is an h1 on the case-study route', () => {
+    const c = render(true);
+    expect(c.querySelector('h1')).not.toBeNull();
+    expect(c.querySelector('h1')).toHaveClass('exp__company');
+    expect(c.querySelector('h3')).toBeNull();
+  });
+
+  it('is an h3 inside the chapter, under that chapter’s h2', () => {
+    const c = render(false);
+    expect(c.querySelector('h3')).not.toBeNull();
+    expect(c.querySelector('h1')).toBeNull();
+  });
+
+  it('carries the same styling either way', () => {
+    expect(render(true).querySelector('.exp__company')?.className).toBe(
+      render(false).querySelector('.exp__company')?.className,
+    );
   });
 });
 

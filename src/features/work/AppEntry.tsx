@@ -41,11 +41,17 @@ export function AppEntry({ record: input, position, standalone = false }: AppEnt
     </>
   );
 
+  /* In the Work chapter this is one entry under that chapter's <h2>, so it is an <h3>.
+     On its own route it is the subject of the page, and the page had no <h1> at all —
+     nine case studies whose outline began at level three. The level follows the
+     context; the styling does not. */
+  const Title = standalone ? 'h1' : 'h3';
+
   return (
     <article className="card exp">
       <header className="exp__head">
         <div className="exp__heading">
-          <h3 className="exp__company display">
+          <Title className="exp__company display">
             {standalone ? (
               heading
             ) : (
@@ -53,7 +59,7 @@ export function AppEntry({ record: input, position, standalone = false }: AppEnt
                 {heading}
               </Link>
             )}
-          </h3>
+          </Title>
           {entry.meta.length > 0 && (
             <p className="exp__meta mono">
               {entry.meta.map((part) => (
