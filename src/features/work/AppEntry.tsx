@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useCaseTransition } from '@/app/hooks/useCaseTransition';
 import type { AppRecord } from '@/content/types';
 import { Reveal } from '@/components/ui/Reveal';
 import { Disclosure } from '@/components/ui/Disclosure';
@@ -27,6 +28,7 @@ export interface AppEntryProps {
 export function AppEntry({ record: input, position, standalone = false }: AppEntryProps) {
   const { t } = useLanguage();
   const entry = useAppEntry(input);
+  const openCase = useCaseTransition();
   const { record } = entry;
 
   const heading = (
@@ -48,14 +50,18 @@ export function AppEntry({ record: input, position, standalone = false }: AppEnt
   const Title = standalone ? 'h1' : 'h3';
 
   return (
-    <article className="card exp">
+    <article className="card exp" {...(standalone ? { 'data-shared-card': '' } : {})}>
       <header className="exp__head">
         <div className="exp__heading">
           <Title className="exp__company display">
             {standalone ? (
               heading
             ) : (
-              <Link to={`/work/${record.id}`} aria-label={`${record.name} — ${t.readCase}`}>
+              <Link
+                to={`/work/${record.id}`}
+                aria-label={`${record.name} — ${t.readCase}`}
+                onClick={(event) => openCase(event, `/work/${record.id}`)}
+              >
                 {heading}
               </Link>
             )}
@@ -78,7 +84,12 @@ export function AppEntry({ record: input, position, standalone = false }: AppEnt
 
       <p className="exp__summary">{record.summary}</p>
 
-      <ScreenPreview shots={entry.shots} name={record.name} eager={standalone} />
+      <ScreenPreview
+        shots={entry.shots}
+        name={record.name}
+        eager={standalone}
+        shared={standalone}
+      />
 
       {entry.stats.length > 0 && (
         <LabelledBlock label={t.numbers}>

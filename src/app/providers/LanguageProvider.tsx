@@ -47,10 +47,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       if (next === lang) return;
       store.set('lang', next);
       const apply = (loaded: Content) =>
-        commitWithTransition(() => {
-          setLang(next);
-          setContent(loaded);
-        }, !prefersReducedMotion());
+        commitWithTransition(
+          () => {
+            setLang(next);
+            setContent(loaded);
+          },
+          !prefersReducedMotion(),
+          'lang',
+        );
 
       const ready = peekContent(next);
       if (ready) apply(ready);

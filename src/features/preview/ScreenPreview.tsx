@@ -11,6 +11,10 @@ export interface ScreenPreviewProps {
   name: string;
   /** The lead shot renders eagerly on a case-study route, where it is the page's subject. */
   eager?: boolean;
+  /** Marks this preview as the one end of the card-to-case-study morph. Exactly one
+   *  element may carry it per document, which is why the chapter sets it imperatively on
+   *  the card being opened and only for the duration of that navigation. */
+  shared?: boolean;
 }
 
 /**
@@ -23,7 +27,7 @@ export interface ScreenPreviewProps {
  * screen's own aspect ratio, which is what keeps the letterbox figure at zero for every
  * screen rather than only the lead one.
  */
-export function ScreenPreview({ shots, name, eager = false }: ScreenPreviewProps) {
+export function ScreenPreview({ shots, name, eager = false, shared = false }: ScreenPreviewProps) {
   const { isRtl } = useLanguage();
   const [active, setActive] = useState(0);
   const buttonsRef = useRef<Array<HTMLButtonElement | null>>([]);
@@ -52,6 +56,7 @@ export function ScreenPreview({ shots, name, eager = false }: ScreenPreviewProps
         <div className="stage">
           <div
             className="stage__body"
+            {...(shared ? { 'data-shared': '' } : {})}
             style={{ '--ar': `${lead.width} / ${lead.height}` } as CSSProperties}
           >
             {shots.map((shot, i) => (

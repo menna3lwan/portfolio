@@ -34,6 +34,12 @@ export function AppLayout() {
     <>
       <SkipLink targetId="main">{(content.ui.skip as string) || t.skipToContent}</SkipLink>
       <SiteHeader />
+      {/* Reading progress, drawn as a column of ink down the leading edge. It is painted
+          entirely by CSS against the document's own scroll timeline — no listener, no
+          rAF loop, nothing on the main thread — and it hides itself where that timeline
+          is unavailable. Decorative, so it is hidden from assistive technology: the
+          information it carries is already in the scrollbar. */}
+      <div className="ink-column" aria-hidden="true" />
       <main id="main">
         <Outlet />
       </main>

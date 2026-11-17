@@ -97,17 +97,42 @@
     transition-duration: 1ms !important;
     transition-delay: 0ms !important;
     scroll-behavior: auto !important;
+    /* A scroll-driven animation has no duration — it is driven by the scroller — so
+       clamping the duration above does nothing to it. Returning the timeline to `auto`
+       makes it time-based again, and the 1ms then applies: it lands on its end state
+       immediately and never moves. Without this line the creative layer's scroll work
+       would keep animating for a reader who asked it not to. */
+    animation-timeline: auto !important;
   }
 
   /* anything that parks an element away from its resting position is undone */
   .rv,
-  .rv--rise {
+  .rv--rise,
+  .hero__heading .hero__name,
+  .hero__heading .hero__role,
+  .code-window .code-window__prompt,
+  .code-window .code-window__result {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  .rv--wipe > * {
+  .rv--wipe > *,
+  .hero__heading .hero__name,
+  .hero__heading .hero__role {
     clip-path: none !important;
+  }
+
+  /* The ink column's resting state is a full-height red line: it only means anything
+     while it is being filled, so with motion off it is simply not drawn. The masthead's
+     drawn rule and the caret are decoration over a border that is already there. */
+  .ink-column,
+  .code-window__prompt::after {
+    display: none !important;
+  }
+
+  .masthead::after {
+    animation: none !important;
+    transform: scaleX(1) !important;
   }
 
   [data-par],

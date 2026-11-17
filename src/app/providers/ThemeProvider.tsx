@@ -43,7 +43,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
    *  cross-fade the language switch uses rather than landing as a flash. */
   const setTheme = useCallback((next: ThemeChoice) => {
     store.set('theme', next === 'system' ? '' : next);
-    commitWithTransition(() => setChoice(next), !prefersReducedMotion());
+    commitWithTransition(() => setChoice(next), !prefersReducedMotion(), 'theme');
   }, []);
 
   const toggleTheme = useCallback(() => {
