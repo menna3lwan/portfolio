@@ -24,9 +24,44 @@ guessed when it is absent.
 | `src/data/corrections.ts` | Corrections applied on top of the content without editing it, each with its justification beside it. |
 | `src/data/previews.ts` | The measured size of every screen concept; an application's preview is named by its own content record, so a mismatch is not expressible. |
 | `src/i18n/strings.ts` | The shell's own chrome (chapter kickers, block labels), in both languages. |
-| `src/styles/` | The design system, in cascade layers: `tokens, base, atoms, components, hover, motion`. |
+| `src/styles/` | The design system, in cascade layers: `tokens, base, atoms, components, hover, motion`. `tokens.css` is the only file allowed to name a colour, a size, a radius, a duration or a curve — see below. |
 | `src/features/` | One folder per section of the page. |
 | `src/app/hooks/` | The motion and interaction primitives — reveal, scroll, parallax, pointer, count-up. |
+
+## The design system
+
+Everything lives in `src/styles/tokens.css`. Nothing outside it names a colour, a size, a
+radius, a duration or a curve.
+
+| Scale | Steps | Notes |
+|---|---|---|
+| **Colour** | 15 semantic tokens | one declaration each, both themes inside it via `light-dark()` |
+| **Type** | 9 text + 11 display | labels are set 1px apart on purpose; body sizes are not |
+| **Spacing** | 19, 2px-based | `--space-0-5` … `--space-23` |
+| **Radius** | 5 + `pill` + `round` | |
+| **Line height** | 9, incl. a 3-step display ramp | the larger the type, the tighter it is set |
+| **Letter spacing** | 6 | `--tracking-display` is the display face's own figure, distinct from `none` |
+| **Control height** | 4 — 28 / 32 / 40 / 44 | 44 is the WCAG 2.5.5 enhanced target size |
+| **Motion** | 4 durations, 3 curves, 2 intensities | unchanged from the motion pass |
+| **Breakpoints** | 5 — 400 / 560 / 680 / 900 / 1024 | not tokens: custom properties cannot be used in a media query |
+
+Two things are worth knowing before editing it.
+
+**The scales were derived from the design, not imposed on it.** Every step is a value the
+approved design already used. A conventional 4px spacing grid was measured against the
+page first and rejected: it would have moved 2,686 of the 3,141 spacing applications.
+
+**Arabic is a token override, not a second stylesheet.** The label voice — `--f-label`,
+`--weight-label`, `--case-label` and the tracking tokens — and every size step are
+re-pointed once in the `[lang='ar']` block. Arabic labels run about 1.12× the Latin and
+Arabic display about 0.72×, because the family changes from JetBrains Mono and Bebas Neue
+to IBM Plex Sans Arabic. One rule therefore serves both languages, and a new component
+needs no `[lang='ar']` rule at all unless it is doing something genuinely
+language-specific.
+
+Three literals are deliberate and should stay: `.sr-only`'s `-1px` margin, the brand
+mark's `-5px` optical nudge, and the `1px` hairline between the Who-am-I facets. None of
+them is spacing.
 
 ## Rules this project holds itself to
 
