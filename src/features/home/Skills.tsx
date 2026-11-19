@@ -103,7 +103,7 @@ export function Skills() {
   }, [runtime, lang, dir]);
 
   return (
-    <section className="skills" ref={section} aria-labelledby="skills-title">
+    <section className="skills" id="skills" ref={section} aria-labelledby="skills-title">
       <h2 className="sr-only" id="skills-title">
         {copy.ui.skills}
       </h2>

@@ -10,7 +10,7 @@
  * assistive technology beside it.
  */
 import type { CSSProperties } from 'react';
-import { splitUnits } from './split';
+import { isLatin, splitUnits } from './split';
 
 const at = (i: number) => ({ '--i': i }) as CSSProperties;
 
@@ -22,7 +22,7 @@ export function SplitText({ text, lang }: { text: string; lang: string }) {
         {parts.map((word, i) => (
           <span key={i}>
             {i > 0 && ' '}
-            <span className="word" style={at(i)}>
+            <span className="word" style={at(i)} dir={isLatin(word) ? 'ltr' : undefined}>
               {word}
             </span>
           </span>

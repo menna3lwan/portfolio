@@ -59,6 +59,11 @@ describe('SplitText', () => {
     expect(splitUnits('مطوّرة برمجيات', 'en').unit).toBe('word');
   });
 
+  it('keeps a run of Latin words together inside Arabic text', () => {
+    expect(splitUnits('Cellula Technologies', 'ar').parts).toEqual(['Cellula Technologies']);
+    expect(splitUnits('XPER — نظام ERP', 'ar').parts).toEqual(['XPER', '—', 'نظام', 'ERP']);
+  });
+
   it('renders every character of the original text', () => {
     const { container } = render(
       <p>
@@ -145,13 +150,64 @@ describe('the home page', () => {
     site('/');
     const cvLinks = screen.getAllByRole('link').filter((a) => a.getAttribute('href') === '/cv');
     expect(cvLinks.length).toBeGreaterThanOrEqual(2);
-    expect(screen.getByText('menna3lwan@gmail.com')).toBeInTheDocument();
+    const contact = screen.getByRole('region', { name: 'Contact' });
+    expect(within(contact).getByText('menna3lwan@gmail.com')).toBeInTheDocument();
   });
 
   it('renders in Arabic with the same five works', () => {
     const { container } = site('/', 'ar');
     expect(container.querySelectorAll('.item')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('مطوّرة');
+  });
+});
+
+describe('experience and about', () => {
+  it('lists every role from the CV as a disclosure, the first one open', async () => {
+    site('/');
+    const xp = screen.getByRole('region', { name: 'Experience' });
+    const toggles = within(xp).getAllByRole('button');
+    expect(toggles).toHaveLength(siteCopy('en').experience.items.length);
+    expect(toggles[0]).toHaveAttribute('aria-expanded', 'true');
+    expect(toggles[1]).toHaveAttribute('aria-expanded', 'false');
+    expect(toggles[0]).toHaveAccessibleName(/XPER/);
+    await userEvent.click(toggles[1]!);
+    expect(toggles[1]).toHaveAttribute('aria-expanded', 'true');
+    expect(toggles[0]).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  it('keeps Elevate in the words the CV uses, and links its works', () => {
+    site('/');
+    const elevate = siteCopy('en').experience.items.find((i) => i.org === 'Elevate')!;
+    expect(elevate.role).toBe('Advanced Flutter Development Intern');
+    expect(elevate.type).toBe('Internship / training program');
+    expect(elevate.when).toBe('Jun 2026 – Present');
+    expect(elevate.works).toEqual(['flower-app', 'tracking-app']);
+  });
+
+  it('has the same roles in Arabic', () => {
+    expect(siteCopy('ar').experience.items.map((i) => i.when.length > 0)).toHaveLength(siteCopy('en').experience.items.length);
+  });
+
+  it('reads the About statement once to assistive technology', () => {
+    site('/');
+    const about = screen.getByRole('region', { name: 'About' });
+    expect(within(about).getAllByText(siteCopy('en').about.statement)).toHaveLength(1);
+    expect(within(about).getByText('Egypt')).toBeInTheDocument();
+  });
+});
+
+describe('the menu', () => {
+  it('opens as a dialog, lists the sections, and closes on Escape', async () => {
+    site('/');
+    const button = screen.getByRole('button', { name: siteCopy('en').nav.openMenu });
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.queryByRole('dialog')).toBeNull();
+    await userEvent.click(button);
+    const dialog = screen.getByRole('dialog', { name: siteCopy('en').nav.label });
+    const names = within(dialog).getAllByRole('link').map((a) => a.getAttribute('href'));
+    expect(names.slice(0, 5)).toEqual(['/#works', '/#skills', '/#experience', '/#about', '/#contact']);
+    await userEvent.keyboard('{Escape}');
+    expect(screen.getByRole('button', { name: siteCopy('en').nav.openMenu })).toHaveAttribute('aria-expanded', 'false');
   });
 });
 

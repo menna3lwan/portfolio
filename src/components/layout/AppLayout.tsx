@@ -5,6 +5,8 @@ import { useLanguage } from '@/app/hooks/useAppContext';
 import { loadMotion, scrollToTop } from '@/app/motion/runtime';
 import { prefersReducedMotion } from '@/app/viewTransition';
 import { findWork, siteCopy, WORKS } from '@/content/site';
+import type { SectionId } from '@/content/site';
+import { Menu } from '@/components/site/Menu';
 import { SiteContext } from '@/components/site/site-context';
 import type { SiteContextValue } from '@/components/site/site-context';
 import { Loader } from '@/components/site/Loader';
@@ -35,6 +37,9 @@ export function AppLayout() {
   const busy = useRef(false);
   const ownNavigation = useRef(false);
   const [announce, setAnnounce] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [current, setCurrent] = useState<SectionId | null>(null);
+  const pendingSection = useRef<SectionId | null>(null);
 
   useLayoutEffect(() => {
     const root = document.documentElement;
@@ -145,6 +150,87 @@ export function AppLayout() {
     [navigate, destination, lang],
   );
 
+  /* Scroll to one of the home page's sections — smoothly on the same page, at once behind
+     the curtain after a route change — and give its heading focus, so keyboard and screen
+     reader users land where the eye does. */
+  const scrollToSection = useCallback((id: SectionId, immediate: boolean) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const heading = target.querySelector<HTMLElement>('h2');
+    const land = () => {
+      if (!heading) return;
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    };
+    const reduced = prefersReducedMotion();
+    void loadMotion().then(({ lenis, ScrollTrigger }) => {
+      ScrollTrigger.refresh();
+      if (lenis) {
+        // After a route change Lenis may still hold the last page's height as its limit.
+        lenis.resize();
+        lenis.scrollTo(target, {
+          immediate: immediate || reduced,
+          force: true,
+          duration: 1.5,
+          easing: (t: number) => 1 - Math.pow(1 - t, 4),
+          onComplete: land,
+        });
+        if (immediate || reduced) land();
+      } else {
+        target.scrollIntoView({ behavior: immediate || reduced ? 'auto' : 'smooth', block: 'start' });
+        land();
+      }
+    });
+  }, []);
+
+  /* The menu's choice: on the home page the menu lifts while the page travels; from any
+     other page the curtain carries the visitor home and the section is waiting. */
+  const toSection = useCallback(
+    (id: SectionId) => {
+      setMenuOpen(false);
+      if (location.pathname === '/') {
+        window.setTimeout(() => scrollToSection(id, false), prefersReducedMotion() ? 0 : 220);
+      } else {
+        pendingSection.current = id;
+        window.setTimeout(() => go('/'), prefersReducedMotion() ? 0 : 450);
+      }
+    },
+    [location.pathname, scrollToSection, go],
+  );
+
+  // Which section the visitor is in when the menu opens, so it can be marked.
+  const openMenu = useCallback(() => {
+    if (location.pathname === '/') {
+      const line = window.innerHeight * 0.45;
+      let here: SectionId | null = null;
+      for (const [id] of siteCopy(lang).nav.sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) here = id;
+      }
+      setCurrent(here);
+    } else setCurrent(null);
+    setMenuOpen(true);
+  }, [location.pathname, lang]);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  // While the menu is open the page beneath does not scroll.
+  useEffect(() => {
+    void loadMotion().then(({ lenis }) => (menuOpen ? lenis?.stop() : lenis?.start()));
+    document.documentElement.classList.toggle('menu-open', menuOpen);
+  }, [menuOpen]);
+
+  // A link to /#section lands on that section once the intro has played.
+  const hashDone = useRef(false);
+  useEffect(() => {
+    if (!introDone || hashDone.current) return;
+    hashDone.current = true;
+    const id = location.hash.slice(1) as SectionId;
+    if (location.pathname === '/' && siteCopy(lang).nav.sections.some(([s]) => s === id)) {
+      window.setTimeout(() => scrollToSection(id, true), 60);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [introDone]);
+
   /* Every route change starts at the top with focus on the new page's title. A change
      the curtain did not cover (the browser's back and forward buttons) gets the second
      half of it, so it never lands as a bare cut. */
@@ -154,11 +240,19 @@ export function AppLayout() {
       first.current = false;
       return;
     }
-    scrollToTop();
-    const h1 = document.querySelector<HTMLElement>('main h1');
-    if (h1) {
-      h1.setAttribute('tabindex', '-1');
-      h1.focus({ preventScroll: true });
+    setMenuOpen(false);
+    const section = pendingSection.current;
+    pendingSection.current = null;
+    if (section) {
+      // Two frames for the home page's layout to settle, then straight to the section.
+      requestAnimationFrame(() => requestAnimationFrame(() => scrollToSection(section, true)));
+    } else {
+      scrollToTop();
+      const h1 = document.querySelector<HTMLElement>('main h1');
+      if (h1) {
+        h1.setAttribute('tabindex', '-1');
+        h1.focus({ preventScroll: true });
+      }
     }
     setAnnounce(`${ui.opened}: ${document.title}`);
     if (!ownNavigation.current && !prefersReducedMotion() && panels.current) {
@@ -221,6 +315,8 @@ export function AppLayout() {
           </Magnetic>
         </nav>
 
+        <Menu open={menuOpen} current={current} onClose={closeMenu} onPick={toSection} />
+
         <div className="top-actions">
           <button
             className="pill pill--round"
@@ -247,6 +343,22 @@ export function AppLayout() {
             }}
           >
             <Moon />
+          </button>
+          <button
+            className={`pill pill--menu${menuOpen ? ' is-open' : ''}`}
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            aria-label={menuOpen ? copy.nav.closeMenu : copy.nav.openMenu}
+            onClick={() => (menuOpen ? closeMenu() : openMenu())}
+          >
+            <span className="pill__burger" aria-hidden="true">
+              <span />
+              <span />
+            </span>
+            <span className="pill__menu-label">
+              <RollText text={menuOpen ? copy.nav.close : copy.nav.menu} lang={lang} />
+            </span>
           </button>
           <Link
             className="pill"

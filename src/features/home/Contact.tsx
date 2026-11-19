@@ -65,7 +65,10 @@ export function Contact() {
   ];
 
   return (
-    <section className="contact" aria-label={ui.touch}>
+    <section className="contact" id="contact" aria-labelledby="contact-title">
+      <h2 className="sr-only" id="contact-title">
+        {siteCopy(lang).nav.sections.find(([id]) => id === 'contact')?.[1]}
+      </h2>
       <div className="contact__left">
         <Magnetic strength={0.4} className="block" innerStyle={{ display: 'block' }}>
           <a className="git" href={`mailto:${email}`} data-fill="">

@@ -77,6 +77,46 @@ export interface SiteUi {
   readonly newTab: string;
 }
 
+export interface ExperienceItem {
+  readonly org: string;
+  readonly role: string;
+  readonly when: string;
+  readonly type: string;
+  readonly points: readonly string[];
+  readonly tags: readonly string[];
+  /** Selected works that came out of this role, by id. */
+  readonly works?: readonly string[];
+}
+
+export interface SiteExperience {
+  readonly label: string;
+  readonly open: string;
+  readonly shut: string;
+  readonly project: string;
+  readonly items: readonly ExperienceItem[];
+  /** Education, the DEPI ranking and the open-source contribution. */
+  readonly more: readonly { readonly label: string; readonly title: string; readonly text: string }[];
+}
+
+export interface SiteAbout {
+  readonly label: string;
+  readonly statement: string;
+  readonly facts: readonly (readonly [string, string])[];
+}
+
+/** The page's sections, in order, as the menu lists them: [anchor id, name]. */
+export type SectionId = 'works' | 'skills' | 'experience' | 'about' | 'contact';
+
+export interface SiteNav {
+  readonly menu: string;
+  readonly close: string;
+  readonly label: string;
+  readonly openMenu: string;
+  readonly closeMenu: string;
+  readonly sections: readonly (readonly [SectionId, string])[];
+  readonly elsewhere: string;
+}
+
 export interface SiteCopy {
   /** The hero title, as its two lines. */
   readonly role: readonly [string, string];
@@ -87,6 +127,9 @@ export interface SiteCopy {
   readonly scroll: string;
   readonly skills: readonly SkillWord[];
   readonly ui: SiteUi;
+  readonly nav: SiteNav;
+  readonly about: SiteAbout;
+  readonly experience: SiteExperience;
 }
 
 export const WORKS = worksJson as unknown as readonly Work[];

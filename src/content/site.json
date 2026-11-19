@@ -1,168 +1,518 @@
 {
-  "en": {
-    "role": [
-      "Software",
-      "Developer"
-    ],
-    "roleSr": "Software Developer, specialising in Flutter and mobile development",
-    "open": "Open to work",
-    "based": [
-      "Flutter & mobile, ",
-      "based in Egypt"
-    ],
-    "scroll": "SCROLL DOWN SCROLL DOWN",
-    "skills": [
-      {
-        "word": "SOFTWARE ENGINEERING",
-        "quote": "The part users never see is the part I enjoy most."
-      },
-      {
-        "word": "FLUTTER / DART",
-        "quote": "Two apps that read as one product, without sharing a codebase."
-      },
-      {
-        "word": "CLEAN ARCHITECTURE",
-        "quote": "The same shape for every feature, so a new one is a folder, not a decision."
-      },
-      {
-        "word": "OOP / SOLID",
-        "quote": "Two implementations, one interface: the feature is finished before its endpoint exists."
-      },
-      {
-        "word": "BLOC / CUBIT",
-        "quote": "Deciding where state lives."
-      },
-      {
-        "word": "REST APIS",
-        "quote": "Making failures predictable."
-      },
-      {
-        "word": "SYSTEM DESIGN",
-        "quote": "Networking never touches navigation."
-      },
-      {
-        "word": "DATABASE DESIGN",
-        "quote": "Shape the data once, in one place, before any screen displays it."
-      },
-      {
-        "word": "GIT / TEAMWORK",
-        "quote": "Teaching made me better at explaining technical decisions."
-      },
-      {
-        "word": "TESTING / QUALITY",
-        "quote": "Writing the test that proves a fix."
-      }
-    ],
-    "ui": {
-      "skip": "Skip to content",
-      "loading": "Loading",
-      "cv": "CV",
-      "cvLabel": "Curriculum vitae",
-      "toAr": "التبديل إلى العربية",
-      "toEn": "Switch to English",
-      "toLight": "Switch to light theme",
-      "toDark": "Switch to dark theme",
-      "skills": "Skills",
-      "selected": "Selected works",
-      "view": "View project",
-      "touch": "Get in touch",
-      "copy": "Copy",
-      "copied": "Copied",
-      "about": "About",
-      "role": "My role",
-      "challenge": "Challenge",
-      "architecture": "Architecture",
-      "built": "What I built",
-      "type": "Type",
-      "stack": "Stack",
-      "code": "View code",
-      "back": "Back to home",
-      "opened": "Opened",
-      "notFound": "Project not found",
-      "newTab": "(opens in a new tab)"
-    }
+ "en": {
+  "role": [
+   "Software",
+   "Developer"
+  ],
+  "roleSr": "Software Developer, specialising in Flutter and mobile development",
+  "open": "Open to work",
+  "based": [
+   "Flutter & mobile, ",
+   "based in Egypt"
+  ],
+  "scroll": "SCROLL DOWN SCROLL DOWN",
+  "skills": [
+   {
+    "word": "SOFTWARE ENGINEERING",
+    "quote": "The part users never see is the part I enjoy most."
+   },
+   {
+    "word": "FLUTTER / DART",
+    "quote": "Two apps that read as one product, without sharing a codebase."
+   },
+   {
+    "word": "CLEAN ARCHITECTURE",
+    "quote": "The same shape for every feature, so a new one is a folder, not a decision."
+   },
+   {
+    "word": "OOP / SOLID",
+    "quote": "Two implementations, one interface: the feature is finished before its endpoint exists."
+   },
+   {
+    "word": "BLOC / CUBIT",
+    "quote": "Deciding where state lives."
+   },
+   {
+    "word": "REST APIS",
+    "quote": "Making failures predictable."
+   },
+   {
+    "word": "SYSTEM DESIGN",
+    "quote": "Networking never touches navigation."
+   },
+   {
+    "word": "DATABASE DESIGN",
+    "quote": "Shape the data once, in one place, before any screen displays it."
+   },
+   {
+    "word": "GIT / TEAMWORK",
+    "quote": "Teaching made me better at explaining technical decisions."
+   },
+   {
+    "word": "TESTING / QUALITY",
+    "quote": "Writing the test that proves a fix."
+   }
+  ],
+  "ui": {
+   "skip": "Skip to content",
+   "loading": "Loading",
+   "cv": "CV",
+   "cvLabel": "Curriculum vitae",
+   "toAr": "التبديل إلى العربية",
+   "toEn": "Switch to English",
+   "toLight": "Switch to light theme",
+   "toDark": "Switch to dark theme",
+   "skills": "Skills",
+   "selected": "Selected works",
+   "view": "View project",
+   "touch": "Get in touch",
+   "copy": "Copy",
+   "copied": "Copied",
+   "about": "About",
+   "role": "My role",
+   "challenge": "Challenge",
+   "architecture": "Architecture",
+   "built": "What I built",
+   "type": "Type",
+   "stack": "Stack",
+   "code": "View code",
+   "back": "Back to home",
+   "opened": "Opened",
+   "notFound": "Project not found",
+   "newTab": "(opens in a new tab)"
   },
-  "ar": {
-    "role": [
-      "مطوّرة",
-      "برمجيات"
+  "nav": {
+   "menu": "Menu",
+   "close": "Close",
+   "label": "Site sections",
+   "openMenu": "Open the menu",
+   "closeMenu": "Close the menu",
+   "sections": [
+    [
+     "works",
+     "Selected works"
     ],
-    "roleSr": "مطوّرة برمجيات، متخصصة في Flutter وتطوير تطبيقات الموبايل",
-    "open": "متاحة للعمل",
-    "based": [
-      "Flutter والموبايل، ",
-      "من مصر"
+    [
+     "skills",
+     "Skills"
     ],
-    "scroll": "مرّر للأسفل · مرّر للأسفل · مرّر للأسفل · مرّر للأسفل · ",
-    "skills": [
-      {
-        "word": "هندسة البرمجيات",
-        "quote": "أكثر ما أستمتع به هو الجزء الذي لا يراه المستخدمون."
-      },
-      {
-        "word": "Flutter / Dart",
-        "quote": "تطبيقان يُقرآن كمنتج واحد، دون أن يتشاركا قاعدة كود."
-      },
-      {
-        "word": "Clean Architecture",
-        "quote": "الشكل نفسه لكل ميزة، فالميزة الجديدة مجلّد لا قرار."
-      },
-      {
-        "word": "OOP / SOLID",
-        "quote": "تنفيذان وواجهة واحدة: تكتمل الميزة قبل أن توجد نقطتها."
-      },
-      {
-        "word": "BLoC / Cubit",
-        "quote": "تحديد مكان الحالة."
-      },
-      {
-        "word": "واجهات REST",
-        "quote": "جعل الأخطاء متوقعة."
-      },
-      {
-        "word": "تصميم الأنظمة",
-        "quote": "الشبكة لا تلمس التنقل أبدًا."
-      },
-      {
-        "word": "تصميم البيانات",
-        "quote": "تُصاغ البيانات مرة واحدة وفي مكان واحد، قبل أن تعرضها أي شاشة."
-      },
-      {
-        "word": "Git والعمل الجماعي",
-        "quote": "التدريس جعلني أفضل في شرح القرارات التقنية."
-      },
-      {
-        "word": "الاختبار والجودة",
-        "quote": "كتابة الاختبار الذي يثبت صحة الإصلاح."
-      }
+    [
+     "experience",
+     "Experience"
     ],
-    "ui": {
-      "skip": "تخطَّ إلى المحتوى",
-      "loading": "جارٍ التحميل",
-      "cv": "السيرة الذاتية",
-      "cvLabel": "السيرة الذاتية",
-      "toAr": "التبديل إلى العربية",
-      "toEn": "Switch to English",
-      "toLight": "التبديل إلى المظهر الفاتح",
-      "toDark": "التبديل إلى المظهر الداكن",
-      "skills": "المهارات",
-      "selected": "أعمال مختارة",
-      "view": "عرض المشروع",
-      "touch": "للتواصل",
-      "copy": "نسخ",
-      "copied": "نُسخ",
-      "about": "نبذة",
-      "role": "دوري",
-      "challenge": "التحدي",
-      "architecture": "البنية",
-      "built": "ما بنيته",
-      "type": "النوع",
-      "stack": "التقنيات",
-      "code": "عرض الكود",
-      "back": "العودة إلى الرئيسية",
-      "opened": "فُتح",
-      "notFound": "المشروع غير موجود",
-      "newTab": "(يفتح في علامة تبويب جديدة)"
+    [
+     "about",
+     "About"
+    ],
+    [
+     "contact",
+     "Contact"
+    ]
+   ],
+   "elsewhere": "Elsewhere"
+  },
+  "about": {
+   "label": "About",
+   "statement": "I’m a software developer who builds mobile products in Flutter — a 2026 Computer Science and Artificial Intelligence graduate of Benha University, with a year of production experience on business applications released to Google Play. What I care about most is the part users never see: where state lives, how every failure resolves to a known state, and the tests that keep it that way.",
+   "facts": [
+    [
+     "Based in",
+     "Egypt"
+    ],
+    [
+     "Education",
+     "B.Sc. Computer Science & AI, Benha University, 2026"
+    ],
+    [
+     "Focus",
+     "Flutter and mobile, Clean Architecture, BLoC / Cubit, REST integration"
+    ],
+    [
+     "Now",
+     "Open to software engineering and Flutter roles"
+    ]
+   ]
+  },
+  "experience": {
+   "label": "Experience",
+   "open": "Show details",
+   "shut": "Hide details",
+   "project": "See the project",
+   "items": [
+    {
+     "org": "XPER — ERP",
+     "role": "Flutter Developer",
+     "when": "Jan 2026 – Oct 2026",
+     "type": "Professional role",
+     "points": [
+      "Delivered three ERP modules in Flutter — Gold ERP for gold and jewelry trading, Offline Mode with local persistence and sync on reconnection, and CRM Customers — on a feature-first Clean Architecture codebase released through Azure-hosted STG and DEV environments.",
+      "Integrated the Paymob gateway end to end with transaction-state tracking and error recovery, so interrupted or failed payments resolve to a known state.",
+      "Customized PlutoGrid into large editable data grids, implemented Firebase Authentication and Cloud Messaging, covered feature logic with unit tests, and contributed to branch and customer follow-up apps published on Google Play."
+     ],
+     "tags": [
+      "Flutter",
+      "Clean Architecture",
+      "Offline sync",
+      "Paymob",
+      "PlutoGrid",
+      "Firebase"
+     ]
+    },
+    {
+     "org": "Elevate",
+     "role": "Advanced Flutter Development Intern",
+     "when": "Jun 2026 – Present",
+     "type": "Internship / training program",
+     "points": [
+      "A project-based advanced Flutter program; its practical track is two production-style delivery applications — Flower App and Tracking App."
+     ],
+     "tags": [
+      "Flutter",
+      "BLoC / Cubit",
+      "Clean Architecture"
+     ],
+     "works": [
+      "flower-app",
+      "tracking-app"
+     ]
+    },
+    {
+     "org": "NTI",
+     "role": "Mobile Developer Intern",
+     "when": "Dec 2025 – Feb 2026",
+     "type": "Internship",
+     "points": [
+      "Built Flutter features on a Clean Architecture codebase inside a team workflow, delivering every change through GitHub pull requests, peer code review and a shared branching strategy.",
+      "Wrote unit tests alongside new features so behavior stayed verifiable as the codebase grew."
+     ],
+     "tags": [
+      "Flutter",
+      "Git workflow",
+      "Unit testing"
+     ]
+    },
+    {
+     "org": "Dragons",
+     "role": "Software Development Intern",
+     "when": "Aug 2025 – Feb 2026",
+     "type": "Internship · Remote",
+     "points": [
+      "Delivered an in-app chatbot for the company’s mobile products, integrating Google Gemini into Flutter clients at the application layer."
+     ],
+     "tags": [
+      "Flutter",
+      "Google Gemini"
+     ]
+    },
+    {
+     "org": "Cellula Technologies",
+     "role": "Flutter Developer Intern",
+     "when": "Jul 2025 – Aug 2025",
+     "type": "Internship",
+     "points": [
+      "Delivered two Flutter applications integrating AI models at the application layer: a weather-advisory app combining live weather data with model predictions, and a recipe recommender built on Google Gemini.",
+      "Work recognized in a written recommendation letter from the company."
+     ],
+     "tags": [
+      "Flutter",
+      "REST APIs",
+      "AI integration"
+     ]
+    },
+    {
+     "org": "Hen Lehen",
+     "role": "Freelance Flutter Developer",
+     "when": "2025 – 2026",
+     "type": "Freelance",
+     "points": [
+      "Commissioned to build and deliver a two-application telemedicine platform end to end — a Patient App and a Doctor App — against a .NET service layer.",
+      "Delivered to the client running on real production data; subsequently sold as a product."
+     ],
+     "tags": [
+      "Flutter",
+      "Role-based access",
+      ".NET service layer"
+     ],
+     "works": [
+      "hen-lehen"
+     ]
     }
+   ],
+   "more": [
+    {
+     "label": "Education",
+     "title": "B.Sc. Computer Science & Artificial Intelligence",
+     "text": "Benha University · Aug 2022 – 2026"
+    },
+    {
+     "label": "Achievement",
+     "title": "7th place nationwide",
+     "text": "Mobile Development track, Digital Egypt Pioneers Initiative (DEPI), Ministry of Communications and IT · Dec 2024"
+    },
+    {
+     "label": "Open source",
+     "title": "PlutoGrid",
+     "text": "Customized column and row models, cell renderers and grid events for production; pull request submitted upstream (open)."
+    }
+   ]
   }
+ },
+ "ar": {
+  "role": [
+   "مطوّرة",
+   "برمجيات"
+  ],
+  "roleSr": "مطوّرة برمجيات، متخصصة في Flutter وتطوير تطبيقات الموبايل",
+  "open": "متاحة للعمل",
+  "based": [
+   "Flutter والموبايل، ",
+   "من مصر"
+  ],
+  "scroll": "مرّر للأسفل · مرّر للأسفل · مرّر للأسفل · مرّر للأسفل · ",
+  "skills": [
+   {
+    "word": "هندسة البرمجيات",
+    "quote": "أكثر ما أستمتع به هو الجزء الذي لا يراه المستخدمون."
+   },
+   {
+    "word": "Flutter / Dart",
+    "quote": "تطبيقان يُقرآن كمنتج واحد، دون أن يتشاركا قاعدة كود."
+   },
+   {
+    "word": "Clean Architecture",
+    "quote": "الشكل نفسه لكل ميزة، فالميزة الجديدة مجلّد لا قرار."
+   },
+   {
+    "word": "OOP / SOLID",
+    "quote": "تنفيذان وواجهة واحدة: تكتمل الميزة قبل أن توجد نقطتها."
+   },
+   {
+    "word": "BLoC / Cubit",
+    "quote": "تحديد مكان الحالة."
+   },
+   {
+    "word": "واجهات REST",
+    "quote": "جعل الأخطاء متوقعة."
+   },
+   {
+    "word": "تصميم الأنظمة",
+    "quote": "الشبكة لا تلمس التنقل أبدًا."
+   },
+   {
+    "word": "تصميم البيانات",
+    "quote": "تُصاغ البيانات مرة واحدة وفي مكان واحد، قبل أن تعرضها أي شاشة."
+   },
+   {
+    "word": "Git والعمل الجماعي",
+    "quote": "التدريس جعلني أفضل في شرح القرارات التقنية."
+   },
+   {
+    "word": "الاختبار والجودة",
+    "quote": "كتابة الاختبار الذي يثبت صحة الإصلاح."
+   }
+  ],
+  "ui": {
+   "skip": "تخطَّ إلى المحتوى",
+   "loading": "جارٍ التحميل",
+   "cv": "السيرة الذاتية",
+   "cvLabel": "السيرة الذاتية",
+   "toAr": "التبديل إلى العربية",
+   "toEn": "Switch to English",
+   "toLight": "التبديل إلى المظهر الفاتح",
+   "toDark": "التبديل إلى المظهر الداكن",
+   "skills": "المهارات",
+   "selected": "أعمال مختارة",
+   "view": "عرض المشروع",
+   "touch": "للتواصل",
+   "copy": "نسخ",
+   "copied": "نُسخ",
+   "about": "نبذة",
+   "role": "دوري",
+   "challenge": "التحدي",
+   "architecture": "البنية",
+   "built": "ما بنيته",
+   "type": "النوع",
+   "stack": "التقنيات",
+   "code": "عرض الكود",
+   "back": "العودة إلى الرئيسية",
+   "opened": "فُتح",
+   "notFound": "المشروع غير موجود",
+   "newTab": "(يفتح في علامة تبويب جديدة)"
+  },
+  "nav": {
+   "menu": "القائمة",
+   "close": "إغلاق",
+   "label": "أقسام الموقع",
+   "openMenu": "فتح القائمة",
+   "closeMenu": "إغلاق القائمة",
+   "sections": [
+    [
+     "works",
+     "أعمال مختارة"
+    ],
+    [
+     "skills",
+     "المهارات"
+    ],
+    [
+     "experience",
+     "الخبرة"
+    ],
+    [
+     "about",
+     "نبذة"
+    ],
+    [
+     "contact",
+     "تواصل"
+    ]
+   ],
+   "elsewhere": "في أماكن أخرى"
+  },
+  "about": {
+   "label": "نبذة",
+   "statement": "مطوّرة برمجيات أبني منتجات الموبايل بـ Flutter، وخرّيجة علوم الحاسب والذكاء الاصطناعي من جامعة بنها عام 2026، ولديّ عام من الخبرة الإنتاجية على تطبيقات أعمال منشورة على Google Play. أكثر ما يشغلني هو ما لا يراه المستخدم: أين تعيش الحالة، وكيف ينتهي كل فشل إلى حالة معروفة، والاختبارات التي تُبقي الأمر كذلك.",
+   "facts": [
+    [
+     "المقر",
+     "مصر"
+    ],
+    [
+     "التعليم",
+     "بكالوريوس علوم الحاسب والذكاء الاصطناعي، جامعة بنها، 2026"
+    ],
+    [
+     "التركيز",
+     "Flutter والموبايل، Clean Architecture، BLoC / Cubit، تكامل REST"
+    ],
+    [
+     "الآن",
+     "متاحة لفرص هندسة البرمجيات وتطوير Flutter"
+    ]
+   ]
+  },
+  "experience": {
+   "label": "الخبرة",
+   "open": "عرض التفاصيل",
+   "shut": "إخفاء التفاصيل",
+   "project": "عرض المشروع",
+   "items": [
+    {
+     "org": "XPER — نظام ERP",
+     "role": "مطوّرة Flutter",
+     "when": "يناير 2026 – أكتوبر 2026",
+     "type": "دور مهني",
+     "points": [
+      "سلّمتُ ثلاث وحدات ERP بـ Flutter — Gold ERP لتجارة الذهب والمجوهرات، ووضع العمل دون اتصال مع حفظ محلي ومزامنة عند عودة الشبكة، ووحدة عملاء CRM — على قاعدة كود بنمط Clean Architecture مقسّمة حسب الميزات، تُنشر عبر بيئتَي STG وDEV على Azure.",
+      "دمجتُ بوّابة Paymob من البداية إلى النهاية مع تتبّع حالة المعاملة والتعافي من الأخطاء، فتنتهي المدفوعات المتعثّرة أو الفاشلة إلى حالة معروفة.",
+      "خصّصتُ PlutoGrid لجداول بيانات كبيرة قابلة للتحرير، ونفّذتُ Firebase Authentication وCloud Messaging، وغطّيتُ منطق الميزات باختبارات وحدة، وساهمتُ في تطبيقات للفروع ومتابعة العملاء منشورة على Google Play."
+     ],
+     "tags": [
+      "Flutter",
+      "Clean Architecture",
+      "مزامنة دون اتصال",
+      "Paymob",
+      "PlutoGrid",
+      "Firebase"
+     ]
+    },
+    {
+     "org": "Elevate",
+     "role": "متدرّبة تطوير Flutter المتقدّم",
+     "when": "يونيو 2026 – الآن",
+     "type": "تدريب عملي / برنامج تدريبي",
+     "points": [
+      "برنامج Flutter متقدّم قائم على المشاريع، مساره العملي تطبيقا توصيل بأسلوب إنتاجي — Flower App وTracking App."
+     ],
+     "tags": [
+      "Flutter",
+      "BLoC / Cubit",
+      "Clean Architecture"
+     ],
+     "works": [
+      "flower-app",
+      "tracking-app"
+     ]
+    },
+    {
+     "org": "NTI",
+     "role": "متدرّبة تطوير موبايل",
+     "when": "ديسمبر 2025 – فبراير 2026",
+     "type": "تدريب",
+     "points": [
+      "طوّرتُ ميزات Flutter على قاعدة كود بنمط Clean Architecture ضمن فريق، وكل تغيير عبر Pull Requests على GitHub ومراجعة الأقران واستراتيجية فروع مشتركة.",
+      "كتبتُ اختبارات وحدة مع الميزات الجديدة ليبقى السلوك قابلًا للتحقق مع نموّ الكود."
+     ],
+     "tags": [
+      "Flutter",
+      "سير عمل Git",
+      "اختبارات الوحدة"
+     ]
+    },
+    {
+     "org": "Dragons",
+     "role": "متدرّبة تطوير برمجيات",
+     "when": "أغسطس 2025 – فبراير 2026",
+     "type": "تدريب · عن بُعد",
+     "points": [
+      "سلّمتُ روبوت محادثة داخل تطبيقات الشركة على الموبايل، بدمج Google Gemini في عملاء Flutter على مستوى طبقة التطبيق."
+     ],
+     "tags": [
+      "Flutter",
+      "Google Gemini"
+     ]
+    },
+    {
+     "org": "Cellula Technologies",
+     "role": "متدرّبة تطوير Flutter",
+     "when": "يوليو 2025 – أغسطس 2025",
+     "type": "تدريب",
+     "points": [
+      "سلّمتُ تطبيقَي Flutter يدمجان نماذج ذكاء اصطناعي على مستوى التطبيق: تطبيق نصائح طقس يجمع بيانات الطقس الحيّة مع تنبؤات نموذج، ومُقترِح وصفات مبني على Google Gemini.",
+      "نال عملي خطاب توصية مكتوبًا من الشركة."
+     ],
+     "tags": [
+      "Flutter",
+      "واجهات REST",
+      "دمج الذكاء الاصطناعي"
+     ]
+    },
+    {
+     "org": "هُنَّ لَهُنَّ",
+     "role": "مطوّرة Flutter مستقلة",
+     "when": "2025 – 2026",
+     "type": "عمل حر",
+     "points": [
+      "كُلِّفتُ ببناء وتسليم منصّة طب عن بُعد من تطبيقين من البداية إلى النهاية — تطبيق للمريضة وآخر للطبيبة — على طبقة خدمات .NET.",
+      "سُلِّمت للعميل تعمل على بيانات إنتاج حقيقية، ثم بِيعت لاحقًا كمنتج."
+     ],
+     "tags": [
+      "Flutter",
+      "صلاحيات حسب الدور",
+      "طبقة خدمات .NET"
+     ],
+     "works": [
+      "hen-lehen"
+     ]
+    }
+   ],
+   "more": [
+    {
+     "label": "التعليم",
+     "title": "بكالوريوس علوم الحاسب والذكاء الاصطناعي",
+     "text": "جامعة بنها · أغسطس 2022 – 2026"
+    },
+    {
+     "label": "إنجاز",
+     "title": "المركز السابع على مستوى الجمهورية",
+     "text": "مسار تطوير الموبايل، مبادرة رواد مصر الرقمية (DEPI)، وزارة الاتصالات وتكنولوجيا المعلومات · ديسمبر 2024"
+    },
+    {
+     "label": "مصدر مفتوح",
+     "title": "PlutoGrid",
+     "text": "تخصيص نماذج الأعمدة والصفوف وعارضات الخلايا وأحداث الجدول لمتطلبات الإنتاج؛ وطلب دمج مقدَّم إلى المشروع الأصلي (مفتوح)."
+    }
+   ]
+  }
+ }
 }
