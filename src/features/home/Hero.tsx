@@ -21,12 +21,13 @@ export function Hero() {
   const tilt = useRef<HTMLDivElement>(null);
   const reduced = prefersReducedMotion();
   // The characters wait out of sight until their entrance can run, so they never show
-  // and then jump; if the runtime never arrives they are released after 4s regardless.
+  // and then jump; if the runtime never arrives they are released after 8s regardless
+  // (after the splash's own 6s fallback).
   const [pending, setPending] = useState(!reduced);
 
   useEffect(() => {
     if (!pending) return;
-    const fallback = window.setTimeout(() => setPending(false), 4000);
+    const fallback = window.setTimeout(() => setPending(false), 8000);
     return () => window.clearTimeout(fallback);
   }, [pending]);
 
