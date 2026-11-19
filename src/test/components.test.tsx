@@ -184,6 +184,24 @@ describe('experience and about', () => {
     expect(elevate.works).toEqual(['flower-app', 'tracking-app']);
   });
 
+  it('keeps the earlier roles the CV leaves out, in their original words', () => {
+    const orgs = siteCopy('en').experience.items.map((i) => i.org);
+    expect(orgs).toEqual([
+      'XPER — ERP',
+      'Elevate',
+      'NTI',
+      'Dragons',
+      'Cellula Technologies',
+      'Hen Lehen',
+      'Fuzetek',
+      'Digital Egypt Pioneers Initiative (DEPI)',
+      'Almentor',
+      'Mindset',
+    ]);
+    const almentor = siteCopy('en').experience.items.find((i) => i.org === 'Almentor')!;
+    expect([almentor.role, almentor.when, almentor.type]).toEqual(['Coding Instructor', 'Feb 2024 – Dec 2024', 'Teaching']);
+  });
+
   it('has the same roles in Arabic', () => {
     expect(siteCopy('ar').experience.items.map((i) => i.when.length > 0)).toHaveLength(siteCopy('en').experience.items.length);
   });

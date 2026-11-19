@@ -11,7 +11,9 @@ import { useSite } from '@/components/site/site-context';
 const pad = (n: number) => String(n).padStart(2, '0');
 
 /**
- * Experience, from the final CV, in the works section's voice: the same asterisk title
+ * Experience — the whole journey: the roles on the final CV, in its words, followed by the
+ * earlier internships, the DEPI programme and the Almentor teaching role, as the portfolio
+ * has always listed them — in the works section's voice: the same asterisk title
  * and index rule, each role a full-width row — number, organisation set large, role, and
  * dates in the mono face. A row opens in place to show what was done there, the tools,
  * and the selected works that came out of it. Education, the DEPI ranking and the

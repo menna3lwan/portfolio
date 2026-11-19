@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import type { RefObject } from 'react';
 
 interface LegacyDocument extends Document {
   webkitFullscreenEnabled?: boolean;
@@ -10,8 +11,9 @@ interface LegacyElement extends HTMLElement {
   webkitRequestFullscreen?: () => Promise<void>;
 }
 
-/** Full screen on the document element, with the WebKit-prefixed fallback still wired. */
-export function useFullscreen(): {
+/** Full screen on the given element (the document's stage) or, failing that, the whole
+ *  document, with the WebKit-prefixed fallback still wired. */
+export function useFullscreen(target?: RefObject<HTMLElement | null>): {
   supported: boolean;
   active: boolean;
   toggle: () => void;
@@ -39,7 +41,7 @@ export function useFullscreen(): {
 
   const toggle = useCallback(() => {
     const d = document as LegacyDocument;
-    const root = document.documentElement as LegacyElement;
+    const root = (target?.current ?? document.documentElement) as LegacyElement;
     if (d.fullscreenElement || d.webkitFullscreenElement) {
       const exit = d.exitFullscreen ?? d.webkitExitFullscreen;
       void exit?.call(d);
@@ -47,7 +49,7 @@ export function useFullscreen(): {
     }
     const request = root.requestFullscreen ?? root.webkitRequestFullscreen;
     if (request) void Promise.resolve(request.call(root)).catch(() => undefined);
-  }, []);
+  }, [target]);
 
   return { supported, active, toggle };
 }

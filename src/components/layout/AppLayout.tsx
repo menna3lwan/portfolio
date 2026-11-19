@@ -21,8 +21,8 @@ import { Chevron, Moon } from '@/components/site/icons';
 /**
  * The shell every portfolio page renders inside — the reference's frame: the shader
  * background, the cursor, the name top-left, the pills top-right, the project progress
- * bar, and the page curtain that carries one page into the next. The CV route sits
- * outside it, keeping its own approved design.
+ * bar, and the page curtain that carries one page into the next. Every route — home,
+ * the project pages and the CV — renders inside it.
  */
 export function AppLayout() {
   const { content, lang, toggleLanguage } = useLanguage();
@@ -364,8 +364,10 @@ export function AppLayout() {
             className="pill"
             to="/cv"
             aria-label={ui.cvLabel}
+            aria-current={location.pathname === '/cv' ? 'page' : undefined}
             onClick={(e) => {
               e.preventDefault();
+              if (location.pathname === '/cv') return;
               go('/cv');
             }}
           >

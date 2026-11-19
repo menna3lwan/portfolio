@@ -17,14 +17,33 @@ const at = (i: number) => ({ '--i': i }) as CSSProperties;
 export function SplitText({ text, lang }: { text: string; lang: string }) {
   const { unit, parts } = splitUnits(text, lang);
   if (unit === 'word') {
+    // A Latin run ("Cellula Technologies") is isolated left to right as a whole, but its
+    // words keep their own boxes, so the run can still wrap between them.
+    let k = 0;
+    const box = (word: string) => (
+      <span className="wbox">
+        <span className="word" style={at(k++)}>
+          {word}
+        </span>
+      </span>
+    );
     return (
       <>
-        {parts.map((word, i) => (
+        {parts.map((part, i) => (
           <span key={i}>
             {i > 0 && ' '}
-            <span className="word" style={at(i)} dir={isLatin(word) ? 'ltr' : undefined}>
-              {word}
-            </span>
+            {isLatin(part) ? (
+              <span dir="ltr">
+                {part.split(' ').map((word, j) => (
+                  <span key={j}>
+                    {j > 0 && ' '}
+                    {box(word)}
+                  </span>
+                ))}
+              </span>
+            ) : (
+              box(part)
+            )}
           </span>
         ))}
       </>

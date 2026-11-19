@@ -28,6 +28,7 @@ const FALLBACK = {
   link: 'Link in the CV: {url}',
   loading: 'Loading the CV…',
   loaded: 'CV loaded, {total} pages.',
+  loadedOne: 'CV loaded, 1 page.',
   error: "The CV couldn't be displayed here.",
   errorBody: 'The connection may have dropped. Try again, or download the PDF.',
   retry: 'Try again',

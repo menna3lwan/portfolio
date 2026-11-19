@@ -1,25 +1,27 @@
-/* Stage + paper. Tokens mirror the portfolio palette ("Porcelain & Nile"); pages stay white in
-   both themes because they are the document itself. */
+/* Stage + paper, in the portfolio's palette: the stage is the CV page's own surface
+   (#191919 dark, #e6e6e6 light) so the document sits on it without a seam; pages stay
+   white in both themes because they are the document itself. The host always sends the
+   theme, so the system preference is only the fallback before it arrives. */
 :root {
-  --stage: #E6EAE8; --paper: #FFFFFF; --edge: rgba(19, 23, 22, .10);
-  --shadow: 0 1px 2px rgba(19, 23, 22, .08), 0 12px 32px -16px rgba(19, 23, 22, .35);
-  --sk: #EEF1EF; --sk-hi: #F7F9F8; --focus: #0F5C55; --link-hover: rgba(15, 92, 85, .14);
-  --gap: 16px; --pad: 12px;
+  --stage: #e6e6e6; --paper: #FFFFFF; --edge: rgba(17, 17, 17, .10);
+  --shadow: 0 1px 2px rgba(17, 17, 17, .08), 0 18px 40px -18px rgba(17, 17, 17, .35);
+  --sk: #ededed; --sk-hi: #f7f7f7; --focus: #3b82f6; --link-hover: rgba(59, 130, 246, .14);
+  --gap: 16px; --pad: 12px; --pad-end: 80px;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --stage: #080B0A; --edge: rgba(232, 238, 236, .10);
-    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 18px 40px -18px rgba(0, 0, 0, .9);
-    --sk: #1A2120; --sk-hi: #232C2A; --focus: #6CC7BA; color-scheme: dark;
+    --stage: #191919; --edge: rgba(255, 255, 255, .08);
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 22px 44px -18px rgba(0, 0, 0, .9);
+    --sk: #222222; --sk-hi: #2c2c2c; --focus: #60a5fa; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --stage: #080B0A; --edge: rgba(232, 238, 236, .10);
-  --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 18px 40px -18px rgba(0, 0, 0, .9);
-  --sk: #1A2120; --sk-hi: #232C2A; --focus: #6CC7BA; color-scheme: dark;
+  --stage: #191919; --edge: rgba(255, 255, 255, .08);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 22px 44px -18px rgba(0, 0, 0, .9);
+  --sk: #222222; --sk-hi: #2c2c2c; --focus: #60a5fa; color-scheme: dark;
 }
-@media (min-width: 600px) { :root { --gap: 24px; --pad: 24px; } }
+@media (min-width: 600px) { :root { --gap: 28px; --pad: 32px; --pad-end: 96px; } }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; background: var(--stage); overflow: hidden; }
@@ -27,12 +29,13 @@ html, body { margin: 0; height: 100%; background: var(--stage); overflow: hidden
   position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; outline: none;
 }
+.scroller { scrollbar-width: thin; scrollbar-color: rgba(128, 128, 128, .45) transparent; }
 .scroller:focus-visible { box-shadow: inset 0 0 0 2px var(--focus); }
 /* width:max-content + min-width:100% keeps narrow pages centred and lets zoomed pages scroll
    horizontally inside the viewer instead of overflowing the host page. */
 .pages {
   display: flex; flex-direction: column; align-items: center; gap: var(--gap);
-  padding: var(--pad); width: max-content; min-width: 100%; transform-origin: 0 0;
+  padding: var(--pad) var(--pad) var(--pad-end); width: max-content; min-width: 100%; transform-origin: 0 0;
 }
 .page {
   position: relative; flex: none; background: var(--paper); box-shadow: var(--shadow);
@@ -62,7 +65,7 @@ html, body { margin: 0; height: 100%; background: var(--stage); overflow: hidden
 .textLayer span, .textLayer br { color: transparent; position: absolute; white-space: pre; cursor: text; transform-origin: 0% 0%; -webkit-user-select: text; user-select: text; }
 .textLayer > :not(.markedContent), .textLayer .markedContent span:not(.markedContent) { z-index: 1; --font-height: 0; font-size: calc(var(--text-scale-factor) * var(--font-height)); --scale-x: 1; --rotate: 0deg; transform: rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv)); }
 .textLayer .markedContent { display: contents; }
-.textLayer ::selection { background: rgba(15, 92, 85, .28); color: transparent; }
+.textLayer ::selection { background: rgba(59, 130, 246, .28); color: transparent; }
 .textLayer br::selection { background: transparent; }
 .textLayer .endOfContent { display: block; position: absolute; inset: 100% 0 0; z-index: 0; cursor: default; -webkit-user-select: none; user-select: none; }
 .textLayer.selecting .endOfContent { top: 0; }

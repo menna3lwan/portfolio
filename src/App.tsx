@@ -37,9 +37,9 @@ export default function App() {
                 <Route element={<AppLayout />}>
                   <Route index element={<Home />} />
                   <Route path="work/:id" element={<CaseStudy />} />
+                  <Route path="cv" element={<Cv />} />
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>
-                <Route path="cv" element={<Cv />} />
               </Routes>
             </Suspense>
           </Router>

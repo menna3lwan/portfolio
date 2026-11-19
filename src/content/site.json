@@ -236,6 +236,61 @@
      "works": [
       "hen-lehen"
      ]
+    },
+    {
+     "org": "Fuzetek",
+     "role": "Software Development Intern",
+     "when": "Feb 2025 – Apr 2025",
+     "type": "Internship",
+     "points": [
+      "Software development life cycle and testing fundamentals; problem solving in Python and C++."
+     ],
+     "tags": [
+      "Python",
+      "C++",
+      "SDLC",
+      "Testing fundamentals"
+     ]
+    },
+    {
+     "org": "Digital Egypt Pioneers Initiative (DEPI)",
+     "role": "Mobile Developer Intern",
+     "when": "Jun 2024 – Dec 2024",
+     "type": "Training program",
+     "points": [
+      "Ranked 7th nationwide in the Mobile Development track."
+     ],
+     "tags": [
+      "Flutter",
+      "Mobile development"
+     ]
+    },
+    {
+     "org": "Almentor",
+     "role": "Coding Instructor",
+     "when": "Feb 2024 – Dec 2024",
+     "type": "Teaching",
+     "points": [
+      "Taught programming fundamentals, algorithms and data structures."
+     ],
+     "tags": [
+      "Algorithms",
+      "Data structures",
+      "Teaching"
+     ]
+    },
+    {
+     "org": "Mindset",
+     "role": "Flutter Developer Intern",
+     "when": "Aug 2024 – Sep 2024",
+     "type": "Internship",
+     "points": [
+      "Flutter UI and Provider state management."
+     ],
+     "tags": [
+      "Flutter",
+      "Provider"
+     ]
     }
    ],
    "more": [
@@ -438,7 +493,7 @@
      "org": "NTI",
      "role": "متدرّبة تطوير موبايل",
      "when": "ديسمبر 2025 – فبراير 2026",
-     "type": "تدريب",
+     "type": "تدريب عملي",
      "points": [
       "طوّرتُ ميزات Flutter على قاعدة كود بنمط Clean Architecture ضمن فريق، وكل تغيير عبر Pull Requests على GitHub ومراجعة الأقران واستراتيجية فروع مشتركة.",
       "كتبتُ اختبارات وحدة مع الميزات الجديدة ليبقى السلوك قابلًا للتحقق مع نموّ الكود."
@@ -453,7 +508,7 @@
      "org": "Dragons",
      "role": "متدرّبة تطوير برمجيات",
      "when": "أغسطس 2025 – فبراير 2026",
-     "type": "تدريب · عن بُعد",
+     "type": "تدريب عملي · عن بُعد",
      "points": [
       "سلّمتُ روبوت محادثة داخل تطبيقات الشركة على الموبايل، بدمج Google Gemini في عملاء Flutter على مستوى طبقة التطبيق."
      ],
@@ -466,7 +521,7 @@
      "org": "Cellula Technologies",
      "role": "متدرّبة تطوير Flutter",
      "when": "يوليو 2025 – أغسطس 2025",
-     "type": "تدريب",
+     "type": "تدريب عملي",
      "points": [
       "سلّمتُ تطبيقَي Flutter يدمجان نماذج ذكاء اصطناعي على مستوى التطبيق: تطبيق نصائح طقس يجمع بيانات الطقس الحيّة مع تنبؤات نموذج، ومُقترِح وصفات مبني على Google Gemini.",
       "نال عملي خطاب توصية مكتوبًا من الشركة."
@@ -493,6 +548,61 @@
      ],
      "works": [
       "hen-lehen"
+     ]
+    },
+    {
+     "org": "Fuzetek",
+     "role": "متدرّبة تطوير برمجيات",
+     "when": "فبراير 2025 – أبريل 2025",
+     "type": "تدريب عملي",
+     "points": [
+      "دورة حياة تطوير البرمجيات وأساسيات الاختبار؛ وحل المشكلات بلغتَي Python وC++."
+     ],
+     "tags": [
+      "Python",
+      "C++",
+      "SDLC",
+      "أساسيات الاختبار"
+     ]
+    },
+    {
+     "org": "مبادرة رواد مصر الرقمية (DEPI)",
+     "role": "متدرّبة تطوير تطبيقات الموبايل",
+     "when": "يونيو 2024 – ديسمبر 2024",
+     "type": "برنامج تدريبي",
+     "points": [
+      "حصلتُ على المركز السابع على مستوى الجمهورية في مسار تطوير تطبيقات الموبايل."
+     ],
+     "tags": [
+      "Flutter",
+      "تطوير تطبيقات الموبايل"
+     ]
+    },
+    {
+     "org": "ألمنتور",
+     "role": "مدرّبة برمجة",
+     "when": "فبراير 2024 – ديسمبر 2024",
+     "type": "تدريس",
+     "points": [
+      "درّستُ أساسيات البرمجة والخوارزميات وهياكل البيانات."
+     ],
+     "tags": [
+      "الخوارزميات",
+      "هياكل البيانات",
+      "التدريس"
+     ]
+    },
+    {
+     "org": "Mindset",
+     "role": "متدرّبة تطوير Flutter",
+     "when": "أغسطس 2024 – سبتمبر 2024",
+     "type": "تدريب عملي",
+     "points": [
+      "واجهات Flutter وإدارة الحالة باستخدام Provider."
+     ],
+     "tags": [
+      "Flutter",
+      "Provider"
      ]
     }
    ],
