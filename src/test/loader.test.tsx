@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { Loader } from '@/components/site/Loader';
 import { SiteContext } from '@/components/site/site-context';
 import type { SiteContextValue } from '@/components/site/site-context';
+import { AIN_PATH, M_PATH } from '@/components/site/logoPaths';
 
 vi.mock('@/app/motion/runtime', () => ({
   loadMotion: () => new Promise(() => {}),
@@ -29,18 +30,21 @@ const mount = (path: string, value: SiteContextValue) =>
   );
 
 describe('the logo splash', () => {
-  it('forms the logo from its own two layers on a first visit to the home page', () => {
+  it('builds the logo from two vector letters, made apart and then assembled', () => {
     window.sessionStorage.removeItem('site-visited');
     const { container } = mount('/', site());
-    const splash = container.querySelector('.loader');
-    expect(splash).toHaveAttribute('aria-hidden', 'true');
-    // four pieces of the M, each in its own writing window, the masked Ain, and the
-    // finished logo they give way to
-    expect(container.querySelectorAll('.splash__piece')).toHaveLength(4);
-    expect(container.querySelectorAll('.splash__band .splash__piece')).toHaveLength(4);
-    expect(container.querySelector('.splash__ain image')).toHaveAttribute('mask', 'url(#splash-ain)');
-    expect(container.querySelectorAll('mask .splash__stroke')).toHaveLength(2);
-    expect(container.querySelectorAll('.splash__final')).toHaveLength(1);
+    expect(container.querySelector('.loader')).toHaveAttribute('aria-hidden', 'true');
+    // No raster anywhere: the letters are paths.
+    expect(container.querySelectorAll('.loader image, .loader img')).toHaveLength(0);
+    const m = container.querySelector('.splash__m');
+    const ain = container.querySelector('.splash__ain');
+    expect(m?.querySelector('.splash__m-fill')?.getAttribute('d')).toBe(M_PATH);
+    expect(m?.querySelector('.splash__m-outline')).not.toBeNull();
+    expect(ain?.querySelector('.splash__ain-shape')).toHaveAttribute('mask', 'url(#splash-pen)');
+    expect(ain?.querySelector('.splash__ain-shape path')?.getAttribute('d')).toBe(AIN_PATH);
+    expect(container.querySelectorAll('mask .splash__pen')).toHaveLength(2);
+    // The Ain is drawn over the M, as in the artwork.
+    expect(m!.compareDocumentPosition(ain!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it('does not show once seen this session, and releases the hero at once', () => {
