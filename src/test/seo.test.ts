@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { loadContent } from '@/content';
-import { WORKS } from '@/content/site';
+import { experienceItems, WORKS } from '@/content/site';
 import {
   clamp,
   cvDescription,
   cvTitle,
+  experienceDescription,
+  experienceTitle,
   homeDescription,
   homeTitle,
   workDescription,
@@ -47,10 +49,19 @@ describe('the build generator agrees with the application', () => {
     expect(build.cvDescription(content, lang)).toBe(cvDescription(content, lang));
   });
 
+  it.each(LANGS)('forms the same experience-page head in %s', (lang) => {
+    const content = CONTENT[lang];
+    for (const item of experienceItems(lang)) {
+      expect(build.experienceTitle(item.org, content)).toBe(experienceTitle(item.org, content));
+      expect(build.experienceDescription(item.summary)).toBe(experienceDescription(item.summary));
+    }
+  });
+
   it('lists exactly the routes the application serves', () => {
     expect(build.routes('en').map((r: BuildRoute) => r.path)).toEqual([
       '/',
       ...WORKS.map((work) => `/work/${work.id}`),
+      ...experienceItems('en').map((item) => `/experience/${item.id}`),
       '/cv',
     ]);
   });

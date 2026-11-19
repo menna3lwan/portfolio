@@ -11,6 +11,7 @@ import { RollText, SplitText } from '@/components/site/SplitText';
 import { splitUnits } from '@/components/site/split';
 import Home from '@/routes/Home';
 import CaseStudy from '@/routes/CaseStudy';
+import ExperienceDetail from '@/routes/ExperienceDetail';
 import { siteCopy, WORKS } from '@/content/site';
 
 // The animation runtime is a browser concern; the tests check the finished page.
@@ -39,6 +40,7 @@ const site = (path: string, lang: 'en' | 'ar' = 'en'): ReturnType<typeof render>
             <Route element={<AppLayout />}>
               <Route index element={<Home />} />
               <Route path="work/:id" element={<CaseStudy />} />
+              <Route path="experience/:id" element={<ExperienceDetail />} />
             </Route>
           </Routes>
         </MemoryRouter>
@@ -162,17 +164,19 @@ describe('the home page', () => {
 });
 
 describe('experience and about', () => {
-  it('lists every role from the CV as a disclosure, the first one open', async () => {
+  it('previews every role as a link to its own detail page, with a two-line summary', () => {
     site('/');
     const xp = screen.getByRole('region', { name: 'Experience' });
-    const toggles = within(xp).getAllByRole('button');
-    expect(toggles).toHaveLength(siteCopy('en').experience.items.length);
-    expect(toggles[0]).toHaveAttribute('aria-expanded', 'true');
-    expect(toggles[1]).toHaveAttribute('aria-expanded', 'false');
-    expect(toggles[0]).toHaveAccessibleName(/XPER/);
-    await userEvent.click(toggles[1]!);
-    expect(toggles[1]).toHaveAttribute('aria-expanded', 'true');
-    expect(toggles[0]).toHaveAttribute('aria-expanded', 'false');
+    const items = siteCopy('en').experience.items;
+    const links = within(xp).getAllByRole('link');
+    for (const item of items) {
+      const link = links.find((a) => a.getAttribute('href') === `/experience/${item.id}`);
+      expect(link, item.id).toBeDefined();
+      expect(link).toHaveAccessibleName(new RegExp(item.org.split(' ')[0] ?? item.org));
+      // The two-line summary is shown on the preview, the full points are not.
+      expect(link).toHaveTextContent(item.summary);
+      expect(link).not.toHaveTextContent(item.points[0] ?? '§none');
+    }
   });
 
   it('keeps Elevate in the words the CV uses, and links its works', () => {
@@ -206,11 +210,41 @@ describe('experience and about', () => {
     expect(siteCopy('ar').experience.items.map((i) => i.when.length > 0)).toHaveLength(siteCopy('en').experience.items.length);
   });
 
+  it('describes the XPER work with the ownership Menna confirmed', () => {
+    const xper = siteCopy('en').experience.items.find((i) => i.id === 'xper')!;
+    const all = xper.points.join(' ');
+    // Built end to end: CRM, the offline engine, Flutter Web, token/session.
+    expect(all).toMatch(/Flutter Web/);
+    expect(all).toMatch(/token and session/i);
+    expect(all).toMatch(/UUID/);
+    expect(all).toMatch(/Sembast/);
+    // Paymob and Firebase are a contribution, never claimed as sole work.
+    expect(all).toMatch(/contributed to the Paymob/i);
+    expect(all).not.toMatch(/Integrated the Paymob gateway end to end/i);
+  });
+
   it('reads the About statement once to assistive technology', () => {
     site('/');
     const about = screen.getByRole('region', { name: 'About' });
     expect(within(about).getAllByText(siteCopy('en').about.statement)).toHaveLength(1);
     expect(within(about).getByText('Egypt')).toBeInTheDocument();
+  });
+});
+
+describe('an experience detail page', () => {
+  it.each(siteCopy('en').experience.items.map((i) => i.id))('renders %s with its full account', (id) => {
+    const item = siteCopy('en').experience.items.find((i) => i.id === id)!;
+    site(`/experience/${id}`);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveAccessibleName(new RegExp(item.org.split(' ')[0] ?? item.org));
+    // The full points live here, not on the home preview.
+    for (const point of item.points) expect(screen.getByText(point)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: siteCopy('en').experience.what })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: siteCopy('en').ui.back })).toHaveAttribute('href', '/');
+  });
+
+  it('shows the not-found view for an unknown id', () => {
+    site('/experience/nope');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(siteCopy('en').ui.notFound);
   });
 });
 

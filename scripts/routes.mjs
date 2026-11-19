@@ -17,6 +17,9 @@ export const CONTENT = { en: read('content.en.json'), ar: read('content.ar.json'
 /** The five selected works — the same file the application renders from. */
 export const WORKS = read('works.json');
 
+/** The presentation content (experience list, skills, chrome), per language. */
+export const SITE = read('site.json');
+
 const SUFFIX = { en: 'Software Developer, Flutter & Mobile', ar: 'مطوّرة برمجيات · Flutter والموبايل' };
 
 export function clamp(text, limit = 158) {
@@ -32,6 +35,8 @@ export const homeDescription = (content) =>
   clamp(`${content.about.title} ${content.about.body[0] ?? ''}`);
 export const workTitle = (title, content) => `${title} · ${content.meta.name}`;
 export const workDescription = (about) => clamp(about);
+export const experienceTitle = (org, content) => `${org} · ${content.meta.name}`;
+export const experienceDescription = (summary) => clamp(summary);
 export const cvTitle = (content, cvLabel) => `${cvLabel} · ${content.meta.name}`;
 export const cvDescription = (content, lang) =>
   clamp(
@@ -61,6 +66,13 @@ export function routes(lang = 'en') {
       description: workDescription(work[lang].about),
       priority: '0.8',
       changefreq: 'monthly',
+    })),
+    ...SITE[lang].experience.items.map((item) => ({
+      path: `/experience/${item.id}`,
+      title: experienceTitle(item.org, content),
+      description: experienceDescription(item.summary),
+      priority: '0.5',
+      changefreq: 'yearly',
     })),
     {
       path: '/cv',

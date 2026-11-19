@@ -140,29 +140,39 @@
    "project": "See the project",
    "items": [
     {
+     "id": "xper",
      "org": "XPER — ERP",
      "role": "Flutter Developer",
      "when": "Jan 2026 – Oct 2026",
      "type": "Professional role",
+     "summary": "Built the client mobile apps and the Flutter Web application of a multi-industry ERP — owning the CRM module end to end and an app-wide offline-sync engine used in production.",
      "points": [
-      "Delivered three ERP modules in Flutter — Gold ERP for gold and jewelry trading, Offline Mode with local persistence and sync on reconnection, and CRM Customers — on a feature-first Clean Architecture codebase released through Azure-hosted STG and DEV environments.",
-      "Integrated the Paymob gateway end to end with transaction-state tracking and error recovery, so interrupted or failed payments resolve to a known state.",
-      "Customized PlutoGrid into large editable data grids, implemented Firebase Authentication and Cloud Messaging, covered feature logic with unit tests, and contributed to branch and customer follow-up apps published on Google Play."
+      "Built and shipped the client mobile apps of a multi-industry ERP — branch and customer follow-up apps — and developed features in the product's Flutter Web application, owning work end to end: from requirements and Figma designs to REST integration, business logic and tests.",
+      "Built the CRM module end to end: an opportunities Kanban across the customer-journey stages, opportunity cards and activities, customer journeys, Customer 360 and reports — and designed its ports-and-adapters architecture (domain ports, swappable data adapters, a presentation layer kept clear of data), covered by unit and widget tests.",
+      "Designed and built the app-wide offline mode: operations keep working without a connection, persist locally in Sembast, and replay through a sync queue with retry when connectivity returns — each carrying a UUID so a retried request is never applied twice. Used by clients in production.",
+      "Implemented token and session management, and handled the Google Play releases end to end, from build and signing to the Play Console.",
+      "Extracted the Gold (Zumurud) module into a standalone project and built its gold-inventory and weight features; built POS returns and payment-method flows; customized PlutoGrid into editable data grids (custom cell types, inline editing, sorting, filtering, keyboard focus and RTL); and contributed to the Paymob payment-flow UI and to Firebase Authentication and Cloud Messaging.",
+      "Collaborated through Azure DevOps — opening and reviewing pull requests, shipping STG/DEV builds, and working from the team's boards."
      ],
      "tags": [
       "Flutter",
+      "Flutter Web",
+      "GetX",
       "Clean Architecture",
+      "Ports & Adapters",
       "Offline sync",
-      "Paymob",
+      "Sembast",
       "PlutoGrid",
-      "Firebase"
+      "Azure DevOps"
      ]
     },
     {
+     "id": "elevate",
      "org": "Elevate",
      "role": "Advanced Flutter Development Intern",
      "when": "Jun 2026 – Present",
      "type": "Internship / training program",
+     "summary": "An advanced, project-based Flutter program — building two production-style delivery apps, Flowrist and Tracking App, as its practical track.",
      "points": [
       "A project-based advanced Flutter program; its practical track is two production-style delivery applications — Flower App and Tracking App."
      ],
@@ -177,10 +187,12 @@
      ]
     },
     {
+     "id": "nti",
      "org": "NTI",
      "role": "Mobile Developer Intern",
      "when": "Dec 2025 – Feb 2026",
      "type": "Internship",
+     "summary": "Shipped Flutter features on a Clean Architecture codebase through a team Git workflow of pull requests, peer review and shared branching.",
      "points": [
       "Built Flutter features on a Clean Architecture codebase inside a team workflow, delivering every change through GitHub pull requests, peer code review and a shared branching strategy.",
       "Wrote unit tests alongside new features so behavior stayed verifiable as the codebase grew."
@@ -192,10 +204,12 @@
      ]
     },
     {
+     "id": "dragons",
      "org": "Dragons",
      "role": "Software Development Intern",
      "when": "Aug 2025 – Feb 2026",
      "type": "Internship · Remote",
+     "summary": "Built an in-app chatbot for the company's mobile products, integrating Google Gemini into Flutter clients at the application layer.",
      "points": [
       "Delivered an in-app chatbot for the company’s mobile products, integrating Google Gemini into Flutter clients at the application layer."
      ],
@@ -205,10 +219,12 @@
      ]
     },
     {
+     "id": "cellula",
      "org": "Cellula Technologies",
      "role": "Flutter Developer Intern",
      "when": "Jul 2025 – Aug 2025",
      "type": "Internship",
+     "summary": "Delivered two AI-powered Flutter apps — a weather advisor and a Gemini recipe recommender — recognized with a written recommendation letter.",
      "points": [
       "Delivered two Flutter applications integrating AI models at the application layer: a weather-advisory app combining live weather data with model predictions, and a recipe recommender built on Google Gemini.",
       "Work recognized in a written recommendation letter from the company."
@@ -220,10 +236,12 @@
      ]
     },
     {
+     "id": "hen-lehen",
      "org": "Hen Lehen",
      "role": "Freelance Flutter Developer",
      "when": "2025 – 2026",
      "type": "Freelance",
+     "summary": "Freelance: built and delivered a two-app telemedicine platform (patient and doctor) on a .NET service layer, later sold as a product.",
      "points": [
       "Commissioned to build and deliver a two-application telemedicine platform end to end — a Patient App and a Doctor App — against a .NET service layer.",
       "Delivered to the client running on real production data; subsequently sold as a product."
@@ -238,10 +256,12 @@
      ]
     },
     {
+     "id": "fuzetek",
      "org": "Fuzetek",
      "role": "Software Development Intern",
      "when": "Feb 2025 – Apr 2025",
      "type": "Internship",
+     "summary": "A software-development internship covering the full SDLC and testing fundamentals, with problem solving in Python and C++.",
      "points": [
       "Software development life cycle and testing fundamentals; problem solving in Python and C++."
      ],
@@ -253,10 +273,12 @@
      ]
     },
     {
+     "id": "depi",
      "org": "Digital Egypt Pioneers Initiative (DEPI)",
      "role": "Mobile Developer Intern",
      "when": "Jun 2024 – Dec 2024",
      "type": "Training program",
+     "summary": "A national mobile-development training program — ranked 7th nationwide in the Mobile Development track.",
      "points": [
       "Ranked 7th nationwide in the Mobile Development track."
      ],
@@ -266,10 +288,12 @@
      ]
     },
     {
+     "id": "almentor",
      "org": "Almentor",
      "role": "Coding Instructor",
      "when": "Feb 2024 – Dec 2024",
      "type": "Teaching",
+     "summary": "Taught programming fundamentals, algorithms and data structures as a coding instructor.",
      "points": [
       "Taught programming fundamentals, algorithms and data structures."
      ],
@@ -280,10 +304,12 @@
      ]
     },
     {
+     "id": "mindset",
      "org": "Mindset",
      "role": "Flutter Developer Intern",
      "when": "Aug 2024 – Sep 2024",
      "type": "Internship",
+     "summary": "Built Flutter UI and handled state management with Provider during a short mobile internship.",
      "points": [
       "Flutter UI and Provider state management."
      ],
@@ -309,7 +335,9 @@
      "title": "PlutoGrid",
      "text": "Customized column and row models, cell renderers and grid events for production; pull request submitted upstream (open)."
     }
-   ]
+   ],
+   "what": "What I did",
+   "tech": "Stack"
   }
  },
  "ar": {
@@ -453,29 +481,39 @@
    "project": "عرض المشروع",
    "items": [
     {
+     "id": "xper",
      "org": "XPER — نظام ERP",
      "role": "مطوّرة Flutter",
      "when": "يناير 2026 – أكتوبر 2026",
      "type": "دور مهني",
+     "summary": "بنيتُ تطبيقات الموبايل وتطبيق Flutter Web لعملاء نظام ERP متعدّد المجالات — وامتلكتُ وحدة الـ CRM بالكامل ومحرّك مزامنة دون اتصال على مستوى التطبيق اشتغل في الإنتاج.",
      "points": [
-      "سلّمتُ ثلاث وحدات ERP بـ Flutter — Gold ERP لتجارة الذهب والمجوهرات، ووضع العمل دون اتصال مع حفظ محلي ومزامنة عند عودة الشبكة، ووحدة عملاء CRM — على قاعدة كود بنمط Clean Architecture مقسّمة حسب الميزات، تُنشر عبر بيئتَي STG وDEV على Azure.",
-      "دمجتُ بوّابة Paymob من البداية إلى النهاية مع تتبّع حالة المعاملة والتعافي من الأخطاء، فتنتهي المدفوعات المتعثّرة أو الفاشلة إلى حالة معروفة.",
-      "خصّصتُ PlutoGrid لجداول بيانات كبيرة قابلة للتحرير، ونفّذتُ Firebase Authentication وCloud Messaging، وغطّيتُ منطق الميزات باختبارات وحدة، وساهمتُ في تطبيقات للفروع ومتابعة العملاء منشورة على Google Play."
+      "بنيتُ وأطلقتُ تطبيقات الموبايل الخاصة بعملاء نظام ERP متعدّد المجالات — تطبيقَي متابعة الفروع ومتابعة العملاء — وطوّرتُ ميزات في تطبيق الويب المبني بـ Flutter Web، وامتلكتُ العمل من البداية للنهاية: من الـ requirements وتصميمات Figma إلى تكامل REST والـ business logic والاختبارات.",
+      "بنيتُ وحدة الـ CRM بالكامل: Kanban للفرص على مراحل رحلة العميل، وبطاقات الفرص وأنشطتها، ورحلات العملاء، وCustomer 360، والتقارير — وصمّمتُ معماريتها بنمط ports-and-adapters (ports في الـ domain، وadapters قابلة للتبديل، وطبقة presentation معزولة عن الـ data)، مغطّاة باختبارات unit وwidget.",
+      "صمّمتُ وبنيتُ وضع العمل دون اتصال على مستوى التطبيق كله: العمليات تستمر من غير إنترنت، وتُحفظ محليًا في Sembast، وتُعاد عبر sync queue مع retry عند عودة الاتصال — وكل عملية تحمل UUID حتى لا تُطبَّق أي عملية مكرّرة مرتين. واستخدمه العملاء في الإنتاج.",
+      "نفّذتُ إدارة الـ token والـ session، وتولّيتُ إصدارات Google Play من البداية للنهاية: من الـ build والتوقيع حتى الرفع على الـ Play Console.",
+      "فصلتُ وحدة Gold (Zumurud) إلى مشروع مستقل وبنيتُ ميزات مخزون الذهب والأوزان؛ وبنيتُ المرتجعات وطرق الدفع في الـ POS؛ وخصّصتُ PlutoGrid إلى جداول بيانات قابلة للتحرير (أنواع خلايا مخصّصة، تحرير داخل الجدول، فرز، تصفية، تنقّل بالكيبورد، ودعم RTL)؛ وشاركتُ في واجهة الدفع لـ Paymob وفي Firebase Authentication وCloud Messaging.",
+      "تعاونتُ عبر Azure DevOps — بفتح ومراجعة الـ pull requests، وإطلاق builds على STG/DEV، والعمل من خلال boards الفريق."
      ],
      "tags": [
       "Flutter",
+      "Flutter Web",
+      "GetX",
       "Clean Architecture",
-      "مزامنة دون اتصال",
-      "Paymob",
+      "Ports & Adapters",
+      "Offline sync",
+      "Sembast",
       "PlutoGrid",
-      "Firebase"
+      "Azure DevOps"
      ]
     },
     {
+     "id": "elevate",
      "org": "Elevate",
      "role": "متدرّبة تطوير Flutter المتقدّم",
      "when": "يونيو 2026 – الآن",
      "type": "تدريب عملي / برنامج تدريبي",
+     "summary": "برنامج Flutter متقدّم قائم على المشاريع — ببناء تطبيقَي توصيل بأسلوب إنتاجي، Flowrist وTracking App، كمساره العملي.",
      "points": [
       "برنامج Flutter متقدّم قائم على المشاريع، مساره العملي تطبيقا توصيل بأسلوب إنتاجي — Flower App وTracking App."
      ],
@@ -490,10 +528,12 @@
      ]
     },
     {
+     "id": "nti",
      "org": "NTI",
      "role": "متدرّبة تطوير موبايل",
      "when": "ديسمبر 2025 – فبراير 2026",
      "type": "تدريب عملي",
+     "summary": "طوّرتُ ميزات Flutter على قاعدة كود Clean Architecture عبر سير عمل جماعي من pull requests ومراجعة أقران وفروع مشتركة.",
      "points": [
       "طوّرتُ ميزات Flutter على قاعدة كود بنمط Clean Architecture ضمن فريق، وكل تغيير عبر Pull Requests على GitHub ومراجعة الأقران واستراتيجية فروع مشتركة.",
       "كتبتُ اختبارات وحدة مع الميزات الجديدة ليبقى السلوك قابلًا للتحقق مع نموّ الكود."
@@ -505,10 +545,12 @@
      ]
     },
     {
+     "id": "dragons",
      "org": "Dragons",
      "role": "متدرّبة تطوير برمجيات",
      "when": "أغسطس 2025 – فبراير 2026",
      "type": "تدريب عملي · عن بُعد",
+     "summary": "بنيتُ روبوت محادثة داخل تطبيقات الشركة، بدمج Google Gemini في عملاء Flutter على مستوى طبقة التطبيق.",
      "points": [
       "سلّمتُ روبوت محادثة داخل تطبيقات الشركة على الموبايل، بدمج Google Gemini في عملاء Flutter على مستوى طبقة التطبيق."
      ],
@@ -518,10 +560,12 @@
      ]
     },
     {
+     "id": "cellula",
      "org": "Cellula Technologies",
      "role": "متدرّبة تطوير Flutter",
      "when": "يوليو 2025 – أغسطس 2025",
      "type": "تدريب عملي",
+     "summary": "سلّمتُ تطبيقَي Flutter بالذكاء الاصطناعي — تطبيق نصائح طقس ومُقترِح وصفات بـ Gemini — ونال عملي خطاب توصية مكتوبًا.",
      "points": [
       "سلّمتُ تطبيقَي Flutter يدمجان نماذج ذكاء اصطناعي على مستوى التطبيق: تطبيق نصائح طقس يجمع بيانات الطقس الحيّة مع تنبؤات نموذج، ومُقترِح وصفات مبني على Google Gemini.",
       "نال عملي خطاب توصية مكتوبًا من الشركة."
@@ -533,10 +577,12 @@
      ]
     },
     {
+     "id": "hen-lehen",
      "org": "هُنَّ لَهُنَّ",
      "role": "مطوّرة Flutter مستقلة",
      "when": "2025 – 2026",
      "type": "عمل حر",
+     "summary": "عمل حر: بنيتُ وسلّمتُ منصّة طب عن بُعد من تطبيقين (مريضة وطبيبة) على طبقة خدمات .NET، ثم بِيعت كمنتج.",
      "points": [
       "كُلِّفتُ ببناء وتسليم منصّة طب عن بُعد من تطبيقين من البداية إلى النهاية — تطبيق للمريضة وآخر للطبيبة — على طبقة خدمات .NET.",
       "سُلِّمت للعميل تعمل على بيانات إنتاج حقيقية، ثم بِيعت لاحقًا كمنتج."
@@ -551,10 +597,12 @@
      ]
     },
     {
+     "id": "fuzetek",
      "org": "Fuzetek",
      "role": "متدرّبة تطوير برمجيات",
      "when": "فبراير 2025 – أبريل 2025",
      "type": "تدريب عملي",
+     "summary": "تدريب تطوير برمجيات غطّى دورة حياة البرمجيات كاملة وأساسيات الاختبار، مع حل المشكلات بـ Python وC++.",
      "points": [
       "دورة حياة تطوير البرمجيات وأساسيات الاختبار؛ وحل المشكلات بلغتَي Python وC++."
      ],
@@ -566,10 +614,12 @@
      ]
     },
     {
+     "id": "depi",
      "org": "مبادرة رواد مصر الرقمية (DEPI)",
      "role": "متدرّبة تطوير تطبيقات الموبايل",
      "when": "يونيو 2024 – ديسمبر 2024",
      "type": "برنامج تدريبي",
+     "summary": "برنامج تدريب وطني لتطوير الموبايل — حصلتُ فيه على المركز السابع على مستوى الجمهورية في مسار تطوير الموبايل.",
      "points": [
       "حصلتُ على المركز السابع على مستوى الجمهورية في مسار تطوير تطبيقات الموبايل."
      ],
@@ -579,10 +629,12 @@
      ]
     },
     {
+     "id": "almentor",
      "org": "ألمنتور",
      "role": "مدرّبة برمجة",
      "when": "فبراير 2024 – ديسمبر 2024",
      "type": "تدريس",
+     "summary": "درّستُ أساسيات البرمجة والخوارزميات وهياكل البيانات كمدرّبة برمجة.",
      "points": [
       "درّستُ أساسيات البرمجة والخوارزميات وهياكل البيانات."
      ],
@@ -593,10 +645,12 @@
      ]
     },
     {
+     "id": "mindset",
      "org": "Mindset",
      "role": "متدرّبة تطوير Flutter",
      "when": "أغسطس 2024 – سبتمبر 2024",
      "type": "تدريب عملي",
+     "summary": "بنيتُ واجهات Flutter وأدرتُ الحالة باستخدام Provider خلال تدريب قصير في تطوير الموبايل.",
      "points": [
       "واجهات Flutter وإدارة الحالة باستخدام Provider."
      ],
@@ -622,7 +676,9 @@
      "title": "PlutoGrid",
      "text": "تخصيص نماذج الأعمدة والصفوف وعارضات الخلايا وأحداث الجدول لمتطلبات الإنتاج؛ وطلب دمج مقدَّم إلى المشروع الأصلي (مفتوح)."
     }
-   ]
+   ],
+   "what": "ما قمت به",
+   "tech": "الحزمة التقنية"
   }
  }
 }

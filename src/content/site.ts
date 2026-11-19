@@ -78,10 +78,15 @@ export interface SiteUi {
 }
 
 export interface ExperienceItem {
+  /** Also the route: /experience/:id. */
+  readonly id: string;
   readonly org: string;
   readonly role: string;
   readonly when: string;
   readonly type: string;
+  /** The two-line preview shown on the home page. */
+  readonly summary: string;
+  /** The full account, shown on the detail page. */
   readonly points: readonly string[];
   readonly tags: readonly string[];
   /** Selected works that came out of this role, by id. */
@@ -90,9 +95,10 @@ export interface ExperienceItem {
 
 export interface SiteExperience {
   readonly label: string;
-  readonly open: string;
-  readonly shut: string;
   readonly project: string;
+  /** Headings on the detail page: the responsibilities list, and the stack. */
+  readonly what: string;
+  readonly tech: string;
   readonly items: readonly ExperienceItem[];
   /** Education, the DEPI ranking and the open-source contribution. */
   readonly more: readonly { readonly label: string; readonly title: string; readonly text: string }[];
@@ -139,3 +145,11 @@ export const siteCopy = (lang: Language): SiteCopy => SITE[lang];
 
 export const findWork = (id: string | undefined): Work | undefined =>
   WORKS.find((work) => work.id === id);
+
+/** The experience entries, by language — the same list the home preview and the detail
+ *  pages render, and the build-time route generator reads. */
+export const experienceItems = (lang: Language): readonly ExperienceItem[] =>
+  SITE[lang].experience.items;
+
+export const findExperience = (lang: Language, id: string | undefined): ExperienceItem | undefined =>
+  SITE[lang].experience.items.find((item) => item.id === id);

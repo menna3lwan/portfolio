@@ -34,6 +34,12 @@ export const workTitle = (title: string, content: Content): string => `${title} 
 
 export const workDescription = (about: string): string => clamp(about);
 
+/** An experience's detail page: the organisation, and its two-line preview as the blurb. */
+export const experienceTitle = (org: string, content: Content): string =>
+  `${org} · ${content.meta.name}`;
+
+export const experienceDescription = (summary: string): string => clamp(summary);
+
 export const cvTitle = (content: Content, cvLabel: string): string =>
   `${cvLabel} · ${content.meta.name}`;
 

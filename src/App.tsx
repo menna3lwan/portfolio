@@ -11,6 +11,7 @@ import { ROUTER_MODE } from '@/site.config';
 /* The two secondary routes are split out of the main bundle: the CV route carries the
    whole viewer bridge and most visitors never open it. */
 const CaseStudy = lazy(() => import('@/routes/CaseStudy'));
+const ExperienceDetail = lazy(() => import('@/routes/ExperienceDetail'));
 const Cv = lazy(() => import('@/routes/Cv'));
 
 /**
@@ -37,6 +38,7 @@ export default function App() {
                 <Route element={<AppLayout />}>
                   <Route index element={<Home />} />
                   <Route path="work/:id" element={<CaseStudy />} />
+                  <Route path="experience/:id" element={<ExperienceDetail />} />
                   <Route path="cv" element={<Cv />} />
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>
