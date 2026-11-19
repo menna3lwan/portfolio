@@ -34,11 +34,13 @@ describe('the logo splash', () => {
     const { container } = mount('/', site());
     const splash = container.querySelector('.loader');
     expect(splash).toHaveAttribute('aria-hidden', 'true');
-    const images = [...container.querySelectorAll('image')].map((i) => i.getAttribute('class'));
-    // four pieces of the M, the masked Ain, and the finished logo it gives way to
-    expect(images).toEqual(['splash__piece', 'splash__piece', 'splash__piece', 'splash__piece', 'splash__ain', 'splash__final']);
+    // four pieces of the M, each in its own writing window, the masked Ain, and the
+    // finished logo they give way to
+    expect(container.querySelectorAll('.splash__piece')).toHaveLength(4);
+    expect(container.querySelectorAll('.splash__band .splash__piece')).toHaveLength(4);
+    expect(container.querySelector('.splash__ain image')).toHaveAttribute('mask', 'url(#splash-ain)');
     expect(container.querySelectorAll('mask .splash__stroke')).toHaveLength(2);
-    expect(container.querySelector('.splash__ain')).toHaveAttribute('mask', 'url(#splash-ain)');
+    expect(container.querySelectorAll('.splash__final')).toHaveLength(1);
   });
 
   it('does not show once seen this session, and releases the hero at once', () => {

@@ -41,6 +41,9 @@ export function loadMotion(): Promise<MotionRuntime> {
         gsap.ticker.lagSmoothing(0);
       }
 
+      // Development only: lets a motion review step the animations frame by frame.
+      if (import.meta.env.DEV) (window as unknown as { __gsap?: typeof gsap }).__gsap = gsap;
+
       loaded = { gsap, ScrollTrigger, lenis };
       return loaded;
     },

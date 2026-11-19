@@ -101,8 +101,8 @@ html.lenis, html.lenis body { height: auto; }
 }
 /* Sized to the screen's short side: under a third of it, between 120 and 232px. The
    source is 297×320, so even on a 2× screen it is enlarged at most about 1.6×. */
-.site .splash__logo { position: relative; z-index: 2; width: clamp(120px, 30vmin, 232px); height: auto; aspect-ratio: 297 / 320; overflow: hidden; transform-origin: 50% 55%; }
-.site .splash__piece, .site .splash__stroke, .site .splash__final { opacity: 0; }
+.site .splash__logo { position: relative; z-index: 2; width: clamp(120px, 30vmin, 232px); height: auto; aspect-ratio: 297 / 320; overflow: visible; transform-origin: 50% 55%; }
+.site .splash__piece, .site .splash__stroke, .site .splash__final, .site .splash__ink { opacity: 0; }
 .site .loader__label { position: absolute; z-index: 2; bottom: max(48px, env(safe-area-inset-bottom, 0px)); inset-inline: 0; display: flex; justify-content: center; }
 .site .loader__label span { color: rgb(255 255 255 / 50%); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; }
 :root[data-shell="site"][lang="ar"] .site .loader__label span { letter-spacing: 0; font-size: 14px; }
