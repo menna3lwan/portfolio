@@ -6,11 +6,11 @@
    `src/test/seo.test.ts` imports both and asserts they agree — so the head a social
    scraper reads can never drift from the head the application sets at runtime.
    ========================================================================== */
-import type { AppRecord, Content, Language } from '@/content/types';
+import type { Content, Language } from '@/content/types';
 
 const SUFFIX: Record<Language, string> = {
-  en: 'Software Engineer, Flutter',
-  ar: 'مهندسة برمجيات · Flutter',
+  en: 'Software Developer, Flutter & Mobile',
+  ar: 'مطوّرة برمجيات · Flutter والموبايل',
 };
 
 /** A description is trimmed on a word boundary — a sentence cut mid-word reads as broken
@@ -29,10 +29,10 @@ export const homeTitle = (content: Content, lang: Language): string =>
 export const homeDescription = (content: Content): string =>
   clamp(`${content.about.title} ${content.about.body[0] ?? ''}`);
 
-export const caseTitle = (record: AppRecord, content: Content): string =>
-  `${record.name} · ${content.meta.name}`;
+/** A selected work's page: its title in the page's language, and its About text. */
+export const workTitle = (title: string, content: Content): string => `${title} · ${content.meta.name}`;
 
-export const caseDescription = (record: AppRecord): string => clamp(record.summary);
+export const workDescription = (about: string): string => clamp(about);
 
 export const cvTitle = (content: Content, cvLabel: string): string =>
   `${cvLabel} · ${content.meta.name}`;

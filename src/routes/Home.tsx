@@ -1,13 +1,14 @@
 import { useLanguage } from '@/app/hooks/useAppContext';
 import { useDocumentMeta } from '@/app/hooks/useDocumentMeta';
 import { homeDescription, homeTitle } from '@/seo/meta';
-import { Hero } from '@/features/hero/Hero';
-import { WhoAmI } from '@/features/whoami/WhoAmI';
-import { WorkSection } from '@/features/work/WorkSection';
-import { ExperienceSection } from '@/features/experience/ExperienceSection';
-import { Contact } from '@/features/contact/Contact';
+import { Hero } from '@/features/home/Hero';
+import { Skills } from '@/features/home/Skills';
+import { Works } from '@/features/home/Works';
+import { Contact } from '@/features/home/Contact';
 
-/** The issue, in order: masthead and hero, whoami, the two chapters, the statement. */
+/** The reference's page, in its order: hero, skills reel, selected works, contact.
+ *  Keyed by language so every scroll-linked animation is rebuilt for the new layout
+ *  direction rather than patched. */
 export default function Home() {
   const { content, lang } = useLanguage();
   useDocumentMeta({
@@ -18,12 +19,12 @@ export default function Home() {
   });
 
   return (
-    <>
+    <div key={lang}>
       <Hero />
-      <WhoAmI />
-      <WorkSection />
-      <ExperienceSection />
+      <Skills />
+      <div id="portfolio-section" />
+      <Works />
       <Contact />
-    </>
+    </div>
   );
 }

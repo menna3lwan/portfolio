@@ -6,7 +6,7 @@ const FALLBACK = {
   title: 'Curriculum vitae',
   updated: 'Last updated Nov 2026',
   docLang: 'In English',
-  fileInfo: 'PDF · 65 KB',
+  fileInfo: 'PDF · 70 KB',
   back: 'Back to portfolio',
   download: 'Download CV',
   downloadShort: 'Download CV',

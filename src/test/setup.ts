@@ -42,3 +42,6 @@ if (!('IntersectionObserver' in window)) {
 }
 
 afterEach(() => cleanup());
+
+// jsdom has no WebGL; the shader backdrop already handles a missing context.
+HTMLCanvasElement.prototype.getContext = (() => null) as unknown as HTMLCanvasElement['getContext'];

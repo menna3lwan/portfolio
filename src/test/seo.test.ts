@@ -1,13 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { loadContent, listedApplications } from '@/content';
+import { loadContent } from '@/content';
+import { WORKS } from '@/content/site';
 import {
-  caseDescription,
-  caseTitle,
   clamp,
   cvDescription,
   cvTitle,
   homeDescription,
   homeTitle,
+  workDescription,
+  workTitle,
 } from '@/seo/meta';
 import * as build from '../../scripts/routes.mjs';
 import type { BuildRoute } from '../../scripts/routes.mjs';
@@ -30,11 +31,12 @@ describe('the build generator agrees with the application', () => {
     expect(build.homeDescription(content)).toBe(homeDescription(content));
   });
 
-  it.each(LANGS)('forms the same case-study head in %s', (lang) => {
+  it.each(LANGS)('forms the same project-page head in %s', (lang) => {
     const content = CONTENT[lang];
-    for (const record of listedApplications(content)) {
-      expect(build.caseTitle(record, content)).toBe(caseTitle(record, content));
-      expect(build.caseDescription(record)).toBe(caseDescription(record));
+    for (const work of WORKS) {
+      const text = work[lang];
+      expect(build.workTitle(text.title, content)).toBe(workTitle(text.title, content));
+      expect(build.workDescription(text.about)).toBe(workDescription(text.about));
     }
   });
 
@@ -46,18 +48,15 @@ describe('the build generator agrees with the application', () => {
   });
 
   it('lists exactly the routes the application serves', () => {
-    const ids = listedApplications(CONTENT.en).map((app) => app.id);
     expect(build.routes('en').map((r: BuildRoute) => r.path)).toEqual([
       '/',
-      ...ids.map((id) => `/work/${id}`),
+      ...WORKS.map((work) => `/work/${work.id}`),
       '/cv',
     ]);
   });
 
-  it('excludes the same entries from the work chapter', () => {
-    expect(build.listedApplications(CONTENT.en).map((a) => a.id)).toEqual(
-      listedApplications(CONTENT.en).map((a) => a.id),
-    );
+  it('reads the same works file the application renders', () => {
+    expect(build.WORKS.map((w: { id: string }) => w.id)).toEqual(WORKS.map((w) => w.id));
   });
 });
 

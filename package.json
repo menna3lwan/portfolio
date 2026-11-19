@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
+    "gsap": "3.12.5",
+    "lenis": "1.1.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.6"
@@ -47,5 +49,5 @@
     "vite": "^5.4.11",
     "vitest": "^2.1.5"
   },
-  "description": "Menna Elwan \u2014 personal portfolio. React + TypeScript + Vite."
+  "description": "Menna Elwan — personal portfolio. React + TypeScript + Vite."
 }

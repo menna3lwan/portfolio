@@ -1,0 +1,314 @@
+[
+  {
+    "id": "flower-app",
+    "color": "#C96A7A",
+    "year": "2026",
+    "cover": "img/works/flower-app-cover.webp",
+    "gallery": [
+      "img/works/flower-app-1.webp"
+    ],
+    "code": "https://github.com/menna3lwan/Flower-App",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "BLoC / Cubit",
+      "Clean Architecture (feature-first)",
+      "Dio + Retrofit",
+      "get_it + injectable",
+      "freezed + json_serializable",
+      "go_router",
+      "Stripe",
+      "Firebase Cloud Messaging",
+      "flutter_map + OSRM",
+      ".NET microservices + API gateway"
+    ],
+    "en": {
+      "title": "Flowrist",
+      "subtitle": "Flowers, door to door",
+      "tag": "E-commerce app",
+      "card": "A flower-delivery app on a .NET microservice platform: catalog, cart, Stripe checkout and live order tracking.",
+      "about": "A flower-delivery app: browse a catalog, manage a cart, check out and pay, then follow the order to the door on a map. The Flutter client talks to six .NET services behind one API gateway.",
+      "role": "Began as a team project in Elevate’s advanced Flutter programme, where I worked on the Flutter client; I maintain it independently on my GitHub with the team’s agreement.",
+      "challenge": "When a token expires, every in-flight request fails with 401 at the same moment, and naive refresh logic starts one refresh per request. The token layer is split into storage, refresher, scheduler and a coordinator, so concurrent requests wait on a single refresh and are then replayed.",
+      "architecture": "Feature-first Clean Architecture: nine features, each owning its api, data, domain and presentation layers, with shared code in core. Dependency injection is generated with injectable, so a new feature is a folder, not a decision.",
+      "built": [
+        "Twenty-five typed endpoints across six services, through one Retrofit client per feature.",
+        "Stripe checkout, order history and live tracking with a drawn route.",
+        "Device sessions: list active sessions, register the FCM token, sign a device out."
+      ],
+      "tags": [
+        "Mobile app",
+        "E-commerce",
+        "Microservices"
+      ]
+    },
+    "ar": {
+      "title": "Flowrist",
+      "subtitle": "ورود حتى الباب",
+      "tag": "تطبيق تجارة",
+      "card": "تطبيق توصيل ورود على منصّة خدمات مصغّرة بـ .NET: كتالوج وسلة ودفع عبر Stripe وتتبّع حيّ للطلب.",
+      "about": "تطبيق توصيل ورود: تصفّح الكتالوج، وإدارة السلة، وإتمام الطلب والدفع، ثم متابعة الطلب حتى الباب على الخريطة. يتحدث عميل Flutter إلى ست خدمات .NET خلف بوّابة API واحدة.",
+      "role": "بدأ كمشروع فريق ضمن برنامج Elevate المتقدم في Flutter، وعملتُ فيه على عميل Flutter، وأصونه بشكل مستقل على GitHub الخاص بي بموافقة الفريق.",
+      "challenge": "حين ينتهي الرمز تفشل كل الطلبات الجارية بـ401 في اللحظة نفسها، والمنطق الساذج يبدأ تحديثًا لكل طلب. طبقة الرموز مقسّمة إلى تخزين ومجدِّد ومُجدوِل ومنسّق، فتنتظر الطلبات المتزامنة تحديثًا واحدًا ثم تُعاد.",
+      "architecture": "بنية Clean Architecture حسب الميزة: تسع ميزات، لكلٍّ طبقات api وdata وdomain وpresentation، والمشترك في core. وحقن الاعتماديات مُولَّد بـ injectable، فالميزة الجديدة مجلّد لا قرار.",
+      "built": [
+        "خمس وعشرون نقطة مُصنَّفة عبر ست خدمات، بعميل Retrofit لكل ميزة.",
+        "دفع عبر Stripe، وسجل الطلبات، وتتبّع حيّ بمسار مرسوم.",
+        "جلسات الأجهزة: عرض الجلسات النشطة، وتسجيل رمز FCM، وإخراج جهاز."
+      ],
+      "tags": [
+        "تطبيق موبايل",
+        "تجارة إلكترونية",
+        "خدمات مصغّرة"
+      ]
+    }
+  },
+  {
+    "id": "hen-lehen",
+    "color": "#5E8B6E",
+    "year": "2026",
+    "cover": "img/works/hen-lehen-cover.webp",
+    "gallery": [
+      "img/works/hen-lehen-1.webp",
+      "img/works/hen-lehen-2.webp"
+    ],
+    "code": null,
+    "stack": [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "Clean Architecture",
+      "go_router",
+      "shared_core · shared_models · shared_ui",
+      ".NET backend"
+    ],
+    "en": {
+      "title": "Hen Lehen",
+      "subtitle": "Telemedicine for women",
+      "tag": "Freelance · Telemedicine",
+      "card": "A women-only telemedicine platform: a patient app and a doctor app, developed end to end and delivered to the client.",
+      "about": "A women-only telemedicine platform built as two separate Flutter applications. Patients find a female doctor, book an in-clinic or online consultation, pay and follow their appointments. Doctors register with their licence, pass an approval gate, then run appointments, patients and clinic branches.",
+      "role": "A freelance commission. I built both applications end to end against the client’s .NET service layer and delivered them running on real production data; the platform was subsequently sold as a product.",
+      "challenge": "A doctor whose licence has not been reviewed must never reach the dashboard, and hiding a button does not prevent access. The rule lives in the router: until the account is approved, every route redirects to the pending screen, so there is no path around it.",
+      "architecture": "Clean Architecture with BLoC. The patient and doctor apps stay separate, and depend on three local packages — shared_core, shared_models and shared_ui — so they read as one product without sharing a codebase.",
+      "built": [
+        "Patient journey: search by specialty, book by type, date and slot, pay by card, wallet or cash, and follow appointments.",
+        "Doctor journey: licence registration, an approval gate enforced in routing, and one dashboard for appointments, patients and branches.",
+        "An anonymous community where patients can ask questions."
+      ],
+      "tags": [
+        "Freelance",
+        "Telemedicine",
+        "Two apps"
+      ]
+    },
+    "ar": {
+      "title": "هُنَّ لَهُنَّ",
+      "subtitle": "طب عن بُعد للنساء",
+      "tag": "مشروع حر · طب عن بُعد",
+      "card": "منصّة طب عن بُعد للنساء فقط: تطبيق للمريضات وآخر للطبيبات، طوّرتُهما من البداية إلى النهاية وسُلِّما للعميل.",
+      "about": "منصّة طب عن بُعد للنساء فقط في تطبيقَي Flutter منفصلين. تجد المريضة طبيبة، وتحجز استشارة في العيادة أو عبر الإنترنت، وتدفع وتتابع مواعيدها. وتسجّل الطبيبة برخصتها، وتمرّ ببوّابة اعتماد، ثم تدير المواعيد والمريضات وفروع العيادة.",
+      "role": "مشروع حر بتكليف من العميل. بنيتُ التطبيقين من البداية إلى النهاية على طبقة خدمات .NET الخاصة بالعميل، وسُلِّما يعملان على بيانات حقيقية، ثم بِيعت المنصة لاحقًا كمنتج.",
+      "challenge": "الطبيبة التي لم تُراجَع رخصتها يجب ألا تصل إلى اللوحة أبدًا، وإخفاء الزر لا يمنع الوصول. القاعدة في المُوجِّه: حتى يُعتمد الحساب، يعيد كل مسار التوجيه إلى شاشة الانتظار، فلا طريق للالتفاف حولها.",
+      "architecture": "Clean Architecture مع BLoC. يبقى تطبيقا المريضة والطبيبة منفصلين، ويعتمدان على ثلاث حزم محلية — shared_core وshared_models وshared_ui — فيُقرآن كمنتج واحد دون أن يتشاركا قاعدة كود.",
+      "built": [
+        "رحلة المريضة: البحث حسب التخصص، والحجز حسب النوع والتاريخ والموعد، والدفع بالبطاقة أو المحفظة أو نقدًا، ومتابعة المواعيد.",
+        "رحلة الطبيبة: التسجيل بالرخصة، وبوّابة اعتماد مفروضة في التوجيه، ولوحة واحدة للمواعيد والمريضات والفروع.",
+        "مجتمع يتيح للمريضات السؤال دون كشف الهوية."
+      ],
+      "tags": [
+        "مشروع حر",
+        "طب عن بُعد",
+        "تطبيقان"
+      ]
+    }
+  },
+  {
+    "id": "tracking-app",
+    "color": "#2E8B82",
+    "year": "2026",
+    "cover": "img/works/tracking-app-cover.webp",
+    "gallery": [
+      "img/works/tracking-app-1.webp"
+    ],
+    "code": "https://github.com/menna3lwan/Tracking_app",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "BLoC / Cubit",
+      "Clean Architecture",
+      "Dio + Retrofit",
+      "get_it + injectable",
+      "freezed",
+      "go_router",
+      "flutter_map",
+      "geolocator",
+      "OSRM routing",
+      "flutter_secure_storage"
+    ],
+    "en": {
+      "title": "Tracking App",
+      "subtitle": "Last-mile delivery, live",
+      "tag": "Logistics app",
+      "card": "The driver side of a last-mile delivery product: apply, sign in, and share a live position and route.",
+      "about": "A delivery-driver client for a last-mile product. A driver applies with licence and vehicle documents, signs in, and their live position and route to pickup and customer are tracked on a map.",
+      "role": "Began as a team project in Elevate’s advanced Flutter programme, where I worked on the Flutter client; I maintain it independently on my GitHub with the team’s agreement.",
+      "challenge": "An expired token in the middle of a delivery would send the driver back to the login screen and lose the route. A 401 interceptor refreshes the token and replays the request exactly once, and only surfaces an error if the replay fails too.",
+      "architecture": "Clean Architecture with feature modules and generated dependency injection. Identity and orders are separate Retrofit clients, so a change to sign-in cannot ripple into delivery calls.",
+      "built": [
+        "A driver application that sends licence and ID images with vehicle data as one multipart request.",
+        "Forgot password as a three-step state machine, so a resend never loses the step.",
+        "Live location reporting, gated by permission and location-service checks, with the route drawn from OSRM."
+      ],
+      "tags": [
+        "Mobile app",
+        "Logistics",
+        "Maps"
+      ]
+    },
+    "ar": {
+      "title": "Tracking App",
+      "subtitle": "توصيل الميل الأخير، حيًّا",
+      "tag": "تطبيق توصيل",
+      "card": "جانب السائق في منتج توصيل الميل الأخير: التقديم، وتسجيل الدخول، ومشاركة الموقع والمسار حيًّا.",
+      "about": "تطبيق لسائقي التوصيل في منتج الميل الأخير. يتقدّم السائق برخصته وأوراق مركبته، ويسجّل دخوله، ويُتتبَّع موقعه الحيّ ومساره إلى الاستلام والعميل على خريطة.",
+      "role": "بدأ كمشروع فريق ضمن برنامج Elevate المتقدم في Flutter، وعملتُ فيه على عميل Flutter، وأصونه بشكل مستقل على GitHub الخاص بي بموافقة الفريق.",
+      "challenge": "انتهاء الرمز في منتصف توصيلة كان سيعيد السائق إلى شاشة الدخول ويضيع المسار. يجدّد معترض 401 الرمز ويعيد الطلب مرة واحدة فقط، ولا يُظهر خطأً إلا إن فشلت الإعادة أيضًا.",
+      "architecture": "Clean Architecture بوحدات حسب الميزة وحقن اعتماديات مُولَّد. الهوية والطلبات عميلا Retrofit منفصلان، فلا يمتد تغيير في تسجيل الدخول إلى نداءات التوصيل.",
+      "built": [
+        "طلب انضمام يرسل صور الرخصة والبطاقة مع بيانات المركبة في طلب واحد متعدد الأجزاء.",
+        "استعادة كلمة المرور كآلة حالات من ثلاث خطوات، فلا يضيع الموضع عند إعادة الإرسال.",
+        "إبلاغ حيّ عن الموقع، محكوم بفحص الإذن وخدمة الموقع، مع رسم المسار من OSRM."
+      ],
+      "tags": [
+        "تطبيق موبايل",
+        "توصيل",
+        "خرائط"
+      ]
+    }
+  },
+  {
+    "id": "elevate-exams",
+    "color": "#2F6BFF",
+    "year": "2026",
+    "cover": "img/works/elevate-exams-cover.webp",
+    "gallery": [
+      "img/works/elevate-exams-1.webp"
+    ],
+    "code": "https://github.com/menna3lwan/exam_app",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "BLoC / Cubit",
+      "Clean Architecture",
+      "Dio",
+      "get_it",
+      "flutter_secure_storage",
+      "shared_preferences",
+      "cached_network_image",
+      "Unit tests"
+    ],
+    "en": {
+      "title": "Elevate Online Exams",
+      "subtitle": "Timed exams on mobile",
+      "tag": "EdTech app",
+      "card": "A mobile client for an online-exams platform: sign in, choose a subject, sit a timed exam, review the result.",
+      "about": "A mobile client for an online-exams platform. Students sign in, choose a subject, take timed exams and review their results, against the platform’s live REST API.",
+      "role": "Sole Flutter developer. The API, designs and Postman collection were provided by Elevate; the app is my work.",
+      "challenge": "The API answered some validation errors with 401, and parallel requests could fail together. I classified 401 responses by their body, guarded against re-entry, and published session expiry on an event bus handled once at the app root, so a real expiry logs the user out exactly once.",
+      "architecture": "Three feature modules. Cubits call fourteen single-purpose use cases, use cases call repository interfaces, and repositories wrap data sources in a safe-call that returns a sealed result.",
+      "built": [
+        "A timed exam engine that auto-submits on timeout and asks before the student leaves.",
+        "A results screen that crashed on the API’s real history shape, fixed by normalising every shape and keeping a local per-user history.",
+        "Unit tests for the auth interceptor, token service, safe-call wrapper and validators."
+      ],
+      "tags": [
+        "Mobile app",
+        "EdTech",
+        "Provided API"
+      ]
+    },
+    "ar": {
+      "title": "Elevate Online Exams",
+      "subtitle": "امتحانات موقوتة على الموبايل",
+      "tag": "تطبيق تعليمي",
+      "card": "تطبيق موبايل لمنصة امتحانات إلكترونية: تسجيل الدخول، واختيار مادة، وأداء امتحان موقوت، ومراجعة النتيجة.",
+      "about": "تطبيق موبايل لمنصة امتحانات إلكترونية. يسجّل الطلاب الدخول، ويختارون مادة، ويؤدّون امتحانات موقوتة، ويراجعون نتائجهم، على واجهة REST الحيّة للمنصة.",
+      "role": "مطوّرة Flutter الوحيدة. الـ API والتصميمات ومجموعة Postman مقدَّمة من Elevate، والتطبيق عملي.",
+      "challenge": "كانت الـ API تردّ على بعض أخطاء التحقق بـ401، وقد تفشل الطلبات المتوازية معًا. صنّفتُ استجابات 401 حسب محتواها، وحميتُ من إعادة الدخول، ونشرتُ انتهاء الجلسة على ناقل أحداث يُعالَج مرة واحدة عند جذر التطبيق، فيُخرَج المستخدم مرة واحدة فقط عند الانتهاء الحقيقي.",
+      "architecture": "ثلاث وحدات ميزات. تستدعي الـ Cubits أربع عشرة حالة استخدام أحادية الغرض، وتستدعي حالات الاستخدام واجهات المستودعات، وتغلّف المستودعات مصادر البيانات بـ safeCall تُرجع نتيجة مختومة.",
+      "built": [
+        "محرّك امتحان موقوت يسلّم تلقائيًا عند انتهاء الوقت ويسأل قبل مغادرة الطالب.",
+        "شاشة نتائج كانت تنهار مع شكل السجل الحقيقي من الـ API، أُصلحت بتوحيد كل الأشكال وحفظ سجل محلي لكل مستخدم.",
+        "اختبارات وحدات لمعترض المصادقة وخدمة الرموز وغلاف safeCall والمدقِّقات."
+      ],
+      "tags": [
+        "تطبيق موبايل",
+        "تعليم",
+        "API مقدَّمة"
+      ]
+    }
+  },
+  {
+    "id": "mentorx",
+    "color": "#3B6FD4",
+    "year": "2026",
+    "cover": "img/works/mentorx-cover.webp",
+    "gallery": [
+      "img/works/mentorx-1.webp",
+      "img/works/mentorx-2.webp"
+    ],
+    "code": "https://github.com/menna3lwan/mentor-x-app",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "Melos-style monorepo",
+      "Repository pattern",
+      "Dio",
+      "go_router",
+      "Slang code generation",
+      "Firebase Analytics"
+    ],
+    "en": {
+      "title": "MentorX",
+      "subtitle": "Learning platform",
+      "tag": "Team contribution",
+      "card": "A learning platform for students and parents: two apps on one Flutter monorepo of around seventy packages.",
+      "about": "A learning platform for school students and their parents. Two separate applications sit on one shared platform layer and one REST API, in a Flutter monorepo of around seventy packages.",
+      "role": "Contributing member of a team led by another developer (4 of 114 commits): the localisation layer in the shared UI package, the notification-service boundary and its mock, and the parent authentication and financial repositories. The learning journeys are other developers’ work.",
+      "challenge": "Features needed a push-notification service before any provider had been chosen. I defined the service as an interface in its own shared package, with a mock beside it, so features could be written and tested against the boundary and the provider plugged in later.",
+      "architecture": "One package per repository: each domain has a Dio implementation and a mock twin behind the same interface, so a feature can be finished and tested before its endpoint exists.",
+      "built": [
+        "The notification-service interface and its mock, in a shared package.",
+        "Parent financial models and authentication repositories, written against one core interface with Dio and mock implementations.",
+        "Around nine hundred lines of strings in the shared UI package, generated into typed accessors both apps use."
+      ],
+      "tags": [
+        "Team project",
+        "EdTech",
+        "Monorepo"
+      ]
+    },
+    "ar": {
+      "title": "MentorX",
+      "subtitle": "منصّة تعليمية",
+      "tag": "إسهام ضمن فريق",
+      "card": "منصّة تعليمية للطلاب وأولياء الأمور: تطبيقان على مستودع Flutter أحادي من نحو سبعين حزمة.",
+      "about": "منصّة تعليمية لطلاب المدارس وأولياء أمورهم. تطبيقان منفصلان يقومان على طبقة منصّة مشتركة وواجهة REST واحدة، في مستودع Flutter أحادي من نحو سبعين حزمة.",
+      "role": "عضوة مساهِمة في فريق يقوده مطوّر آخر (4 من أصل 114 إسهامًا): طبقة النصوص في حزمة الواجهة المشتركة، وحدّ خدمة الإشعارات ونسختها المحاكاة، ومستودعات المصادقة والبيانات المالية لوليّ الأمر. أما رحلات التعلّم فمن عمل مطوّرين آخرين.",
+      "challenge": "احتاجت الميزات خدمة إشعارات قبل اختيار أي مزوّد. عرّفتُ الخدمة كواجهة في حزمة مشتركة خاصة بها، ومعها نسخة محاكاة، فتُكتب الميزات وتُختبر على هذا الحدّ ويُوصَل المزوّد لاحقًا.",
+      "architecture": "حزمة لكل مستودع: لكل مجال تنفيذ بـ Dio ونسخة محاكاة خلف الواجهة نفسها، فتكتمل الميزة وتُختبر قبل وجود نقطتها.",
+      "built": [
+        "واجهة خدمة الإشعارات ونسختها المحاكاة، في حزمة مشتركة.",
+        "النماذج المالية ومستودعات المصادقة لوليّ الأمر، على واجهة أساسية واحدة بتنفيذَي Dio ومحاكاة.",
+        "نحو تسعمئة سطر من النصوص في حزمة الواجهة المشتركة، تُولَّد منها وسائل وصول مُصنَّفة يستخدمها التطبيقان."
+      ],
+      "tags": [
+        "مشروع فريق",
+        "تعليم",
+        "مستودع أحادي"
+      ]
+    }
+  }
+]

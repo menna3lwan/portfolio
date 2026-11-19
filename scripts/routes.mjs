@@ -14,7 +14,10 @@ const read = (name) => JSON.parse(readFileSync(join(here, '..', 'src', 'content'
 
 export const CONTENT = { en: read('content.en.json'), ar: read('content.ar.json') };
 
-const SUFFIX = { en: 'Software Engineer, Flutter', ar: 'مهندسة برمجيات · Flutter' };
+/** The five selected works — the same file the application renders from. */
+export const WORKS = read('works.json');
+
+const SUFFIX = { en: 'Software Developer, Flutter & Mobile', ar: 'مطوّرة برمجيات · Flutter والموبايل' };
 
 export function clamp(text, limit = 158) {
   const flat = String(text).replace(/\s+/g, ' ').trim();
@@ -27,8 +30,8 @@ export function clamp(text, limit = 158) {
 export const homeTitle = (content, lang) => `${content.meta.name} · ${SUFFIX[lang]}`;
 export const homeDescription = (content) =>
   clamp(`${content.about.title} ${content.about.body[0] ?? ''}`);
-export const caseTitle = (record, content) => `${record.name} · ${content.meta.name}`;
-export const caseDescription = (record) => clamp(record.summary);
+export const workTitle = (title, content) => `${title} · ${content.meta.name}`;
+export const workDescription = (about) => clamp(about);
 export const cvTitle = (content, cvLabel) => `${cvLabel} · ${content.meta.name}`;
 export const cvDescription = (content, lang) =>
   clamp(
@@ -36,19 +39,6 @@ export const cvDescription = (content, lang) =>
       ? `السيرة الذاتية لـ ${content.meta.name} — ${SUFFIX.ar}.`
       : `The curriculum vitae of ${content.meta.name} — ${SUFFIX.en}.`,
   );
-
-/** The entries excluded from the work chapter — kept in step with src/data/corrections.ts. */
-const DROPPED = ['hen-lehen-backend'];
-
-export function listedApplications(content) {
-  const out = [];
-  for (const entry of content.cases) {
-    if (entry.apps && entry.apps.length > 0) out.push(...entry.apps);
-    else out.push(entry);
-  }
-  for (const group of content.projects.groups) out.push(...group.items);
-  return out.filter((app) => !DROPPED.includes(app.id));
-}
 
 /**
  * Every page the site serves, with the head each one needs.
@@ -65,10 +55,10 @@ export function routes(lang = 'en') {
       priority: '1.0',
       changefreq: 'monthly',
     },
-    ...listedApplications(content).map((record) => ({
-      path: `/work/${record.id}`,
-      title: caseTitle(record, content),
-      description: caseDescription(record),
+    ...WORKS.map((work) => ({
+      path: `/work/${work.id}`,
+      title: workTitle(work[lang].title, content),
+      description: workDescription(work[lang].about),
       priority: '0.8',
       changefreq: 'monthly',
     })),

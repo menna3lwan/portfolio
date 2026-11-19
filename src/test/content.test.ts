@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { allApplications, findApplication, listedApplications, loadContent } from '@/content';
 import { DROPPED_ENTRY_IDS, HEN_LEHEN_IDS } from '@/data/corrections';
-import { shotsFor } from '@/data/previews';
 
 const LANGS = ['en', 'ar'] as const;
 
@@ -66,51 +65,6 @@ describe('the content model', () => {
   it.each(LANGS)('has eleven experience entries once education and skills are counted in %s', (lang) => {
     const content = getContent(lang);
     expect(content.experience.items.length + 2).toBe(11);
-  });
-});
-
-describe('screen previews', () => {
-  it.each(LANGS)('gives every listed application its own concept in %s', (lang) => {
-    const apps = listedApplications(getContent(lang));
-    const files = apps.map((app) => {
-      const shots = shotsFor(app);
-      expect(shots).toHaveLength(1);
-      return shots[0]!.file;
-    });
-    // one image per application, and each one named by that application's own record
-    expect(new Set(files).size).toBe(files.length);
-    for (const [i, file] of files.entries()) {
-      expect(file).toBe(`/img/cut/${apps[i]!.image!.split('/').pop()}`);
-      // base-aware, so a nested route does not resolve it against the route's own path
-      expect(file.startsWith(import.meta.env.BASE_URL)).toBe(true);
-    }
-  });
-
-  it('carries the Movie App simulator at its rebuilt size', () => {
-    const movie = findApplication(getContent('en'), 'movie-app');
-    const shot = shotsFor(movie)[0];
-    expect(shot).toMatchObject({
-      file: '/img/cut/movie-app-ui-concept.webp',
-      width: 858,
-      height: 1209,
-    });
-  });
-
-  it('offers narrower variants, and never one wider than the source', () => {
-    const shot = shotsFor(findApplication(getContent('en'), 'movie-app'))[0]!;
-    expect(shot.srcSet).toBe(
-      '/img/cut/movie-app-ui-concept-480w.webp 480w, ' +
-        '/img/cut/movie-app-ui-concept-720w.webp 720w, ' +
-        '/img/cut/movie-app-ui-concept.webp 858w',
-    );
-    for (const entry of shot.srcSet!.split(', ')) {
-      expect(Number.parseInt(entry.split(' ')[1]!, 10)).toBeLessThanOrEqual(858);
-    }
-  });
-
-  it('returns nothing for a record with no image', () => {
-    expect(shotsFor(undefined)).toEqual([]);
-    expect(shotsFor({ id: 'x', name: 'X', summary: '' })).toEqual([]);
   });
 });
 

@@ -1,0 +1,168 @@
+{
+  "en": {
+    "role": [
+      "Software",
+      "Developer"
+    ],
+    "roleSr": "Software Developer, specialising in Flutter and mobile development",
+    "open": "Open to work",
+    "based": [
+      "Flutter & mobile, ",
+      "based in Egypt"
+    ],
+    "scroll": "SCROLL DOWN SCROLL DOWN",
+    "skills": [
+      {
+        "word": "SOFTWARE ENGINEERING",
+        "quote": "The part users never see is the part I enjoy most."
+      },
+      {
+        "word": "FLUTTER / DART",
+        "quote": "Two apps that read as one product, without sharing a codebase."
+      },
+      {
+        "word": "CLEAN ARCHITECTURE",
+        "quote": "The same shape for every feature, so a new one is a folder, not a decision."
+      },
+      {
+        "word": "OOP / SOLID",
+        "quote": "Two implementations, one interface: the feature is finished before its endpoint exists."
+      },
+      {
+        "word": "BLOC / CUBIT",
+        "quote": "Deciding where state lives."
+      },
+      {
+        "word": "REST APIS",
+        "quote": "Making failures predictable."
+      },
+      {
+        "word": "SYSTEM DESIGN",
+        "quote": "Networking never touches navigation."
+      },
+      {
+        "word": "DATABASE DESIGN",
+        "quote": "Shape the data once, in one place, before any screen displays it."
+      },
+      {
+        "word": "GIT / TEAMWORK",
+        "quote": "Teaching made me better at explaining technical decisions."
+      },
+      {
+        "word": "TESTING / QUALITY",
+        "quote": "Writing the test that proves a fix."
+      }
+    ],
+    "ui": {
+      "skip": "Skip to content",
+      "loading": "Loading",
+      "cv": "CV",
+      "cvLabel": "Curriculum vitae",
+      "toAr": "التبديل إلى العربية",
+      "toEn": "Switch to English",
+      "toLight": "Switch to light theme",
+      "toDark": "Switch to dark theme",
+      "skills": "Skills",
+      "selected": "Selected works",
+      "view": "View project",
+      "touch": "Get in touch",
+      "copy": "Copy",
+      "copied": "Copied",
+      "about": "About",
+      "role": "My role",
+      "challenge": "Challenge",
+      "architecture": "Architecture",
+      "built": "What I built",
+      "type": "Type",
+      "stack": "Stack",
+      "code": "View code",
+      "back": "Back to home",
+      "opened": "Opened",
+      "notFound": "Project not found",
+      "newTab": "(opens in a new tab)"
+    }
+  },
+  "ar": {
+    "role": [
+      "مطوّرة",
+      "برمجيات"
+    ],
+    "roleSr": "مطوّرة برمجيات، متخصصة في Flutter وتطوير تطبيقات الموبايل",
+    "open": "متاحة للعمل",
+    "based": [
+      "Flutter والموبايل، ",
+      "من مصر"
+    ],
+    "scroll": "مرّر للأسفل · مرّر للأسفل · مرّر للأسفل · مرّر للأسفل · ",
+    "skills": [
+      {
+        "word": "هندسة البرمجيات",
+        "quote": "أكثر ما أستمتع به هو الجزء الذي لا يراه المستخدمون."
+      },
+      {
+        "word": "Flutter / Dart",
+        "quote": "تطبيقان يُقرآن كمنتج واحد، دون أن يتشاركا قاعدة كود."
+      },
+      {
+        "word": "Clean Architecture",
+        "quote": "الشكل نفسه لكل ميزة، فالميزة الجديدة مجلّد لا قرار."
+      },
+      {
+        "word": "OOP / SOLID",
+        "quote": "تنفيذان وواجهة واحدة: تكتمل الميزة قبل أن توجد نقطتها."
+      },
+      {
+        "word": "BLoC / Cubit",
+        "quote": "تحديد مكان الحالة."
+      },
+      {
+        "word": "واجهات REST",
+        "quote": "جعل الأخطاء متوقعة."
+      },
+      {
+        "word": "تصميم الأنظمة",
+        "quote": "الشبكة لا تلمس التنقل أبدًا."
+      },
+      {
+        "word": "تصميم البيانات",
+        "quote": "تُصاغ البيانات مرة واحدة وفي مكان واحد، قبل أن تعرضها أي شاشة."
+      },
+      {
+        "word": "Git والعمل الجماعي",
+        "quote": "التدريس جعلني أفضل في شرح القرارات التقنية."
+      },
+      {
+        "word": "الاختبار والجودة",
+        "quote": "كتابة الاختبار الذي يثبت صحة الإصلاح."
+      }
+    ],
+    "ui": {
+      "skip": "تخطَّ إلى المحتوى",
+      "loading": "جارٍ التحميل",
+      "cv": "السيرة الذاتية",
+      "cvLabel": "السيرة الذاتية",
+      "toAr": "التبديل إلى العربية",
+      "toEn": "Switch to English",
+      "toLight": "التبديل إلى المظهر الفاتح",
+      "toDark": "التبديل إلى المظهر الداكن",
+      "skills": "المهارات",
+      "selected": "أعمال مختارة",
+      "view": "عرض المشروع",
+      "touch": "للتواصل",
+      "copy": "نسخ",
+      "copied": "نُسخ",
+      "about": "نبذة",
+      "role": "دوري",
+      "challenge": "التحدي",
+      "architecture": "البنية",
+      "built": "ما بنيته",
+      "type": "النوع",
+      "stack": "التقنيات",
+      "code": "عرض الكود",
+      "back": "العودة إلى الرئيسية",
+      "opened": "فُتح",
+      "notFound": "المشروع غير موجود",
+      "newTab": "(يفتح في علامة تبويب جديدة)"
+    }
+  }
+}
