@@ -172,14 +172,27 @@
      "role": "Advanced Flutter Development Intern",
      "when": "Jun 2026 – Present",
      "type": "Internship / training program",
-     "summary": "An advanced, project-based Flutter program — building two production-style delivery apps, Flowrist and Tracking App, as its practical track.",
+     "summary": "An advanced Flutter track building production-style apps on Clean Architecture with BLoC/Cubit — two delivery clients and a solo online-exams client, each against real REST APIs.",
      "points": [
-      "A project-based advanced Flutter program; its practical track is two production-style delivery applications — Flower App and Tracking App."
+      "An advanced, project-based Flutter program focused on shipping production-style applications on a clean, layered architecture rather than throwaway exercises.",
+      "Built two delivery clients — Flowrist and a driver-side Tracking App — independently and end to end; both began as team projects and are maintained as standalone builds on GitHub.",
+      "Flowrist: a flower-commerce client for a .NET microservices backend (Catalog, Cart, Order and Payment behind an API gateway) — OTP authentication, a paginated catalog with image caching, cart and checkout, Stripe payments, map-based addresses, and order history and tracking.",
+      "Tracking App: a last-mile delivery app for drivers — live location tracking with distance calculation, order-status updates, onboarding, and secure token storage with automatic refresh.",
+      "Built a third application, Elevate Online Exams, entirely solo — an exam-taking client on a provided REST API: authentication and exam browsing, timed exam sessions with question navigation, multiple question types, and scoring with answer review.",
+      "Applied a consistent engineering approach across all three — Clean Architecture with BLoC/Cubit, Dio/Retrofit networking, get_it/injectable dependency injection, and unit and widget tests with bloc_test and mockito.",
+      "Delivered Flowrist as a fully bilingual experience — Arabic and English with complete RTL support."
      ],
      "tags": [
       "Flutter",
+      "Clean Architecture",
       "BLoC / Cubit",
-      "Clean Architecture"
+      "Dio/Retrofit",
+      "get_it/injectable",
+      "go_router",
+      "Stripe",
+      "flutter_map",
+      "Firebase (FCM)",
+      "REST"
      ],
      "works": [
       "flower-app",
@@ -189,19 +202,28 @@
     {
      "id": "nti",
      "org": "NTI",
-     "role": "Mobile Developer Intern",
+     "role": "Mobile Development Trainee",
      "when": "Dec 2025 – Feb 2026",
-     "type": "Internship",
-     "summary": "Shipped Flutter features on a Clean Architecture codebase through a team Git workflow of pull requests, peer review and shared branching.",
+     "type": "Training program",
+     "summary": "Built TMDB-backed features — the full Home feed and Search — on a team's shared Clean Architecture codebase, through a real pull-request and peer-review workflow.",
      "points": [
-      "Built Flutter features on a Clean Architecture codebase inside a team workflow, delivering every change through GitHub pull requests, peer code review and a shared branching strategy.",
-      "Wrote unit tests alongside new features so behavior stayed verifiable as the codebase grew."
+      "A mobile-development training program at NTI (National Telecommunication Institute), delivered as a team project on a shared codebase rather than individual exercises.",
+      "Contributed to a Movies application built on the TMDB API, following Clean Architecture with a feature-based structure (data, domain and presentation layers), the repository pattern and DTO-to-entity mapping.",
+      "Built the entire Home feature end to end — the Popular, Top Rated and Now Playing sections — from TMDB data sources and repositories through use cases to the UI, with Provider state.",
+      "Built the Search feature end to end, with Cubit state, a dedicated search data source and a search use case.",
+      "Worked inside a real team Git workflow — GitHub pull requests, peer code review and shared branching."
      ],
      "tags": [
       "Flutter",
-      "Git workflow",
-      "Unit testing"
-     ]
+      "Clean Architecture",
+      "Provider",
+      "Cubit",
+      "TMDB API",
+      "get_it/injectable",
+      "Git workflow"
+     ],
+     "code": "https://github.com/menna3lwan/movie_app",
+     "codeNote": "My contribution: the full Home feed and Search."
     },
     {
      "id": "dragons",
@@ -209,13 +231,18 @@
      "role": "Software Development Intern",
      "when": "Aug 2025 – Feb 2026",
      "type": "Internship · Remote",
-     "summary": "Built an in-app chatbot for the company's mobile products, integrating Google Gemini into Flutter clients at the application layer.",
+     "summary": "A remote internship on Dragons' own Flutter product — shipped UI, REST integration and feature work as part of a team, including an in-app chatbot powered by Google Gemini.",
      "points": [
-      "Delivered an in-app chatbot for the company’s mobile products, integrating Google Gemini into Flutter clients at the application layer."
+      "A remote software-development internship contributing to Dragons' own Flutter mobile product, as part of a team with a defined role.",
+      "Built an in-app chatbot by integrating Google Gemini into the Flutter client at the application layer.",
+      "Developed new UI screens and integrated them with the product's REST APIs.",
+      "Implemented a dedicated feature module and handled bug fixes and maintenance across the existing codebase."
      ],
      "tags": [
       "Flutter",
-      "Google Gemini"
+      "Google Gemini",
+      "REST APIs",
+      "UI development"
      ]
     },
     {
@@ -224,15 +251,19 @@
      "role": "Flutter Developer Intern",
      "when": "Jul 2025 – Aug 2025",
      "type": "Internship",
-     "summary": "Delivered two AI-powered Flutter apps — a weather advisor and a Gemini recipe recommender — recognized with a written recommendation letter.",
+     "summary": "Built features across two AI-powered Flutter apps — a weather advisor and a Gemini recipe recommender — spanning UI, REST data and AI integration, as part of a team.",
      "points": [
-      "Delivered two Flutter applications integrating AI models at the application layer: a weather-advisory app combining live weather data with model predictions, and a recipe recommender built on Google Gemini.",
-      "Work recognized in a written recommendation letter from the company."
+      "A Flutter development internship at Cellula Technologies, an AI-focused company — contributing to two AI-powered mobile apps as part of a team, with a defined role.",
+      "Worked across both apps end to end: building UI, integrating REST data, and wiring AI at the application layer.",
+      "Weather-advisory app — combined live weather data with model predictions to surface advice to the user.",
+      "Recipe recommender — built on Google Gemini to generate recipe recommendations.",
+      "Work recognized with a written recommendation letter from the company."
      ],
      "tags": [
       "Flutter",
       "REST APIs",
-      "AI integration"
+      "AI integration",
+      "Google Gemini"
      ]
     },
     {
@@ -241,15 +272,23 @@
      "role": "Freelance Flutter Developer",
      "when": "2025 – 2026",
      "type": "Freelance",
-     "summary": "Freelance: built and delivered a two-app telemedicine platform (patient and doctor) on a .NET service layer, later sold as a product.",
+     "summary": "Solo-built and delivered a two-app telemedicine platform (patient + doctor) on Clean Architecture + BLoC — role-based auth, appointments, in-app chat and voice/video consultations, payments — against a .NET backend; later sold as a product.",
      "points": [
-      "Commissioned to build and deliver a two-application telemedicine platform end to end — a Patient App and a Doctor App — against a .NET service layer.",
-      "Delivered to the client running on real production data; subsequently sold as a product."
+      "A freelance commission to build and deliver a complete telemedicine platform end to end, as two separate Flutter applications — a Patient app and a Doctor app — on Clean Architecture with BLoC.",
+      "Implemented role-based authentication and appointment booking between patients and doctors.",
+      "Built in-app consultations — real-time text chat and voice and video calls.",
+      "Implemented medical records and prescriptions and reports, in-app payment integration, and push notifications.",
+      "Integrated both apps against the client's .NET backend, running on real production data.",
+      "Delivered to the client as a finished product; subsequently sold as a product."
      ],
      "tags": [
       "Flutter",
+      "Clean Architecture",
+      "BLoC",
       "Role-based access",
-      ".NET service layer"
+      "Real-time chat",
+      "Voice/Video consultations",
+      ".NET integration"
      ],
      "works": [
       "hen-lehen"
@@ -258,12 +297,13 @@
     {
      "id": "fuzetek",
      "org": "Fuzetek",
-     "role": "Software Development Intern",
+     "role": "Software Development Trainee",
      "when": "Feb 2025 – Apr 2025",
-     "type": "Internship",
-     "summary": "A software-development internship covering the full SDLC and testing fundamentals, with problem solving in Python and C++.",
+     "type": "Training program",
+     "summary": "An early software-development training covering the software development life cycle and testing fundamentals, with problem solving in Python and C++.",
      "points": [
-      "Software development life cycle and testing fundamentals; problem solving in Python and C++."
+      "An early software-development training program covering the software development life cycle and testing fundamentals.",
+      "Practised problem solving in Python and C++."
      ],
      "tags": [
       "Python",
@@ -275,17 +315,25 @@
     {
      "id": "depi",
      "org": "Digital Egypt Pioneers Initiative (DEPI)",
-     "role": "Mobile Developer Intern",
+     "role": "Mobile Development Trainee",
      "when": "Jun 2024 – Dec 2024",
      "type": "Training program",
-     "summary": "A national mobile-development training program — ranked 7th nationwide in the Mobile Development track.",
+     "summary": "Ranked 7th nationwide on DEPI's national mobile-development track. Built the Shop module — category browsing and product details — on the team's Firebase-backed fashion e-commerce graduation project.",
      "points": [
-      "Ranked 7th nationwide in the Mobile Development track."
+      "A national mobile-development training program run by Egypt's Ministry of Communications and Information Technology.",
+      "Ranked 7th nationwide in the Mobile Development track.",
+      "Built the Shop experience on the team's graduation project — a Firebase-backed fashion e-commerce app — covering Men, Women and Kids category browsing with sub-categories (clothes, shoes, accessories, new) and product-detail screens.",
+      "The project was built with Flutter using BLoC/Cubit and GetX on a Firebase backend (Firestore, Authentication, Storage and Cloud Messaging)."
      ],
      "tags": [
       "Flutter",
+      "BLoC / Cubit",
+      "GetX",
+      "Firebase",
       "Mobile development"
-     ]
+     ],
+     "code": "https://github.com/menna3lwan/Fashion-Store",
+     "codeNote": "My contribution: the Shop module."
     },
     {
      "id": "almentor",
@@ -293,14 +341,16 @@
      "role": "Coding Instructor",
      "when": "Feb 2024 – Dec 2024",
      "type": "Teaching",
-     "summary": "Taught programming fundamentals, algorithms and data structures as a coding instructor.",
+     "summary": "Taught programming fundamentals in Python to learners through live online sessions, as a coding instructor.",
      "points": [
-      "Taught programming fundamentals, algorithms and data structures."
+      "Worked as a coding instructor, teaching programming fundamentals through live online sessions.",
+      "Taught in Python, guiding learners through core programming concepts."
      ],
      "tags": [
-      "Algorithms",
-      "Data structures",
-      "Teaching"
+      "Teaching",
+      "Python",
+      "Programming fundamentals",
+      "Live instruction"
      ]
     },
     {
@@ -309,13 +359,14 @@
      "role": "Flutter Developer Intern",
      "when": "Aug 2024 – Sep 2024",
      "type": "Internship",
-     "summary": "Built Flutter UI and handled state management with Provider during a short mobile internship.",
+     "summary": "A short Flutter internship focused on building UI and managing state with Provider.",
      "points": [
-      "Flutter UI and Provider state management."
+      "A short Flutter internship focused on building UI and handling state management with Provider, through hands-on training tasks."
      ],
      "tags": [
       "Flutter",
-      "Provider"
+      "Provider",
+      "UI"
      ]
     }
    ],
@@ -513,14 +564,27 @@
      "role": "متدرّبة تطوير Flutter المتقدّم",
      "when": "يونيو 2026 – الآن",
      "type": "تدريب عملي / برنامج تدريبي",
-     "summary": "برنامج Flutter متقدّم قائم على المشاريع — ببناء تطبيقَي توصيل بأسلوب إنتاجي، Flowrist وTracking App، كمساره العملي.",
+     "summary": "مسار Flutter متقدّم لبناء تطبيقات بأسلوب production على Clean Architecture مع BLoC/Cubit — تطبيقين توصيل وتطبيق امتحانات solo، كلهم على REST APIs حقيقية.",
      "points": [
-      "برنامج Flutter متقدّم قائم على المشاريع، مساره العملي تطبيقا توصيل بأسلوب إنتاجي — Flower App وTracking App."
+      "برنامج Flutter متقدّم قائم على المشاريع، يركّز على بناء تطبيقات بأسلوب إنتاجي فوق معمارية نظيفة ومتعدّدة الطبقات، لا مجرد تمارين.",
+      "بنيتُ تطبيقَي توصيل — Flowrist وتطبيق Tracking للسائق — بشكل مستقل ومن البداية إلى النهاية؛ وكلاهما بدأ كمشروع فريق وأحافظ عليه كنسخة مستقلة على GitHub.",
+      "Flowrist: عميل لتجارة الورود على backend مصغّر بـ .NET (خدمات Catalog وCart وOrder وPayment خلف API gateway) — مصادقة OTP، كتالوج بترقيم صفحات وتخزين مؤقت للصور، سلة ودفع، مدفوعات Stripe، عناوين على الخريطة، وسجل الطلبات وتتبّعها.",
+      "تطبيق Tracking: تطبيق توصيل last-mile للسائق — تتبّع موقع حيّ مع حساب المسافة، تحديث حالة الطلب، onboarding، وتخزين آمن للـ token مع تجديد تلقائي.",
+      "بنيتُ تطبيقًا ثالثًا، Elevate Online Exams، بمفردي بالكامل — عميل امتحانات على REST API جاهز: مصادقة وتصفّح الامتحانات، جلسات امتحان موقوتة مع تنقّل بين الأسئلة، أنواع أسئلة متعددة، وحساب النتيجة مع مراجعة الإجابات.",
+      "طبّقتُ نهجًا هندسيًا متّسقًا في الثلاثة — Clean Architecture مع BLoC/Cubit، شبكات بـ Dio/Retrofit، حقن اعتمادية بـ get_it/injectable، واختبارات unit وwidget بـ bloc_test وmockito.",
+      "سلّمتُ Flowrist بتجربة ثنائية اللغة بالكامل — عربي وإنجليزي مع دعم RTL كامل."
      ],
      "tags": [
       "Flutter",
+      "Clean Architecture",
       "BLoC / Cubit",
-      "Clean Architecture"
+      "Dio/Retrofit",
+      "get_it/injectable",
+      "go_router",
+      "Stripe",
+      "flutter_map",
+      "Firebase (FCM)",
+      "REST"
      ],
      "works": [
       "flower-app",
@@ -532,17 +596,26 @@
      "org": "NTI",
      "role": "متدرّبة تطوير موبايل",
      "when": "ديسمبر 2025 – فبراير 2026",
-     "type": "تدريب عملي",
-     "summary": "طوّرتُ ميزات Flutter على قاعدة كود Clean Architecture عبر سير عمل جماعي من pull requests ومراجعة أقران وفروع مشتركة.",
+     "type": "برنامج تدريبي",
+     "summary": "بنيتُ features على TMDB — الـ Home كامل والبحث — فوق codebase مشترك بـ Clean Architecture، عبر سير عمل فريق فعلي بالـ Pull Requests ومراجعة الأقران.",
      "points": [
-      "طوّرتُ ميزات Flutter على قاعدة كود بنمط Clean Architecture ضمن فريق، وكل تغيير عبر Pull Requests على GitHub ومراجعة الأقران واستراتيجية فروع مشتركة.",
-      "كتبتُ اختبارات وحدة مع الميزات الجديدة ليبقى السلوك قابلًا للتحقق مع نموّ الكود."
+      "برنامج تدريبي لتطوير الموبايل في NTI (المعهد القومي للاتصالات)، نُفِّذ كمشروع فريق على codebase مشترك لا كتمارين فردية.",
+      "ساهمتُ في تطبيق أفلام مبني على TMDB API، باتّباع Clean Architecture ببنية feature-based (طبقات data وdomain وpresentation)، ونمط repository وتحويل DTO إلى entity.",
+      "بنيتُ ميزة الـ Home بالكامل من البداية إلى النهاية — أقسام Popular وTop Rated وNow Playing — من data sources وrepositories مرورًا بالـ use cases حتى الواجهة، بحالة Provider.",
+      "بنيتُ ميزة البحث بالكامل، بحالة Cubit وبـ data source وuse case مخصّصين للبحث.",
+      "عملتُ ضمن سير عمل فريق حقيقي على Git — Pull Requests على GitHub، ومراجعة أقران، واستراتيجية فروع مشتركة."
      ],
      "tags": [
       "Flutter",
-      "سير عمل Git",
-      "اختبارات الوحدة"
-     ]
+      "Clean Architecture",
+      "Provider",
+      "Cubit",
+      "TMDB API",
+      "get_it/injectable",
+      "سير عمل Git"
+     ],
+     "code": "https://github.com/menna3lwan/movie_app",
+     "codeNote": "مساهمتي: الـ Home كامل والبحث."
     },
     {
      "id": "dragons",
@@ -550,13 +623,18 @@
      "role": "متدرّبة تطوير برمجيات",
      "when": "أغسطس 2025 – فبراير 2026",
      "type": "تدريب عملي · عن بُعد",
-     "summary": "بنيتُ روبوت محادثة داخل تطبيقات الشركة، بدمج Google Gemini في عملاء Flutter على مستوى طبقة التطبيق.",
+     "summary": "تدريب عن بُعد على منتج Dragons بـ Flutter — سلّمتُ واجهات وتكامل REST وميزات ضمن فريق، منها روبوت محادثة داخل التطبيق مدعوم بـ Google Gemini.",
      "points": [
-      "سلّمتُ روبوت محادثة داخل تطبيقات الشركة على الموبايل، بدمج Google Gemini في عملاء Flutter على مستوى طبقة التطبيق."
+      "تدريب تطوير برمجيات عن بُعد بالمساهمة في منتج Dragons الخاص بـ Flutter، ضمن فريق وبدور محدد.",
+      "بنيتُ روبوت محادثة داخل التطبيق بدمج Google Gemini في عميل Flutter على مستوى طبقة التطبيق.",
+      "طوّرتُ واجهات جديدة وربطتُها بـ REST APIs الخاصة بالمنتج.",
+      "نفّذتُ وحدة ميزة مخصّصة، وتعاملتُ مع إصلاح الأخطاء والصيانة عبر الكود القائم."
      ],
      "tags": [
       "Flutter",
-      "Google Gemini"
+      "Google Gemini",
+      "واجهات REST",
+      "تطوير الواجهات"
      ]
     },
     {
@@ -565,15 +643,19 @@
      "role": "متدرّبة تطوير Flutter",
      "when": "يوليو 2025 – أغسطس 2025",
      "type": "تدريب عملي",
-     "summary": "سلّمتُ تطبيقَي Flutter بالذكاء الاصطناعي — تطبيق نصائح طقس ومُقترِح وصفات بـ Gemini — ونال عملي خطاب توصية مكتوبًا.",
+     "summary": "ساهمتُ في تطبيقَي Flutter بالذكاء الاصطناعي — نصائح طقس ومُقترِح وصفات بـ Gemini — عبر الـ UI وتكامل REST ودمج الـ AI، ضمن فريق.",
      "points": [
-      "سلّمتُ تطبيقَي Flutter يدمجان نماذج ذكاء اصطناعي على مستوى التطبيق: تطبيق نصائح طقس يجمع بيانات الطقس الحيّة مع تنبؤات نموذج، ومُقترِح وصفات مبني على Google Gemini.",
+      "تدريب تطوير Flutter في Cellula Technologies، شركة متخصّصة في الذكاء الاصطناعي — بالمساهمة في تطبيقين بالذكاء الاصطناعي ضمن فريق وبدور محدد.",
+      "عملتُ على التطبيقين من البداية إلى النهاية: بناء الواجهات، وتكامل بيانات REST، وربط الذكاء الاصطناعي على مستوى التطبيق.",
+      "تطبيق نصائح الطقس — جمع بيانات طقس حيّة مع تنبؤات نموذج لتقديم النصيحة للمستخدم.",
+      "مُقترِح الوصفات — مبني على Google Gemini لتوليد اقتراحات الوصفات.",
       "نال عملي خطاب توصية مكتوبًا من الشركة."
      ],
      "tags": [
       "Flutter",
       "واجهات REST",
-      "دمج الذكاء الاصطناعي"
+      "دمج الذكاء الاصطناعي",
+      "Google Gemini"
      ]
     },
     {
@@ -582,15 +664,23 @@
      "role": "مطوّرة Flutter مستقلة",
      "when": "2025 – 2026",
      "type": "عمل حر",
-     "summary": "عمل حر: بنيتُ وسلّمتُ منصّة طب عن بُعد من تطبيقين (مريضة وطبيبة) على طبقة خدمات .NET، ثم بِيعت كمنتج.",
+     "summary": "بنيتُ وسلّمتُ بمفردي منصّة طب عن بُعد من تطبيقين (مريضة + طبيبة) بـ Clean Architecture + BLoC — مصادقة بالأدوار، حجوزات، محادثات ومكالمات صوت/فيديو داخل التطبيق، ومدفوعات — على backend بـ .NET؛ ثم بِيعت كمنتج.",
      "points": [
-      "كُلِّفتُ ببناء وتسليم منصّة طب عن بُعد من تطبيقين من البداية إلى النهاية — تطبيق للمريضة وآخر للطبيبة — على طبقة خدمات .NET.",
-      "سُلِّمت للعميل تعمل على بيانات إنتاج حقيقية، ثم بِيعت لاحقًا كمنتج."
+      "تكليف عمل حر ببناء وتسليم منصّة طب عن بُعد كاملة من البداية إلى النهاية، كتطبيقين منفصلين — تطبيق للمريضة وآخر للطبيبة — بـ Clean Architecture مع BLoC.",
+      "نفّذتُ المصادقة القائمة على الأدوار وحجز المواعيد بين المرضى والأطباء.",
+      "بنيتُ الاستشارات داخل التطبيق — محادثات نصية ومكالمات صوت وفيديو في الوقت الحقيقي.",
+      "نفّذتُ السجلات الطبية والروشتات والتقارير، وتكامل الدفع داخل التطبيق، والإشعارات.",
+      "ربطتُ التطبيقين بـ backend العميل المبني بـ .NET، وهي تعمل على بيانات إنتاج حقيقية.",
+      "سُلِّمت للعميل كمنتج مكتمل، ثم بِيعت لاحقًا كمنتج."
      ],
      "tags": [
       "Flutter",
+      "Clean Architecture",
+      "BLoC",
       "صلاحيات حسب الدور",
-      "طبقة خدمات .NET"
+      "محادثة فورية",
+      "استشارات صوت/فيديو",
+      "تكامل .NET"
      ],
      "works": [
       "hen-lehen"
@@ -601,10 +691,11 @@
      "org": "Fuzetek",
      "role": "متدرّبة تطوير برمجيات",
      "when": "فبراير 2025 – أبريل 2025",
-     "type": "تدريب عملي",
-     "summary": "تدريب تطوير برمجيات غطّى دورة حياة البرمجيات كاملة وأساسيات الاختبار، مع حل المشكلات بـ Python وC++.",
+     "type": "برنامج تدريبي",
+     "summary": "تدريب مبكر في تطوير البرمجيات غطّى دورة حياة البرمجيات وأساسيات الاختبار، مع حل المشكلات بـ Python و C++.",
      "points": [
-      "دورة حياة تطوير البرمجيات وأساسيات الاختبار؛ وحل المشكلات بلغتَي Python وC++."
+      "برنامج تدريبي مبكر في تطوير البرمجيات غطّى دورة حياة تطوير البرمجيات وأساسيات الاختبار.",
+      "تدرّبتُ على حل المشكلات بلغتَي Python وC++."
      ],
      "tags": [
       "Python",
@@ -619,14 +710,22 @@
      "role": "متدرّبة تطوير تطبيقات الموبايل",
      "when": "يونيو 2024 – ديسمبر 2024",
      "type": "برنامج تدريبي",
-     "summary": "برنامج تدريب وطني لتطوير الموبايل — حصلتُ فيه على المركز السابع على مستوى الجمهورية في مسار تطوير الموبايل.",
+     "summary": "المركز السابع على مستوى الجمهورية في مسار DEPI لتطوير الموبايل، وبنيتُ وحدة الـ Shop — تصفّح الفئات وتفاصيل المنتج — في مشروع التخرّج (متجر أزياء على Firebase) ضمن فريق.",
      "points": [
-      "حصلتُ على المركز السابع على مستوى الجمهورية في مسار تطوير تطبيقات الموبايل."
+      "برنامج تدريب وطني لتطوير الموبايل تابع لوزارة الاتصالات وتكنولوجيا المعلومات.",
+      "حصلتُ على المركز السابع على مستوى الجمهورية في مسار تطوير الموبايل.",
+      "بنيتُ تجربة الـ Shop في مشروع التخرّج الخاص بالفريق — متجر أزياء e-commerce على Firebase — شملت تصفّح فئات Men وWomen وKids بفئات فرعية (ملابس، أحذية، إكسسوارات، وصل حديثًا) وشاشات تفاصيل المنتج.",
+      "بُني المشروع بـ Flutter باستخدام BLoC/Cubit وGetX على backend من Firebase (Firestore والمصادقة والتخزين والإشعارات)."
      ],
      "tags": [
       "Flutter",
-      "تطوير تطبيقات الموبايل"
-     ]
+      "BLoC / Cubit",
+      "GetX",
+      "Firebase",
+      "تطوير الموبايل"
+     ],
+     "code": "https://github.com/menna3lwan/Fashion-Store",
+     "codeNote": "مساهمتي: وحدة الـ Shop."
     },
     {
      "id": "almentor",
@@ -634,14 +733,16 @@
      "role": "مدرّبة برمجة",
      "when": "فبراير 2024 – ديسمبر 2024",
      "type": "تدريس",
-     "summary": "درّستُ أساسيات البرمجة والخوارزميات وهياكل البيانات كمدرّبة برمجة.",
+     "summary": "درّستُ أساسيات البرمجة بلغة Python للمتعلّمين عبر جلسات live أونلاين، كمدرّبة برمجة.",
      "points": [
-      "درّستُ أساسيات البرمجة والخوارزميات وهياكل البيانات."
+      "عملتُ كمدرّبة برمجة، أُدرّس أساسيات البرمجة عبر جلسات مباشرة أونلاين.",
+      "درّستُ بلغة Python، وأُرشد المتعلّمين خلال مفاهيم البرمجة الأساسية."
      ],
      "tags": [
-      "الخوارزميات",
-      "هياكل البيانات",
-      "التدريس"
+      "التدريس",
+      "Python",
+      "أساسيات البرمجة",
+      "تدريس مباشر"
      ]
     },
     {
@@ -650,13 +751,14 @@
      "role": "متدرّبة تطوير Flutter",
      "when": "أغسطس 2024 – سبتمبر 2024",
      "type": "تدريب عملي",
-     "summary": "بنيتُ واجهات Flutter وأدرتُ الحالة باستخدام Provider خلال تدريب قصير في تطوير الموبايل.",
+     "summary": "تدريب قصير في Flutter للتركيز على بناء الواجهات وإدارة الحالة بـ Provider.",
      "points": [
-      "واجهات Flutter وإدارة الحالة باستخدام Provider."
+      "تدريب قصير في Flutter للتركيز على بناء الواجهات وإدارة الحالة بـ Provider، عبر مهام تدريبية عملية."
      ],
      "tags": [
       "Flutter",
-      "Provider"
+      "Provider",
+      "واجهات"
      ]
     }
    ],

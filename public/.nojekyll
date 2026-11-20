@@ -1,0 +1,4 @@
+GitHub Pages runs Jekyll over a published site unless this file exists, and Jekyll skips
+every path beginning with an underscore. This build ships `_headers`, and a future Vite
+version could emit an underscored chunk, so the file is kept here rather than relied upon
+not to matter. It is copied verbatim into dist/ as part of public/.

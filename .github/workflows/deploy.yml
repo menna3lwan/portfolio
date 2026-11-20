@@ -1,0 +1,80 @@
+#  Build the portfolio and publish it to GitHub Pages.
+#
+#  Runs on every push to main, and on demand from the Actions tab. Verification comes
+#  first and the job stops at the first failure, so a build that does not typecheck, lint
+#  or pass its tests never reaches the live site.
+#
+#  The site is served from the repository subpath (…github.io/portfolio/), so VITE_BASE
+#  carries that path into every asset URL and into the router's basename, and
+#  VITE_SITE_URL gives the canonical, og:url and sitemap entries a real address.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# What the deploy step needs: read the code, mint an OIDC token, publish a Pages site.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# A newer push supersedes one still building, but never cancels a deploy already running.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  VITE_BASE: /portfolio/
+  VITE_SITE_URL: https://menna3lwan.github.io/portfolio
+
+jobs:
+  build:
+    name: Verify and build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build for GitHub Pages
+        run: npm run build:pages
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the build
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

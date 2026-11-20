@@ -4,6 +4,7 @@ import { loadMotion } from '@/app/motion/runtime';
 import { prefersReducedMotion } from '@/app/viewTransition';
 import { siteCopy } from '@/content/site';
 import type { SectionId } from '@/content/site';
+import { asset } from '@/site.config';
 import { RollText } from './SplitText';
 import { ArrowUpRightLong } from './icons';
 
@@ -130,7 +131,10 @@ export function Menu({ open, current, onClose, onPick }: MenuProps) {
             <li key={id}>
               <a
                 className={`menu__link${current === id ? ' is-current' : ''}`}
-                href={`/#${id}`}
+                /* A real document link, not a router <Link>, so it must carry the
+                   deployment's base itself: on GitHub Pages a bare "/#works" would leave
+                   the project subpath and land on the user's root page. */
+                href={asset(`#${id}`)}
                 aria-current={current === id ? 'location' : undefined}
                 tabIndex={open ? 0 : -1}
                 onClick={(e) => {
