@@ -108,7 +108,7 @@ export function Hero() {
         </h1>
       </div>
       <div className="hero__bar">
-        <div className="badge" aria-hidden="true">
+        <div className="scroll-badge" aria-hidden="true">
           <div className="badge__ring" data-ring="">
             <svg viewBox="0 0 100 100" width="100" height="100">
               <defs>

@@ -31,6 +31,18 @@
   --focus: #ffffff;
   --shadow: rgb(0 0 0 / 25%);
   --ease-tw: cubic-bezier(0.4, 0, 0.2, 1);
+  /* One recipe for every control that floats over the page. The plate is tinted toward
+     the ground, not toward the ink: a 5%-ink wash lets whatever scrolls underneath read
+     straight through the control, which is what made the top actions look broken over
+     the works index and the about facts. Used by .pill and the CV viewer's toolbar. */
+  --glass: rgb(var(--bg-rgb) / 96%);
+  --glass-blur: blur(14px) saturate(1.2);
+  --glass-line: rgb(var(--ink-rgb) / 16%);
+  --glass-shadow: 0 10px 28px -14px rgb(0 0 0 / 55%);
+  /* The block padding each section contributes to the seam between two sections, so
+     every seam is the same 2 × this. Before, the seams ran 250–350px at desktop and
+     150–200px on a phone, which read as an uneven page rather than a deliberate one. */
+  --sec-y: 80px;
   --f-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   --f-inter: 'Inter', var(--f-sans);
   --f-space: 'Space Grotesk', var(--f-sans);
@@ -52,6 +64,7 @@
   --f-inter: var(--f-sans); --f-space: var(--f-sans); --f-syne: var(--f-sans); --f-archivo: var(--f-sans);
 }
 @media (min-width: 768px) { :root[data-shell="site"] { --px: 60px; } }
+@media (min-width: 1024px) { :root[data-shell="site"] { --sec-y: 140px; } }
 
 /* ── base, inside the shell ───────────────────────────────────────────── */
 :root[data-shell="site"],
@@ -138,12 +151,17 @@ html.lenis, html.lenis body { height: auto; }
 .site .top-actions { position: fixed; top: calc(32px + env(safe-area-inset-top, 0px)); inset-inline-end: max(32px, env(safe-area-inset-right, 0px)); z-index: 9998; display: flex; gap: 8px; }
 .site .pill {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px;
-  padding: 10px 24px; border-radius: 9999px; border: 1px solid rgb(var(--ink-rgb) / 20%);
-  background: rgb(var(--ink-rgb) / 5%); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  padding: 10px 24px; border-radius: 9999px; border: 1px solid var(--glass-line);
+  background: var(--glass); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
   color: var(--ink); font-family: var(--f-space); font-size: 14px; line-height: 20px; letter-spacing: 0.05em; text-transform: uppercase;
-  transition: all 0.3s var(--ease-tw);
+  transition: background-color 0.3s var(--ease-tw), border-color 0.3s var(--ease-tw), color 0.3s var(--ease-tw);
 }
-.site .pill:hover { background: rgb(var(--ink-rgb) / 10%); }
+/* Where the browser has no backdrop filter the plate has to carry the separation alone. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site .pill { background: rgb(var(--bg-rgb) / 94%); }
+}
+.site .pill:hover { background: var(--bg); border-color: rgb(var(--ink-rgb) / 34%); }
 .site .pill svg { width: 16px; height: 16px; transition: transform 0.3s var(--ease-tw); }
 .site .pill:hover svg.chev { transform: translateX(4px); }
 :root[data-shell="site"][dir="rtl"] .site .pill svg.chev { transform: scaleX(-1); }
@@ -168,14 +186,25 @@ html.lenis, html.lenis body { height: auto; }
 @media (min-width: 1536px) { .site .hero__title { font-size: 150px; line-height: 140px; } }
 .site .hero__bar { position: absolute; left: 0; right: 0; bottom: 60px; display: flex; align-items: flex-end; justify-content: space-between; padding-inline: var(--px); }
 @media (min-width: 1024px) { .site .hero__bar { align-items: flex-start; } }
-.site .badge { position: relative; display: flex; align-items: center; justify-content: center; color: var(--ink); }
+/* Named for the site, not "badge": base.css carries an atom of that name, and the site
+   layer only wins on the properties it declares — the atom's border, radius, padding and
+   label font came through untouched, drawing a 1px stadium round the ring at desktop and
+   an 8px-radius box round it on a phone, in the app shell's ink rather than this one's.
+   The same collision put a stray hairline on every project card (now .work-card). */
+/* The ring's lettering is drawn on a path at the rim of its 100-unit box and sits
+   outside it, and the whole ring turns with the scroll, so its ink sweeps a circle wider
+   than the element. Measured across a full turn it runs up to ~30px past the box. The
+   atom collision above used to hold that space by accident; now it is reserved on
+   purpose, because without it the ring clipped off the left edge of a 320px screen. */
+.site .scroll-badge { position: relative; display: flex; align-items: center; justify-content: center; padding-inline: 30px; color: var(--ink); }
 .site .badge__ring { width: 100px; height: 100px; }
 .site .badge__ring text { font-size: 11px; letter-spacing: 6.5px; fill: var(--soft); }
 :root[data-shell="site"][lang="ar"] .site .badge__ring text { letter-spacing: 1px; font-size: 12px; }
-.site .badge__ring svg { direction: ltr; overflow: visible; display: block; }
+/* The svg carries width/height attributes, so it has to be told to follow its box —
+   otherwise the small-screen ring below keeps drawing at its full size and overflows. */
+.site .badge__ring svg { width: 100%; height: 100%; direction: ltr; overflow: visible; display: block; }
 .site .badge__ast { position: absolute; width: 16px; height: 16px; color: var(--soft); }
-@media (min-width: 1280px) { .site .badge { width: 100px; height: 100px; } }
-@media (min-width: 1536px) { .site .badge { width: 125px; height: 125px; } }
+@media (min-width: 1536px) { .site .badge__ring { width: 125px; height: 125px; } }
 .site .open { display: flex; flex-direction: column; margin-bottom: 8px; }
 @media (min-width: 1024px) { .site .open { margin-bottom: 0; } }
 .site .open__row { position: relative; display: flex; align-items: center; gap: 16px; }
@@ -192,7 +221,7 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes pulse { 50% { opacity: 0.5; } }
 
 /* ── skills (reference: py 80/200, 12 cols; fixed rotated citation) ─── */
-.site .skills { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); padding: 80px var(--px); }
+.site .skills { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); padding: var(--sec-y) var(--px); }
 .site .skills__aside { position: relative; display: none; grid-column: span 6 / span 6; }
 .site .citation-box { position: fixed; top: 50%; left: -96px; width: 400px; color: var(--ink); transform: translateY(-50%) rotate(-90deg); z-index: 20; pointer-events: none; }
 .site .citation { margin-left: 80px; font-weight: 300; font-size: 20px; line-height: 28px; letter-spacing: 0.025em; opacity: 0; }
@@ -208,7 +237,6 @@ html.lenis, html.lenis body { height: auto; }
 :root[data-shell="site"][dir="rtl"] .site .word-fill { text-align: left; background-image: linear-gradient(to left, rgb(var(--ink-rgb)) 50%, var(--unfilled) 50%); background-position-x: 0%; }
 :root[data-shell="site"][lang="ar"] .site .word-fill { font-weight: 700; line-height: 1.45; }
 @media (min-width: 1024px) {
-  .site .skills { padding-block: 200px; }
   .site .skills__aside { display: block; }
   .site .words { grid-column: span 6 / span 6; }
   .site .word-fill { font-size: calc(100px * var(--fit, 1)); }
@@ -219,7 +247,7 @@ html.lenis, html.lenis body { height: auto; }
 .site .progress__bar { height: 100%; width: 20%; background: linear-gradient(to right, var(--accent), var(--accent-2)); transition: width 0.5s cubic-bezier(0, 0, 0.2, 1); }
 :root[data-shell="site"][dir="rtl"] .site .progress__bar { margin-inline-start: 0; background: linear-gradient(to left, var(--accent), var(--accent-2)); }
 :root[data-shell="site"][dir="rtl"] .site .progress { display: flex; justify-content: flex-start; }
-.site .works { position: relative; z-index: 10; padding: 100px var(--px) 50px; }
+.site .works { position: relative; z-index: 10; padding: var(--sec-y) var(--px); }
 .site .works__grid { display: grid; gap: 48px; }
 .site .works__head { }
 .site .split-title { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
@@ -257,17 +285,52 @@ html.lenis, html.lenis body { height: auto; }
 .site .previews { display: flex; flex-direction: column; gap: 48px; }
 .site .preview { transition: opacity 0.5s var(--ease-tw); opacity: 0.6; }
 .site .preview.is-active { opacity: 1; }
-.site .card { position: relative; height: 60vh; border-radius: 24px; overflow: hidden; background: #111111; box-shadow: 0 25px 50px -12px var(--shadow); transform-style: preserve-3d; perspective: 1000px; color: #ffffff; }
+.site .work-card { position: relative; height: 60vh; border-radius: 24px; overflow: hidden; background: #111111; box-shadow: 0 25px 50px -12px var(--shadow); transform-style: preserve-3d; perspective: 1000px; color: #ffffff; }
 .site .card__img { position: absolute; inset: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
-.site .card__shade { position: absolute; inset: 0; z-index: 10; pointer-events: none; background-image: linear-gradient(to top, #111111, rgb(17 17 17 / 40%), transparent); }
+/* Two scrims, each with one job.
+   This one grades the card as a whole so the picture settles into the plate instead of
+   ending at a hard edge. It is deliberately gentle: darkening the whole lower half
+   enough to carry body copy would crush the screenshot the card exists to show. */
+.site .card__shade {
+  position: absolute; inset: 0; z-index: 10; pointer-events: none;
+  background-image: linear-gradient(
+    to top,
+    rgb(17 17 17 / 92%) 0%,
+    rgb(17 17 17 / 58%) 38%,
+    rgb(17 17 17 / 18%) 68%,
+    transparent 100%
+  );
+}
 .site .card__glow { position: absolute; top: 0; right: 0; z-index: 10; width: 192px; height: 192px; filter: blur(100px); opacity: 0.3; pointer-events: none; }
 :root[data-shell="site"][dir="rtl"] .site .card__glow { right: auto; left: 0; }
 .site .card__body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 20; padding: 32px; }
-.site .card__desc { max-width: 32rem; margin-bottom: 24px; font-size: 16px; line-height: 1.625; color: rgb(255 255 255 / 80%); }
-.site .card__meta { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
-.site .card__tag { font-size: 12px; line-height: 16px; letter-spacing: 0.05em; text-transform: uppercase; color: rgb(255 255 255 / 40%); }
-.site .card__bullet { color: rgb(255 255 255 / 20%); }
-.site .card__year { font-size: 12px; line-height: 16px; color: rgb(255 255 255 / 40%); }
+/* ...and this one is tied to the text box itself rather than to a share of the card, so
+   it covers exactly what has to be readable however tall the card is, and fades out just
+   above the first line. Scrim geometry proportional to the card was the original fault:
+   the body occupies the bottom ~40% of a 75vh card but only ~25% of a short one, so a
+   percentage-based gradient released right where the first line began. Measured over the
+   five covers, the description went from 3.0–4.5:1 to above 7:1 with the picture above
+   the text left alone. */
+.site .card__body::before {
+  content: ''; position: absolute; inset: -72px 0 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(
+    to top,
+    rgb(17 17 17 / 93%) 0%,
+    rgb(17 17 17 / 90%) 55%,
+    rgb(17 17 17 / 72%) 80%,
+    transparent 100%
+  );
+}
+.site .card__desc { max-width: 32rem; margin-bottom: 24px; font-size: 16px; line-height: 1.625; color: rgb(255 255 255 / 92%); }
+/* The tag can run to two lines on a phone; centring then left the bullet and the year
+   floating halfway down beside it. Aligning first baselines keeps the row reading as one
+   line whether or not the tag wraps, and the tighter gap below 768px makes wrapping
+   rarer in the first place. */
+.site .card__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 32px; }
+@media (min-width: 768px) { .site .card__meta { gap: 8px 24px; } }
+.site .card__tag { font-size: 12px; line-height: 16px; letter-spacing: 0.05em; text-transform: uppercase; color: rgb(255 255 255 / 68%); }
+.site .card__bullet { color: rgb(255 255 255 / 40%); }
+.site .card__year { font-size: 12px; line-height: 16px; color: rgb(255 255 255 / 68%); }
 /* "View project" — measured on the reference: 58px tall pill, 1px white/20 border,
    4px backdrop blur, 14px/500 white label, 32px white/10 disc holding a 12px arrow.
    Hover: background to white/10 and the disc turns 45°, both 300ms on Tailwind's
@@ -289,7 +352,6 @@ html.lenis, html.lenis body { height: auto; }
 .site .card__num { position: absolute; top: 32px; right: 32px; z-index: 10; opacity: 0.05; pointer-events: none; font-family: var(--f-mono); font-size: 150px; font-weight: 700; line-height: 1; color: #fff; direction: ltr; }
 :root[data-shell="site"][dir="rtl"] .site .card__num { right: auto; left: 32px; }
 @media (min-width: 1024px) {
-  .site .works { padding-block: 150px 100px; }
   .site .works__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 96px; }
   .site .works__head { position: sticky; top: 80px; height: 90vh; align-self: start; }
   .site .split-title { margin-bottom: 48px; }
@@ -302,7 +364,7 @@ html.lenis, html.lenis body { height: auto; }
   .site .item__sub { font-size: 14px; line-height: 20px; }
   .site .previews { gap: 80px; }
   .site .preview { opacity: 1; }
-  .site .card { height: 75vh; }
+  .site .work-card { height: 75vh; }
   .site .card__body { padding: 48px; }
   .site .card__desc { font-size: 20px; }
   .site .card__num { top: 48px; right: 48px; font-size: 200px; }
@@ -310,8 +372,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ── contact (reference: lg:mx-10, mt 100/150, pb 100/200) ──────────── */
-.site .contact { position: relative; z-index: 20; display: flex; flex-direction: column; margin-top: 100px; padding: 0 var(--px) 100px; }
-.site .contact__left { }
+.site .contact { position: relative; z-index: 20; display: flex; flex-direction: column; padding: var(--sec-y) var(--px); }
 .site .git { display: block; width: 100%; padding: 8px 36px; border: 1px solid var(--ink); border-radius: 9999px; text-align: center; text-transform: uppercase; font-size: 30px; line-height: 1.5; color: var(--ink); transition: color 0.15s var(--ease-tw), background-color 0.15s var(--ease-tw), border-color 0.15s var(--ease-tw); }
 .site .git:hover { background: var(--ink); color: var(--bg); }
 .site .mail { display: flex; align-items: center; gap: 12px; margin-top: 18px; font-size: 14px; color: rgb(var(--ink-rgb) / 55%); }
@@ -327,12 +388,49 @@ html.lenis, html.lenis body { height: auto; }
 .site .ul svg { width: 24px; height: 24px; flex: none; }
 :root[data-shell="site"][dir="rtl"] .site .ul svg { transform: scaleX(-1); }
 @media (min-width: 1024px) {
-  .site .contact { flex-direction: row; margin: 150px 40px 0; padding-bottom: 200px; }
+  .site .contact { flex-direction: row; margin-inline: 40px; }
   .site .contact__left { width: 50%; }
   .site .git { width: fit-content; font-size: 60px; }
   .site .contact__right { width: 50%; align-items: flex-end; margin-top: 0; }
   .site .contact__right .magnetic { width: 33.333%; }
   .site .ul { font-size: 30px; }
+}
+
+/* ── footer ─────────────────────────────────────────────────────────
+   The closing band. Deliberately quiet: the contact section above it is the call to
+   action, so this only signs the page off and offers the way back up. Its top rule is
+   the same hairline the experience rows and about facts use, so the page ends in the
+   language it was written in. */
+.site .foot { position: relative; z-index: 20; padding: 0 var(--px) 40px; }
+.site .foot__rule { display: block; height: 1px; background: rgb(var(--ink-rgb) / 15%); }
+.site .foot__row { display: grid; gap: 20px; padding-top: 28px; }
+.site .foot__id { display: flex; align-items: baseline; gap: 12px; }
+.site .foot__name { font-family: var(--f-space); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+:root[data-shell="site"][lang="ar"] .site .foot__name { font-family: var(--f-sans); font-size: 14px; letter-spacing: 0; }
+.site .foot__year { font-family: var(--f-mono); font-size: 12px; color: rgb(var(--ink-rgb) / 45%); }
+.site .foot__built { max-width: 46ch; font-size: 13px; line-height: 1.6; color: rgb(var(--ink-rgb) / 55%); }
+/* The control is a text link with a disc, not a pill, so it never competes with the
+   floating actions that sit in the same visual register at the top of the screen. */
+.site .foot__top { display: inline-flex; align-items: center; gap: 12px; justify-self: start; padding: 0; font-family: var(--f-space); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(var(--ink-rgb) / 70%); transition: color 0.3s var(--ease-tw); }
+:root[data-shell="site"][lang="ar"] .site .foot__top { font-family: var(--f-sans); font-size: 14px; letter-spacing: 0; }
+.site .foot__top-icon { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgb(var(--ink-rgb) / 20%); border-radius: 9999px; transition: background-color 0.3s var(--ease-tw), border-color 0.3s var(--ease-tw), translate 0.3s var(--ease-tw); }
+.site .foot__top-icon svg { width: 14px; height: 14px; }
+.site .foot__top:hover, .site .foot__top:focus-visible { color: var(--ink); }
+.site .foot__top:hover .foot__top-icon, .site .foot__top:focus-visible .foot__top-icon { border-color: var(--ink); background: rgb(var(--ink-rgb) / 8%); translate: 0 -3px; }
+.site .foot__top:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; border-radius: 4px; }
+@media (min-width: 768px) {
+  .site .foot { padding-bottom: 56px; }
+  .site .foot__row { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 48px; padding-top: 36px; }
+  .site .foot__built { justify-self: center; text-align: center; }
+  .site .foot__top { justify-self: end; }
+}
+@media (min-width: 1024px) {
+  .site .foot { padding-inline: 40px; }
+}
+/* Lifting the disc on hover is the only motion here; reduced motion keeps the colour
+   change and drops the travel. */
+@media (prefers-reduced-motion: reduce) {
+  .site .foot__top:hover .foot__top-icon, .site .foot__top:focus-visible .foot__top-icon { translate: none; }
 }
 
 /* ── project page (reference: projects module) ─────────────────────── */
@@ -403,7 +501,7 @@ html.lenis, html.lenis body { height: auto; }
 .site .curtain.is-on { visibility: visible; pointer-events: auto; }
 
 /* ── experience (the works' voice: asterisk title, ruled preview rows → detail page) ─ */
-.site .xp { position: relative; z-index: 10; padding: 100px var(--px) 50px; }
+.site .xp { position: relative; z-index: 10; padding: var(--sec-y) var(--px); }
 .site .xp__list { list-style: none; margin: 0; padding: 0; }
 .site .xp__list::after { content: ''; display: block; height: 1px; background: rgb(var(--ink-rgb) / 15%); }
 .site .xp__row { position: relative; transition: opacity 0.35s var(--ease-tw); }
@@ -420,9 +518,16 @@ html.lenis, html.lenis body { height: auto; }
 .site .xp__org .roll { --roll: 1.08em; }
 :root[data-shell="site"][lang="ar"] .site .xp__org .roll { --roll: 1.55em; }
 .site .xp__role { margin-top: 10px; font-size: 14px; line-height: 1.4; color: rgb(var(--ink-rgb) / 60%); }
+/* The preview of what the role was. The clamp is what keeps every row the same height;
+   --xp-lines and the measure are what decide how often it has to cut. At two lines and a
+   54ch measure, eight of the ten rows were cut and six of those landed mid-word, which
+   reads as a bug rather than a summary. Three lines on anything above a phone, and a
+   wider measure where the row has the width to spare, leaves most rows whole. */
 .site .xp__summary {
+  --xp-lines: 2;
   margin-top: 10px; max-width: 54ch; font-size: 14px; line-height: 1.6; color: rgb(var(--ink-rgb) / 62%);
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: var(--xp-lines); -webkit-box-orient: vertical;
+  line-clamp: var(--xp-lines); overflow: hidden;
 }
 .site .xp__when { grid-column: 2; grid-row: 2; margin-top: 12px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.02em; color: rgb(var(--ink-rgb) / 45%); white-space: nowrap; }
 :root[data-shell="site"][lang="ar"] .site .xp__when { font-family: var(--f-sans); font-size: 13px; }
@@ -451,11 +556,10 @@ html.lenis, html.lenis body { height: auto; }
   .site .xp__when { grid-column: 3; grid-row: 1; margin-top: 0; justify-self: end; align-self: center; }
   .site .xp__arrow { grid-column: 4; grid-row: 1; width: 24px; height: 24px; }
   .site .xp__role { font-size: 16px; }
-  .site .xp__summary { font-size: 15px; }
+  .site .xp__summary { --xp-lines: 3; font-size: 15px; }
   .site .xp__more { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
 }
 @media (min-width: 1024px) {
-  .site .xp { padding-block: 150px 100px; }
 }
 
 /* ── experience detail page (project-page language) ─────────────────── */
@@ -486,7 +590,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ── about: one statement that reads itself in, the logo, four facts ── */
-.site .about { position: relative; z-index: 10; display: grid; gap: 40px; padding: 100px var(--px); }
+.site .about { position: relative; z-index: 10; display: grid; gap: 40px; padding: var(--sec-y) var(--px); }
 .site .about__head { display: flex; flex-direction: column; gap: 32px; }
 .site .about__head .split-title { margin-bottom: 0; }
 .site .about__mark { width: clamp(84px, 11vw, 156px); height: auto; }
@@ -501,8 +605,12 @@ html.lenis, html.lenis body { height: auto; }
 @media (min-width: 768px) {
   .site .about__facts { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }
 }
+@media (min-width: 1280px) {
+  .site .xp__summary { max-width: 66ch; }
+}
+
 @media (min-width: 1024px) {
-  .site .about { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 96px; padding-block: 150px; }
+  .site .about { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 96px; }
   .site .about__head { position: sticky; top: 120px; align-self: start; gap: 48px; }
 }
 
@@ -599,8 +707,8 @@ html.lenis, html.lenis body { height: auto; }
 /* The controls: one glass pill floating over the bottom of the stage. */
 .site .cvp__tools {
   position: absolute; bottom: 18px; left: 50%; z-index: 4; display: flex; align-items: center; gap: 2px;
-  padding: 6px; translate: -50% 0; border: 1px solid rgb(var(--ink-rgb) / 14%); border-radius: 9999px;
-  background: rgb(var(--bg-rgb, 17 17 17) / 72%); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+  padding: 6px; translate: -50% 0; border: 1px solid var(--glass-line); border-radius: 9999px;
+  background: var(--glass); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
   box-shadow: 0 12px 30px -12px rgb(0 0 0 / 45%); color: var(--ink); white-space: nowrap;
 }
 .site .cvp__tool { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 9999px; color: var(--ink); transition: background-color 0.25s var(--ease-tw), scale 0.2s var(--ease-tw), opacity 0.25s; }
@@ -685,7 +793,7 @@ html.lenis, html.lenis body { height: auto; }
 .site .mask { display: inline-block; overflow: hidden; vertical-align: top; }
 .site .counter__window { display: inline-block; overflow: hidden; line-height: 1; height: 1em; font-size: 50px; }
 @media (min-width: 1024px) { .site .counter__window { font-size: 60px; } }
-.site .card { will-change: clip-path; }
+.site .work-card { will-change: clip-path; }
 .site .card__img { inset: -3%; width: 106%; height: 106%; will-change: transform; }
 .site .card__glow { transition: opacity 0.6s var(--ease-tw), scale 0.8s var(--ease-tw); }
 .site .preview:hover .card__glow { opacity: 0.55; scale: 1.3; }

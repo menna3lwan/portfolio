@@ -169,6 +169,8 @@ export interface TeamNote {
 export interface UiStrings {
   readonly lang?: string;
   readonly theme?: string;
+  /** "Back to top" — the footer's control. Present in every language file. */
+  readonly top?: string;
   readonly cv?: Readonly<Record<string, string>>;
   readonly x?: Readonly<Record<string, string>>;
   readonly [key: string]: unknown;

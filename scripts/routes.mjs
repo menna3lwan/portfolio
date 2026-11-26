@@ -30,6 +30,13 @@ export function clamp(text, limit = 158) {
   return `${(lastSpace > limit * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[،,;:.\s]+$/, '')}…`;
 }
 
+/* The social card's file name. Renaming the file is what makes LinkedIn, Slack and
+   the rest re-fetch it: they key their image cache on the URL, so a card replaced
+   at the same path keeps serving the old picture however often the page is
+   re-scraped. `src/site.config.ts` carries the same value for the application, and
+   the SEO test fails if the two ever drift. */
+export const SOCIAL_IMAGE = 'social-card.png';
+
 export const homeTitle = (content, lang) => `${content.meta.name} · ${SUFFIX[lang]}`;
 export const homeDescription = (content) =>
   clamp(`${content.about.title} ${content.about.body[0] ?? ''}`);

@@ -15,7 +15,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { routes } from './routes.mjs';
+import { routes, SOCIAL_IMAGE } from './routes.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const dist = join(here, '..', 'dist');
@@ -57,7 +57,7 @@ function headFor({ path, title, description }) {
     `<meta property="og:locale" content="en_US">`,
     `<meta property="og:locale:alternate" content="ar_EG">`,
     url ? `<meta property="og:url" content="${escape(url)}">` : null,
-    siteUrl ? `<meta property="og:image" content="${escape(`${siteUrl}/og-card.png`)}">` : null,
+    siteUrl ? `<meta property="og:image" content="${escape(`${siteUrl}/${SOCIAL_IMAGE}`)}">` : null,
     siteUrl ? `<meta property="og:image:width" content="1200">` : null,
     siteUrl ? `<meta property="og:image:height" content="630">` : null,
     siteUrl ? `<meta property="og:image:alt" content="${escape(title)}">` : null,
@@ -65,7 +65,7 @@ function headFor({ path, title, description }) {
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${escape(title)}">`,
     `<meta name="twitter:description" content="${escape(description)}">`,
-    siteUrl ? `<meta name="twitter:image" content="${escape(`${siteUrl}/og-card.png`)}">` : null,
+    siteUrl ? `<meta name="twitter:image" content="${escape(`${siteUrl}/${SOCIAL_IMAGE}`)}">` : null,
   ].filter((line) => line !== null);
   return tags.join('\n');
 }

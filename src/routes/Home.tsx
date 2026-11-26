@@ -7,9 +7,11 @@ import { Works } from '@/features/home/Works';
 import { Experience } from '@/features/home/Experience';
 import { About } from '@/features/home/About';
 import { Contact } from '@/features/home/Contact';
+import { Footer } from '@/features/home/Footer';
 
 /** The reference's page, in its order — hero, skills reel, selected works — then the
- *  experience and about sections drawn in the same language, and contact.
+ *  experience and about sections drawn in the same language, contact, and the footer
+ *  that signs the page off.
  *  Keyed by language so every scroll-linked animation is rebuilt for the new layout
  *  direction rather than patched. */
 export default function Home() {
@@ -30,6 +32,7 @@ export default function Home() {
       <Experience />
       <About />
       <Contact />
+      <Footer />
     </div>
   );
 }

@@ -35,5 +35,5 @@ export const ROUTER_MODE: 'browser' | 'hash' =
 export const asset = (path: string): string =>
   `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
-export const SOCIAL_IMAGE = 'og-card.png';
+export const SOCIAL_IMAGE = 'social-card.png';
 export const SOCIAL_IMAGE_SIZE = { width: 1200, height: 630 } as const;

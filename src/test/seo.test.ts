@@ -15,6 +15,7 @@ import {
 import * as build from '../../scripts/routes.mjs';
 import type { BuildRoute } from '../../scripts/routes.mjs';
 import type { Content, Language } from '@/content/types';
+import { SOCIAL_IMAGE } from '@/site.config';
 
 const LANGS: readonly Language[] = ['en', 'ar'];
 const CONTENT = Object.fromEntries(
@@ -27,6 +28,13 @@ const CONTENT = Object.fromEntries(
  * disagree, the head a social scraper reads stops matching the head the page sets.
  */
 describe('the build generator agrees with the application', () => {
+  it('names the same social image the application does', () => {
+    // The build writes og:image and twitter:image; the application carries the same
+    // name for its own head. A rename in one place only would leave scrapers pointing
+    // at a file the deploy no longer contains.
+    expect(build.SOCIAL_IMAGE).toBe(SOCIAL_IMAGE);
+  });
+
   it.each(LANGS)('forms the same home title and description in %s', (lang) => {
     const content = CONTENT[lang];
     expect(build.homeTitle(content, lang)).toBe(homeTitle(content, lang));

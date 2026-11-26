@@ -24,4 +24,5 @@ export declare function experienceDescription(summary: string): string;
 export type { ExperienceItem };
 export declare function cvTitle(content: Content, cvLabel: string): string;
 export declare function cvDescription(content: Content, lang: Language): string;
+export declare const SOCIAL_IMAGE: string;
 export declare function routes(lang?: Language): BuildRoute[];

@@ -56,7 +56,7 @@ export function Works() {
         gsap.fromTo('.item', { x: rtl ? 50 : -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 70%' } });
 
         el.querySelectorAll<HTMLElement>('.preview').forEach((preview) => {
-          const card = preview.querySelector<HTMLElement>('.card');
+          const card = preview.querySelector<HTMLElement>('.work-card');
           const img = preview.querySelector<HTMLElement>('.card__img');
           const body = preview.querySelectorAll<HTMLElement>('.card__desc, .card__meta, .card__link');
           if (!card || !img) return;
@@ -186,7 +186,7 @@ export function Works() {
             const text = work[lang];
             return (
               <div key={work.id} className={`preview${i === active ? ' is-active' : ''}`} onMouseEnter={() => activate(i)}>
-                <article className="card" aria-labelledby={`card-${work.id}`}>
+                <article className="work-card" aria-labelledby={`card-${work.id}`}>
                   <div className="card__img" style={{ backgroundImage: `url('${asset(work.cover)}')` }} role="img" aria-label={text.title} />
                   <div className="card__shade" />
                   <div className="card__glow" style={{ background: work.color }} />
