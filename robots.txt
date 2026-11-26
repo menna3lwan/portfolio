@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# the PDF.js viewer is a frame of the CV page, not a page of its own
+Disallow: /portfolio/cv-viewer/
+
+Sitemap: https://menna3lwan.github.io/portfolio/sitemap.xml

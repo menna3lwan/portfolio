@@ -1,0 +1,3 @@
+# Cloudflare Pages and Netlify both read this file.
+# Every known route already exists as a real document; this catches the rest.
+/*    /index.html   200
