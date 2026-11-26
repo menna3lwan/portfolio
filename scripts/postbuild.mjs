@@ -22,6 +22,14 @@ const dist = join(here, '..', 'dist');
 const siteUrl = (process.env.VITE_SITE_URL ?? '').trim().replace(/\/+$/, '');
 const hashRouting = process.env.VITE_ROUTER === 'hash';
 
+/* The repository subpath the site is served from, with no trailing slash ('' at an origin
+   root, '/portfolio' on GitHub Pages). Anything this file writes as an absolute URL has to
+   carry it, or it resolves against the origin and 404s. It mirrors VITE_BASE, the same
+   value Vite rewrote into the asset URLs. */
+const basePath = hashRouting
+  ? ''
+  : `/${(process.env.VITE_BASE ?? '').trim().replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
+
 if (!existsSync(join(dist, 'index.html'))) {
   console.error('[postbuild] dist/index.html is missing — run vite build first');
   process.exit(1);
@@ -95,7 +103,10 @@ if (!hashRouting) {
   writeFileSync(
     join(dist, '404.html'),
     // the redirect is an external file, so the page's CSP need not allow inline script
-    pageFor(list[0]).replace('</head>', '<script src="/spa-redirect.js"></script>\n</head>'),
+    pageFor(list[0]).replace(
+      '</head>',
+      `<script src="${basePath}/spa-redirect.js"></script>\n</head>`,
+    ),
   );
 }
 
@@ -105,7 +116,7 @@ const robots = [
   'Allow: /',
   '',
   '# the PDF.js viewer is a frame of the CV page, not a page of its own',
-  'Disallow: /cv-viewer/',
+  `Disallow: ${basePath}/cv-viewer/`,
   '',
   siteUrl ? `Sitemap: ${siteUrl}/sitemap.xml` : '# Sitemap: set VITE_SITE_URL at build time to emit this line',
   '',

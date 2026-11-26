@@ -11,6 +11,12 @@ coverage/
 lighthouse-report*.html
 lighthouse-report*.json
 
+# browser-automation and screenshot artefacts
+test-results/
+playwright-report/
+screenshots/
+*.screenshot.png
+
 # local environment — never commit a real one
 .env
 .env.*

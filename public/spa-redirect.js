@@ -8,6 +8,8 @@
    Policy does not need to allow inline script. */
 (function () {
   var l = window.location;
-  if (l.pathname === '/404.html') return;
+  // Match the file wherever it is served from: at an origin root that is "/404.html", on
+  // a GitHub Pages project site "/portfolio/404.html".
+  if (/\/404\.html$/.test(l.pathname)) return;
   history.replaceState(null, '', l.pathname + l.search + l.hash);
 })();

@@ -91,6 +91,10 @@ export interface ExperienceItem {
   readonly tags: readonly string[];
   /** Selected works that came out of this role, by id. */
   readonly works?: readonly string[];
+  /** A public repository for the project behind this role, when one exists. */
+  readonly code?: string;
+  /** One line clarifying what part of that repository's project was hers. */
+  readonly codeNote?: string;
 }
 
 export interface SiteExperience {

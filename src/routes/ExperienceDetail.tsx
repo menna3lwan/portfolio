@@ -171,6 +171,21 @@ export default function ExperienceDetail() {
                 </ul>
               </div>
             )}
+            {item.code && (
+              <div>
+                <h2 className="p-label sm">{ui.code}</h2>
+                <ul className="xpd__works">
+                  <li>
+                    <a className="xp__work" href={item.code} target="_blank" rel="noopener noreferrer">
+                      <RollText text="GitHub" lang={lang} />
+                      <ArrowRight className="xp__work-arrow" />
+                      <span className="sr-only">{ui.newTab}</span>
+                    </a>
+                  </li>
+                </ul>
+                {item.codeNote && <p className="xpd__aside-val xpd__code-note">{item.codeNote}</p>}
+              </div>
+            )}
           </aside>
 
           <div className="xpd__main">

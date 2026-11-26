@@ -27,12 +27,25 @@ const Cv = lazy(() => import('@/routes/Cv'));
  */
 const Router = ROUTER_MODE === 'hash' ? HashRouter : BrowserRouter;
 
+/**
+ * The path the application is mounted at.
+ *
+ * On an origin deploy this is empty and every route is rooted at "/". On GitHub Pages the
+ * site lives under the repository's subpath, so the router has to strip "/portfolio" from
+ * the incoming location and add it back to every `<Link>` — otherwise "/experience/nti"
+ * would be looked up as a route and never match. Vite writes the same value into
+ * BASE_URL, so the two can never drift apart. The hash build is served from a directory
+ * rather than an origin root and carries no basename at all.
+ */
+const BASENAME =
+  ROUTER_MODE === 'hash' ? undefined : import.meta.env.BASE_URL.replace(/\/+$/, '') || undefined;
+
 export default function App() {
   return (
     <LanguageProvider>
       <ThemeProvider>
         <ErrorBoundary>
-          <Router>
+          <Router basename={BASENAME}>
             <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route element={<AppLayout />}>
